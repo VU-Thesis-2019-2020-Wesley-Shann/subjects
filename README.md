@@ -72,3 +72,12 @@ This is the official repository of AntennaPod, the easy-to-use, flexible and ope
 - Original repository: https://github.com/AntennaPod/AntennaPod
 - Commit hash: 605e02fa70c9c30ecc70548a8813392ba18dda80
 - Commit date: June 1, 2019
+
+### Travel Mate
+
+Travel Mate is an android app for travellers. 
+It provides features like choosing the correct destination, making bookings, and organizing the trip.
+
+- Original repository: https://github.com/project-travel-mate/Travel-Mate
+- Commit hash: 9798102fe15601888df4a72205a4d7304daf52e5
+- Commit date: July 7, 2019
