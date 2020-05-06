@@ -32,6 +32,9 @@ This is the base version used for instrumenting the apps to enable prefetch mech
 
 ## Android Apps
 
+To browse the files in the original repository in the cloned commit hash, use the following URL: 
+`<repository-url>/tree/<commit-hash>`.
+
 ### Hillffair
 
 This is the official Android Application of the Cultural Fest of NIT Hamirpur (Hillffair). 
