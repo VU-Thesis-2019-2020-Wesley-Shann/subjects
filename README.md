@@ -29,7 +29,14 @@
 This is the official Android Application of the Cultural Fest of NIT Hamirpur (Hillffair). 
 Describes amenities and events taking place in a festival.
 
-
 - Original repository: https://github.com/appteam-nith/Hillffair
 - Commit hash: 3bc9f8e9e4af3a16cbcbaa6be07cf604c84cf408
 - Commit date: June 19, 2018
+
+### UOB Timetable Android
+
+This application displays the 5-day timetable for any University of Bedfordshire course.
+
+- Original repository: https://github.com/adriankeenan/uob-timetable-android
+- Commit hash: defd0e9eddde72f130c731e06a968288ad29b06d
+- Commit date: September 10, 2019
