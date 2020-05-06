@@ -1,10 +1,13 @@
 # Subjects
 
+This repository contains the 7 android apps used as subjects in the evaluation of the thesis 
+`Prefetching Network Requests in Android Apps: Strategies and Empirical Evaluation` 
+submitted for the 2019-2020 edition of 
+the [Master Project Computer Science](https://studiegids.vu.nl/en/Master/2019-2020/computer-science/XM_0011) course 
+at the [Vrije Universiteit Amsterdam](https://www.vu.nl/en).
+
 ## To Do
 
-- Descrbe repository
-- Describe apps (take table from thesis)
-- Add reference to original repositories (and commit)
 - Add non-instrumneted version
 - Add NAPPA greedy version
 - Add NAPPA strategy 2 version
@@ -12,6 +15,11 @@
 - Add PALOMA version
 
 ## Directories
+
+Each directory contains a different version of the apps.
+Overall, the apps in the directory `original-apps` are cloned directly from the original repositories. 
+The SDK version from these apps is updated to version 28 and stored in the directory `non-instrumented `.
+This is the base version used for instrumenting the apps to enable prefetch mechanisms. 
 
 | Name                          | Description                                                          |
 |-------------------------------|----------------------------------------------------------------------|
