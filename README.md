@@ -40,3 +40,11 @@ This application displays the 5-day timetable for any University of Bedfordshire
 - Original repository: https://github.com/adriankeenan/uob-timetable-android
 - Commit hash: defd0e9eddde72f130c731e06a968288ad29b06d
 - Commit date: September 10, 2019
+
+### NewsBlur
+
+NewsBlur is a personal news reader that brings people together to talk about the world. A new sound of an old instrument. 
+
+- Original repository: https://github.com/samuelclay/NewsBlur
+- Commit hash: ba279fc520da4fac7b42d5d6db1de7f6f7fdc5c6
+- Commit date: May 29, 2019
