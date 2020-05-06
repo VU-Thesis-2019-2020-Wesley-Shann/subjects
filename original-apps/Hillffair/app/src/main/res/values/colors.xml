@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="screen1">#52c6d7</color>
+    <color name="screen2">#00ff7f</color>
+    <color name="screen3">#ffb90f</color>
+    <color name="screen4">#ff7f50</color>
+    <color name="white">#fff</color>
+
+    <!--for the dark inactive dots-->
+    <color name="ddscreen1">#9ac0cd</color>
+    <color name="ddscreen2">#7ccd7c</color>
+    <color name="ddscreen3">#eedc82</color>
+    <color name="ddscreen4">#cd8162</color>
+
+    <!--for the light active dots-->
+    <color name="dlscreen1">#b0e2ff</color>
+    <color name="dlscreen2">#bdfcc9</color>
+    <color name="dlscreen3">#fafad2</color>
+    <color name="dlscreen4">#ffe7ba</color>
+
+    <array name="inactive">
+        <item>@color/ddscreen1</item>
+        <item>@color/ddscreen2</item>
+        <item>@color/ddscreen3</item>
+        <item>@color/ddscreen4</item>
+    </array>
+
+    <array name="active">
+        <item>@color/dlscreen1</item>
+        <item>@color/dlscreen2</item>
+        <item>@color/dlscreen3</item>
+        <item>@color/dlscreen4</item>
+    </array>
+
+
+    <color name="back_batman">#ECEFF1</color>
+    <color name="back_superman">#FFEBEE</color>
+    <color name="back_wonderwoman">#FFF3E0</color>
+    <color name="back_flash">#EFEBE9</color>
+    <color name="back_captainamerica">#E1F5FE</color>
+    <color name="back_hulk">#E8F5E9</color>
+
+    <!-- defaults -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="newsFeed">#FFFFCDD2</color>
+    <color name="club">#FFF8BBD0</color>
+    <color name="quiz">#FFD1C4E9</color>
+    <color name="coreTeam">#FFBBDEFB</color>
+    <color name="sponsor">#FFFFCC80</color>
+    <color name="about" >#FFFFF59D</color>
+    <color name="battleday" >#9dffa4</color>
+    <color name="contributors" >#c6c1fa</color>
+
+</resources>
