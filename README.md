@@ -56,3 +56,11 @@ An unofficial open source Reddit client for Android.
 - Original repository: https://github.com/QuantumBadger/RedReader
 - Commit hash: 708865e5b144091b7ead8b183ca291ad12d3c066
 - Commit date: June 2, 2019
+
+### Materialistic for Hacker News
+
+Material design Hacker News client for Android, uses official HackerNews/API, Dagger for dependency injection and Robolectric for unit testing.
+
+- Original repository: https://github.com/hidroh/materialistic
+- Commit hash: 55d7dba81a6456fff597b2dcc52f70a89fa069db
+- Commit date: Mar 30, 2019
