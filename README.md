@@ -64,3 +64,11 @@ Material design Hacker News client for Android, uses official HackerNews/API, Da
 - Original repository: https://github.com/hidroh/materialistic
 - Commit hash: 55d7dba81a6456fff597b2dcc52f70a89fa069db
 - Commit date: Mar 30, 2019
+
+### AntennaPod
+
+This is the official repository of AntennaPod, the easy-to-use, flexible and open-source podcast manager for Android.
+
+- Original repository: https://github.com/AntennaPod/AntennaPod
+- Commit hash: 605e02fa70c9c30ecc70548a8813392ba18dda80
+- Commit date: June 1, 2019
