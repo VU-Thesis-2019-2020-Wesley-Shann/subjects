@@ -48,3 +48,11 @@ NewsBlur is a personal news reader that brings people together to talk about the
 - Original repository: https://github.com/samuelclay/NewsBlur
 - Commit hash: ba279fc520da4fac7b42d5d6db1de7f6f7fdc5c6
 - Commit date: May 29, 2019
+
+### RedReader
+
+An unofficial open source Reddit client for Android. 
+
+- Original repository: https://github.com/QuantumBadger/RedReader
+- Commit hash: 708865e5b144091b7ead8b183ca291ad12d3c066
+- Commit date: June 2, 2019
