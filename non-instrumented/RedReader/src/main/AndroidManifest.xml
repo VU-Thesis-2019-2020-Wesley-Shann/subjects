@@ -146,7 +146,7 @@
         <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h" />
 		
 		<provider
-				android:name="android.support.v4.content.FileProvider"
+				android:name="androidx.core.content.FileProvider"
 				android:authorities="org.quantumbadger.redreader.provider"
 				android:exported="false"
 				android:grantUriPermissions="true">
