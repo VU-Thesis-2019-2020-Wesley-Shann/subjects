@@ -17,17 +17,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.3'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.6'
     implementation 'org.apache.commons:commons-lang3:3.7'
     implementation 'joda-time:joda-time:2.9.9'
-	implementation 'androidx.appcompat:appcompat:1.0.0'
-	implementation 'androidx.recyclerview:recyclerview:1.0.0'
+	implementation 'androidx.appcompat:appcompat:1.1.0'
+	implementation 'androidx.recyclerview:recyclerview:1.1.0'
 	implementation 'com.google.android.material:material:1.0.0'
-	implementation 'androidx.media:media:1.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+	implementation 'androidx.media:media:1.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.2'
     implementation 'info.guardianproject.netcipher:netcipher:1.2.1'
-	implementation 'com.google.android.exoplayer:exoplayer-core:2.9.1'
-	implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.1'
+	implementation 'com.google.android.exoplayer:exoplayer-core:2.10.8'
+	implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.8'
 
 
     testImplementation 'junit:junit:4.12'
@@ -39,7 +39,7 @@ android {
     defaultConfig {
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']
 
-		minSdkVersion 14
+		minSdkVersion 16
 		targetSdkVersion 29
 
 		applicationId "org.quantumbadger.redreader"
