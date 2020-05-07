@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-import androidx.media.app.NotificationCompat;
+import androidx.media.app.NotificationCompat.MediaStyle;
 
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
@@ -170,7 +170,7 @@ public class PlaybackServiceNotificationBuilder extends NotificationCompat.Build
 
         PendingIntent stopButtonPendingIntent = getPendingIntentForMediaAction(
                 KeyEvent.KEYCODE_MEDIA_STOP, numActions);
-        setStyle(new NotificationCompat.MediaStyle()
+        setStyle(new MediaStyle()
                 .setMediaSession(mediaSessionToken)
                 .setShowActionsInCompactView(compactActionList.toArray())
                 .setShowCancelButton(true)
