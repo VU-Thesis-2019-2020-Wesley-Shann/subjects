@@ -34,6 +34,8 @@ import org.quantumbadger.redreader.common.RRError;
 
 import java.util.LinkedList;
 
+import nl.vu.cs.s2group.*;
+
 public class BugReportActivity extends BaseActivity {
 
 	private static final LinkedList<RRError> errors = new LinkedList<>();
@@ -171,5 +173,11 @@ public class BugReportActivity extends BaseActivity {
 				appendException(sb, t.getCause(), recurseLimit - 1);
 			}
 		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

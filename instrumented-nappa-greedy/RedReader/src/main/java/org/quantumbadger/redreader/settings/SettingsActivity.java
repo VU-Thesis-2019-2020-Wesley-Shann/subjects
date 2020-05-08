@@ -28,6 +28,8 @@ import org.quantumbadger.redreader.common.PrefsUtility;
 
 import java.util.List;
 
+import nl.vu.cs.s2group.*;
+
 public final class SettingsActivity
 		extends AppCompatPreferenceActivity
 		implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -91,5 +93,11 @@ public final class SettingsActivity
 	@Override
 	protected boolean isValidFragment(final String fragmentName) {
 		return fragmentName.equals(SettingsFragment.class.getCanonicalName());
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

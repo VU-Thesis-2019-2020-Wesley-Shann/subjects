@@ -77,6 +77,8 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
+import nl.vu.cs.s2group.*;
+
 public class MainActivity extends RefreshableActivity
 		implements MainMenuSelectionListener,
 		RedditAccountChangeListener,
@@ -121,6 +123,7 @@ public class MainActivity extends RefreshableActivity
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
+		PrefetchingLib.init(this);
 
 		if(!isTaskRoot()
 				&& getIntent().hasCategory(Intent.CATEGORY_LAUNCHER)
@@ -1025,5 +1028,11 @@ public class MainActivity extends RefreshableActivity
 				onBackPressed();
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

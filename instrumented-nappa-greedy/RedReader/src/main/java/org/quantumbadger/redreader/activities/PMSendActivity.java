@@ -45,6 +45,8 @@ import org.quantumbadger.redreader.reddit.RedditAPI;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.*;
+
 public class PMSendActivity extends BaseActivity {
 
 	public static final String EXTRA_RECIPIENT = "recipient";
@@ -294,5 +296,11 @@ public class PMSendActivity extends BaseActivity {
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

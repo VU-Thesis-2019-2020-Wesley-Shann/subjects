@@ -51,6 +51,8 @@ import org.quantumbadger.redreader.views.RedditPostView;
 import java.util.Locale;
 import java.util.UUID;
 
+import nl.vu.cs.s2group.*;
+
 public class PostListingActivity extends RefreshableActivity
 		implements RedditAccountChangeListener,
 		RedditPostView.PostSelectionListener,
@@ -428,5 +430,11 @@ public class PostListingActivity extends RefreshableActivity
 				invalidateOptionsMenu();
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

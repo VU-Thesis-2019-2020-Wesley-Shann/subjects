@@ -86,6 +86,8 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+import nl.vu.cs.s2group.*;
+
 public class ImageViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener, ImageViewDisplayListManager.Listener {
 
 	private static final String TAG = "ImageViewActivity";
@@ -754,6 +756,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 		if(surfaceView != null) {
 			surfaceView.onResume();
 		}
+		PrefetchingLib.setCurrentActivity(this);
 	}
 
 	@Override

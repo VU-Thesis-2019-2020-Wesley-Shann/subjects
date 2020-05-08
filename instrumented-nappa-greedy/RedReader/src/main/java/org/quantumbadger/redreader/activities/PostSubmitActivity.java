@@ -51,6 +51,8 @@ import org.quantumbadger.redreader.reddit.RedditAPI;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.*;
+
 // TODO save draft as static var (as in comments)
 public class PostSubmitActivity extends BaseActivity {
 
@@ -329,5 +331,11 @@ public class PostSubmitActivity extends BaseActivity {
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

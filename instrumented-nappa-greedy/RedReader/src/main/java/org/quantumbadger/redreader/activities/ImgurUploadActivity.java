@@ -55,6 +55,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import nl.vu.cs.s2group.*;
+
 public class ImgurUploadActivity extends BaseActivity {
 
 	private static final int REQUEST_CODE = 1;
@@ -384,5 +386,11 @@ public class ImgurUploadActivity extends BaseActivity {
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

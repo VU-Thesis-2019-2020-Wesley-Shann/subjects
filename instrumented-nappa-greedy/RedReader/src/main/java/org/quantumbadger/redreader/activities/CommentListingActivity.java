@@ -43,6 +43,8 @@ import org.quantumbadger.redreader.views.RedditPostView;
 
 import java.util.UUID;
 
+import nl.vu.cs.s2group.*;
+
 public class CommentListingActivity extends RefreshableActivity
 		implements RedditAccountChangeListener,
 		OptionsMenuUtility.OptionsMenuCommentsListener,
@@ -236,5 +238,11 @@ public class CommentListingActivity extends RefreshableActivity
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

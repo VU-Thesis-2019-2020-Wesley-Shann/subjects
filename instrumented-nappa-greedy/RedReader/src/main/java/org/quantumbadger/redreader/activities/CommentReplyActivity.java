@@ -51,7 +51,15 @@ import org.quantumbadger.redreader.reddit.RedditAPI;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.*;
+
 public class CommentReplyActivity extends BaseActivity {
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
+	}
 
 	private enum ParentType {
 		MESSAGE, COMMENT_OR_POST

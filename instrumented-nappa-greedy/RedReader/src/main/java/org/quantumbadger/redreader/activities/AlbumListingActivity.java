@@ -38,6 +38,8 @@ import org.quantumbadger.redreader.views.ScrollbarRecyclerViewManager;
 
 import java.util.regex.Matcher;
 
+import nl.vu.cs.s2group.*;
+
 public class AlbumListingActivity extends BaseActivity {
 
 	private String mUrl;
@@ -178,5 +180,11 @@ public class AlbumListingActivity extends BaseActivity {
 		} else {
 			AndroidCommon.UI_THREAD_HANDLER.post(r);
 		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }

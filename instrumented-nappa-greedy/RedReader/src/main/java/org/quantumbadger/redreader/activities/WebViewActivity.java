@@ -34,6 +34,8 @@ import org.quantumbadger.redreader.reddit.things.RedditPost;
 import org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import org.quantumbadger.redreader.views.RedditPostView;
 
+import nl.vu.cs.s2group.*;
+
 public class WebViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener {
 
 	private WebViewFragment webView;
@@ -154,5 +156,11 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 
 	public String getCurrentUrl() {
 		return webView.getCurrentUrl();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		PrefetchingLib.setCurrentActivity(this);
 	}
 }
