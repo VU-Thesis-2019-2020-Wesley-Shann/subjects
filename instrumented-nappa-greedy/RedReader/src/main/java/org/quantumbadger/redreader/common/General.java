@@ -635,7 +635,7 @@ public final class General {
 		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		activity.finish();
 		activity.overridePendingTransition(0, 0);
-		activity.startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
 	}
 
 	public static long hoursToMs(final long hours) {

@@ -209,7 +209,7 @@ public class WebViewFragment extends Fragment implements RedditPostView.PostSele
 								public void onClick(DialogInterface dialog, int which) {
 									Intent i = new Intent(Intent.ACTION_VIEW);
 									i.setData(Uri.parse(url));
-									getContext().startActivity(i);
+									PrefetchingLib.notifyExtras(i.getExtras());getContext().startActivity(i);
 									mActivity.onBackPressed(); //get back from internal browser
 								}
 							})

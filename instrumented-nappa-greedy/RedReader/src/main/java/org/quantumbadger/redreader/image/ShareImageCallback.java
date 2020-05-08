@@ -156,7 +156,7 @@ public class ShareImageCallback implements BaseActivity.PermissionCallback {
 							shareIntent.setAction(Intent.ACTION_SEND);
 							shareIntent.putExtra(Intent.EXTRA_STREAM, sharedImage);
 							shareIntent.setType(mimetype);
-							activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.action_share_image)));
+							PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.action_share_image)));
 
 						} catch(IOException e) {
 							notifyFailure(CacheRequest.REQUEST_FAILURE_STORAGE, e, null, "Could not copy file");

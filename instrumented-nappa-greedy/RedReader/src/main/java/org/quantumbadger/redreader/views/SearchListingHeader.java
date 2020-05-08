@@ -92,7 +92,7 @@ public final class SearchListingHeader extends FrameLayout {
 
 		// Use a startActivity/finish combination to replace this activity with the new
 		// search activity
-		parentActivity.startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());parentActivity.startActivity(intent);
 		parentActivity.finish();
 	}
 }

@@ -170,7 +170,7 @@ public final class SettingsFragment extends PreferenceFragment {
 			changelogPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 				public boolean onPreferenceClick(Preference preference) {
 					final Intent intent = new Intent(context, ChangelogActivity.class);
-					context.startActivity(intent);
+					PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
 					return true;
 				}
 			});

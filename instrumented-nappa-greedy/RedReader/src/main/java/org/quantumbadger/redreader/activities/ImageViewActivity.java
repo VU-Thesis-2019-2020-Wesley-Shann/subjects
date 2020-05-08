@@ -430,7 +430,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 						}
 
 						try {
-							startActivity(intent);
+							PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 						} catch(final Throwable t) {
 							General.quickToast(ImageViewActivity.this, R.string.videoview_mode_app_vlc_launch_failed);
 							Log.e(TAG, "VLC failed to launch", t);

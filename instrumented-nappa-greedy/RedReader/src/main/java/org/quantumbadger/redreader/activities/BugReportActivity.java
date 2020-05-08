@@ -66,7 +66,7 @@ public class BugReportActivity extends BaseActivity {
 			public void run() {
 				final Intent intent = new Intent(context, BugReportActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				context.startActivity(intent);
+				PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
 			}
 		});
 
@@ -129,7 +129,7 @@ public class BugReportActivity extends BaseActivity {
 				intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
 
 				try {
-					startActivity(Intent.createChooser(intent, "Email bug report"));
+					PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, "Email bug report"));
 				} catch (android.content.ActivityNotFoundException ex) {
 					General.quickToast(BugReportActivity.this, "No email apps installed!");
 				}

@@ -263,7 +263,7 @@ public class PostListingActivity extends RefreshableActivity
 		if(controller.isSubreddit()) {
 			intent.putExtra("subreddit", controller.subredditCanonicalName());
 		}
-		startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 	}
 
 	public void onSortSelected(final PostSort order) {
@@ -293,7 +293,7 @@ public class PostListingActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(activity, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
-				activity.startActivity(intent);
+				PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
 			}
 		});
 	}

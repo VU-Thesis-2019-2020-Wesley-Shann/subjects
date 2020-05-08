@@ -100,7 +100,7 @@ public final class RedditPreparedMessage implements RedditRenderableInboxItem {
 		intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, idAndType);
 		intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, src.getUnescapedBodyMarkdown());
 		intent.putExtra(CommentReplyActivity.PARENT_TYPE, CommentReplyActivity.PARENT_TYPE_MESSAGE);
-		activity.startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
 	}
 
 	public void handleInboxClick(AppCompatActivity activity) {

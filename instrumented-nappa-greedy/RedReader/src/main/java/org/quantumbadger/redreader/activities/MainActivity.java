@@ -458,7 +458,7 @@ public class MainActivity extends RefreshableActivity
 			case MainMenuFragment.MENU_MENU_ACTION_MODMAIL: {
 				final Intent intent = new Intent(this, InboxListingActivity.class);
 				intent.putExtra("modmail", true);
-				startActivity(intent);
+				PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 				break;
 			}
 		}
@@ -525,7 +525,7 @@ public class MainActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(this, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
-				this.startActivity(intent);
+				PrefetchingLib.notifyExtras(intent.getExtras());this.startActivity(intent);
 				break;
 			}
         }
@@ -815,7 +815,7 @@ public class MainActivity extends RefreshableActivity
 				Intent searchIntent = new Intent(MainActivity.this, CommentListingActivity.class);
 				searchIntent.setData(commentListingController.getUri());
 				searchIntent.putExtra(CommentListingActivity.EXTRA_SEARCH_STRING, query);
-				startActivity(searchIntent);
+				PrefetchingLib.notifyExtras(searchIntent.getExtras());startActivity(searchIntent);
 			}
 		});
 	}
@@ -835,7 +835,7 @@ public class MainActivity extends RefreshableActivity
 		if(postListingController.isSubreddit()) {
 			intent.putExtra("subreddit", postListingController.subredditCanonicalName());
 		}
-		startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 	}
 
 	public void onSortSelected(final PostSort order) {

@@ -63,7 +63,7 @@ public class HtmlViewActivity extends BaseActivity {
 
 		final Intent intent = new Intent(context, HtmlViewActivity.class);
 		intent.putExtra("html", html);
-		context.startActivity(intent);
+		PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
 	}
 
 	public void onCreate(final Bundle savedInstanceState) {

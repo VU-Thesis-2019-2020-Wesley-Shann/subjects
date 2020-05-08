@@ -119,7 +119,7 @@ public class LoadMoreCommentsView extends LinearLayout {
 					final Intent intent = new Intent(context, MoreCommentsListingActivity.class);
 					intent.putExtra("postId", listingUrl.postId);
 					intent.putStringArrayListExtra("commentIds", commentIds);
-					context.startActivity(intent);
+					PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
 
 				} else {
 					General.quickToast(context, R.string.load_more_comments_failed_unknown_url_type);

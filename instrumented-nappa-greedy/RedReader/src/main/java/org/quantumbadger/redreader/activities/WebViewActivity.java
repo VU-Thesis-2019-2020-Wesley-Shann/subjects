@@ -95,7 +95,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 					try {
 						final Intent intent = new Intent(Intent.ACTION_VIEW);
 						intent.setData(Uri.parse(currentUrl));
-						startActivity(intent);
+						PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 						finish(); //to clear from backstack
 
 					} catch(Exception e) {
@@ -136,7 +136,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 						mailer.putExtra(Intent.EXTRA_SUBJECT, mPost.title);
 					}
 					mailer.putExtra(Intent.EXTRA_TEXT, currentUrl);
-					startActivity(Intent.createChooser(mailer, getString(R.string.action_share)));
+					PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(mailer, getString(R.string.action_share)));
 				}
 				return true;
 

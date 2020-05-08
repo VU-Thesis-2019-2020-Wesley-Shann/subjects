@@ -637,7 +637,7 @@ public class CommentListingFragment extends RRFragment
 			final Intent intent = new Intent(getActivity(), CommentReplyActivity.class);
 			intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, mPost.src.getIdAndType());
 			intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, mPost.src.getUnescapedSelfText());
-			startActivity(intent);
+			PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 
 		} else {
 			General.quickToast(getActivity(), R.string.error_toast_parent_post_not_downloaded);

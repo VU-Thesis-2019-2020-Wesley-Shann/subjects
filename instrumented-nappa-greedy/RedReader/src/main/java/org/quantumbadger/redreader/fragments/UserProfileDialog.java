@@ -163,7 +163,7 @@ public class UserProfileDialog extends PropertiesDialog {
 								public void onClick(View v) {
 									final Intent intent = new Intent(context, PMSendActivity.class);
 									intent.putExtra(PMSendActivity.EXTRA_RECIPIENT, username);
-									startActivity(intent);
+									PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 								}
 							});
 							items.addView(pmButton);

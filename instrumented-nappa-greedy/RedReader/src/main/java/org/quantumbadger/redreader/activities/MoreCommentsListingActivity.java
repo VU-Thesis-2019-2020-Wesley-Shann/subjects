@@ -169,7 +169,7 @@ public class MoreCommentsListingActivity extends RefreshableActivity
 			public void onSearch(@Nullable String query) {
 				Intent searchIntent = getIntent();
 				searchIntent.putExtra(EXTRA_SEARCH_STRING, query);
-				startActivity(searchIntent);
+				PrefetchingLib.notifyExtras(searchIntent.getExtras());startActivity(searchIntent);
 			}
 		});
 	}

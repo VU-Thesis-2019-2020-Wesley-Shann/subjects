@@ -664,7 +664,7 @@ public class MainMenuListingManager {
 					final Intent mailer = new Intent(Intent.ACTION_SEND);
 					mailer.setType("text/plain");
 					mailer.putExtra(Intent.EXTRA_TEXT, url);
-					activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
+					PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
 					break;
 				case COPY_URL:
 					ClipboardManager manager = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -674,7 +674,7 @@ public class MainMenuListingManager {
 				case EXTERNAL:
 					final Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.setData(Uri.parse(url));
-					activity.startActivity(intent);
+					PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
 					break;
 
 				case PIN:
