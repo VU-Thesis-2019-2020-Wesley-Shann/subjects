@@ -493,7 +493,7 @@ public class SessionListsFragment extends Fragment {
                 fetchException = e;
             } finally {
                 // Log Exception or response error here
-                if (fetchException != null || response.error){
+                if (fetchException != null || response != null && response.error){
 
                     // Get previous exception or make from response
                     Exception cause = fetchException;
