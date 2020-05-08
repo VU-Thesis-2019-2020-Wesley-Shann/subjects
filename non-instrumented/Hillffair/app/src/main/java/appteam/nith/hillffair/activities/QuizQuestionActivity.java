@@ -101,7 +101,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
                 int status=response.code();
 
-                if(model!=null && response.isSuccess()){
+                if(model!=null && response.isSuccessful()){
                     if(model.isSuccess()){
                         // set viewpager
 
@@ -260,7 +260,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                 int status=response.code();
                 UpdateScoreModel model=response.body();
 
-                if(model!=null && response.isSuccess()){
+                if(model!=null && response.isSuccessful()){
                     if(model.isSuccess()){
                         scoreCalculator.setSpecial(0);
                         Toast.makeText(QuizQuestionActivity.this,model.getMsg() ,Toast.LENGTH_SHORT);

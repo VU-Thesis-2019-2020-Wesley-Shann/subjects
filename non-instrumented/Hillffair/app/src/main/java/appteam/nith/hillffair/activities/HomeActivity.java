@@ -285,7 +285,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mService.enqueue(new Callback<ProfileDataModel>() {
             @Override
             public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
-                if(response!=null&&response.isSuccess()){
+                if(response!=null&&response.isSuccessful()){
                     if(response.body().isSuccess()){
                         ProfileTab2.ProfileBasicDetailModel model=response.body().getProfileInfo();
                         if(model!=null){

@@ -80,7 +80,7 @@ public class ProfileTab3 extends Fragment {
             public void onResponse(Call<NewsfeedModel> call, Response<NewsfeedModel> response) {
                 NewsfeedModel data = response.body();
 
-                if (data != null && response.isSuccess()) {
+                if (data != null && response.isSuccessful()) {
                     if (data.isSuccess()) {
                         if(data.getFeed()!=null){
                             list.addAll(data.getFeed());

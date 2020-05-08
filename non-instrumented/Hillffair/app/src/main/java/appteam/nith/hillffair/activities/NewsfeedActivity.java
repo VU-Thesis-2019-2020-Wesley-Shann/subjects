@@ -134,7 +134,7 @@ public class NewsfeedActivity extends AppCompatActivity implements SwipeRefreshL
                 }
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
-                if(response!=null&&response.isSuccess()){
+                if(response!=null&&response.isSuccessful()){
                     if(response.body().getFeed()!=null){
                         if(response.body().getFeed().size()>0){
 

@@ -252,7 +252,7 @@ public class ProfileTab2 extends Fragment {
         mService.enqueue(new Callback<ProfileDataModel>() {
             @Override
             public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
-                if(response!=null&&response.isSuccess()){
+                if(response!=null&&response.isSuccessful()){
                     if(response.body().isSuccess()){
                         ProfileBasicDetailModel model=response.body().getProfileInfo();
                         if(model!=null){

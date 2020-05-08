@@ -106,7 +106,7 @@ public class EventActivity extends AppCompatActivity {
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 ClubResponse clubResponse=response.body();
-                if(clubResponse!=null&&response.isSuccess()){
+                if(clubResponse!=null&&response.isSuccessful()){
                     if(clubResponse.isSuccess()){
                         list=clubResponse.getList();
                         adapter.refresh(list);

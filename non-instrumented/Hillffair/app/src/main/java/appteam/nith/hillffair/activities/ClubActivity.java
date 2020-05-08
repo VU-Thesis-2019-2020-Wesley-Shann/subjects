@@ -90,7 +90,7 @@ public class ClubActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 ClubModel2 data=response.body();
-                if(data!=null&&response.isSuccess()){
+                if(data!=null&&response.isSuccessful()){
                     if(data.isSuccess()){
                         ClubModel clubdata=data.getProfile();
                         clubName.setText(clubdata.getName());
@@ -125,7 +125,7 @@ public class ClubActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 BattleResponseEvent data=response.body();
-                if(data!=null&&response.isSuccess()){
+                if(data!=null&&response.isSuccessful()){
                     if(data.isSuccess()){
                         BattleEventResponse clubdata=data.getData();
                         clubName.setText(clubdata.getEventname());

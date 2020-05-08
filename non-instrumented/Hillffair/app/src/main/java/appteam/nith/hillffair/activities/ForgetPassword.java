@@ -222,7 +222,7 @@ public class ForgetPassword extends AppCompatActivity {
                 int status_code = response.code();
                // boolean returnedResponse = response.body().isSuccess();
 
-                if (mLoginObject != null && response.isSuccess()) {
+                if (mLoginObject != null && response.isSuccessful()) {
                     boolean returnedResponse = mLoginObject.isSuccess();
                     if (returnedResponse) {
                         loadToast.success();
@@ -274,7 +274,7 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onResponse(Call<SendPassword> call, Response<SendPassword> response) {
                 SendPassword obj = response.body();
-                if (obj != null && response.isSuccess()) {
+                if (obj != null && response.isSuccessful()) {
                     boolean returnedResponse = obj.isSuccess();
 
                     if (returnedResponse) {

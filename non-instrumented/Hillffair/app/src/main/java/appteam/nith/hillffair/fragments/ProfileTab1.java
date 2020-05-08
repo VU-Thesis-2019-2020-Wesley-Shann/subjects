@@ -62,7 +62,7 @@ public class ProfileTab1 extends Fragment {
             @Override
             public void onResponse(Call<UserScoreResponse> call, Response<UserScoreResponse> response) {
                 UserScoreResponse data=response.body();
-                if(data!=null&&response.isSuccess()){
+                if(data!=null&&response.isSuccessful()){
                     int score=data.getScore();
                         if(score>=0){
                             ProfileTab1.this.data_layout.setVisibility(View.VISIBLE);

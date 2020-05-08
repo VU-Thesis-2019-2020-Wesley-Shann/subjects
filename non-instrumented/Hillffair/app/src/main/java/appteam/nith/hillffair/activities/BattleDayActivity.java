@@ -81,7 +81,7 @@ public class BattleDayActivity extends AppCompatActivity {
                 BattleDayModel model=response.body();
                 int status=response.code();
 
-                if(model!=null && response.isSuccess()){
+                if(model!=null && response.isSuccessful()){
                    recyclerView.setVisibility(View.VISIBLE);
 
                     list=model.getEvents();

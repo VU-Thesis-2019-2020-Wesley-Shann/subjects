@@ -63,7 +63,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         mService.enqueue(new Callback<LeaderBoardModel>() {
             @Override
             public void onResponse(Call<LeaderBoardModel> call, Response<LeaderBoardModel> response) {
-                if(response!=null&&response.isSuccess()){
+                if(response!=null&&response.isSuccessful()){
                     if(response.body().getUsers()!=null){
                         users = response.body().getUsers();
                         adapter = new LeaderBoardAdapter(users, getApplicationContext());

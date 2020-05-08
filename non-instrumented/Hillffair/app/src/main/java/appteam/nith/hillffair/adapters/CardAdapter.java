@@ -130,7 +130,7 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
                                 Likecount likes = response.body();
-                                if (likes != null && response.isSuccess()) {
+                                if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {
                                         card.setStatus(true);
                                         Log.d("id",card.get_id());
@@ -160,7 +160,7 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
                                 Likecount likes = response.body();
-                                if (likes != null && response.isSuccess()) {
+                                if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {
                                         card.setStatus(false);
                                         Log.d("id",card.get_id());

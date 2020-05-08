@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                 Login mLoginObject = response.body();
                 int status_code = response.code();
 
-                if (mLoginObject != null && response.isSuccess()) {
+                if (mLoginObject != null && response.isSuccessful()) {
                     boolean returnedResponse = mLoginObject.success;
 
                     if (returnedResponse) {
