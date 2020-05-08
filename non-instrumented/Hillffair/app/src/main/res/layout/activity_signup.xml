@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textinputlayoutname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                         android:textColor="#000"
                         android:inputType="textPersonName"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:id="@+id/choice_register"
                     android:layout_marginTop="5dp"/>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -77,9 +77,9 @@
                         android:hint="Roll No."
                         android:inputType="textPersonName"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -95,9 +95,9 @@
                         android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -113,9 +113,9 @@
                         android:hint="Phone No."
                         android:inputType="phone"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -131,9 +131,9 @@
                         android:textColor="#000"
                         android:inputType="textPassword"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -149,7 +149,7 @@
                         android:inputType="textPassword"
                         android:textColor="#000"
                         android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:layout_width="wrap_content"
