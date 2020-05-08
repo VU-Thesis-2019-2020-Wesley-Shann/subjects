@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -63,7 +63,7 @@
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white">
@@ -77,10 +77,10 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
@@ -97,7 +97,7 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <com.dd.processbutton.FlatButton
@@ -127,7 +127,7 @@
                     android:visibility="gone"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/input_layout_firstname_signup"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -143,9 +143,9 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/input_layout_lastname_signup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -161,10 +161,10 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white">
@@ -178,10 +178,10 @@
                             android:maxLines="1"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
@@ -198,9 +198,9 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
@@ -217,7 +217,7 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <com.dd.processbutton.FlatButton
@@ -248,7 +248,7 @@
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/input_layout_email_forgot_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <com.dd.processbutton.FlatButton
@@ -342,7 +342,7 @@
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
@@ -359,10 +359,10 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
@@ -379,7 +379,7 @@
                             android:singleLine="true"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <com.dd.processbutton.FlatButton
@@ -465,4 +465,4 @@
 
         </FrameLayout>
     </ScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
