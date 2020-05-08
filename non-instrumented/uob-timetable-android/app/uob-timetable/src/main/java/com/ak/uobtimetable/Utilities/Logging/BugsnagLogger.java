@@ -1,7 +1,7 @@
 package com.ak.uobtimetable.Utilities.Logging;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Callback;
