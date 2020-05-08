@@ -8,7 +8,6 @@ at the [Vrije Universiteit Amsterdam](https://www.vu.nl/en).
 
 ## To Do
 
-- Add non-instrumneted version
 - Add NAPPA greedy version
 - Add NAPPA strategy 2 version
 - Add NAPPA strategy 3 version
