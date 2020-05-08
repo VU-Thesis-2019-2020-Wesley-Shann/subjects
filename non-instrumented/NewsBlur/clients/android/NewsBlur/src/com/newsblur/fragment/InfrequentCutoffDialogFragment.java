@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -18,11 +18,11 @@ public class InfrequentCutoffDialogFragment extends DialogFragment {
 	
 	private static String CURRENT_CUTOFF = "currentCutoff";
 	private int currentValue;
-    @Bind(R.id.radio_5) RadioButton button5;
-    @Bind(R.id.radio_15) RadioButton button15;
-    @Bind(R.id.radio_30) RadioButton button30;
-    @Bind(R.id.radio_60) RadioButton button60;
-    @Bind(R.id.radio_90) RadioButton button90;
+    @BindView(R.id.radio_5) RadioButton button5;
+    @BindView(R.id.radio_15) RadioButton button15;
+    @BindView(R.id.radio_30) RadioButton button30;
+    @BindView(R.id.radio_60) RadioButton button60;
+    @BindView(R.id.radio_90) RadioButton button90;
 
 	public static InfrequentCutoffDialogFragment newInstance(int currentValue) {
 		InfrequentCutoffDialogFragment dialog = new InfrequentCutoffDialogFragment();

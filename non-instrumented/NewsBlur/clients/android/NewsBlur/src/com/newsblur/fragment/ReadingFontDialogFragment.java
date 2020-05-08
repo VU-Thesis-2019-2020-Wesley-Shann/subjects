@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import com.newsblur.R;
 import com.newsblur.util.ReadingFontChangedListener;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -26,14 +26,14 @@ public class ReadingFontDialogFragment extends DialogFragment {
 
     private String currentValue;
 
-    @Bind(R.id.radio_anonymous) RadioButton anonymousButton;
-    @Bind(R.id.radio_chronicle) RadioButton chronicleButton;
-    @Bind(R.id.radio_default) RadioButton defaultButton;
-    @Bind(R.id.radio_gotham) RadioButton gothamButton;
-    @Bind(R.id.radio_noto_sans) RadioButton notoSansButton;
-    @Bind(R.id.radio_noto_serif) RadioButton notoSerifButton;
-    @Bind(R.id.radio_open_sans_condensed) RadioButton openSansCondensedButton;
-    @Bind(R.id.radio_whitney) RadioButton whitneyButton;
+    @BindView(R.id.radio_anonymous) RadioButton anonymousButton;
+    @BindView(R.id.radio_chronicle) RadioButton chronicleButton;
+    @BindView(R.id.radio_default) RadioButton defaultButton;
+    @BindView(R.id.radio_gotham) RadioButton gothamButton;
+    @BindView(R.id.radio_noto_sans) RadioButton notoSansButton;
+    @BindView(R.id.radio_noto_serif) RadioButton notoSerifButton;
+    @BindView(R.id.radio_open_sans_condensed) RadioButton openSansCondensedButton;
+    @BindView(R.id.radio_whitney) RadioButton whitneyButton;
 
     public static ReadingFontDialogFragment newInstance(String selectedFont) {
         ReadingFontDialogFragment dialog = new ReadingFontDialogFragment();

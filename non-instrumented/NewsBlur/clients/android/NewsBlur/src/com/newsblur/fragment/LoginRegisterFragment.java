@@ -16,7 +16,7 @@ import android.widget.TextView.OnEditorActionListener;
 import android.widget.ViewSwitcher;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -28,14 +28,14 @@ import com.newsblur.util.PrefsUtils;
 
 public class LoginRegisterFragment extends Fragment {
 
-	@Bind(R.id.login_username) EditText username;
-    @Bind(R.id.login_password) EditText password;
-    @Bind(R.id.registration_username) EditText register_username;
-    @Bind(R.id.registration_password) EditText register_password;
-    @Bind(R.id.registration_email) EditText register_email;
-	@Bind(R.id.login_viewswitcher) ViewSwitcher viewSwitcher;
-    @Bind(R.id.login_custom_server) View customServer;
-    @Bind(R.id.login_custom_server_value) EditText customServerValue;
+	@BindView(R.id.login_username) EditText username;
+    @BindView(R.id.login_password) EditText password;
+    @BindView(R.id.registration_username) EditText register_username;
+    @BindView(R.id.registration_password) EditText register_password;
+    @BindView(R.id.registration_email) EditText register_email;
+	@BindView(R.id.login_viewswitcher) ViewSwitcher viewSwitcher;
+    @BindView(R.id.login_custom_server) View customServer;
+    @BindView(R.id.login_custom_server_value) EditText customServerValue;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

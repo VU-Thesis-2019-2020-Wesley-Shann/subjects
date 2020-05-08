@@ -10,7 +10,7 @@ import android.view.Window;
 import android.widget.RadioButton;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -21,8 +21,8 @@ public class StoryOrderDialogFragment extends DialogFragment {
 	
 	private static String CURRENT_ORDER = "currentOrder";
 	private StoryOrder currentValue;
-    @Bind(R.id.radio_newest) RadioButton newestButton;
-    @Bind(R.id.radio_oldest) RadioButton oldestButton;
+    @BindView(R.id.radio_newest) RadioButton newestButton;
+    @BindView(R.id.radio_oldest) RadioButton oldestButton;
 
 	public static StoryOrderDialogFragment newInstance(StoryOrder currentValue) {
 		StoryOrderDialogFragment dialog = new StoryOrderDialogFragment();

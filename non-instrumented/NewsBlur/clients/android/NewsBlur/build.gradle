@@ -30,6 +30,7 @@ dependencies {
     implementation 'androidx.fragment:fragment:1.0.0'
     implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
     implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     implementation 'com.squareup.okhttp3:okhttp:3.14.8'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -40,6 +41,7 @@ android {
     buildToolsVersion '29.0.3'
     compileOptions.with {
         sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     // force old processing behaviour that butterknife 7 depends on, until we can afford to upgrade
@@ -68,6 +70,9 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
+    }
+    defaultConfig {
+        minSdkVersion 21
     }
 }
 

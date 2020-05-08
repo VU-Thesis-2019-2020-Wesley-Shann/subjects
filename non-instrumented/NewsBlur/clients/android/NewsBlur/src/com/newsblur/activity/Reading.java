@@ -27,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.database.ReadingAdapter;
@@ -77,16 +77,16 @@ public abstract class Reading extends NbActivity implements OnPageChangeListener
     protected final Object STORIES_MUTEX = new Object();
 	protected Cursor stories;
 
-    @Bind(android.R.id.content) View contentView; // we use this a ton, so cache it
-    @Bind(R.id.reading_overlay_left) Button overlayLeft;
-    @Bind(R.id.reading_overlay_right) Button overlayRight;
-    @Bind(R.id.reading_overlay_progress) ProgressBar overlayProgress;
-    @Bind(R.id.reading_overlay_progress_right) ProgressBar overlayProgressRight;
-    @Bind(R.id.reading_overlay_progress_left) ProgressBar overlayProgressLeft;
-    @Bind(R.id.reading_overlay_text) Button overlayText;
-    @Bind(R.id.reading_overlay_send) Button overlaySend;
-    @Bind(R.id.reading_empty_view_text) View emptyViewText;
-    @Bind(R.id.reading_sync_status) TextView overlayStatusText;
+    @BindView(android.R.id.content) View contentView; // we use this a ton, so cache it
+    @BindView(R.id.reading_overlay_left) Button overlayLeft;
+    @BindView(R.id.reading_overlay_right) Button overlayRight;
+    @BindView(R.id.reading_overlay_progress) ProgressBar overlayProgress;
+    @BindView(R.id.reading_overlay_progress_right) ProgressBar overlayProgressRight;
+    @BindView(R.id.reading_overlay_progress_left) ProgressBar overlayProgressLeft;
+    @BindView(R.id.reading_overlay_text) Button overlayText;
+    @BindView(R.id.reading_overlay_send) Button overlaySend;
+    @BindView(R.id.reading_empty_view_text) View emptyViewText;
+    @BindView(R.id.reading_sync_status) TextView overlayStatusText;
     
     ViewPager pager;
     ReadingPagerFragment readingFragment;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.activity.Reading;
@@ -21,7 +21,7 @@ import com.newsblur.activity.Reading;
  */
 public class ReadingPagerFragment extends NbFragment {
 
-    @Bind(R.id.reading_pager) ViewPager pager;
+    @BindView(R.id.reading_pager) ViewPager pager;
 
 	public static ReadingPagerFragment newInstance() {
 		ReadingPagerFragment fragment = new ReadingPagerFragment();

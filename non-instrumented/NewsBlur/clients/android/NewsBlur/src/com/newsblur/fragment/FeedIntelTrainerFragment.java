@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.domain.Classifier;
@@ -31,13 +31,13 @@ public class FeedIntelTrainerFragment extends DialogFragment {
     private FeedSet fs;
     private Classifier classifier;
 
-    @Bind(R.id.intel_title_header) TextView headerTitles;
-    @Bind(R.id.intel_tag_header) TextView headerTags;
-    @Bind(R.id.intel_author_header) TextView headerAuthor;
-    @Bind(R.id.existing_title_intel_container) LinearLayout titleRowsContainer;
-    @Bind(R.id.existing_tag_intel_container) LinearLayout tagRowsContainer;
-    @Bind(R.id.existing_author_intel_container) LinearLayout authorRowsContainer;
-    @Bind(R.id.existing_feed_intel_container) LinearLayout feedRowsContainer;
+    @BindView(R.id.intel_title_header) TextView headerTitles;
+    @BindView(R.id.intel_tag_header) TextView headerTags;
+    @BindView(R.id.intel_author_header) TextView headerAuthor;
+    @BindView(R.id.existing_title_intel_container) LinearLayout titleRowsContainer;
+    @BindView(R.id.existing_tag_intel_container) LinearLayout tagRowsContainer;
+    @BindView(R.id.existing_author_intel_container) LinearLayout authorRowsContainer;
+    @BindView(R.id.existing_feed_intel_container) LinearLayout feedRowsContainer;
 
     public static FeedIntelTrainerFragment newInstance(Feed feed, FeedSet fs) {
         FeedIntelTrainerFragment fragment = new FeedIntelTrainerFragment();

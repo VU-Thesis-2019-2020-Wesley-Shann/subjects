@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.activity.Login;
@@ -30,11 +30,11 @@ import com.newsblur.util.UIUtils;
 public class LoginProgressFragment extends Fragment {
 
 	private APIManager apiManager;
-	@Bind(R.id.login_logging_in) TextView updateStatus;
-    @Bind(R.id.login_retrieving_feeds) TextView retrievingFeeds;
-	@Bind(R.id.login_profile_picture) ImageView loginProfilePicture;
-	@Bind(R.id.login_feed_progress) ProgressBar feedProgress;
-    @Bind(R.id.login_logging_in_progress) ProgressBar loggingInProgress;
+	@BindView(R.id.login_logging_in) TextView updateStatus;
+    @BindView(R.id.login_retrieving_feeds) TextView retrievingFeeds;
+	@BindView(R.id.login_profile_picture) ImageView loginProfilePicture;
+	@BindView(R.id.login_feed_progress) ProgressBar feedProgress;
+    @BindView(R.id.login_logging_in_progress) ProgressBar loggingInProgress;
 	private LoginTask loginTask;
 	private String username;
 	private String password;

@@ -27,7 +27,7 @@ import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.activity.AllSharedStoriesItemsList;
@@ -68,7 +68,7 @@ public class FolderListFragment extends NbFragment implements OnCreateContextMen
 	private FolderListAdapter adapter;
 	public StateFilter currentState = StateFilter.SOME;
 	private SharedPreferences sharedPreferences;
-    @Bind(R.id.folderfeed_list) ExpandableListView list;
+    @BindView(R.id.folderfeed_list) ExpandableListView list;
     public boolean firstCursorSeenYet = false;
 
     // the two-step context menu for feeds requires us to temp store the feed long-pressed so

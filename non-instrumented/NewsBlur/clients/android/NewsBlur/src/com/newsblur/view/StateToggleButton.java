@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -27,18 +27,18 @@ public class StateToggleButton extends LinearLayout {
 
     private int parentWidthPX = 0;
 
-	@Bind(R.id.toggle_all) ViewGroup allButton;
-	@Bind(R.id.toggle_all_icon) View allButtonIcon;
-	@Bind(R.id.toggle_all_text) View allButtonText;
-	@Bind(R.id.toggle_some) ViewGroup someButton;
-	@Bind(R.id.toggle_some_icon) View someButtonIcon;
-	@Bind(R.id.toggle_some_text) View someButtonText;
-	@Bind(R.id.toggle_focus) ViewGroup focusButton;
-	@Bind(R.id.toggle_focus_icon) View focusButtonIcon;
-	@Bind(R.id.toggle_focus_text) View focusButtonText;
-    @Bind(R.id.toggle_saved) ViewGroup savedButton;
-    @Bind(R.id.toggle_saved_icon) View savedButtonIcon;
-    @Bind(R.id.toggle_saved_text) View savedButtonText;
+	@BindView(R.id.toggle_all) ViewGroup allButton;
+	@BindView(R.id.toggle_all_icon) View allButtonIcon;
+	@BindView(R.id.toggle_all_text) View allButtonText;
+	@BindView(R.id.toggle_some) ViewGroup someButton;
+	@BindView(R.id.toggle_some_icon) View someButtonIcon;
+	@BindView(R.id.toggle_some_text) View someButtonText;
+	@BindView(R.id.toggle_focus) ViewGroup focusButton;
+	@BindView(R.id.toggle_focus_icon) View focusButtonIcon;
+	@BindView(R.id.toggle_focus_text) View focusButtonText;
+    @BindView(R.id.toggle_saved) ViewGroup savedButton;
+    @BindView(R.id.toggle_saved_icon) View savedButtonIcon;
+    @BindView(R.id.toggle_saved_text) View savedButtonText;
 
 	public StateToggleButton(Context context, AttributeSet art) {
 		super(context, art);

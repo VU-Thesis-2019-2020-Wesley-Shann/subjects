@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.domain.Feed;
@@ -21,7 +21,7 @@ public class RenameFeedFragment extends DialogFragment {
 
 	private Feed feed;
 
-    @Bind(R.id.feed_name_field) EditText feedNameView;
+    @BindView(R.id.feed_name_field) EditText feedNameView;
 
     public static RenameFeedFragment newInstance(Feed feed) {
 		RenameFeedFragment fragment = new RenameFeedFragment();

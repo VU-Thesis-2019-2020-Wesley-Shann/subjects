@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.fragment.AddFeedFragment;
@@ -18,8 +18,8 @@ import com.newsblur.view.ProgressThrobber;
 
 public class AddFeedExternal extends NbActivity implements AddFeedFragment.AddFeedProgressListener {
 
-    @Bind(R.id.loading_throb) ProgressThrobber progressView;
-    @Bind(R.id.progress_text) TextView progressText;
+    @BindView(R.id.loading_throb) ProgressThrobber progressView;
+    @BindView(R.id.progress_text) TextView progressText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

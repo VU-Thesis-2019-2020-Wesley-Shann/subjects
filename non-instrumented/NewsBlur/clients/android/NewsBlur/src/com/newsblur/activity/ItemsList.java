@@ -16,7 +16,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.fragment.ItemSetFragment;
@@ -47,8 +47,8 @@ public abstract class ItemsList extends NbActivity implements StoryOrderChangedL
     private static final String BUNDLE_ACTIVE_SEARCH_QUERY = "activeSearchQuery";
 
 	protected ItemSetFragment itemSetFragment;
-    @Bind(R.id.itemlist_sync_status) TextView overlayStatusText;
-    @Bind(R.id.itemlist_search_query) EditText searchQueryInput;
+    @BindView(R.id.itemlist_sync_status) TextView overlayStatusText;
+    @BindView(R.id.itemlist_search_query) EditText searchQueryInput;
 	protected StateFilter intelState;
 
     protected FeedSet fs;

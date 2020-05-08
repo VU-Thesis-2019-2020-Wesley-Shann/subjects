@@ -22,7 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.domain.Feed;
@@ -33,7 +33,7 @@ public class ChooseFoldersFragment extends DialogFragment {
 
 	private Feed feed;
 
-    @Bind(R.id.choose_folders_list) ListView listView;
+    @BindView(R.id.choose_folders_list) ListView listView;
 
     public static ChooseFoldersFragment newInstance(Feed feed) {
 		ChooseFoldersFragment fragment = new ChooseFoldersFragment();

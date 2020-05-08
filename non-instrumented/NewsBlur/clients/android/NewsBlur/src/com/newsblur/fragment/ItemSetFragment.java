@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.activity.ItemsList;
@@ -50,20 +50,20 @@ public class ItemSetFragment extends NbFragment implements LoaderManager.LoaderC
     private final static int GRID_SPACING_DP = 5;
     private int gridSpacingPx;
 
-	@Bind(R.id.itemgridfragment_grid) RecyclerView itemGrid;
+	@BindView(R.id.itemgridfragment_grid) RecyclerView itemGrid;
     private GridLayoutManager layoutManager;
     private StoryViewAdapter adapter;
     // an optional pending scroll state to restore.
     private Parcelable gridState;
 
     // loading indicator for when stories are absent or stale (at top of list)
-    @Bind(R.id.top_loading_throb) ProgressThrobber topProgressView;
+    @BindView(R.id.top_loading_throb) ProgressThrobber topProgressView;
     // loading indicator for when stories are present and fresh (at bottom of list)
     protected ProgressThrobber bottomProgressView;
 
-    @Bind(R.id.empty_view) View emptyView;
-    @Bind(R.id.empty_view_text) TextView emptyViewText;
-    @Bind(R.id.empty_view_image) ImageView emptyViewImage;
+    @BindView(R.id.empty_view) View emptyView;
+    @BindView(R.id.empty_view_text) TextView emptyViewText;
+    @BindView(R.id.empty_view_image) ImageView emptyViewImage;
 
     private View fleuronFooter;
     // the fleuron has padding that can't be calculated until after layout, but only changes

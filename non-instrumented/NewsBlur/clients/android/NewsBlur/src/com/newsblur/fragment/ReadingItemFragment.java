@@ -33,7 +33,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -72,24 +72,24 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
 	private LayoutInflater inflater;
 	private String feedColor, feedTitle, feedFade, feedBorder, feedIconUrl, faviconText;
 	private Classifier classifier;
-	@Bind(R.id.reading_webview) NewsblurWebview web;
-    @Bind(R.id.custom_view_container) ViewGroup webviewCustomViewLayout;
-    @Bind(R.id.reading_scrollview) ScrollView fragmentScrollview;
+	@BindView(R.id.reading_webview) NewsblurWebview web;
+    @BindView(R.id.custom_view_container) ViewGroup webviewCustomViewLayout;
+    @BindView(R.id.reading_scrollview) ScrollView fragmentScrollview;
 	private BroadcastReceiver textSizeReceiver, readingFontReceiver;
-    @Bind(R.id.reading_item_title) TextView itemTitle;
-    @Bind(R.id.reading_item_authors) TextView itemAuthors;
-	@Bind(R.id.reading_feed_title) TextView itemFeed;
+    @BindView(R.id.reading_item_title) TextView itemTitle;
+    @BindView(R.id.reading_item_authors) TextView itemAuthors;
+	@BindView(R.id.reading_feed_title) TextView itemFeed;
 	private boolean displayFeedDetails;
-	@Bind(R.id.reading_item_tags) FlowLayout tagContainer;
+	@BindView(R.id.reading_item_tags) FlowLayout tagContainer;
 	private View view;
 	private UserDetails user;
     private DefaultFeedView selectedFeedView;
     private boolean textViewUnavailable;
-    @Bind(R.id.reading_textloading) TextView textViewLoadingMsg;
-    @Bind(R.id.reading_textmodefailed) TextView textViewLoadingFailedMsg;
-    @Bind(R.id.save_story_button) Button saveButton;
-    @Bind(R.id.share_story_button) Button shareButton;
-    @Bind(R.id.story_context_menu_button) Button menuButton;
+    @BindView(R.id.reading_textloading) TextView textViewLoadingMsg;
+    @BindView(R.id.reading_textmodefailed) TextView textViewLoadingFailedMsg;
+    @BindView(R.id.save_story_button) Button saveButton;
+    @BindView(R.id.share_story_button) Button shareButton;
+    @BindView(R.id.story_context_menu_button) Button menuButton;
 
     /** The story HTML, as provided by the 'content' element of the stories API. */
     private String storyContent;

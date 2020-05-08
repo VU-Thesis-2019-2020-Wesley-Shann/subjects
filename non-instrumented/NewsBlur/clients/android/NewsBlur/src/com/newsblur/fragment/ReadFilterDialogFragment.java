@@ -10,7 +10,7 @@ import android.view.Window;
 import android.widget.RadioButton;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -21,8 +21,8 @@ public class ReadFilterDialogFragment extends DialogFragment {
 	
 	private static String CURRENT_FILTER = "currentFilter";
 	private ReadFilter currentValue;
-    @Bind(R.id.radio_all) RadioButton allButton;
-    @Bind(R.id.radio_unread) RadioButton unreadButton;
+    @BindView(R.id.radio_all) RadioButton allButton;
+    @BindView(R.id.radio_unread) RadioButton unreadButton;
 
 	public static ReadFilterDialogFragment newInstance(ReadFilter currentValue) {
 		ReadFilterDialogFragment dialog = new ReadFilterDialogFragment();

@@ -20,7 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import java.util.ArrayList;
@@ -308,16 +308,16 @@ public class StoryViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                                             MenuItem.OnMenuItemClickListener,
                                             View.OnTouchListener {
 
-        @Bind(R.id.story_item_favicon_borderbar_1) View leftBarOne;
-        @Bind(R.id.story_item_favicon_borderbar_2) View leftBarTwo;
-        @Bind(R.id.story_item_inteldot) ImageView intelDot;
-        @Bind(R.id.story_item_thumbnail) ImageView thumbView;
-        @Bind(R.id.story_item_feedicon) ImageView feedIconView;
-        @Bind(R.id.story_item_feedtitle) TextView feedTitleView;
-        @Bind(R.id.story_item_title) TextView storyTitleView;
-        @Bind(R.id.story_item_date) TextView storyDate;
-        @Bind(R.id.story_item_saved_icon) View savedView;
-        @Bind(R.id.story_item_shared_icon) View sharedView;
+        @BindView(R.id.story_item_favicon_borderbar_1) View leftBarOne;
+        @BindView(R.id.story_item_favicon_borderbar_2) View leftBarTwo;
+        @BindView(R.id.story_item_inteldot) ImageView intelDot;
+        @BindView(R.id.story_item_thumbnail) ImageView thumbView;
+        @BindView(R.id.story_item_feedicon) ImageView feedIconView;
+        @BindView(R.id.story_item_feedtitle) TextView feedTitleView;
+        @BindView(R.id.story_item_title) TextView storyTitleView;
+        @BindView(R.id.story_item_date) TextView storyDate;
+        @BindView(R.id.story_item_saved_icon) View savedView;
+        @BindView(R.id.story_item_shared_icon) View sharedView;
 
         Story story;
         ImageLoader.PhotoToLoad thumbLoader;
@@ -461,8 +461,8 @@ public class StoryViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     public class StoryRowViewHolder extends StoryViewHolder {
-        @Bind(R.id.story_item_author) TextView storyAuthor;
-        @Bind(R.id.story_item_content) TextView storySnippet;
+        @BindView(R.id.story_item_author) TextView storyAuthor;
+        @BindView(R.id.story_item_content) TextView storySnippet;
         public StoryRowViewHolder(View view) {
             super(view);
         }
@@ -639,7 +639,7 @@ public class StoryViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     public class FooterViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.footer_view_inner) FrameLayout innerView;
+        @BindView(R.id.footer_view_inner) FrameLayout innerView;
 
         public FooterViewHolder(View view) {
             super(view);

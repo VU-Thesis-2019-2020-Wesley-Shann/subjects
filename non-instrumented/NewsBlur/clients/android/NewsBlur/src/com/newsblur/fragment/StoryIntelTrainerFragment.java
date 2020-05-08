@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 
 import com.newsblur.R;
 import com.newsblur.domain.Classifier;
@@ -36,16 +36,16 @@ public class StoryIntelTrainerFragment extends DialogFragment {
     private Classifier classifier;
     private Integer newTitleTraining;
 
-    @Bind(R.id.intel_tag_header) TextView headerTags;
-    @Bind(R.id.intel_author_header) TextView headerAuthor;
-    @Bind(R.id.intel_title_selection) SelectOnlyEditText titleSelection;
-    @Bind(R.id.intel_title_like) Button titleLikeButton;
-    @Bind(R.id.intel_title_dislike) Button titleDislikeButton;
-    @Bind(R.id.intel_title_clear) Button titleClearButton;
-    @Bind(R.id.existing_title_intel_container) LinearLayout titleRowsContainer;
-    @Bind(R.id.existing_tag_intel_container) LinearLayout tagRowsContainer;
-    @Bind(R.id.existing_author_intel_container) LinearLayout authorRowsContainer;
-    @Bind(R.id.existing_feed_intel_container) LinearLayout feedRowsContainer;
+    @BindView(R.id.intel_tag_header) TextView headerTags;
+    @BindView(R.id.intel_author_header) TextView headerAuthor;
+    @BindView(R.id.intel_title_selection) SelectOnlyEditText titleSelection;
+    @BindView(R.id.intel_title_like) Button titleLikeButton;
+    @BindView(R.id.intel_title_dislike) Button titleDislikeButton;
+    @BindView(R.id.intel_title_clear) Button titleClearButton;
+    @BindView(R.id.existing_title_intel_container) LinearLayout titleRowsContainer;
+    @BindView(R.id.existing_tag_intel_container) LinearLayout tagRowsContainer;
+    @BindView(R.id.existing_author_intel_container) LinearLayout authorRowsContainer;
+    @BindView(R.id.existing_feed_intel_container) LinearLayout feedRowsContainer;
 
     public static StoryIntelTrainerFragment newInstance(Story story, FeedSet fs) {
         if (story.feedId.equals("0")) {

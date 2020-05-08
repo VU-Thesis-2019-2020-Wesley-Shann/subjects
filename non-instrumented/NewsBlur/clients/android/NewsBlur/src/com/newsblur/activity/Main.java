@@ -26,7 +26,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import com.newsblur.R;
@@ -53,15 +53,15 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
 	private FragmentManager fragmentManager;
     private SwipeRefreshLayout swipeLayout;
     private boolean wasSwipeEnabled = false;
-    @Bind(R.id.main_sync_status) TextView overlayStatusText;
-    @Bind(R.id.empty_view_image) ImageView emptyViewImage;
-    @Bind(R.id.empty_view_text) TextView emptyViewText;
-    @Bind(R.id.main_menu_button) Button menuButton;
-    @Bind(R.id.main_user_image) ImageView userImage;
-    @Bind(R.id.main_user_name) TextView userName;
-    @Bind(R.id.main_unread_count_neut_text) TextView unreadCountNeutText;
-    @Bind(R.id.main_unread_count_posi_text) TextView unreadCountPosiText;
-    @Bind(R.id.feedlist_search_query) EditText searchQueryInput;
+    @BindView(R.id.main_sync_status) TextView overlayStatusText;
+    @BindView(R.id.empty_view_image) ImageView emptyViewImage;
+    @BindView(R.id.empty_view_text) TextView emptyViewText;
+    @BindView(R.id.main_menu_button) Button menuButton;
+    @BindView(R.id.main_user_image) ImageView userImage;
+    @BindView(R.id.main_user_name) TextView userName;
+    @BindView(R.id.main_unread_count_neut_text) TextView unreadCountNeutText;
+    @BindView(R.id.main_unread_count_posi_text) TextView unreadCountPosiText;
+    @BindView(R.id.feedlist_search_query) EditText searchQueryInput;
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
