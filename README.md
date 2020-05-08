@@ -6,13 +6,6 @@ submitted for the 2019-2020 edition of
 the [Master Project Computer Science](https://studiegids.vu.nl/en/Master/2019-2020/computer-science/XM_0011) course 
 at the [Vrije Universiteit Amsterdam](https://www.vu.nl/en).
 
-## To Do
-
-- Add NAPPA greedy version
-- Add NAPPA strategy 2 version
-- Add NAPPA strategy 3 version
-- Add PALOMA version
-
 ## Directories
 
 Each directory contains a different version of the apps.
