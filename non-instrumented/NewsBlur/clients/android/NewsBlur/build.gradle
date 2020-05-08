@@ -35,10 +35,10 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
     compileOptions.with {
-        sourceCompatibility = JavaVersion.VERSION_1_7
+        sourceCompatibility = JavaVersion.VERSION_1_8
     }
 
     // force old processing behaviour that butterknife 7 depends on, until we can afford to upgrade
