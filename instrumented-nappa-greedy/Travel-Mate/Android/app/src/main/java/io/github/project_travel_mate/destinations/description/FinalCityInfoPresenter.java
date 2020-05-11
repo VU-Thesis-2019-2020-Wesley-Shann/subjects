@@ -28,6 +28,7 @@ class FinalCityInfoPresenter {
 
     FinalCityInfoPresenter() {
         mOkHttpClient = new OkHttpClient();
+        mOkHttpClient = PrefetchingLib.getOkHttp(mOkHttpClient);
     }
 
     public void attachView(FinalCityInfoView finalCityInfoView) {
