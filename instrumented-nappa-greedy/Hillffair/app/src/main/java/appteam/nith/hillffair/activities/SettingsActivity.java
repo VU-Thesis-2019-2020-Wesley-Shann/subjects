@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -76,4 +77,9 @@ public class SettingsActivity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

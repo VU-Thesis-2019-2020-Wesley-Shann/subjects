@@ -20,6 +20,7 @@ import appteam.nith.hillffair.custom_views.EditorView;
 import appteam.nith.hillffair.utilities.Utils;
 import com.google.gson.annotations.SerializedName;
 
+import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -94,6 +95,12 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
             Bitmap bitmap1 = Bitmap.createScaledBitmap(bitmap, getWindow().getWindowManager().getDefaultDisplay().getWidth() / 2, getWindow().getWindowManager().getDefaultDisplay().getHeight() / 2, true);
             editorView.addImage(bitmap1);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     // class for the Uploading News Respons

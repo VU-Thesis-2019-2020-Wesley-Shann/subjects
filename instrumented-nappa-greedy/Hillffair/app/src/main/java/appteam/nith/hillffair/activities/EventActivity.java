@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,6 +55,12 @@ public class EventActivity extends AppCompatActivity {
             }
         }));
         showData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
 

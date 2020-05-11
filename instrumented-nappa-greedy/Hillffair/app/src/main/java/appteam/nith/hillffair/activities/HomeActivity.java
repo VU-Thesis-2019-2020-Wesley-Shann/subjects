@@ -36,6 +36,7 @@ import appteam.nith.hillffair.models.main_screen_model;
 import appteam.nith.hillffair.utilities.APIINTERFACE;
 import appteam.nith.hillffair.utilities.RecyclerItemClickListener;
 import appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -142,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

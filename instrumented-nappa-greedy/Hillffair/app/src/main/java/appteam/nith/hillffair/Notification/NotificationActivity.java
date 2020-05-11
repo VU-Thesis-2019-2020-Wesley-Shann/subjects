@@ -18,6 +18,7 @@ import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.activities.Home_posts_gns;
 import appteam.nith.hillffair.adapters.Notification;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 public class NotificationActivity extends AppCompatActivity {
 DbHelper dbHandler;
@@ -60,4 +61,9 @@ DbHelper dbHandler;
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

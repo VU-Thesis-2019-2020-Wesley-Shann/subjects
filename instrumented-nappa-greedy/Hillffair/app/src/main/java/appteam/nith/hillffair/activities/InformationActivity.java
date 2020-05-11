@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 public class InformationActivity extends AppCompatActivity {
 
@@ -41,5 +42,11 @@ public class InformationActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -28,6 +28,7 @@ import net.steamcrafted.loadtoast.LoadToast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -351,4 +352,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

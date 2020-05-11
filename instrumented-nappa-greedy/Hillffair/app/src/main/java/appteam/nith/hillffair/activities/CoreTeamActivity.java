@@ -12,6 +12,7 @@ import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.adapters.CoreTeamAdapter;
 import appteam.nith.hillffair.application.SharedPref;
 import appteam.nith.hillffair.models.CoreTeamItem;
+import nl.vu.cs.s2group.*;
 
 public class CoreTeamActivity extends AppCompatActivity {
 
@@ -65,5 +66,11 @@ public class CoreTeamActivity extends AppCompatActivity {
         setSupportActionBar(core_team_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

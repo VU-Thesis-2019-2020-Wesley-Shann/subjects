@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -155,6 +156,12 @@ public class WelcomeActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     public class MyViewPagerAdapter extends PagerAdapter {

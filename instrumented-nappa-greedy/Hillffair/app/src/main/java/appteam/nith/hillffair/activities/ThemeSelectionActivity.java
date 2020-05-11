@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 public class ThemeSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -117,4 +118,9 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

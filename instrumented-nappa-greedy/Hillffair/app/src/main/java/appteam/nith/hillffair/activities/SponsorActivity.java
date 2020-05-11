@@ -10,6 +10,7 @@ import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.adapters.SponsorAdapter;
 import appteam.nith.hillffair.application.SharedPref;
 import appteam.nith.hillffair.models.SponsorItem;
+import nl.vu.cs.s2group.*;
 
 import java.util.ArrayList;
 
@@ -52,5 +53,11 @@ public class SponsorActivity extends AppCompatActivity {
         LinearLayoutManager lvmanager = new LinearLayoutManager(this);
         lvmanager.setOrientation(LinearLayoutManager.VERTICAL);
         rvSponsor.setLayoutManager(lvmanager);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

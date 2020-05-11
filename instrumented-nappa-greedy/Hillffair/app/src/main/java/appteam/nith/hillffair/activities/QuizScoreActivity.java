@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.*;
 
 public class QuizScoreActivity extends AppCompatActivity {
 
@@ -34,5 +35,11 @@ public class QuizScoreActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

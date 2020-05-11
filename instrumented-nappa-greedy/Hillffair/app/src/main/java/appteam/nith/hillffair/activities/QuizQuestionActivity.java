@@ -34,6 +34,7 @@ import appteam.nith.hillffair.utilities.APIINTERFACE;
 import appteam.nith.hillffair.utilities.Connection;
 import appteam.nith.hillffair.utilities.ScoreCalculator;
 import appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -291,6 +292,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     public static class QuizDialog extends DialogFragment {
