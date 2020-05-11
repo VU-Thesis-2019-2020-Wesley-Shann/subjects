@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import io.github.hidroh.materialistic.data.AlgoliaClient;
 import io.github.hidroh.materialistic.data.HackerNewsClient;
 import io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
+import nl.vu.cs.s2group.*;
 
 public class SearchActivity extends BaseListActivity {
 
@@ -105,5 +106,11 @@ public class SearchActivity extends BaseListActivity {
         if (listFragment != null) {
             listFragment.filter(mQuery);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

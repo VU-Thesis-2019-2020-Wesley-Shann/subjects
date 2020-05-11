@@ -28,6 +28,7 @@ import io.github.hidroh.materialistic.data.FavoriteManager;
 import io.github.hidroh.materialistic.data.ItemManager;
 import io.github.hidroh.materialistic.data.MaterialisticDatabase;
 import io.github.hidroh.materialistic.data.WebItem;
+import nl.vu.cs.s2group.*;
 
 public class FavoriteActivity extends BaseListActivity {
 
@@ -104,5 +105,11 @@ public class FavoriteActivity extends BaseListActivity {
     @Override
     protected int getItemCacheMode() {
         return ItemManager.MODE_CACHE;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

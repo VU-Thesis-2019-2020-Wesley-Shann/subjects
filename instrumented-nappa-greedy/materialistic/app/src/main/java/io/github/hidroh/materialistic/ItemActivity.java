@@ -66,6 +66,7 @@ import io.github.hidroh.materialistic.widget.ItemPagerAdapter;
 import io.github.hidroh.materialistic.widget.NavFloatingActionButton;
 import io.github.hidroh.materialistic.widget.PopupMenu;
 import io.github.hidroh.materialistic.widget.ViewPager;
+import nl.vu.cs.s2group.*;
 
 public class ItemActivity extends InjectableActivity implements ItemFragment.ItemChangedListener {
 
@@ -461,6 +462,12 @@ public class ItemActivity extends InjectableActivity implements ItemFragment.Ite
 
     private boolean navigationVisible() {
         return mViewPager.getCurrentItem() == 0 && Preferences.navigationEnabled(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class ItemResponseListener implements ResponseListener<Item> {

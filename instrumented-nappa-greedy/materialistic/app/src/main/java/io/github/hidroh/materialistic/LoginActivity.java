@@ -30,6 +30,7 @@ import java.lang.ref.WeakReference;
 import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.accounts.UserServices;
+import nl.vu.cs.s2group.*;
 
 public class LoginActivity extends AccountAuthenticatorActivity {
     public static final String EXTRA_ADD_ACCOUNT = LoginActivity.class.getName() + ".EXTRA_ADD_ACCOUNT";
@@ -130,6 +131,12 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         setAccountAuthenticatorResult(bundle);
         Preferences.setUsername(this, username);
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class LoginCallback extends UserServices.Callback {

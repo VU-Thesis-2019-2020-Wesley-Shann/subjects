@@ -19,6 +19,7 @@ package io.github.hidroh.materialistic;
 import androidx.annotation.NonNull;
 
 import io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.*;
 
 public class BestActivity extends BaseStoriesActivity {
     @NonNull
@@ -30,5 +31,11 @@ public class BestActivity extends BaseStoriesActivity {
     @Override
     protected String getDefaultTitle() {
         return getString(R.string.title_activity_best);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -30,6 +30,7 @@ import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.annotation.Synthetic;
 import io.github.hidroh.materialistic.data.FeedbackClient;
+import nl.vu.cs.s2group.*;
 
 public class FeedbackActivity extends InjectableActivity {
     @Inject FeedbackClient mFeedbackClient;
@@ -88,6 +89,12 @@ public class FeedbackActivity extends InjectableActivity {
             //noinspection ConstantConditions
             findViewById(R.id.feedback_button).setEnabled(true);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class FeedbackCallback implements FeedbackClient.Callback {

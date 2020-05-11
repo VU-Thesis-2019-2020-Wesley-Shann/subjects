@@ -19,6 +19,7 @@ package io.github.hidroh.materialistic;
 import androidx.annotation.NonNull;
 
 import io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.*;
 
 public class ShowActivity extends BaseStoriesActivity {
 
@@ -31,5 +32,11 @@ public class ShowActivity extends BaseStoriesActivity {
     @Override
     protected String getFetchMode() {
         return ItemManager.SHOW_FETCH_MODE;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

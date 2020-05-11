@@ -19,6 +19,7 @@ package io.github.hidroh.materialistic;
 import androidx.annotation.NonNull;
 
 import io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.*;
 
 public class ListActivity extends BaseStoriesActivity {
 
@@ -33,4 +34,9 @@ public class ListActivity extends BaseStoriesActivity {
         return ItemManager.TOP_FETCH_MODE;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

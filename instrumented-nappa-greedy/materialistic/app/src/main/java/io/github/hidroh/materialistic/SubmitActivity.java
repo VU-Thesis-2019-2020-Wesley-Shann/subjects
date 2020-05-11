@@ -42,6 +42,7 @@ import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.accounts.UserServices;
 import io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.*;
 
 public class SubmitActivity extends InjectableActivity {
     private static final String HN_GUIDELINES_URL = "https://news.ycombinator.com/newsguidelines.html";
@@ -246,6 +247,12 @@ public class SubmitActivity extends InjectableActivity {
         mTitleEditText.setEnabled(!sending);
         mContentEditText.setEnabled(!sending);
         supportInvalidateOptionsMenu();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class SubmitCallback extends UserServices.Callback {

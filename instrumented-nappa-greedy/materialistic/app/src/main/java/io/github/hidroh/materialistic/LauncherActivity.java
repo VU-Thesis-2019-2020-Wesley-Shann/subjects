@@ -22,10 +22,13 @@ import android.os.Bundle;
 
 import java.util.HashMap;
 
+import nl.vu.cs.s2group.*;
+
 public class LauncherActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PrefetchingLib.init(this);
         HashMap<String, Class<? extends Activity>> map = new HashMap<>();
         map.put(getString(R.string.pref_launch_screen_value_top), ListActivity.class);
         map.put(getString(R.string.pref_launch_screen_value_best), BestActivity.class);
@@ -39,5 +42,11 @@ public class LauncherActivity extends Activity {
         startActivity(new Intent(this, map.containsKey(launchScreen) ?
                 map.get(launchScreen) : ListActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

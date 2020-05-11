@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
+import nl.vu.cs.s2group.*;
 
 public class SettingsActivity extends DrawerActivity {
     @Inject AlertDialogBuilder mAlertDialogBuilder;
@@ -104,5 +105,11 @@ public class SettingsActivity extends DrawerActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

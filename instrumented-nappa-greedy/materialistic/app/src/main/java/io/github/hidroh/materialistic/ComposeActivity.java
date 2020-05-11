@@ -36,6 +36,7 @@ import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.accounts.UserServices;
 import io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.*;
 
 public class ComposeActivity extends InjectableActivity {
     public static final String EXTRA_PARENT_ID = ComposeActivity.class.getName() + ".EXTRA_PARENT_ID";
@@ -213,6 +214,12 @@ public class ComposeActivity extends InjectableActivity {
         mSending = sending;
         mEditText.setEnabled(!sending);
         supportInvalidateOptionsMenu();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class ComposeCallback extends UserServices.Callback {
