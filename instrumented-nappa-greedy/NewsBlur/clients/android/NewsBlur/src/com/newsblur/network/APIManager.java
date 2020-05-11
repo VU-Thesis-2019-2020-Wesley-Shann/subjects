@@ -92,7 +92,8 @@ public class APIManager {
                           .readTimeout(AppConstants.API_READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
                           .followSslRedirects(true)
                           .build();
-	}
+        this.httpClient = PrefetchingLib.getOkHttp(this.httpClient);
+    }
 
 	public LoginResponse login(final String username, final String password) {
         // This call should be pretty rare, but is expensive on the server side.  Log it
