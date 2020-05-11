@@ -378,7 +378,7 @@ public abstract class BaseListActivity extends DrawerActivity implements MultiPa
             Intent intent = new Intent(this, ItemActivity.class)
                     .putExtra(ItemActivity.EXTRA_CACHE_MODE, getItemCacheMode())
                     .putExtra(ItemActivity.EXTRA_ITEM, mSelectedItem);
-            startActivity(mMultiWindowEnabled ? AppUtils.multiWindowIntent(this, intent) : intent);
+            PrefetchingLib.notifyExtras(mMultiWindowEnabled.getExtras());startActivity(mMultiWindowEnabled ? AppUtils.multiWindowIntent(this, intent) : intent);
         }
     }
 

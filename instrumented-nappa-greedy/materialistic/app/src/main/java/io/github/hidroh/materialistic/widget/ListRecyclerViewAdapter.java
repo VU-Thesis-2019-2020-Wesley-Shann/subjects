@@ -223,7 +223,7 @@ public abstract class ListRecyclerViewAdapter
                 .putExtra(ItemActivity.EXTRA_CACHE_MODE, getItemCacheMode())
                 .putExtra(ItemActivity.EXTRA_ITEM, item)
                 .putExtra(ItemActivity.EXTRA_OPEN_COMMENTS, true);
-        mContext.startActivity(mMultiWindowEnabled ?
+        PrefetchingLib.notifyExtras(mMultiWindowEnabled.getExtras());mContext.startActivity(mMultiWindowEnabled ?
                 AppUtils.multiWindowIntent((Activity) mContext, intent) : intent);
     }
 

@@ -351,7 +351,8 @@ class HackerNewsItem implements Item {
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                view.getContext().startActivity(new Intent(Intent.ACTION_VIEW)
+                PrefetchingLib.notifyExtras(new Intent(Intent.ACTION_VIEW)
+                        .setData.getExtras());view.getContext().startActivity(new Intent(Intent.ACTION_VIEW)
                         .setData(AppUtils.createUserUri(getBy())));
             }
 

@@ -115,7 +115,8 @@ public class ThreadPreviewRecyclerViewAdapter extends ItemRecyclerViewAdapter<Su
     }
 
     private void openItem(Item item) {
-        mContext.startActivity(new Intent(mContext, ItemActivity.class)
+        PrefetchingLib.notifyExtras(new Intent(mContext, ItemActivity.class)
+                .putExtra.getExtras());mContext.startActivity(new Intent(mContext, ItemActivity.class)
                 .putExtra(ItemActivity.EXTRA_ITEM, item));
     }
 }

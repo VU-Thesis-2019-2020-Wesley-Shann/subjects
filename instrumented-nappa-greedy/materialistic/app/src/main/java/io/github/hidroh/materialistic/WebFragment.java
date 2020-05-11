@@ -474,7 +474,7 @@ public class WebFragment extends LazyLoadFragment
         mExternalRequired = true;
         mWebView.setVisibility(GONE);
         getActivity().findViewById(R.id.empty).setVisibility(VISIBLE);
-        getActivity().findViewById(R.id.download_button).setOnClickListener(v -> startActivity(intent));
+        getActivity().findViewById(R.id.download_button).setOnClickListener(v -> PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent));
     }
 
     private void setProgress(int progress) {

@@ -192,7 +192,7 @@ public class SubmitActivity extends InjectableActivity {
                 Intent intent = new Intent(this, NewActivity.class);
                 intent.putExtra(NewActivity.EXTRA_REFRESH, true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent); // TODO should go to profile instead?
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent); // TODO should go to profile instead?
                 finish();
             }
         } else if (!isFinishing()) {
@@ -204,7 +204,7 @@ public class SubmitActivity extends InjectableActivity {
     void onError(int message, Uri data) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         if (data != null) {
-            startActivity(new Intent(Intent.ACTION_VIEW).setData(data));
+            PrefetchingLib.notifyExtras(new Intent(Intent.ACTION_VIEW).setData.getExtras());startActivity(new Intent(Intent.ACTION_VIEW).setData(data));
         }
     }
 
