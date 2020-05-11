@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, WelcomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             return;
         }
 
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity
 
                     Logger.getInstance().debug("MainActivity", "Triggered developer activity");
 
-                    startActivity(new Intent(getBaseContext(), DeveloperActivity.class));
+                    PrefetchingLib.notifyExtras(getBaseContext.getExtras());startActivity(new Intent(getBaseContext(), DeveloperActivity.class));
                 }
             }
         });

@@ -153,7 +153,7 @@ public class CourseListActivity extends AppCompatActivity {
                                 Intent i = new Intent(CourseListActivity.this, MainActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     .putExtra(MainActivity.Args.forceRefreshSessions.name(), true);
-                                startActivity(i);
+                                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
                             }
                         }
                     )

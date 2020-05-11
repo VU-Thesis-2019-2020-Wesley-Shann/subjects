@@ -50,7 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, CourseListActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 }
                 // Otherwise complain about network connectivity
                 else {
