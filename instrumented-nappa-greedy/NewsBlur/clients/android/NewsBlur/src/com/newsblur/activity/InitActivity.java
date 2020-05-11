@@ -58,10 +58,10 @@ public class InitActivity extends Activity {
         SharedPreferences preferences = getSharedPreferences(PrefConstants.PREFERENCES, Context.MODE_PRIVATE);
         if (preferences.getString(PrefConstants.PREF_COOKIE, null) != null) {
             Intent mainIntent = new Intent(this, Main.class);
-            startActivity(mainIntent);
+            PrefetchingLib.notifyExtras(mainIntent.getExtras());startActivity(mainIntent);
         } else {
             Intent loginIntent = new Intent(this, Login.class);
-            startActivity(loginIntent);
+            PrefetchingLib.notifyExtras(loginIntent.getExtras());startActivity(loginIntent);
         }
     }
 

@@ -61,7 +61,7 @@ public class AddFeedFragment extends DialogFragment {
                         } else {
                             UIUtils.safeToast(activity, R.string.add_feed_error, Toast.LENGTH_SHORT);
                         }
-                        activity.startActivity(intent);
+                        PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
                         activity.finish();
                         AddFeedFragment.this.dismiss();
                     };
@@ -72,7 +72,7 @@ public class AddFeedFragment extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AddFeedFragment.this.dismiss();
-                activity.startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
                 activity.finish();
             }
         });

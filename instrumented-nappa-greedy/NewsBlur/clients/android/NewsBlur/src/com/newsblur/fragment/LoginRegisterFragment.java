@@ -74,7 +74,7 @@ public class LoginRegisterFragment extends Fragment {
 			Intent i = new Intent(getActivity(), LoginProgress.class);
 			i.putExtra("username", username.getText().toString());
 			i.putExtra("password", password.getText().toString());
-			startActivity(i);
+			PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
 		}
 	}
 
@@ -83,7 +83,7 @@ public class LoginRegisterFragment extends Fragment {
 		i.putExtra("username", register_username.getText().toString());
 		i.putExtra("password", register_password.getText().toString());
 		i.putExtra("email", register_email.getText().toString());
-		startActivity(i);
+		PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
 	}
 
     @OnClick(R.id.login_change_to_login) void showLogin() {
@@ -98,7 +98,7 @@ public class LoginRegisterFragment extends Fragment {
         try {
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(AppConstants.FORGOT_PASWORD_URL));
-            startActivity(i);
+            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
         } catch (Exception e) {
             android.util.Log.wtf(this.getClass().getName(), "device cannot even open URLs to report feedback");
         }

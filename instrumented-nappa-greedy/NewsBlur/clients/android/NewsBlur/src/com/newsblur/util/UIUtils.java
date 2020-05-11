@@ -265,7 +265,7 @@ public class UIUtils {
                 activity.finish();
 
                 activity.overridePendingTransition(0, 0);
-                activity.startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
             }
         });
     }
@@ -299,7 +299,7 @@ public class UIUtils {
         Intent i = new Intent(context, activityClass);
         i.putExtra(Reading.EXTRA_FEEDSET, fs);
         i.putExtra(Reading.EXTRA_STORY_HASH, startingHash);
-        context.startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
     }
 
     public static String getMemoryUsageDebug(Context context) {

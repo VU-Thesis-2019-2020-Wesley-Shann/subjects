@@ -315,14 +315,14 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
             }
 		} else if (item.getItemId() == R.id.menu_add_feed) {
 			Intent i = new Intent(this, SearchForFeeds.class);
-            startActivity(i);
+            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
 			return true;
 		} else if (item.getItemId() == R.id.menu_logout) {
 			DialogFragment newFragment = new LogoutDialogFragment();
 			newFragment.show(getSupportFragmentManager(), "dialog");
 		} else if (item.getItemId() == R.id.menu_settings) {
             Intent settingsIntent = new Intent(this, Settings.class);
-            startActivity(settingsIntent);
+            PrefetchingLib.notifyExtras(settingsIntent.getExtras());startActivity(settingsIntent);
             return true;
         } else if (item.getItemId() == R.id.menu_feedback_email) {
             PrefsUtils.sendLogEmail(this);
@@ -331,7 +331,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
             try {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(PrefsUtils.createFeedbackLink(this)));
-                startActivity(i);
+                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
             } catch (Exception e) {
                 Log.wtf(this.getClass().getName(), "device cannot even open URLs to report feedback");
             }
@@ -359,17 +359,17 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
 
     @OnClick(R.id.main_add_button) void onClickAddButton() {
         Intent i = new Intent(this, SearchForFeeds.class);
-        startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
     }
 
     @OnClick(R.id.main_profile_button) void onClickProfileButton() {
         Intent i = new Intent(this, Profile.class);
-        startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
     }
 
     @OnClick(R.id.main_user_image) void onClickUserButton() {
         Intent i = new Intent(this, Profile.class);
-        startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
     }
 
     @Override

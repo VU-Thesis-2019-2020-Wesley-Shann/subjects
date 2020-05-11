@@ -107,7 +107,7 @@ public class PrefsUtils {
         i.putExtra(Intent.EXTRA_TEXT, debugInfo);
         i.putExtra(Intent.EXTRA_STREAM, localPath);
         if (i.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(i);
+            PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
         }
     }
 
@@ -167,7 +167,7 @@ public class PrefsUtils {
         // prompt for a new login
         Intent i = new Intent(context, Login.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
     }
 
     public static void clearPrefsAndDbForLoginAs(Context context) {

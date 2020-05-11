@@ -457,7 +457,7 @@ public class FolderListFragment extends NbFragment implements OnCreateContextMen
         }
         FeedSet fs = adapter.getGroup(groupPosition);
         i.putExtra(ItemsList.EXTRA_FEED_SET, fs);
-        startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
 
         // by default, ExpandableListViews open/close groups when they are clicked. we want to
         // only do this when the expando is clicked, so we eat all onGroupClick events and
@@ -508,11 +508,11 @@ public class FolderListFragment extends NbFragment implements OnCreateContextMen
 			Intent intent = new Intent(getActivity(), SocialFeedItemsList.class);
             intent.putExtra(ItemsList.EXTRA_FEED_SET, fs);
 			intent.putExtra(SocialFeedItemsList.EXTRA_SOCIAL_FEED, socialFeed);
-			getActivity().startActivity(intent);
+			PrefetchingLib.notifyExtras(intent.getExtras());getActivity().startActivity(intent);
         } else if (adapter.isRowSavedStories(groupPosition)) {
             Intent intent = new Intent(getActivity(), SavedStoriesItemsList.class);
             intent.putExtra(ItemsList.EXTRA_FEED_SET, fs);
-			getActivity().startActivity(intent);
+			PrefetchingLib.notifyExtras(intent.getExtras());getActivity().startActivity(intent);
 		} else {
             Feed feed = adapter.getFeed(groupPosition, childPosition);
             // NB: FeedItemsList needs the name of the containing folder, but this is not the same as setting
@@ -523,7 +523,7 @@ public class FolderListFragment extends NbFragment implements OnCreateContextMen
             intent.putExtra(ItemsList.EXTRA_FEED_SET, fs);
 			intent.putExtra(FeedItemsList.EXTRA_FEED, feed);
 			intent.putExtra(FeedItemsList.EXTRA_FOLDER_NAME, folderName);
-			getActivity().startActivity(intent);
+			PrefetchingLib.notifyExtras(intent.getExtras());getActivity().startActivity(intent);
             adapter.lastFeedViewedId = feed.feedId;
             adapter.lastFolderViewed = null;
 		}
