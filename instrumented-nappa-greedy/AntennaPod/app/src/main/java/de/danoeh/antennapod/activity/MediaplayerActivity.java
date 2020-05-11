@@ -393,9 +393,9 @@ public abstract class MediaplayerActivity extends CastEnabledActivity implements
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(MediaplayerActivity.this,
                         cover, "coverTransition");
-                startActivity(intent, options.toBundle());
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent, options.toBundle());
             } else {
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
             finish();
             return true;
@@ -601,7 +601,7 @@ public abstract class MediaplayerActivity extends CastEnabledActivity implements
                         break;
                     case R.id.visit_website_item:
                         Uri uri = Uri.parse(getWebsiteLinkWithFallback(media));
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                        PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());startActivity(new Intent(Intent.ACTION_VIEW, uri));
                         break;
                     case R.id.support_item:
                         if (media instanceof FeedMedia) {

@@ -54,14 +54,14 @@ public class AddFeedFragment extends Fragment {
 
         butSearchFyyd.setOnClickListener(v -> activity.loadChildFragment(new FyydSearchFragment()));
 
-        butOpmlImport.setOnClickListener(v -> startActivity(new Intent(getActivity(),
+        butOpmlImport.setOnClickListener(v -> PrefetchingLib.notifyExtras(getActivity.getExtras());startActivity(new Intent(getActivity(),
                 OpmlImportFromPathActivity.class)));
 
         butConfirm.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
             intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, etxtFeedurl.getText().toString());
             intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, getString(R.string.add_feed_label));
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
         });
 
         return root;

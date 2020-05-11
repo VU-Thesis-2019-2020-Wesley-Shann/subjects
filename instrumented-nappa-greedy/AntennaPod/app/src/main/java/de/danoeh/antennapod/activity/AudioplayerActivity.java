@@ -34,7 +34,7 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
                     !intent.getComponent().getClassName().equals(AudioplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
         }
         PrefetchingLib.setCurrentActivity(this);

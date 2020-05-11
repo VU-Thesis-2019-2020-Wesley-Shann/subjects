@@ -254,7 +254,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent destIntent = new Intent(this, MainActivity.class);
                 if (NavUtils.shouldUpRecreateTask(this, destIntent)) {
-                    startActivity(destIntent);
+                    PrefetchingLib.notifyExtras(destIntent.getExtras());startActivity(destIntent);
                 } else {
                     NavUtils.navigateUpFromSameTask(this);
                 }
@@ -431,7 +431,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
                 // the database
                 intent.putExtra(MainActivity.EXTRA_FEED_ID, getFeedId(feed));
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             } else {
                 Feed f = new Feed(selectedDownloadUrl, null, feed.getTitle());
                 f.setPreferences(feed.getPreferences());

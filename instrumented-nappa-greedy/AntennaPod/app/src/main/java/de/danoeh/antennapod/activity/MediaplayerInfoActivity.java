@@ -238,7 +238,7 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
                 Intent intent = new Intent(MediaplayerInfoActivity.this, MainActivity.class);
                 intent.putExtra(MainActivity.EXTRA_NAV_TYPE, viewType);
                 intent.putExtra(MainActivity.EXTRA_NAV_INDEX, position);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
             drawerLayout.closeDrawer(navDrawer);
         });

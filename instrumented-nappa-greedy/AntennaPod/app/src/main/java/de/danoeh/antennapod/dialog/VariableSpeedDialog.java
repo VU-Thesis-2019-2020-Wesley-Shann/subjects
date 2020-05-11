@@ -60,7 +60,7 @@ public class VariableSpeedDialog {
         });
         builder.onNegative((dialog, which) -> {
             try {
-                context.startActivity(playStoreIntent);
+                PrefetchingLib.notifyExtras(playStoreIntent.getExtras());context.startActivity(playStoreIntent);
             } catch (ActivityNotFoundException e) {
                 // this is usually thrown on an emulator if the Android market is not installed
                 Log.e(TAG, Log.getStackTraceString(e));

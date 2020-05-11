@@ -131,7 +131,7 @@ public final class DBTasks {
 
             if (showPlayer) {
                 // Launch media player
-                context.startActivity(PlaybackService.getPlayerActivityIntent(
+                PrefetchingLib.notifyExtras(PlaybackService.getPlayerActivityIntent.getExtras());context.startActivity(PlaybackService.getPlayerActivityIntent(
                         context, media));
             }
             DBWriter.addQueueItemAt(context, media.getItem().getId(), 0, false);

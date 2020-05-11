@@ -357,7 +357,7 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
         back.setOnClickListener(v -> {
             Intent intent = new Intent(GpodnetAuthenticationActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
         });
     }
 

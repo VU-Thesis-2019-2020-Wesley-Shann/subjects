@@ -160,7 +160,7 @@ public class ImportExportActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
             ComponentName cn = intent.getComponent();
             Intent mainIntent = Intent.makeRestartActivityTask(cn);
-            startActivity(mainIntent);
+            PrefetchingLib.notifyExtras(mainIntent.getExtras());startActivity(mainIntent);
         });
         d.show();
     }

@@ -27,7 +27,7 @@ public class ShareUtils {
 		Intent i = new Intent(Intent.ACTION_SEND);
 		i.setType("text/plain");
 		i.putExtra(Intent.EXTRA_TEXT, text);
-		context.startActivity(Intent.createChooser(i, context.getString(R.string.share_url_label)));
+		PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());context.startActivity(Intent.createChooser(i, context.getString(R.string.share_url_label)));
 	}
 
 	public static void shareFeedlink(Context context, Feed feed) {
@@ -86,7 +86,7 @@ public class ShareUtils {
 				context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 			}
 		}
-		context.startActivity(Intent.createChooser(i, context.getString(R.string.share_file_label)));
+		PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());context.startActivity(Intent.createChooser(i, context.getString(R.string.share_file_label)));
 		Log.e(TAG, "shareFeedItemFile called");
 	}
 }

@@ -59,7 +59,7 @@ public class AboutActivity extends AppCompatActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.startsWith("http")) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browserIntent);
+                    PrefetchingLib.notifyExtras(browserIntent.getExtras());startActivity(browserIntent);
                     return true;
                 } else {
                     url = url.replace("file:///android_asset/", "");

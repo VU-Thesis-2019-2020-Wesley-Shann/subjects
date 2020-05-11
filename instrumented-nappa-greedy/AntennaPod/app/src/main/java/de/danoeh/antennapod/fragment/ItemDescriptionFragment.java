@@ -98,7 +98,7 @@ public class ItemDescriptionFragment extends Fragment {
                 } else {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     try {
-                        startActivity(intent);
+                        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
                         return true;
@@ -162,7 +162,7 @@ public class ItemDescriptionFragment extends Fragment {
                     Uri uri = Uri.parse(selectedURL);
                     final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     if(IntentUtils.isCallable(getActivity(), intent)) {
-                        getActivity().startActivity(intent);
+                        PrefetchingLib.notifyExtras(intent.getExtras());getActivity().startActivity(intent);
                     }
                     break;
                 case R.id.share_url_item:

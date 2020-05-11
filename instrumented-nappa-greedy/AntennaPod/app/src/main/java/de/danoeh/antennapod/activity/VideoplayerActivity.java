@@ -85,7 +85,7 @@ public class VideoplayerActivity extends MediaplayerActivity {
             if (!intent.getComponent().getClassName().equals(VideoplayerActivity.class.getName())) {
                 destroyingDueToReload = true;
                 finish();
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
         }
         PrefetchingLib.setCurrentActivity(this);

@@ -49,7 +49,7 @@ public class FlattrAuthActivity extends AppCompatActivity {
 		butReturn.setOnClickListener(v -> {
             Intent intent = new Intent(FlattrAuthActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
         });
 		
 		butAuthenticate.setOnClickListener(v -> {
@@ -107,7 +107,7 @@ public class FlattrAuthActivity extends AppCompatActivity {
 			if (authSuccessful) {
 				Intent intent = new Intent(this, PreferenceActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
+				PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 			} else {
 				finish();
 			}

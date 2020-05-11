@@ -507,7 +507,7 @@ public class ItemlistFragment extends ListFragment {
                 Intent startIntent = new Intent(getActivity(), FeedSettingsActivity.class);
                 startIntent.putExtra(FeedSettingsActivity.EXTRA_FEED_ID,
                         feed.getId());
-                startActivity(startIntent);
+                PrefetchingLib.notifyExtras(startIntent.getExtras());startActivity(startIntent);
             }
         });
         headerCreated = true;
@@ -518,7 +518,7 @@ public class ItemlistFragment extends ListFragment {
             Intent startIntent = new Intent(getActivity(), FeedInfoActivity.class);
             startIntent.putExtra(FeedInfoActivity.EXTRA_FEED_ID,
                     feed.getId());
-            startActivity(startIntent);
+            PrefetchingLib.notifyExtras(startIntent.getExtras());startActivity(startIntent);
         }
     }
 

@@ -57,7 +57,7 @@ public class OpmlImportBaseActivity extends AppCompatActivity {
 						Intent intent = new Intent(OpmlImportBaseActivity.this, MainActivity.class);
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 								| Intent.FLAG_ACTIVITY_NEW_TASK);
-						startActivity(intent);
+						PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
 					}
 
 				};

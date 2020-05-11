@@ -53,7 +53,7 @@ public class FlattrUtils {
         AndroidAuthenticator auth = createAuthenticator();
         auth.setScope(EnumSet.of(Scope.FLATTR));
         Intent intent = auth.createAuthenticateIntent();
-        context.startActivity(intent);
+        PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
     }
 
     private static AccessToken retrieveToken() {
@@ -191,21 +191,21 @@ public class FlattrUtils {
             builder.setTitle(R.string.no_flattr_token_title);
             builder.setMessage(R.string.no_flattr_token_msg);
             builder.setPositiveButton(R.string.authenticate_now_label,
-                    (dialog, which) -> context.startActivity(
+                    (dialog, which) -> PrefetchingLib.notifyExtras(ClientConfig.flattrCallbacks.getFlattrAuthenticationActivityIntent.getExtras());context.startActivity(
                             ClientConfig.flattrCallbacks.getFlattrAuthenticationActivityIntent(context))
             );
 
             builder.setNegativeButton(R.string.visit_website_label,
                     (dialog, which) -> {
                         Uri uri = Uri.parse(url);
-                        context.startActivity(new Intent(Intent.ACTION_VIEW,
+                        PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());context.startActivity(new Intent(Intent.ACTION_VIEW,
                                 uri));
                     }
             );
             builder.create().show();
         } else {
             Uri uri = Uri.parse(url);
-            context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
         }
     }
 

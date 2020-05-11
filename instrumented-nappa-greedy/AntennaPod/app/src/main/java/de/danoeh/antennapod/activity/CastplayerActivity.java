@@ -25,7 +25,7 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             Intent intent = PlaybackService.getPlayerActivityIntent(this);
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 finish();
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
         }
     }
@@ -64,7 +64,7 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
             }
         }
         super.onResume();
