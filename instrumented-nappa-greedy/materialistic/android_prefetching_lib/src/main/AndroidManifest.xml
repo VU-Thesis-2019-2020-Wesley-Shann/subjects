@@ -1,4 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.vu.cs.s2group">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-</manifest>
