@@ -8,6 +8,8 @@ import android.webkit.WebViewClient;
 import com.newsblur.R;
 import com.newsblur.network.APIConstants;
 
+import nl.vu.cs.s2group.*;
+
 public class AddFacebook extends NbActivity {
 
 	public static final int FACEBOOK_AUTHED = 0x21;
@@ -38,5 +40,10 @@ public class AddFacebook extends NbActivity {
 		
 		webview.loadUrl(APIConstants.buildUrl(APIConstants.PATH_CONNECT_FACEBOOK));
 	}
-	
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

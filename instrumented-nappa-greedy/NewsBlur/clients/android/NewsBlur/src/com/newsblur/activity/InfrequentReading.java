@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.newsblur.R;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class InfrequentReading extends Reading {
 
     @Override
@@ -14,4 +16,9 @@ public class InfrequentReading extends Reading {
         UIUtils.setCustomActionBar(this, R.drawable.ak_icon_allstories, getResources().getString(R.string.infrequent_title));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

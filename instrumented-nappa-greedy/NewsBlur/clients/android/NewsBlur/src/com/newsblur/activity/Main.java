@@ -28,6 +28,7 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.BindView;
 import butterknife.OnClick;
+import nl.vu.cs.s2group.*;
 
 import com.newsblur.R;
 import com.newsblur.fragment.FeedIntelligenceSelectorFragment;
@@ -162,6 +163,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
         folderFeedList.pushUnreadCounts();
         folderFeedList.checkOpenFolderPreferences();
         triggerSync();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
 	@Override

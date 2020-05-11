@@ -10,6 +10,8 @@ import com.newsblur.util.FeedUtils;
 import com.newsblur.util.PrefsUtils;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class InfrequentItemsList extends ItemsList implements InfrequentCutoffChangedListener {
 
 	@Override
@@ -37,4 +39,9 @@ public class InfrequentItemsList extends ItemsList implements InfrequentCutoffCh
         restartReadingSession();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

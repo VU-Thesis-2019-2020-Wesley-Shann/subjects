@@ -6,6 +6,8 @@ import android.view.Menu;
 import com.newsblur.R;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class GlobalSharedStoriesReading extends Reading {
 
     @Override
@@ -20,5 +22,11 @@ public class GlobalSharedStoriesReading extends Reading {
         super.onCreateOptionsMenu(menu);
         menu.removeItem(R.id.menu_reading_markunread);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

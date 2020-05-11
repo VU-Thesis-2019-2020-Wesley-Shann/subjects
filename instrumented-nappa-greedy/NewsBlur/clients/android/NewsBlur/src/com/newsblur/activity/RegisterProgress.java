@@ -9,6 +9,8 @@ import com.newsblur.R;
 import com.newsblur.fragment.RegisterProgressFragment;
 import com.newsblur.util.PrefsUtils;
 
+import nl.vu.cs.s2group.*;
+
 /**
  * Show progress screen while registering request is being processed. This
  * Activity doesn't extend NbActivity because it is one of the few
@@ -38,7 +40,12 @@ public class RegisterProgress extends FragmentActivity {
 			transaction.commit();
 		}
 	}
-	
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }
 
 

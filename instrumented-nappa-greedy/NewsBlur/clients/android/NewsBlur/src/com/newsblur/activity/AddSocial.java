@@ -11,6 +11,8 @@ import android.widget.Button;
 import com.newsblur.R;
 import com.newsblur.fragment.AddSocialFragment;
 
+import nl.vu.cs.s2group.*;
+
 public class AddSocial extends NbActivity {
 
 	private FragmentManager fragmentManager;
@@ -53,4 +55,10 @@ public class AddSocial extends NbActivity {
 			addSocialFragment.setFacebookAuthed();	
 		}
 	}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

@@ -12,6 +12,8 @@ import com.newsblur.util.FeedUtils;
 import com.newsblur.util.PrefConstants;
 import com.newsblur.util.PrefsUtils;
 
+import nl.vu.cs.s2group.*;
+
 /**
  * The very first activity we launch. Checks to see if there is a user logged in yet and then
  * either loads the Main UI or a Login screen as needed.  Also responsible for warming up the
@@ -22,6 +24,7 @@ public class InitActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PrefetchingLib.init(this);
 
         setContentView(R.layout.activity_init);
 
@@ -71,4 +74,9 @@ public class InitActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

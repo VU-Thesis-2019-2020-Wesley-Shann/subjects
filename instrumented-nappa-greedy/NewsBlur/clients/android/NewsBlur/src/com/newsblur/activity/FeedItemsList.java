@@ -13,6 +13,8 @@ import com.newsblur.fragment.RenameFeedFragment;
 import com.newsblur.util.FeedUtils;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class FeedItemsList extends ItemsList {
 
     public static final String EXTRA_FEED = "feed";
@@ -106,4 +108,9 @@ public class FeedItemsList extends ItemsList {
 		return true;
 	}
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

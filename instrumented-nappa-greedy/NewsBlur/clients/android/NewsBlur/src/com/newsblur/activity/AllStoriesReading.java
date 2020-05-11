@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.newsblur.R;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class AllStoriesReading extends Reading {
 
     @Override
@@ -15,4 +17,9 @@ public class AllStoriesReading extends Reading {
         setTitle(getResources().getString(R.string.all_stories_row_title));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

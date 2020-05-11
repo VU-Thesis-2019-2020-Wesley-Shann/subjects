@@ -6,6 +6,8 @@ import com.newsblur.domain.Feed;
 import com.newsblur.util.FeedUtils;
 import com.newsblur.util.UIUtils;
 
+import nl.vu.cs.s2group.*;
+
 public class FeedReading extends Reading {
 
     @Override
@@ -26,4 +28,9 @@ public class FeedReading extends Reading {
         UIUtils.setCustomActionBar(this, feed.faviconUrl, feed.title);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }
