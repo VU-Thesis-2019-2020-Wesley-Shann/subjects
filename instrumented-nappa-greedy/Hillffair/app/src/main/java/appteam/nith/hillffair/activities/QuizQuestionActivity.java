@@ -270,7 +270,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                         Intent in=new Intent(QuizQuestionActivity.this,QuizScoreActivity.class);
                         in.putExtra("score",score);
 
-                        startActivity(in);
+                        PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
                         t.cancel(true);
                     }else{
                         Toast.makeText(QuizQuestionActivity.this,model.getMsg() ,Toast.LENGTH_SHORT);

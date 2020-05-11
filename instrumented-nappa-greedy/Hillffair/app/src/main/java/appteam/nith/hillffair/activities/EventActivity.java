@@ -51,7 +51,7 @@ public class EventActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 Intent i=new Intent(EventActivity.this,ClubActivity.class);
                 i.putExtra(CLUB_NAME,list.get(position).getName());
-                startActivity(i);
+                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
             }
         }));
         showData();

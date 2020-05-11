@@ -112,7 +112,7 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
         if(settings_call){
             Intent in=new Intent(ThemeSelectionActivity.this,SettingsActivity.class);
             overridePendingTransition(0,0);
-            startActivity(in);
+            PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
             finish();
         }
 

@@ -37,7 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,WelcomeActivity.class);
                 in.putExtra("settings_call",true);
 
-                startActivity(in);
+                PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
             }
         });
 
@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,ThemeSelectionActivity.class);
                 in.putExtra("settings_call",true);
 
-                startActivity(in);
+                PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
                 finish();
             }
         });
@@ -60,7 +60,7 @@ public class SettingsActivity extends AppCompatActivity {
         if(item.getItemId()==android.R.id.home){
             Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
             overridePendingTransition(0,0);
-            startActivity(in);
+            PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
             finish();
         }
 
@@ -73,7 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
         overridePendingTransition(0,0);
-        startActivity(in);
+        PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
         finish();
     }
 

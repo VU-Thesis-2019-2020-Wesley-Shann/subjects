@@ -60,7 +60,7 @@ public class BattleDayActivity extends AppCompatActivity {
                 i.putExtra("id",list.get(position).getId());
                 i.putExtra("battleday",true);
 
-                startActivity(i);
+                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
             }
         }));
 

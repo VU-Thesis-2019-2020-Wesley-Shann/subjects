@@ -281,7 +281,7 @@ public class ForgetPassword extends AppCompatActivity {
                     if (returnedResponse) {
                         Toast.makeText(ForgetPassword.this, "Password changed Successfully", Toast.LENGTH_LONG).show();
                       //  Toast.makeText(ForgetPassword.this,pwd , Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        PrefetchingLib.notifyExtras(getApplicationContext.getExtras());startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         loadToast.success();
                         finish();
                     } else {

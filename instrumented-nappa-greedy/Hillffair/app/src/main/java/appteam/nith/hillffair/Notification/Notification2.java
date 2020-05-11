@@ -80,7 +80,7 @@ public class Notification2 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(l_url));
-                    startActivity(i);
+                    PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
                 }
             });
         }

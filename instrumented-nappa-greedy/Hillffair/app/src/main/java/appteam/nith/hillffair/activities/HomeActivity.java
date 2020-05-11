@@ -222,7 +222,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 Uri uri = Uri.parse(uriText);
                 intent.setData(uri);
-                startActivity(Intent.createChooser(intent, "Send Email"));
+                PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, "Send Email"));
                 break;
             case R.id.license:
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
@@ -320,7 +320,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             String phone = number[i];
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:+91" + phone));
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
         }
     }
 

@@ -54,7 +54,7 @@ DbHelper dbHandler;
                 Intent expand = new Intent(getApplicationContext(), Notification2.class);
                 Log.d("afasdf","intent_putextrats"+id+"g12112ddddd"+db_position);
                 expand.putExtra("id",id);
-                 startActivity(expand);
+                 PrefetchingLib.notifyExtras(expand.getExtras());startActivity(expand);
 
             }
         }));
