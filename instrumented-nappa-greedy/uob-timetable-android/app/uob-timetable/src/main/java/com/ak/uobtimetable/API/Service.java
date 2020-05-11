@@ -36,6 +36,7 @@ public class Service {
 
         context = appContext;
         okHttpClient = new OkHttpClient();
+        okHttpClient = PrefetchingLib.getOkHttp(okHttpClient);
         gson = makeGson();
     }
 
