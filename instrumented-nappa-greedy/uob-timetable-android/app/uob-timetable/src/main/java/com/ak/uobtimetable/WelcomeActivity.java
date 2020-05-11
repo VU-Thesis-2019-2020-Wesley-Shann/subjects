@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.ak.uobtimetable.Utilities.AndroidUtilities;
 
+import nl.vu.cs.s2group.*;
+
 /**
  * Splash screen shown when there is no saved preference data.
  */
@@ -67,5 +69,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

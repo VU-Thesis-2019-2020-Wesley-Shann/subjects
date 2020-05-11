@@ -37,6 +37,8 @@ import com.ak.uobtimetable.Utilities.SettingsManager;
 
 import java.util.List;
 
+import nl.vu.cs.s2group.*;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PrefetchingLib.init(this);
         setContentView(R.layout.activity_main);
 
         Logger.getInstance().debug("MainActivity", "onCreate");
@@ -434,6 +437,7 @@ public class MainActivity extends AppCompatActivity
         // Start the session list redraw timer, because we are back to the foreground
         if (frSessions != null)
             frSessions.startRedrawUpdateTimer();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

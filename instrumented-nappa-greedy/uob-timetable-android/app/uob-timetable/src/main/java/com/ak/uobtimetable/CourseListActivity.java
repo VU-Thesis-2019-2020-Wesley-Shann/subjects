@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import nl.vu.cs.s2group.*;
+
 /**
  * Activity which allows the user to select their course.
  */
@@ -50,6 +52,12 @@ public class CourseListActivity extends AppCompatActivity {
 
     private int selectedDepartmentIndex = -1;
     private int selectedLevelIndex = -1;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 
     public enum Args {
         departmentIndex,

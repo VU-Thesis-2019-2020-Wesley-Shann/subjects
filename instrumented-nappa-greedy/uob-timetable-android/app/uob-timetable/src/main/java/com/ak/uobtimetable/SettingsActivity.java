@@ -6,6 +6,8 @@ import android.view.MenuItem;
 
 import com.ak.uobtimetable.Utilities.Logging.Logger;
 
+import nl.vu.cs.s2group.*;
+
 /**
  * Activity which allows the user to configure settings
  */
@@ -37,6 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onResume();
 
         Logger.getInstance().debug("SettingsActivity", "OnResume");
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override
