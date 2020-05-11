@@ -15,6 +15,7 @@ import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.util.IntentUtils;
 import de.danoeh.antennapod.core.util.StorageUtils;
+import nl.vu.cs.s2group.*;
 
 /**
  * Lets the user start the OPML-import process from a path
@@ -65,6 +66,7 @@ public class OpmlImportFromPathActivity extends OpmlImportBaseActivity {
     protected void onResume() {
         super.onResume();
         StorageUtils.checkStorageAvailability(this);
+        PrefetchingLib.setCurrentActivity(this);
     }
 
 

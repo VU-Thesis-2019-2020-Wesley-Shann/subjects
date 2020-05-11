@@ -18,6 +18,7 @@ import de.danoeh.antennapod.BuildConfig;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.util.flattr.FlattrUtils;
+import nl.vu.cs.s2group.*;
 
 /** Guides the user through the authentication process */
 
@@ -73,7 +74,8 @@ public class FlattrAuthActivity extends AppCompatActivity {
 			if (BuildConfig.DEBUG) Log.d(TAG, "Received uri");
 			FlattrUtils.handleCallback(this, uri);
 		}
-	}
+        PrefetchingLib.setCurrentActivity(this);
+    }
 
 	public void handleAuthenticationSuccess() {
 		authSuccessful = true;

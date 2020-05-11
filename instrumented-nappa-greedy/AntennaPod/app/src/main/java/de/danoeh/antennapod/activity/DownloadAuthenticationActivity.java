@@ -15,6 +15,7 @@ import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.service.download.DownloadRequest;
 import de.danoeh.antennapod.core.storage.DownloadRequester;
+import nl.vu.cs.s2group.*;
 
 /**
  * Shows a username and a password text field.
@@ -94,5 +95,11 @@ public class DownloadAuthenticationActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString("username", etxtUsername.getText().toString());
         outState.putString("password", etxtPassword.getText().toString());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

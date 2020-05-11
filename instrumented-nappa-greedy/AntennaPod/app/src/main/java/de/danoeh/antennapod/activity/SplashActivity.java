@@ -15,6 +15,7 @@ import de.danoeh.antennapod.core.storage.PodDBAdapter;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.*;
 
 /**
  * Shows the AntennaPod logo while waiting for the main activity to start
@@ -23,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PrefetchingLib.init(this);
         setContentView(R.layout.splash);
 
         ProgressBar progressBar = findViewById(R.id.progressBar);
@@ -47,5 +49,11 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

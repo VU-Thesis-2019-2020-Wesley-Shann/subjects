@@ -29,6 +29,7 @@ import java.util.Collections;
 import de.danoeh.antennapod.BuildConfig;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.*;
 
 /**
  * Let's the user choose a directory on the storage device. The selected folder
@@ -158,6 +159,7 @@ public class DirectoryChooserActivity extends AppCompatActivity {
         if (fileObserver != null) {
             fileObserver.startWatching();
         }
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

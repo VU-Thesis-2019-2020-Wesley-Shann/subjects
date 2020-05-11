@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.*;
 
 /**
  * Lets the user start the OPML-import process.
@@ -37,4 +38,9 @@ public class OpmlImportFromIntentActivity extends OpmlImportBaseActivity {
         return true;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

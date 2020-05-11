@@ -35,6 +35,7 @@ import de.danoeh.antennapod.core.service.playback.PlayerStatus;
 import de.danoeh.antennapod.core.util.gui.PictureInPictureUtil;
 import de.danoeh.antennapod.core.util.playback.Playable;
 import de.danoeh.antennapod.view.AspectRatioVideoView;
+import nl.vu.cs.s2group.*;
 
 /**
  * Activity for playing video files.
@@ -87,6 +88,7 @@ public class VideoplayerActivity extends MediaplayerActivity {
                 startActivity(intent);
             }
         }
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

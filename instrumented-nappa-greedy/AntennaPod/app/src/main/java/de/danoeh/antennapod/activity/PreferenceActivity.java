@@ -20,6 +20,7 @@ import java.lang.ref.WeakReference;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.preferences.PreferenceController;
+import nl.vu.cs.s2group.*;
 
 /**
  * PreferenceActivity for API 11+. In order to change the behavior of the preference UI, see
@@ -132,6 +133,12 @@ public class PreferenceActivity extends AppCompatActivity implements SearchPrefe
     public void onSearchResultClicked(SearchPreferenceResult result) {
         showPreferenceScreen(result.getResourceFile(), true);
         result.highlight(preferenceUI.getFragment());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     public static class MainFragment extends PreferenceFragmentCompat {

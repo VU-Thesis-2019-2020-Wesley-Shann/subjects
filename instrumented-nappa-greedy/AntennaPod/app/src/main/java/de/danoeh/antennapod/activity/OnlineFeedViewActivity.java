@@ -75,6 +75,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.*;
 
 /**
  * Downloads a feed from a feed URL and parses it. Subclasses can display the
@@ -597,6 +598,12 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             dialog = ab.show();
         });
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     private class FeedViewAuthenticationDialog extends AuthenticationDialog {

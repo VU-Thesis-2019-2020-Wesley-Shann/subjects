@@ -28,6 +28,7 @@ import java.util.Arrays;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nl.vu.cs.s2group.*;
 
 /**
  * Displays the 'import/export' screen
@@ -214,5 +215,11 @@ public class ImportExportActivity extends AppCompatActivity {
             IOUtils.closeQuietly(src);
             IOUtils.closeQuietly(dst);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }
