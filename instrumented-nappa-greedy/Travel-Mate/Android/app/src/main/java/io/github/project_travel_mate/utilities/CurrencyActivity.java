@@ -134,7 +134,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_second_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
-        startActivity(intent);
+        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
     }
 
     @OnClick(R.id.to_field)
@@ -143,7 +143,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_first_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
-        startActivity(intent);
+        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
     }
 
     @OnClick(R.id.button_convert)

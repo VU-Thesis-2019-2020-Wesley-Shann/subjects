@@ -97,7 +97,7 @@ class CityAdapter extends BaseFlipAdapter<City> {
 
         infoHolder.fv1.setOnClickListener(v -> {
             Intent intent = FinalCityInfoActivity.getStartIntent(mContext, city);
-            mContext.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
         });
 
         if (city.getFunFactsCount() < 1) {
@@ -108,17 +108,17 @@ class CityAdapter extends BaseFlipAdapter<City> {
 
         infoHolder.fv3.setOnClickListener(v -> {
             Intent intent = FunFactsActivity.getStartIntent(mContext, city);
-            mContext.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
         });
 
         infoHolder.fv2.setOnClickListener(v -> {
             Intent intent = WeatherActivity.getStartIntent(mContext, city, null);
-            mContext.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
         });
 
         infoHolder.fv4.setOnClickListener(v -> {
             Intent intent = TweetsActivity.getStartIntent(mContext, city);
-            mContext.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
         });
     }
 

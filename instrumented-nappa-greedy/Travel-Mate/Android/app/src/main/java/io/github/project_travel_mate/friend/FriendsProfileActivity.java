@@ -126,7 +126,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
         friendDisplayImage.setOnClickListener(v -> {
             Intent fullScreenIntent = FullScreenImage.getStartIntent(FriendsProfileActivity.this,
                     mFriendImageUri, mFriendName);
-            startActivity(fullScreenIntent);
+            PrefetchingLib.notifyExtras(fullScreenIntent.getExtras());startActivity(fullScreenIntent);
         });
     }
 

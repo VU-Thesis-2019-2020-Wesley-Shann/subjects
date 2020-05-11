@@ -248,7 +248,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             String fullname = mSharedPreferences.getString(USER_NAME, null);
             Intent fullScreenIntent = FullScreenImage.getStartIntent(ProfileActivity.this,
                     imageUri, fullname);
-            startActivity(fullScreenIntent);
+            PrefetchingLib.notifyExtras(fullScreenIntent.getExtras());startActivity(fullScreenIntent);
         });
     }
 
@@ -387,7 +387,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             case R.id.action_qrcode_scan:
                 Intent intent;
                 intent = ShareContactActivity.getStartIntent(ProfileActivity.this);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -406,7 +406,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                                     .putString(USER_TOKEN, null)
                                     .apply();
                             Intent i = LoginActivity.getStartIntent(ProfileActivity.this);
-                            startActivity(i);
+                            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
                             finish();
                         })
                 .setNegativeButton(android.R.string.cancel,
@@ -923,7 +923,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
         intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_profile_text) + " " + profileURI);
         try {
-            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
+            PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
         } catch (android.content.ActivityNotFoundException ex) {
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();

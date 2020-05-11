@@ -104,7 +104,7 @@ public class WorldClockActivity extends AppCompatActivity {
     void fromSelected() {
         flag_check_first_item = true;
         Intent intent = new Intent(mContext, TimezoneListViewActivity.class);
-        startActivity(intent);
+        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
     }
 
     public static Intent getStartIntent(Context context) {

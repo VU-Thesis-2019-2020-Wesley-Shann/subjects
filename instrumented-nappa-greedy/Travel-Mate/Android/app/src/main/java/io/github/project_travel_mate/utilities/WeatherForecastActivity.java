@@ -80,7 +80,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                 (SearchResultListener<CitySearchModel>) (dialog, item, position) -> {
                     Intent intent = WeatherActivity.getStartIntent(WeatherForecastActivity.this, item.getName(),
                             item.getId(), true);
-                    startActivity(intent);
+                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                     dialog.dismiss();
                 }).show();
     }

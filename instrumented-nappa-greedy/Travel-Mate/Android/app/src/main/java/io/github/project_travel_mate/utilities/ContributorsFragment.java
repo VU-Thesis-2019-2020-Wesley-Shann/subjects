@@ -98,10 +98,10 @@ public class ContributorsFragment extends Fragment {
 
         setContributors("Travel-Mate");
         setContributors("server");
-        android_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> startActivity(
+        android_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());startActivity(
                 new Intent(Intent.ACTION_VIEW, Uri.parse(mAndroidContributors.get(i).getUrl()))
         ));
-        server_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> startActivity(
+        server_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());startActivity(
                 new Intent(Intent.ACTION_VIEW, Uri.parse(mServerContributors.get(i).getUrl()))
         ));
         return mContributorsView;
@@ -167,7 +167,7 @@ public class ContributorsFragment extends Fragment {
 
     @OnClick(R.id.contributors_footer)
     void github_project_cardview_clicked() {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/project-travel-mate")));
+        PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/project-travel-mate")));
     }
 
     @Override

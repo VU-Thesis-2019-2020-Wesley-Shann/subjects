@@ -105,7 +105,7 @@ public class FunfactFragment extends Fragment {
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_fun_fact));
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, "Share Screenshot"));
     }
 
     /**
@@ -118,7 +118,7 @@ public class FunfactFragment extends Fragment {
         Uri sourceURI = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, sourceURI);
         if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
-            startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
         } else {
             Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content),
                     R.string.no_activity_for_browser,

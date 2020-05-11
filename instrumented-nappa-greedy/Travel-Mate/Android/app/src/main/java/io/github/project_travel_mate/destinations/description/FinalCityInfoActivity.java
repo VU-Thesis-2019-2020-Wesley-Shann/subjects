@@ -174,7 +174,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
         switch (v.getId()) {
             case R.id.funfact:
                 intent = FunFactsActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 break;
             case R.id.restau:
                 fireIntent(RestaurantsActivity.getStartIntent(FinalCityInfoActivity.this), "restaurant");
@@ -190,20 +190,20 @@ public class FinalCityInfoActivity extends AppCompatActivity
                 break;
             case R.id.trends:
                 intent = TweetsActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 break;
             case R.id.weather:
                 //pass current temperature to weather activity
                 intent = WeatherActivity.getStartIntent(FinalCityInfoActivity.this, mCity, mCurrentTemp);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 break;
             case R.id.city_history:
                 intent = CityHistoryActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 break;
             case R.id.ll_city_map:
                 intent = CityMapActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 break;
             case R.id.image_favourite:
                 toggleFavouriteCity();
@@ -391,7 +391,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
     private void fireIntent(Intent intent, String type) {
         intent.putExtra(EXTRA_MESSAGE_CITY_OBJECT, mCity);
         intent.putExtra(EXTRA_MESSAGE_TYPE, type);
-        startActivity(intent);
+        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
     }
 
     public static Intent getStartIntent(Context context, City city) {

@@ -86,7 +86,7 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
             case R.id.action_map_view :
                 finish();
                 Intent intent = MapViewRealTimeActivity.getStartIntent(ListViewRealTimeActivity.this);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 return true;
             default :
                 return super.onOptionsItemSelected(item);

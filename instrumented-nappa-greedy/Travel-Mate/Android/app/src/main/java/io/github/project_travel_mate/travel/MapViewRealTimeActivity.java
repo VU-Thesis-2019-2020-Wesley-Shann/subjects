@@ -204,7 +204,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             case R.id.action_list_view :
                 finish();
                 Intent intent = ListViewRealTimeActivity.getStartIntent(MapViewRealTimeActivity.this);
-                startActivity(intent);
+                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                 return true;
             default :
                 return super.onOptionsItemSelected(item);
@@ -340,7 +340,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         calls.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + mMapItems.get(mIndex).getNumber()));
-            MapViewRealTimeActivity.this.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());MapViewRealTimeActivity.this.startActivity(intent);
 
         });
         book.setOnClickListener(view -> {
@@ -348,7 +348,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             try {
                 browserIntent = new Intent(
                         Intent.ACTION_VIEW, Uri.parse(mMapItems.get(mIndex).getAddress()));
-                MapViewRealTimeActivity.this.startActivity(browserIntent);
+                PrefetchingLib.notifyExtras(browserIntent.getExtras());MapViewRealTimeActivity.this.startActivity(browserIntent);
             } catch (Exception e) {
                 TravelmateSnackbars.createSnackBar(findViewById(R.id.map_real_time),
                         R.string.no_activity_for_browser, Snackbar.LENGTH_LONG).show();

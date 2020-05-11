@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
         mFragmentManager = getFragmentManager();
         mHotelBookingView.setOnClickListener(v -> {
             Intent hotelIntent = HotelsActivity.getStartIntent(mActivity);
-            startActivity(hotelIntent);
+            PrefetchingLib.notifyExtras(hotelIntent.getExtras());startActivity(hotelIntent);
         });
         mFriendsView.setOnClickListener(v1 -> {
             Fragment friendsFragment = new MyFriendsFragment();

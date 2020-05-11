@@ -115,7 +115,7 @@ public class TweetsActivity extends AppCompatActivity {
                                     tweet -> {
                                         Intent intent = TweetsDescriptionActivity
                                                 .getStartIntent(TweetsActivity.this, tweet.getName());
-                                        startActivity(intent);
+                                        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
                                     });
                             lv.setAdapter(mAdapter);
                             lv.setLayoutManager(new StaggeredGridLayoutManager(2,

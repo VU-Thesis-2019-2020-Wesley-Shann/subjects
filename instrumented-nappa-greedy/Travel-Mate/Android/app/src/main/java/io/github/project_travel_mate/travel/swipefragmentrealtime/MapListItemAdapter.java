@@ -52,7 +52,7 @@ public class MapListItemAdapter extends BaseAdapter {
         holder.call.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + mMapItems.get(position).getNumber()));
-            mContext.startActivity(intent);
+            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
         });
         //when Book is clicked
         holder.book.setOnClickListener(v -> {
@@ -60,7 +60,7 @@ public class MapListItemAdapter extends BaseAdapter {
             try {
                 browserIntent = new Intent(
                         Intent.ACTION_VIEW, Uri.parse(mMapItems.get(position).getAddress()));
-                mContext.startActivity(browserIntent);
+                PrefetchingLib.notifyExtras(browserIntent.getExtras());mContext.startActivity(browserIntent);
             } catch (Exception e) {
                 Activity activity = (Activity) mContext;
                 TravelmateSnackbars.createSnackBar(activity.findViewById(R.id.list_view_realtime),

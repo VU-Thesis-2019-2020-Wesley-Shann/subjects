@@ -256,7 +256,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void startMainActivity() {
         Intent i = MainActivity.getStartIntent(this);
-        startActivity(i);
+        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
         finish();
     }
 

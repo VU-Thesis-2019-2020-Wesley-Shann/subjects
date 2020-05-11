@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
         // TODO :: check for the user_token here & redirect to corresponding class
         // If token is null -> LoginActivity, else MainActivity
         new Handler().postDelayed(() -> {
-            startActivity(i);
+            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
             finish();
         }, 2000);
     }
