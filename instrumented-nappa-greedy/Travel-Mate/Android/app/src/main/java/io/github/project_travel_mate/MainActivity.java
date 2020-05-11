@@ -53,6 +53,7 @@ import io.github.project_travel_mate.utilities.AboutUsFragment;
 import io.github.project_travel_mate.utilities.UtilitiesFragment;
 import io.github.tonnyl.whatsnew.WhatsNew;
 import io.github.tonnyl.whatsnew.item.WhatsNewItem;
+import nl.vu.cs.s2group.*;
 import objects.Trip;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -390,6 +391,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fillNavigationView(mSharedPreferences.getString(USER_NAME, getString(R.string.app_name)),
                 mSharedPreferences.getString(USER_IMAGE, null));
         invalidateOptionsMenu();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     void showProfileOrTrip(String data) {

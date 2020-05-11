@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import java.util.Objects;
 
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 
 public class QuotesActivity extends AppCompatActivity {
 
@@ -50,5 +51,11 @@ public class QuotesActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

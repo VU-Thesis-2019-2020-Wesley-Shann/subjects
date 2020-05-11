@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import nl.vu.cs.s2group.*;
 import utils.TouchImageView;
 
 import static utils.Constants.EXTRA_MESSAGE_IMAGE_URI;
@@ -59,5 +60,11 @@ public class FullScreenImage extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE_IMAGE_URI, uri);
         intent.putExtra(EXTRA_MESSAGE_USER_FULLNAME, title);
         return intent;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

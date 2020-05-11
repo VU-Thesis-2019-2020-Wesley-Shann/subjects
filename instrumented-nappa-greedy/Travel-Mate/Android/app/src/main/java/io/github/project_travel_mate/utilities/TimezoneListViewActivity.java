@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.ZoneName;
 
 public class TimezoneListViewActivity extends Activity implements TextWatcher {
@@ -120,6 +121,12 @@ public class TimezoneListViewActivity extends Activity implements TextWatcher {
     @Override
     public void afterTextChanged(Editable s) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }
 

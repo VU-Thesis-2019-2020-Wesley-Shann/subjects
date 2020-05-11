@@ -31,6 +31,7 @@ import butterknife.ButterKnife;
 import database.AppDataBase;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.destinations.funfacts.FunFactsActivity;
+import nl.vu.cs.s2group.*;
 import objects.City;
 
 import static utils.Constants.EXTRA_MESSAGE_CITY_OBJECT;
@@ -234,6 +235,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

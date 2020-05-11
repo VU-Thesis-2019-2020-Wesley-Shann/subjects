@@ -57,6 +57,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.login.LoginActivity;
 import io.github.project_travel_mate.utilities.ShareContactActivity;
+import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.User;
 import okhttp3.Call;
@@ -927,5 +928,11 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

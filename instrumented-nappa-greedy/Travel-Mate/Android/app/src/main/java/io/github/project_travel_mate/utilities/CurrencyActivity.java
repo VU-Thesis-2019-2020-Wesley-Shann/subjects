@@ -48,6 +48,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.ZoneName;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -399,6 +400,7 @@ public class CurrencyActivity extends AppCompatActivity {
                 second_country_short = CurrencyConverterGlobal.country_id;
             }
         }
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     /**

@@ -29,6 +29,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.TweetDescription;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -162,5 +163,11 @@ public class TweetsDescriptionActivity extends AppCompatActivity {
         Intent intent = new Intent(context, TweetsDescriptionActivity.class);
         intent.putExtra(EXTRA_MESSAGE_HASHTAG_NAME, hashtag);
         return intent;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

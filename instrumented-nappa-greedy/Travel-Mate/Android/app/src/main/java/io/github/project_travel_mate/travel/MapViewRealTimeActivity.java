@@ -43,6 +43,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.MapItem;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -401,5 +402,11 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         animationView.setVisibility(View.VISIBLE);
         animationView.setAnimation(R.raw.network_lost);
         animationView.playAnimation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

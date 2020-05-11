@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.City;
 import utils.Utils;
 
@@ -70,5 +71,11 @@ public class CityMapActivity extends AppCompatActivity {
             CacheManager manager = new CacheManager(cityMap);
             manager.downloadAreaAsync(this, points, 14, 29);
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -36,6 +36,7 @@ import java.util.TimeZone;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.Notification;
 import objects.Trip;
 import objects.User;
@@ -372,5 +373,6 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
     public void onResume() {
         super.onResume();
         getNotifications();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

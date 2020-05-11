@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import utils.CurrencyConverterGlobal;
 
 public class WorldClockActivity extends AppCompatActivity {
@@ -73,6 +74,7 @@ public class WorldClockActivity extends AppCompatActivity {
                 Log.d("Key", timezone_short);
             }
         }
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     /**

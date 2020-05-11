@@ -36,6 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.FullScreenImage;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.FriendCity;
 import objects.Trip;
 import okhttp3.Call;
@@ -349,4 +350,9 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
         animationView.playAnimation();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

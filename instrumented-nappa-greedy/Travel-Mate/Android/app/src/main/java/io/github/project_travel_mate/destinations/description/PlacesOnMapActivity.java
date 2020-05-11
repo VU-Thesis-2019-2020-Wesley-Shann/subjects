@@ -46,6 +46,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.*;
 import objects.City;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -369,6 +370,12 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
     public boolean onMarkerClick(Marker marker, MapView mapView) {
         onPlaceSelected(marker);
         return false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 
     /**

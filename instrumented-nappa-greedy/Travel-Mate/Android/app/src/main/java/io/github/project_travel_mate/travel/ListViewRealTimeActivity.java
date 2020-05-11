@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.travel.swipefragmentrealtime.ViewPageFragmentsAdapter;
+import nl.vu.cs.s2group.*;
 import utils.GPSTracker;
 import utils.TravelmateSnackbars;
 
@@ -120,5 +121,11 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

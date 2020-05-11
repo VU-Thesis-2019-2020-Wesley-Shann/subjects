@@ -11,6 +11,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import com.eftimoff.androipathview.PathView;
 
 import io.github.project_travel_mate.login.LoginActivity;
+import nl.vu.cs.s2group.*;
 
 import static utils.Constants.USER_TOKEN;
 
@@ -20,6 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PrefetchingLib.init(this);
         setContentView(R.layout.activity_splash);
 
         final PathView pathView = findViewById(R.id.pathView);
@@ -45,5 +47,11 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }, 2000);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -40,6 +40,7 @@ import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import nl.vu.cs.s2group.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MultipartBody;
@@ -300,5 +301,11 @@ public class AddNewTripActivity extends AppCompatActivity implements DatePickerD
         Log.d("Month", String.valueOf(month));
         mStartdate = Long.toString(calendar.getTimeInMillis() / 1000);
         tripStartDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import nl.vu.cs.s2group.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -141,4 +142,9 @@ public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompl
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
+    }
 }

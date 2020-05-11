@@ -60,6 +60,7 @@ import io.github.project_travel_mate.FullScreenImage;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
 import io.github.project_travel_mate.friend.FriendsProfileActivity;
+import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.Trip;
 import objects.User;
@@ -828,5 +829,11 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, trip);
         intent.putExtra(EXTRA_MESSAGE_PART_OF_TRIP, isPartoftrip);
         return intent;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PrefetchingLib.setCurrentActivity(this);
     }
 }
