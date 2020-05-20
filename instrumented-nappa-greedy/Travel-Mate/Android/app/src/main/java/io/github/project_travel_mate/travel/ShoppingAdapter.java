@@ -88,7 +88,7 @@ class ShoppingAdapter extends BaseAdapter {
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }
-            PrefetchingLib.notifyExtras(browserIntent.getExtras());mContext.startActivity(browserIntent);
+            mContext.startActivity(browserIntent);
         });
         return convertView;
     }

@@ -31,7 +31,6 @@ import butterknife.ButterKnife;
 import database.AppDataBase;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.destinations.funfacts.FunFactsActivity;
-import nl.vu.cs.s2group.*;
 import objects.City;
 
 import static utils.Constants.EXTRA_MESSAGE_CITY_OBJECT;
@@ -174,7 +173,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
         switch (v.getId()) {
             case R.id.funfact:
                 intent = FunFactsActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.restau:
                 fireIntent(RestaurantsActivity.getStartIntent(FinalCityInfoActivity.this), "restaurant");
@@ -190,20 +189,20 @@ public class FinalCityInfoActivity extends AppCompatActivity
                 break;
             case R.id.trends:
                 intent = TweetsActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.weather:
                 //pass current temperature to weather activity
                 intent = WeatherActivity.getStartIntent(FinalCityInfoActivity.this, mCity, mCurrentTemp);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.city_history:
                 intent = CityHistoryActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.ll_city_map:
                 intent = CityMapActivity.getStartIntent(FinalCityInfoActivity.this, mCity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.image_favourite:
                 toggleFavouriteCity();
@@ -235,7 +234,6 @@ public class FinalCityInfoActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override
@@ -391,7 +389,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
     private void fireIntent(Intent intent, String type) {
         intent.putExtra(EXTRA_MESSAGE_CITY_OBJECT, mCity);
         intent.putExtra(EXTRA_MESSAGE_TYPE, type);
-        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+        startActivity(intent);
     }
 
     public static Intent getStartIntent(Context context, City city) {

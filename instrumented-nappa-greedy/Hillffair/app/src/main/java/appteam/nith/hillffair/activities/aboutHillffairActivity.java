@@ -8,7 +8,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
-import nl.vu.cs.s2group.*;
 
 
 public class aboutHillffairActivity extends AppCompatActivity {
@@ -53,9 +52,4 @@ private Toolbar toolbar;
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

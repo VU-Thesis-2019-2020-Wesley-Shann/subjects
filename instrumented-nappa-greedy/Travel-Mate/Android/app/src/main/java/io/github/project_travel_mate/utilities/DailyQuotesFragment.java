@@ -183,7 +183,7 @@ public class DailyQuotesFragment extends Fragment {
 
             if (PreferenceManager.getDefaultSharedPreferences(getContext()).getString(USER_TOKEN, null) != null) {
                 Intent intent = MainActivity.getStartIntent(getActivity());
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 Objects.requireNonNull(getActivity()).finish();
             }
         }
@@ -242,7 +242,7 @@ public class DailyQuotesFragment extends Fragment {
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_daily_quote));
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        startActivity(Intent.createChooser(intent, "Share Screenshot"));
     }
 
     class ViewHolder {

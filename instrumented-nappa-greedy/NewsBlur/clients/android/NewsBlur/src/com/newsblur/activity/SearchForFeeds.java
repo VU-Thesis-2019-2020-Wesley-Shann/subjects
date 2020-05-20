@@ -27,8 +27,6 @@ import com.newsblur.fragment.AddFeedFragment;
 import com.newsblur.network.SearchAsyncTaskLoader;
 import com.newsblur.network.SearchLoaderResponse;
 
-import nl.vu.cs.s2group.*;
-
 // TODO: this activity's use of the inbuilt activity search facility as well as an improper use of a loader to
 //       make network requests makes it easily lose state, lack non-legacy progress indication, and generally
 //       buggy. a normal layout and a proper use of sync for search results should be implemented.
@@ -161,9 +159,4 @@ public class SearchForFeeds extends NbActivity implements LoaderCallbacks<Search
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

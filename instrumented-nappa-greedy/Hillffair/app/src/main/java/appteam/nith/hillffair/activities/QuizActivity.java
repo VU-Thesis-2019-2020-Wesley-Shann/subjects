@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
-import nl.vu.cs.s2group.*;
 
 public class QuizActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -55,11 +54,5 @@ public class QuizActivity extends AppCompatActivity {
                 startActivity(new Intent(QuizActivity.this,LeaderBoardActivity.class));
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

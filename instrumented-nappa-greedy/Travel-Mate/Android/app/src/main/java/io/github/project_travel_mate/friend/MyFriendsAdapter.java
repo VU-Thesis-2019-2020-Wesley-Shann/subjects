@@ -52,7 +52,7 @@ class MyFriendsAdapter extends RecyclerView.Adapter<MyFriendsAdapter.MyFriendsVi
 
         holder.my_friends_linear_layout.setOnClickListener(v -> {
             Intent intent = FriendsProfileActivity.getStartIntent(mContext, mFriends.get(position).getId());
-            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
+            mContext.startActivity(intent);
         });
 
     }

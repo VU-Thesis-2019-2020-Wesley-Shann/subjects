@@ -10,7 +10,6 @@ import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.adapters.contributorsAdapter;
 import appteam.nith.hillffair.application.SharedPref;
 import appteam.nith.hillffair.models.contributorsItem;
-import nl.vu.cs.s2group.*;
 
 import java.util.ArrayList;
 
@@ -67,11 +66,5 @@ public class ContributorsActivity extends AppCompatActivity {
         lvmanager.setOrientation(LinearLayoutManager.VERTICAL);
         rvContributors.setLayoutManager(lvmanager);
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

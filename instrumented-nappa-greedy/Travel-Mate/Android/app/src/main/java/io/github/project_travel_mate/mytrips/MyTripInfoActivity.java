@@ -60,7 +60,6 @@ import io.github.project_travel_mate.FullScreenImage;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
 import io.github.project_travel_mate.friend.FriendsProfileActivity;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.Trip;
 import objects.User;
@@ -210,7 +209,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
     void cityImageClicked() {
         Intent fullScreenIntent = FullScreenImage.getStartIntent(MyTripInfoActivity.this,
                 mTrip.getImage(), mTrip.getName());
-        PrefetchingLib.notifyExtras(fullScreenIntent.getExtras());startActivity(fullScreenIntent);
+        startActivity(fullScreenIntent);
     }
 
     @OnTextChanged(R.id.friend_email)
@@ -344,7 +343,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                                 e.printStackTrace();
                             }
                             Intent intent = FinalCityInfoActivity.getStartIntent(MyTripInfoActivity.this, city);
-                            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                            startActivity(intent);
                             details.setEnabled(true);
 
                         } catch (JSONException | IOException e) {
@@ -393,7 +392,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
         intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_trip_text) + " " + uri);
         try {
-            PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
+            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
         } catch (android.content.ActivityNotFoundException ex) {
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();
@@ -703,7 +702,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                                             FriendsProfileActivity.class);
                                     intent.putExtra(EXTRA_MESSAGE_FRIEND_ID, tripFriends.get(position).getId());
                                     intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, mTrip);
-                                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                                    startActivity(intent);
                                 });
                             }
                         } catch (JSONException e) {
@@ -829,11 +828,5 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, trip);
         intent.putExtra(EXTRA_MESSAGE_PART_OF_TRIP, isPartoftrip);
         return intent;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

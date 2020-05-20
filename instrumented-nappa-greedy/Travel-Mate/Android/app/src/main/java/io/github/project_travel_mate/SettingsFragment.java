@@ -303,7 +303,7 @@ public class SettingsFragment extends Fragment {
                                                     .apply();
 
                                             Intent intent = LoginActivity.getStartIntent(mActivity);
-                                            PrefetchingLib.notifyExtras(intent.getExtras());mActivity.startActivity(intent);
+                                            mActivity.startActivity(intent);
                                             mActivity.finish();
                                         }
                                     });

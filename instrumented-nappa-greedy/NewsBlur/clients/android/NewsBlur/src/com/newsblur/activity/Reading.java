@@ -676,7 +676,7 @@ public abstract class Reading extends NbActivity implements OnPageChangeListener
             // if there are no unread stories, go back to the feed list
             Intent i = new Intent(this, Main.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+            startActivity(i);
             finish();
         } else {
             // if there are unreads, go to the next one

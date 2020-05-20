@@ -34,7 +34,6 @@ import appteam.nith.hillffair.utilities.APIINTERFACE;
 import appteam.nith.hillffair.utilities.Connection;
 import appteam.nith.hillffair.utilities.ScoreCalculator;
 import appteam.nith.hillffair.utilities.Utils;
-import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -270,7 +269,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                         Intent in=new Intent(QuizQuestionActivity.this,QuizScoreActivity.class);
                         in.putExtra("score",score);
 
-                        PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
+                        startActivity(in);
                         t.cancel(true);
                     }else{
                         Toast.makeText(QuizQuestionActivity.this,model.getMsg() ,Toast.LENGTH_SHORT);
@@ -292,12 +291,6 @@ public class QuizQuestionActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     public static class QuizDialog extends DialogFragment {

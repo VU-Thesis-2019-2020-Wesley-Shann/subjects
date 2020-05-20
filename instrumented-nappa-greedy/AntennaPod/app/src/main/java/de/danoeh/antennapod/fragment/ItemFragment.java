@@ -213,7 +213,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 if(IntentUtils.isCallable(getActivity(), intent)) {
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                    startActivity(intent);
                 }
                 return true;
             }
@@ -256,7 +256,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
                 }
             } else if (item.getLink() != null) {
                 Uri uri = Uri.parse(item.getLink());
-                PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());getActivity().startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                getActivity().startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
 
@@ -496,7 +496,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
                     Uri uri = Uri.parse(selectedURL);
                     final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     if(IntentUtils.isCallable(getActivity(), intent)) {
-                        PrefetchingLib.notifyExtras(intent.getExtras());getActivity().startActivity(intent);
+                        getActivity().startActivity(intent);
                     }
                     break;
                 case R.id.share_url_item:

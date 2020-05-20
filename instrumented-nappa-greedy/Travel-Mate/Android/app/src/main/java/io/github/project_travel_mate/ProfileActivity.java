@@ -57,7 +57,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.login.LoginActivity;
 import io.github.project_travel_mate.utilities.ShareContactActivity;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.User;
 import okhttp3.Call;
@@ -248,7 +247,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             String fullname = mSharedPreferences.getString(USER_NAME, null);
             Intent fullScreenIntent = FullScreenImage.getStartIntent(ProfileActivity.this,
                     imageUri, fullname);
-            PrefetchingLib.notifyExtras(fullScreenIntent.getExtras());startActivity(fullScreenIntent);
+            startActivity(fullScreenIntent);
         });
     }
 
@@ -387,7 +386,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             case R.id.action_qrcode_scan:
                 Intent intent;
                 intent = ShareContactActivity.getStartIntent(ProfileActivity.this);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -406,7 +405,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                                     .putString(USER_TOKEN, null)
                                     .apply();
                             Intent i = LoginActivity.getStartIntent(ProfileActivity.this);
-                            PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                            startActivity(i);
                             finish();
                         })
                 .setNegativeButton(android.R.string.cancel,
@@ -923,16 +922,10 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
         intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_profile_text) + " " + profileURI);
         try {
-            PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
+            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
         } catch (android.content.ActivityNotFoundException ex) {
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

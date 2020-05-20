@@ -78,7 +78,7 @@ public class MutualTripsAdapter extends RecyclerView.Adapter<MutualTripsAdapter.
         holder.date.setText(timeString);
         holder.cityImage.setOnClickListener(v -> {
             Intent intent = MyTripInfoActivity.getStartIntent(mContext, mTrips.get(position));
-            PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
+            mContext.startActivity(intent);
         });
     }
 

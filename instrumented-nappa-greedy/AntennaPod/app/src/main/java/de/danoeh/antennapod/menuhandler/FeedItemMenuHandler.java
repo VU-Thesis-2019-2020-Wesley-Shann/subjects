@@ -223,7 +223,7 @@ public class FeedItemMenuHandler {
                 Uri uri = Uri.parse(FeedItemUtil.getLinkWithFallback(selectedItem));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 if(IntentUtils.isCallable(context, intent)) {
-                    PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
+                    context.startActivity(intent);
                 } else {
                     Toast.makeText(context, context.getString(R.string.download_error_malformed_url),
                             Toast.LENGTH_SHORT).show();

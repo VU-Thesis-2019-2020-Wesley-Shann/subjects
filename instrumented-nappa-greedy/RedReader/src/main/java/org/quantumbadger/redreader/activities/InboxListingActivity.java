@@ -66,8 +66,6 @@ import org.quantumbadger.redreader.views.liststatus.LoadingView;
 import java.net.URI;
 import java.util.UUID;
 
-import nl.vu.cs.s2group.*;
-
 public final class InboxListingActivity extends BaseActivity {
 
 	private static final int OPTIONS_MENU_MARK_ALL_AS_READ = 0;
@@ -94,12 +92,6 @@ public final class InboxListingActivity extends BaseActivity {
 			adapter.appendToGroup(0, (GroupedRecyclerViewAdapter.Item)msg.obj);
 		}
 	};
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
-	}
 
 	private final class InboxItem extends GroupedRecyclerViewAdapter.Item {
 

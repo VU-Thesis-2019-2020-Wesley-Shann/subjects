@@ -77,8 +77,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
-import nl.vu.cs.s2group.*;
-
 public class MainActivity extends RefreshableActivity
 		implements MainMenuSelectionListener,
 		RedditAccountChangeListener,
@@ -123,7 +121,6 @@ public class MainActivity extends RefreshableActivity
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
-		PrefetchingLib.init(this);
 
 		if(!isTaskRoot()
 				&& getIntent().hasCategory(Intent.CATEGORY_LAUNCHER)
@@ -458,7 +455,7 @@ public class MainActivity extends RefreshableActivity
 			case MainMenuFragment.MENU_MENU_ACTION_MODMAIL: {
 				final Intent intent = new Intent(this, InboxListingActivity.class);
 				intent.putExtra("modmail", true);
-				PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+				startActivity(intent);
 				break;
 			}
 		}
@@ -525,7 +522,7 @@ public class MainActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(this, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
-				PrefetchingLib.notifyExtras(intent.getExtras());this.startActivity(intent);
+				this.startActivity(intent);
 				break;
 			}
         }
@@ -815,7 +812,7 @@ public class MainActivity extends RefreshableActivity
 				Intent searchIntent = new Intent(MainActivity.this, CommentListingActivity.class);
 				searchIntent.setData(commentListingController.getUri());
 				searchIntent.putExtra(CommentListingActivity.EXTRA_SEARCH_STRING, query);
-				PrefetchingLib.notifyExtras(searchIntent.getExtras());startActivity(searchIntent);
+				startActivity(searchIntent);
 			}
 		});
 	}
@@ -835,7 +832,7 @@ public class MainActivity extends RefreshableActivity
 		if(postListingController.isSubreddit()) {
 			intent.putExtra("subreddit", postListingController.subredditCanonicalName());
 		}
-		PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+		startActivity(intent);
 	}
 
 	public void onSortSelected(final PostSort order) {
@@ -1028,11 +1025,5 @@ public class MainActivity extends RefreshableActivity
 				onBackPressed();
 			}
 		});
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

@@ -51,8 +51,6 @@ import org.quantumbadger.redreader.views.RedditPostView;
 import java.util.Locale;
 import java.util.UUID;
 
-import nl.vu.cs.s2group.*;
-
 public class PostListingActivity extends RefreshableActivity
 		implements RedditAccountChangeListener,
 		RedditPostView.PostSelectionListener,
@@ -263,7 +261,7 @@ public class PostListingActivity extends RefreshableActivity
 		if(controller.isSubreddit()) {
 			intent.putExtra("subreddit", controller.subredditCanonicalName());
 		}
-		PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+		startActivity(intent);
 	}
 
 	public void onSortSelected(final PostSort order) {
@@ -293,7 +291,7 @@ public class PostListingActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(activity, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
-				PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+				activity.startActivity(intent);
 			}
 		});
 	}
@@ -430,11 +428,5 @@ public class PostListingActivity extends RefreshableActivity
 				invalidateOptionsMenu();
 			}
 		});
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

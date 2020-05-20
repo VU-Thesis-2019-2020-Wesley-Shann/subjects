@@ -24,7 +24,6 @@ import net.steamcrafted.loadtoast.LoadToast;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
-import nl.vu.cs.s2group.*;
 
 /**
  * Created by root on 20/10/16.
@@ -80,7 +79,7 @@ public class Notification2 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(l_url));
-                    PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                    startActivity(i);
                 }
             });
         }
@@ -108,11 +107,5 @@ public class Notification2 extends AppCompatActivity {
         }
 
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

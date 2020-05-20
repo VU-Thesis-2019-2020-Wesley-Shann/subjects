@@ -29,7 +29,6 @@ import android.widget.ProgressBar;
 
 import io.github.hidroh.materialistic.widget.AdBlockWebViewClient;
 import io.github.hidroh.materialistic.widget.CacheableWebView;
-import nl.vu.cs.s2group.*;
 
 public class OfflineWebActivity extends InjectableActivity {
     static final String EXTRA_URL = OfflineWebActivity.class.getName() + ".EXTRA_URL";
@@ -85,11 +84,5 @@ public class OfflineWebActivity extends InjectableActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

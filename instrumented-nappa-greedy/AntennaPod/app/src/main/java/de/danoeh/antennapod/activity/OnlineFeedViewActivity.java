@@ -75,7 +75,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import nl.vu.cs.s2group.*;
 
 /**
  * Downloads a feed from a feed URL and parses it. Subclasses can display the
@@ -254,7 +253,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent destIntent = new Intent(this, MainActivity.class);
                 if (NavUtils.shouldUpRecreateTask(this, destIntent)) {
-                    PrefetchingLib.notifyExtras(destIntent.getExtras());startActivity(destIntent);
+                    startActivity(destIntent);
                 } else {
                     NavUtils.navigateUpFromSameTask(this);
                 }
@@ -431,7 +430,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
                 // the database
                 intent.putExtra(MainActivity.EXTRA_FEED_ID, getFeedId(feed));
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             } else {
                 Feed f = new Feed(selectedDownloadUrl, null, feed.getTitle());
                 f.setPreferences(feed.getPreferences());
@@ -598,12 +597,6 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             dialog = ab.show();
         });
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     private class FeedViewAuthenticationDialog extends AuthenticationDialog {

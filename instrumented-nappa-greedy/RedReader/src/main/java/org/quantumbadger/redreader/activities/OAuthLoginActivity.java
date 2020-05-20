@@ -25,8 +25,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import info.guardianproject.netcipher.web.WebkitProxy;
-import nl.vu.cs.s2group.*;
-
 import org.quantumbadger.redreader.R;
 import org.quantumbadger.redreader.RedReader;
 import org.quantumbadger.redreader.common.PrefsUtility;
@@ -207,6 +205,5 @@ public class OAuthLoginActivity extends BaseActivity {
 			mWebView.resumeTimers();
 			mWebView.onResume();
 		}
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

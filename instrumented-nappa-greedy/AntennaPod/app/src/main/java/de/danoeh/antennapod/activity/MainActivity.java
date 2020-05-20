@@ -71,8 +71,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import nl.vu.cs.s2group.*;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -487,7 +485,6 @@ public class MainActivity extends CastEnabledActivity implements NavDrawerActivi
         }
         loadData();
         RatingDialog.check();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

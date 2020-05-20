@@ -21,7 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.travel.swipefragmentrealtime.ViewPageFragmentsAdapter;
-import nl.vu.cs.s2group.*;
 import utils.GPSTracker;
 import utils.TravelmateSnackbars;
 
@@ -86,7 +85,7 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
             case R.id.action_map_view :
                 finish();
                 Intent intent = MapViewRealTimeActivity.getStartIntent(ListViewRealTimeActivity.this);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 return true;
             default :
                 return super.onOptionsItemSelected(item);
@@ -121,11 +120,5 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -69,15 +69,15 @@ public class TravelFragment extends Fragment implements CardViewOptionsAdapter.O
         switch (position) {
             case 0:
                 i = HotelsActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                startActivity(i);
                 break;
             case 1:
                 i = ShoppingCurrentCityActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                startActivity(i);
                 break;
             case 2:
                 i = MapViewRealTimeActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                startActivity(i);
                 break;
         }
     }

@@ -51,7 +51,7 @@ public abstract class RRFragment {
 	}
 
 	protected final void startActivity(final Intent intent) {
-		PrefetchingLib.notifyExtras(intent.getExtras());mParent.startActivity(intent);
+		mParent.startActivity(intent);
 	}
 
 	protected final void startActivityForResult(final Intent intent, final int requestCode) {

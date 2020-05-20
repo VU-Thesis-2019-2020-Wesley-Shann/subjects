@@ -25,7 +25,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.FunFact;
 
@@ -128,12 +127,6 @@ public class FunFactsActivity extends AppCompatActivity implements FunFactsView 
                 }
             });
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     /**

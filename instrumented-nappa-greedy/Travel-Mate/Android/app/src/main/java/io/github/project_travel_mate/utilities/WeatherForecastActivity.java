@@ -30,7 +30,6 @@ import io.github.project_travel_mate.destinations.description.WeatherActivity;
 import io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
-import nl.vu.cs.s2group.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -80,7 +79,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                 (SearchResultListener<CitySearchModel>) (dialog, item, position) -> {
                     Intent intent = WeatherActivity.getStartIntent(WeatherForecastActivity.this, item.getName(),
                             item.getId(), true);
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                    startActivity(intent);
                     dialog.dismiss();
                 }).show();
     }
@@ -157,11 +156,5 @@ public class WeatherForecastActivity extends AppCompatActivity {
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, WeatherForecastActivity.class);
         return intent;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

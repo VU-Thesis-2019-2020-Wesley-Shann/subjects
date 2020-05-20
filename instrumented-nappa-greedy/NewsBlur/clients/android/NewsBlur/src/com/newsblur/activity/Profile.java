@@ -14,8 +14,6 @@ import com.newsblur.fragment.ProfileDetailsFragment;
 import com.newsblur.network.APIManager;
 import com.newsblur.util.PrefsUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class Profile extends NbActivity {
 
 	private FragmentManager fragmentManager;
@@ -76,13 +74,7 @@ public class Profile extends NbActivity {
 		}
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
-
-    private class LoadUserTask extends AsyncTask<Void, Void, Void> {
+	private class LoadUserTask extends AsyncTask<Void, Void, Void> {
 		private UserDetails user;
 
 		@Override

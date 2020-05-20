@@ -69,9 +69,9 @@ public class ExternalPlayerFragment extends Fragment {
                 if (Build.VERSION.SDK_INT >= 16 && controller.getMedia().getMediaType() == MediaType.AUDIO) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(getActivity(), imgvCover, "coverTransition");
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent, options.toBundle());
+                    startActivity(intent, options.toBundle());
                 } else {
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                    startActivity(intent);
                 }
             }
         });

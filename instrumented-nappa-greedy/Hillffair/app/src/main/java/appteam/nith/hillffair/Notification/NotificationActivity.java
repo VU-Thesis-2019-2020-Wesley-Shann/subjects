@@ -18,7 +18,6 @@ import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.activities.Home_posts_gns;
 import appteam.nith.hillffair.adapters.Notification;
 import appteam.nith.hillffair.application.SharedPref;
-import nl.vu.cs.s2group.*;
 
 public class NotificationActivity extends AppCompatActivity {
 DbHelper dbHandler;
@@ -54,16 +53,11 @@ DbHelper dbHandler;
                 Intent expand = new Intent(getApplicationContext(), Notification2.class);
                 Log.d("afasdf","intent_putextrats"+id+"g12112ddddd"+db_position);
                 expand.putExtra("id",id);
-                 PrefetchingLib.notifyExtras(expand.getExtras());startActivity(expand);
+                 startActivity(expand);
 
             }
         }));
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

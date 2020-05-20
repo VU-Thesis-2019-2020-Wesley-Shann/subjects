@@ -88,9 +88,7 @@ public class MultiPageItemRecyclerViewAdapter
     }
 
     private void openItem(Item item) {
-        PrefetchingLib.notifyExtras(new Intent(mContext, ItemActivity.class)
-                .putExtra(ItemActivity.EXTRA_ITEM, item)
-                .putExtra.getExtras());mContext.startActivity(new Intent(mContext, ItemActivity.class)
+        mContext.startActivity(new Intent(mContext, ItemActivity.class)
                 .putExtra(ItemActivity.EXTRA_ITEM, item)
                 .putExtra(ItemActivity.EXTRA_OPEN_COMMENTS, true));
     }

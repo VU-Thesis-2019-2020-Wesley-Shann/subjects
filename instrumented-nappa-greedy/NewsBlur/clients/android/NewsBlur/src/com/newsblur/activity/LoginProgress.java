@@ -10,8 +10,6 @@ import com.newsblur.R;
 import com.newsblur.fragment.LoginProgressFragment;
 import com.newsblur.util.PrefsUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class LoginProgress extends FragmentActivity {
 
 	private FragmentManager fragmentManager;
@@ -36,10 +34,5 @@ public class LoginProgress extends FragmentActivity {
 			transaction.commit();
 		}
 	}
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
+	
 }

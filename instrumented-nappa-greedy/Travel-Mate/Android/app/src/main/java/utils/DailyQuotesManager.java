@@ -48,7 +48,7 @@ public class DailyQuotesManager {
     }
 
     private static void showDailyQuote(final Context mContext) {
-        PrefetchingLib.notifyExtras(QuotesActivity.getStartIntent.getExtras());mContext.startActivity(QuotesActivity.getStartIntent(mContext));
+        mContext.startActivity(QuotesActivity.getStartIntent(mContext));
     }
 
     public static void dontShowQuotes(Context mContext) {

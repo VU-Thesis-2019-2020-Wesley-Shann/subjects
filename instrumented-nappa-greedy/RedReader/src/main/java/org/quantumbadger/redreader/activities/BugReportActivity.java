@@ -34,8 +34,6 @@ import org.quantumbadger.redreader.common.RRError;
 
 import java.util.LinkedList;
 
-import nl.vu.cs.s2group.*;
-
 public class BugReportActivity extends BaseActivity {
 
 	private static final LinkedList<RRError> errors = new LinkedList<>();
@@ -66,7 +64,7 @@ public class BugReportActivity extends BaseActivity {
 			public void run() {
 				final Intent intent = new Intent(context, BugReportActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
+				context.startActivity(intent);
 			}
 		});
 
@@ -129,7 +127,7 @@ public class BugReportActivity extends BaseActivity {
 				intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
 
 				try {
-					PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, "Email bug report"));
+					startActivity(Intent.createChooser(intent, "Email bug report"));
 				} catch (android.content.ActivityNotFoundException ex) {
 					General.quickToast(BugReportActivity.this, "No email apps installed!");
 				}
@@ -173,11 +171,5 @@ public class BugReportActivity extends BaseActivity {
 				appendException(sb, t.getCause(), recurseLimit - 1);
 			}
 		}
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

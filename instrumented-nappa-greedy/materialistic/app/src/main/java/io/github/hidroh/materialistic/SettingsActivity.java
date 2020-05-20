@@ -27,7 +27,6 @@ import android.view.MenuItem;
 import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
-import nl.vu.cs.s2group.*;
 
 public class SettingsActivity extends DrawerActivity {
     @Inject AlertDialogBuilder mAlertDialogBuilder;
@@ -41,33 +40,23 @@ public class SettingsActivity extends DrawerActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME |
                 ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
         findViewById(R.id.drawer_display).setOnClickListener(v ->
-                PrefetchingLib.notifyExtras(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.display)
-                        .putExtra.getExtras());startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
+                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
                         .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.display)
                         .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_display)));
         findViewById(R.id.drawer_offline).setOnClickListener(v ->
-                PrefetchingLib.notifyExtras(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.offline)
-                        .putExtra.getExtras());startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
+                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
                         .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.offline)
                         .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_offline)));
         findViewById(R.id.menu_list).setOnClickListener(v ->
-                PrefetchingLib.notifyExtras(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.list_display_options)
-                        .putExtra.getExtras());startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
+                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
                         .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.list_display_options)
                         .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_list)));
         findViewById(R.id.menu_comments).setOnClickListener(v ->
-                PrefetchingLib.notifyExtras(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.comments)
-                        .putExtra.getExtras());startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
+                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
                         .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.comments)
                         .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_comments)));
         findViewById(R.id.menu_readability).setOnClickListener(v ->
-                PrefetchingLib.notifyExtras(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.readability)
-                        .putExtra.getExtras());startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
+                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
                         .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.readability)
                         .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_readability)));
         findViewById(R.id.drawer_about).setOnClickListener(v ->
@@ -115,11 +104,5 @@ public class SettingsActivity extends DrawerActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

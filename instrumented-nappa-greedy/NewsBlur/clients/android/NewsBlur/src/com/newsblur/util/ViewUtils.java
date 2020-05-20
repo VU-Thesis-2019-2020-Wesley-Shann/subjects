@@ -35,7 +35,7 @@ public class ViewUtils {
 			public void onClick(View view) {
 				Intent i = new Intent(context, Profile.class);
 				i.putExtra(Profile.USER_ID, userId);
-				PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
+				context.startActivity(i);
 			}
 		});
 		return image;

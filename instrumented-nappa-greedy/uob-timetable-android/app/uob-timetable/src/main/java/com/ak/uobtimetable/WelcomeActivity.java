@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.ak.uobtimetable.Utilities.AndroidUtilities;
 
-import nl.vu.cs.s2group.*;
-
 /**
  * Splash screen shown when there is no saved preference data.
  */
@@ -50,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, CourseListActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                    startActivity(intent);
                 }
                 // Otherwise complain about network connectivity
                 else {
@@ -69,11 +67,5 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -138,7 +138,7 @@ public abstract class ProfileActivityDetailsFragment extends Fragment implements
         if (activity.category == Category.FOLLOW) {
             Intent i = new Intent(context, Profile.class);
             i.putExtra(Profile.USER_ID, activity.withUserId);
-            PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
+            context.startActivity(i);
         } else if (activity.category == Category.FEED_SUBSCRIPTION) {
             Feed feed = FeedUtils.getFeed(activity.feedId);
             if (feed == null) {

@@ -43,7 +43,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.MapItem;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -204,7 +203,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             case R.id.action_list_view :
                 finish();
                 Intent intent = ListViewRealTimeActivity.getStartIntent(MapViewRealTimeActivity.this);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 return true;
             default :
                 return super.onOptionsItemSelected(item);
@@ -340,7 +339,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         calls.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + mMapItems.get(mIndex).getNumber()));
-            PrefetchingLib.notifyExtras(intent.getExtras());MapViewRealTimeActivity.this.startActivity(intent);
+            MapViewRealTimeActivity.this.startActivity(intent);
 
         });
         book.setOnClickListener(view -> {
@@ -348,7 +347,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             try {
                 browserIntent = new Intent(
                         Intent.ACTION_VIEW, Uri.parse(mMapItems.get(mIndex).getAddress()));
-                PrefetchingLib.notifyExtras(browserIntent.getExtras());MapViewRealTimeActivity.this.startActivity(browserIntent);
+                MapViewRealTimeActivity.this.startActivity(browserIntent);
             } catch (Exception e) {
                 TravelmateSnackbars.createSnackBar(findViewById(R.id.map_real_time),
                         R.string.no_activity_for_browser, Snackbar.LENGTH_LONG).show();
@@ -402,11 +401,5 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         animationView.setVisibility(View.VISIBLE);
         animationView.setAnimation(R.raw.network_lost);
         animationView.playAnimation();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

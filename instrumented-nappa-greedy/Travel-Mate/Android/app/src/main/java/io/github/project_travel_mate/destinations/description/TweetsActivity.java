@@ -27,7 +27,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.Tweet;
 import okhttp3.Call;
@@ -115,7 +114,7 @@ public class TweetsActivity extends AppCompatActivity {
                                     tweet -> {
                                         Intent intent = TweetsDescriptionActivity
                                                 .getStartIntent(TweetsActivity.this, tweet.getName());
-                                        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                                        startActivity(intent);
                                     });
                             lv.setAdapter(mAdapter);
                             lv.setLayoutManager(new StaggeredGridLayoutManager(2,
@@ -153,11 +152,5 @@ public class TweetsActivity extends AppCompatActivity {
         Intent intent = new Intent(context, TweetsActivity.class);
         intent.putExtra(EXTRA_MESSAGE_CITY_OBJECT, city);
         return intent;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

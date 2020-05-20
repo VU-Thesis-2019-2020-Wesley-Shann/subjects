@@ -35,7 +35,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -241,9 +240,4 @@ public class ShoppingCurrentCityActivity extends AppCompatActivity {
         animationView.playAnimation();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

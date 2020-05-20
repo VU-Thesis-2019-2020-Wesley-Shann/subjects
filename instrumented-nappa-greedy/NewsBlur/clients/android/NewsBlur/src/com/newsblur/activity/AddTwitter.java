@@ -8,8 +8,6 @@ import android.webkit.WebViewClient;
 import com.newsblur.R;
 import com.newsblur.network.APIConstants;
 
-import nl.vu.cs.s2group.*;
-
 public class AddTwitter extends NbActivity {
 
 	public static final int TWITTER_AUTHED = 0x20;
@@ -40,10 +38,5 @@ public class AddTwitter extends NbActivity {
 		
 		webview.loadUrl(APIConstants.buildUrl(APIConstants.PATH_CONNECT_TWITTER));
 	}
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
+	
 }

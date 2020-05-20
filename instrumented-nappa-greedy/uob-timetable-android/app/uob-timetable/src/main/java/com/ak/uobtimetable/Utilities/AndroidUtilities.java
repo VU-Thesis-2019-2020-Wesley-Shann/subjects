@@ -167,9 +167,9 @@ public class AndroidUtilities {
 
         String appPackageName = activity.getPackageName();
         try {
-            PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
         } catch (android.content.ActivityNotFoundException anfe) {
-            PrefetchingLib.notifyExtras(Intent.ACTION_VIEW.getExtras());activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
         }
     }
 

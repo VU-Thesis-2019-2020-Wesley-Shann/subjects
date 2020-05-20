@@ -79,7 +79,7 @@ public abstract class DrawerActivity extends InjectableActivity {
                     }
                     // TODO M bug https://code.google.com/p/android/issues/detail?id=193822
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                    startActivity(intent);
                     mPendingNavigation = null;
                 }
             }

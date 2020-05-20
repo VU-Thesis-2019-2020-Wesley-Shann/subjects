@@ -9,8 +9,6 @@ import android.view.Window;
 import com.newsblur.R;
 import com.newsblur.fragment.LoginRegisterFragment;
 
-import nl.vu.cs.s2group.*;
-
 public class Login extends FragmentActivity {
     
     @Override
@@ -29,9 +27,4 @@ public class Login extends FragmentActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

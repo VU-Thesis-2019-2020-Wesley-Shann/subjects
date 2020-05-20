@@ -24,8 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import org.quantumbadger.redreader.common.LinkHandler;
 
-import nl.vu.cs.s2group.*;
-
 public class LinkDispatchActivity extends AppCompatActivity {
 
 	private static final String TAG = "LinkDispatchActivity";
@@ -52,11 +50,5 @@ public class LinkDispatchActivity extends AppCompatActivity {
 
 		LinkHandler.onLinkClicked(this, data.toString(), false, null, null, 0, true);
 		finish();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

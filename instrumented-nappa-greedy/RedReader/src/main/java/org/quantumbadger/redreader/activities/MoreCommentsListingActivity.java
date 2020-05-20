@@ -40,8 +40,6 @@ import org.quantumbadger.redreader.views.RedditPostView;
 
 import java.util.ArrayList;
 
-import nl.vu.cs.s2group.*;
-
 public class MoreCommentsListingActivity extends RefreshableActivity
 		implements RedditAccountChangeListener,
 		OptionsMenuUtility.OptionsMenuCommentsListener,
@@ -169,7 +167,7 @@ public class MoreCommentsListingActivity extends RefreshableActivity
 			public void onSearch(@Nullable String query) {
 				Intent searchIntent = getIntent();
 				searchIntent.putExtra(EXTRA_SEARCH_STRING, query);
-				PrefetchingLib.notifyExtras(searchIntent.getExtras());startActivity(searchIntent);
+				startActivity(searchIntent);
 			}
 		});
 	}
@@ -197,11 +195,5 @@ public class MoreCommentsListingActivity extends RefreshableActivity
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

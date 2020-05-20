@@ -41,7 +41,7 @@ public class StorageUtils {
         boolean storageAvailable = storageAvailable();
         if (!storageAvailable) {
             activity.finish();
-            PrefetchingLib.notifyExtras(ClientConfig.applicationCallbacks.getStorageErrorActivity.getExtras());activity.startActivity(ClientConfig.applicationCallbacks.getStorageErrorActivity(activity));
+            activity.startActivity(ClientConfig.applicationCallbacks.getStorageErrorActivity(activity));
         }
         return storageAvailable;
     }

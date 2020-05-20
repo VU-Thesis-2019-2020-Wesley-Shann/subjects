@@ -18,7 +18,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import utils.Compass;
 
 public class CompassActivity extends AppCompatActivity {
@@ -111,7 +110,6 @@ public class CompassActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mCompass.start();
-        PrefetchingLib.setCurrentActivity(this);
     }
     @Override
     protected void onStop() {

@@ -17,7 +17,6 @@ import java.util.List;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.export.opml.OpmlElement;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
-import nl.vu.cs.s2group.*;
 
 /**
  * Displays the feeds that the OPML-Importer has read and lets the user choose
@@ -142,9 +141,4 @@ public class OpmlFeedChooserActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

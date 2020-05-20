@@ -18,8 +18,6 @@ import appteam.nith.hillffair.application.SharedPref;
 import appteam.nith.hillffair.fragments.ProfileTab1;
 import appteam.nith.hillffair.fragments.ProfileTab2;
 import appteam.nith.hillffair.fragments.ProfileTab3;
-import nl.vu.cs.s2group.*;
-
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -106,9 +104,4 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

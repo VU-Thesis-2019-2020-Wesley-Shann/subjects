@@ -25,8 +25,6 @@ import org.quantumbadger.redreader.R;
 import org.quantumbadger.redreader.common.ChangelogManager;
 import org.quantumbadger.redreader.common.PrefsUtility;
 
-import nl.vu.cs.s2group.*;
-
 public class ChangelogActivity extends BaseActivity {
 
 	@Override
@@ -64,11 +62,5 @@ public class ChangelogActivity extends BaseActivity {
 			default:
 				return false;
 		}
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

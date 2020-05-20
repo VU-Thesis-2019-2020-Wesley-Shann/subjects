@@ -7,7 +7,6 @@ import io.github.hidroh.materialistic.InjectableActivity;
 import io.github.hidroh.materialistic.MultiPaneListener;
 import io.github.hidroh.materialistic.R;
 import io.github.hidroh.materialistic.data.WebItem;
-import nl.vu.cs.s2group.*;
 
 import static org.mockito.Mockito.mock;
 
@@ -35,11 +34,5 @@ public class ListActivity extends InjectableActivity implements MultiPaneListene
     @Override
     public boolean isMultiPane() {
         return getResources().getBoolean(R.bool.multi_pane);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -37,8 +37,6 @@ import com.ak.uobtimetable.Utilities.SettingsManager;
 
 import java.util.List;
 
-import nl.vu.cs.s2group.*;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -71,7 +69,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PrefetchingLib.init(this);
         setContentView(R.layout.activity_main);
 
         Logger.getInstance().debug("MainActivity", "onCreate");
@@ -137,7 +134,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, WelcomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+            startActivity(intent);
             return;
         }
 
@@ -261,7 +258,7 @@ public class MainActivity extends AppCompatActivity
 
                     Logger.getInstance().debug("MainActivity", "Triggered developer activity");
 
-                    PrefetchingLib.notifyExtras(getBaseContext.getExtras());startActivity(new Intent(getBaseContext(), DeveloperActivity.class));
+                    startActivity(new Intent(getBaseContext(), DeveloperActivity.class));
                 }
             }
         });
@@ -437,7 +434,6 @@ public class MainActivity extends AppCompatActivity
         // Start the session list redraw timer, because we are back to the foreground
         if (frSessions != null)
             frSessions.startRedrawUpdateTimer();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

@@ -152,7 +152,7 @@ public class LinkHandler {
 				intent.putExtra("albumImageIndex", albumImageIndex);
 			}
 
-			PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+			activity.startActivity(intent);
 			return;
 		}
 
@@ -167,7 +167,7 @@ public class LinkHandler {
 					final Intent intent = new Intent(activity, AlbumListingActivity.class);
 					intent.setData(Uri.parse(url));
 					intent.putExtra("post", post);
-					PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+					activity.startActivity(intent);
 					return;
 				}
 
@@ -196,7 +196,7 @@ public class LinkHandler {
 						intent.putExtra("url", url);
 						intent.putExtra("post", post);
 					}
-					PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+					activity.startActivity(intent);
 					return;
 				}
 
@@ -288,7 +288,7 @@ public class LinkHandler {
 			intent.putExtra("post", post);
 		}
 
-		PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+		activity.startActivity(intent);
 	}
 
 	public static void onLinkLongClicked(AppCompatActivity activity, String uri){
@@ -353,7 +353,7 @@ public class LinkHandler {
 				final Intent mailer = new Intent(Intent.ACTION_SEND);
 				mailer.setType("text/plain");
 				mailer.putExtra(Intent.EXTRA_TEXT, uri);
-				PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
+				activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
 				break;
 			case COPY_URL:
 				ClipboardManager manager = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -364,7 +364,7 @@ public class LinkHandler {
 				try {
 					final Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.setData(Uri.parse(uri));
-					PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+					activity.startActivity(intent);
 				} catch(final ActivityNotFoundException e) {
 					General.quickToast(activity, R.string.error_no_suitable_apps_available);
 				}
@@ -383,7 +383,7 @@ public class LinkHandler {
 			try {
 				final Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(uri);
-				PrefetchingLib.notifyExtras(intent.getExtras());activity.startActivity(intent);
+				activity.startActivity(intent);
 				return true;
 
 			} catch(Exception e) {
@@ -421,7 +421,7 @@ public class LinkHandler {
 				if(!targetIntents.isEmpty()) {
 					chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toArray(new Parcelable[]{}));
 				}
-				PrefetchingLib.notifyExtras(chooserIntent.getExtras());activity.startActivity(chooserIntent);
+				activity.startActivity(chooserIntent);
 
 				return true;
 			}

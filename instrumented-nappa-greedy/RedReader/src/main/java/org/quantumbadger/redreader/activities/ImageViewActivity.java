@@ -86,8 +86,6 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import nl.vu.cs.s2group.*;
-
 public class ImageViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener, ImageViewDisplayListManager.Listener {
 
 	private static final String TAG = "ImageViewActivity";
@@ -430,7 +428,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 						}
 
 						try {
-							PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+							startActivity(intent);
 						} catch(final Throwable t) {
 							General.quickToast(ImageViewActivity.this, R.string.videoview_mode_app_vlc_launch_failed);
 							Log.e(TAG, "VLC failed to launch", t);
@@ -756,7 +754,6 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 		if(surfaceView != null) {
 			surfaceView.onResume();
 		}
-		PrefetchingLib.setCurrentActivity(this);
 	}
 
 	@Override

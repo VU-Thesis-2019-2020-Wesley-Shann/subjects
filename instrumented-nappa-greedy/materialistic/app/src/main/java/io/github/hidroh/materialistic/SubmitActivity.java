@@ -42,7 +42,6 @@ import javax.inject.Inject;
 
 import io.github.hidroh.materialistic.accounts.UserServices;
 import io.github.hidroh.materialistic.annotation.Synthetic;
-import nl.vu.cs.s2group.*;
 
 public class SubmitActivity extends InjectableActivity {
     private static final String HN_GUIDELINES_URL = "https://news.ycombinator.com/newsguidelines.html";
@@ -192,7 +191,7 @@ public class SubmitActivity extends InjectableActivity {
                 Intent intent = new Intent(this, NewActivity.class);
                 intent.putExtra(NewActivity.EXTRA_REFRESH, true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent); // TODO should go to profile instead?
+                startActivity(intent); // TODO should go to profile instead?
                 finish();
             }
         } else if (!isFinishing()) {
@@ -204,7 +203,7 @@ public class SubmitActivity extends InjectableActivity {
     void onError(int message, Uri data) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         if (data != null) {
-            PrefetchingLib.notifyExtras(new Intent(Intent.ACTION_VIEW).setData.getExtras());startActivity(new Intent(Intent.ACTION_VIEW).setData(data));
+            startActivity(new Intent(Intent.ACTION_VIEW).setData(data));
         }
     }
 
@@ -247,12 +246,6 @@ public class SubmitActivity extends InjectableActivity {
         mTitleEditText.setEnabled(!sending);
         mContentEditText.setEnabled(!sending);
         supportInvalidateOptionsMenu();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class SubmitCallback extends UserServices.Callback {

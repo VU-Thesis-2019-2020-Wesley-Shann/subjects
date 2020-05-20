@@ -111,7 +111,7 @@ class NotificationsAdapter extends ArrayAdapter<Notification> {
 
     public void openTripPage(int position) {
         Intent intent = MyTripInfoActivity.getStartIntent(mContext, mNotifications.get(position).getTrip());
-        PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
     class ViewHolder {

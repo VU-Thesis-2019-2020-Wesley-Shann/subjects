@@ -24,7 +24,6 @@ import appteam.nith.hillffair.utilities.Utils;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
-import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -281,7 +280,7 @@ public class ForgetPassword extends AppCompatActivity {
                     if (returnedResponse) {
                         Toast.makeText(ForgetPassword.this, "Password changed Successfully", Toast.LENGTH_LONG).show();
                       //  Toast.makeText(ForgetPassword.this,pwd , Toast.LENGTH_SHORT).show();
-                        PrefetchingLib.notifyExtras(getApplicationContext.getExtras());startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         loadToast.success();
                         finish();
                     } else {
@@ -324,9 +323,4 @@ public class ForgetPassword extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

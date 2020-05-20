@@ -22,7 +22,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import io.github.hidroh.materialistic.data.AlgoliaPopularClient;
-import nl.vu.cs.s2group.*;
 
 public class PopularActivity extends BaseListActivity {
     private static final String STATE_RANGE = "state:range";
@@ -117,9 +116,4 @@ public class PopularActivity extends BaseListActivity {
         getSupportActionBar().setSubtitle(stringRes);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

@@ -61,7 +61,7 @@ public class contributorsAdapter extends RecyclerView.Adapter<contributorsAdapte
                 public void onClick(View v) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
-                    PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
+                    context.startActivity(i);
                 }
             });
         }

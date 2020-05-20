@@ -34,7 +34,6 @@ import adapters.RestaurantsCardViewAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.RestaurantDetails;
 import okhttp3.Call;
@@ -101,7 +100,6 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         super.onResume();
 
         getRestaurantItems();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

@@ -21,7 +21,6 @@ import appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
-import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +59,7 @@ public class BattleDayActivity extends AppCompatActivity {
                 i.putExtra("id",list.get(position).getId());
                 i.putExtra("battleday",true);
 
-                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                startActivity(i);
             }
         }));
 
@@ -102,9 +101,4 @@ public class BattleDayActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

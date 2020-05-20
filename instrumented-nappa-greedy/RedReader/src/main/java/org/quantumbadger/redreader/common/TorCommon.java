@@ -43,7 +43,7 @@ public class TorCommon {
 		notInstalled.setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int id) {
-				PrefetchingLib.notifyExtras(OrbotHelper.getOrbotInstallIntent.getExtras());context.startActivity(OrbotHelper.getOrbotInstallIntent(context));
+				context.startActivity(OrbotHelper.getOrbotInstallIntent(context));
 				dialog.dismiss();
 			}
 		});

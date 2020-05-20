@@ -31,7 +31,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.City;
 import objects.Weather;
 import okhttp3.Call;
@@ -354,11 +353,5 @@ public class WeatherActivity extends AppCompatActivity {
             animationView.cancelAnimation();
             animationView.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

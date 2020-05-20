@@ -13,7 +13,6 @@ import java.util.Objects;
 
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 
 public class ChecklistActivity extends AppCompatActivity {
 
@@ -51,11 +50,5 @@ public class ChecklistActivity extends AppCompatActivity {
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, ChecklistActivity.class);
         return intent;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

@@ -8,7 +8,6 @@ import android.view.View;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import de.danoeh.antennapod.core.service.playback.PlaybackService;
-import nl.vu.cs.s2group.*;
 
 /**
  * Activity for controlling the remote playback on a Cast device.
@@ -25,7 +24,7 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             Intent intent = PlaybackService.getPlayerActivityIntent(this);
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 finish();
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             }
         }
     }
@@ -64,11 +63,10 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             }
         }
         super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

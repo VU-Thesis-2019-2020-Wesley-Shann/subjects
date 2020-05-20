@@ -6,8 +6,6 @@ import com.newsblur.domain.SocialFeed;
 import com.newsblur.util.FeedUtils;
 import com.newsblur.util.UIUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class SocialFeedReading extends Reading {
 
     @Override
@@ -18,9 +16,4 @@ public class SocialFeedReading extends Reading {
         UIUtils.setCustomActionBar(this, socialFeed.photoUrl, socialFeed.feedTitle);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

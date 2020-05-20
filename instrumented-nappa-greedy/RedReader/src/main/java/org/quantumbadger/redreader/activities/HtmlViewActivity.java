@@ -30,8 +30,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import nl.vu.cs.s2group.*;
-
 public class HtmlViewActivity extends BaseActivity {
 
 	private WebViewFragment webView;
@@ -63,7 +61,7 @@ public class HtmlViewActivity extends BaseActivity {
 
 		final Intent intent = new Intent(context, HtmlViewActivity.class);
 		intent.putExtra("html", html);
-		PrefetchingLib.notifyExtras(intent.getExtras());context.startActivity(intent);
+		context.startActivity(intent);
 	}
 
 	public void onCreate(final Bundle savedInstanceState) {
@@ -94,11 +92,5 @@ public class HtmlViewActivity extends BaseActivity {
 
 		if(General.onBackPressed() && !webView.onBackButtonPressed())
 			super.onBackPressed();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

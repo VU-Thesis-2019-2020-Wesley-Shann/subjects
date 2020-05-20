@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import appteam.nith.hillffair.R;
 import appteam.nith.hillffair.application.SharedPref;
-import nl.vu.cs.s2group.*;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -37,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,WelcomeActivity.class);
                 in.putExtra("settings_call",true);
 
-                PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
+                startActivity(in);
             }
         });
 
@@ -47,7 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,ThemeSelectionActivity.class);
                 in.putExtra("settings_call",true);
 
-                PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
+                startActivity(in);
                 finish();
             }
         });
@@ -60,7 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
         if(item.getItemId()==android.R.id.home){
             Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
             overridePendingTransition(0,0);
-            PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
+            startActivity(in);
             finish();
         }
 
@@ -73,13 +72,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
         overridePendingTransition(0,0);
-        PrefetchingLib.notifyExtras(in.getExtras());startActivity(in);
+        startActivity(in);
         finish();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

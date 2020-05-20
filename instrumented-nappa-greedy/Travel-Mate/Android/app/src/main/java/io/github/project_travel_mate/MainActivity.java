@@ -53,7 +53,6 @@ import io.github.project_travel_mate.utilities.AboutUsFragment;
 import io.github.project_travel_mate.utilities.UtilitiesFragment;
 import io.github.tonnyl.whatsnew.WhatsNew;
 import io.github.tonnyl.whatsnew.item.WhatsNewItem;
-import nl.vu.cs.s2group.*;
 import objects.Trip;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -264,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             .putString(USER_TOKEN, null)
                                             .apply();
                                     Intent i = LoginActivity.getStartIntent(MainActivity.this);
-                                    PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                                    startActivity(i);
                                     finish();
                                 })
                         .setNegativeButton(android.R.string.cancel,
@@ -327,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageView imageView = navigationHeader.findViewById(R.id.image);
         Picasso.with(MainActivity.this).load(imageURL).placeholder(R.drawable.icon_profile)
                 .error(R.drawable.icon_profile).into(imageView);
-        imageView.setOnClickListener(v -> PrefetchingLib.notifyExtras(ProfileActivity.getStartIntent.getExtras());startActivity(ProfileActivity.getStartIntent(MainActivity.this)));
+        imageView.setOnClickListener(v -> startActivity(ProfileActivity.getStartIntent(MainActivity.this)));
     }
 
     private void getProfileInfo() {
@@ -391,7 +390,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fillNavigationView(mSharedPreferences.getString(USER_NAME, getString(R.string.app_name)),
                 mSharedPreferences.getString(USER_IMAGE, null));
         invalidateOptionsMenu();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     void showProfileOrTrip(String data) {
@@ -403,10 +401,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             int id = Integer.parseInt(userId);
             if (!userId.equals(myId)) {
                 Intent intent = FriendsProfileActivity.getStartIntent(MainActivity.this, id);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             } else {
                 Intent intent = ProfileActivity.getStartIntent(MainActivity.this);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             }
         } else {
             String tripID = uri.getQueryParameter(SHARE_TRIP_TRIP_ID_QUERY);
@@ -415,7 +413,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Trip trip = new Trip();
                 trip.setId(tripID);
                 Intent intent = MyTripInfoActivity.getStartIntent(MainActivity.this,  trip, false);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             }
         }
     }
@@ -474,7 +472,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.action_notification:
                 Intent intent = NotificationsActivity.getStartIntent(MainActivity.this);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

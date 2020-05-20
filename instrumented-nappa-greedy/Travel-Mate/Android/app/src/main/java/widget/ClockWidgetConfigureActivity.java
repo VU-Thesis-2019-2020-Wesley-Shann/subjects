@@ -18,7 +18,6 @@ import java.util.TimeZone;
 import butterknife.OnClick;
 import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.utilities.TimezoneListViewActivity;
-import nl.vu.cs.s2group.*;
 
 /**
  * The configuration screen for the {@link ClockWidget ClockWidget} AppWidget.
@@ -118,12 +117,6 @@ public class ClockWidgetConfigureActivity extends Activity implements AdapterVie
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }
 

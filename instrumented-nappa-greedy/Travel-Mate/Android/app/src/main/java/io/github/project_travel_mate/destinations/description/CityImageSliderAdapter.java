@@ -49,7 +49,7 @@ public class CityImageSliderAdapter extends PagerAdapter {
         imageView.setOnClickListener(v -> {
             Intent fullScreenIntent = FullScreenImage.getStartIntent(mContext,
                     mImagesArray.get(position), mCityName);
-            PrefetchingLib.notifyExtras(fullScreenIntent.getExtras());mContext.startActivity(fullScreenIntent);
+            mContext.startActivity(fullScreenIntent);
         });
         return imageView;
     }

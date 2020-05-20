@@ -46,7 +46,6 @@ import io.reactivex.MaybeOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import nl.vu.cs.s2group.*;
 
 /**
  * Displays information about a feed.
@@ -340,12 +339,6 @@ public class FeedSettingsActivity extends AppCompatActivity {
             rdoFilterExclude.setEnabled(enabled);
             etxtFilterText.setEnabled(enabled);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     private static class ApplyToEpisodesDialog extends ConfirmationDialog {

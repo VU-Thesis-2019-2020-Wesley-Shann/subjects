@@ -211,7 +211,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     | Intent.FLAG_ACTIVITY_NEW_TASK);
                             activity.finish();
-                            PrefetchingLib.notifyExtras(i.getExtras());activity.startActivity(i);
+                            activity.startActivity(i);
                             return true;
                         }
                 );
@@ -261,7 +261,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
 
         ui.findPreference(PreferenceController.IMPORT_EXPORT).setOnPreferenceClickListener(
                 preference -> {
-                    PrefetchingLib.notifyExtras(activity.getExtras());activity.startActivity(new Intent(activity, ImportExportActivity.class));
+                    activity.startActivity(new Intent(activity, ImportExportActivity.class));
                     return true;
                 }
         );
@@ -271,7 +271,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                 preference -> export(new HtmlWriter()));
         ui.findPreference(PreferenceController.PREF_OPML_IMPORT).setOnPreferenceClickListener(
                 preference -> {
-                    PrefetchingLib.notifyExtras(activity.getExtras());activity.startActivity(new Intent(activity, OpmlImportFromPathActivity.class));
+                    activity.startActivity(new Intent(activity, OpmlImportFromPathActivity.class));
                     return true;
                 });
         ui.findPreference(PreferenceController.PREF_CHOOSE_DATA_DIR).setOnPreferenceClickListener(
@@ -529,13 +529,13 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
 
         ui.findPreference(PreferenceController.PREF_ABOUT).setOnPreferenceClickListener(
                 preference -> {
-                    PrefetchingLib.notifyExtras(activity.getExtras());activity.startActivity(new Intent(activity, AboutActivity.class));
+                    activity.startActivity(new Intent(activity, AboutActivity.class));
                     return true;
                 }
         );
         ui.findPreference(PreferenceController.STATISTICS).setOnPreferenceClickListener(
                 preference -> {
-                    PrefetchingLib.notifyExtras(activity.getExtras());activity.startActivity(new Intent(activity, StatisticsActivity.class));
+                    activity.startActivity(new Intent(activity, StatisticsActivity.class));
                     return true;
                 }
         );
@@ -567,7 +567,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                     context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 }
             }
-            PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());ui.getActivity().startActivity(Intent.createChooser(emailIntent, intentTitle));
+            ui.getActivity().startActivity(Intent.createChooser(emailIntent, intentTitle));
             return true;
         });
     }
@@ -666,7 +666,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                                 context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                             }
                         }
-                        PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());context.startActivity(Intent.createChooser(sendIntent,
+                        context.startActivity(Intent.createChooser(sendIntent,
                                 context.getResources().getText(R.string.send_label)));
                     });
                     alert.create().show();
@@ -681,7 +681,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
     private void openInBrowser(String url) {
         try {
             Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            PrefetchingLib.notifyExtras(myIntent.getExtras());ui.getActivity().startActivity(myIntent);
+            ui.getActivity().startActivity(myIntent);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(ui.getActivity(), R.string.pref_no_browser_found, Toast.LENGTH_LONG).show();
             Log.e(TAG, Log.getStackTraceString(e));

@@ -48,7 +48,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import objects.ZoneName;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -134,7 +133,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_second_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
-        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+        startActivity(intent);
     }
 
     @OnClick(R.id.to_field)
@@ -143,7 +142,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_first_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
-        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+        startActivity(intent);
     }
 
     @OnClick(R.id.button_convert)
@@ -400,7 +399,6 @@ public class CurrencyActivity extends AppCompatActivity {
                 second_country_short = CurrencyConverterGlobal.country_id;
             }
         }
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     /**

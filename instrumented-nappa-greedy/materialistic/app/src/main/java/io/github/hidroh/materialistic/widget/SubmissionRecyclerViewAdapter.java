@@ -98,14 +98,12 @@ public class SubmissionRecyclerViewAdapter extends ItemRecyclerViewAdapter<Submi
     }
 
     private void openItem(Item item) {
-        PrefetchingLib.notifyExtras(new Intent(mContext, ItemActivity.class)
-                .putExtra.getExtras());mContext.startActivity(new Intent(mContext, ItemActivity.class)
+        mContext.startActivity(new Intent(mContext, ItemActivity.class)
                 .putExtra(ItemActivity.EXTRA_ITEM, item));
     }
 
     private void openPreview(Item item) {
-        PrefetchingLib.notifyExtras(new Intent(mContext, ThreadPreviewActivity.class)
-                .putExtra.getExtras());mContext.startActivity(new Intent(mContext, ThreadPreviewActivity.class)
+        mContext.startActivity(new Intent(mContext, ThreadPreviewActivity.class)
                 .putExtra(ThreadPreviewActivity.EXTRA_ITEM, item));
     }
 }

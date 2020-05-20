@@ -35,7 +35,6 @@ import de.danoeh.antennapod.core.gpoddernet.model.GpodnetDevice;
 import de.danoeh.antennapod.core.preferences.GpodnetPreferences;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.service.GpodnetSyncService;
-import nl.vu.cs.s2group.*;
 
 /**
  * Guides the user through the authentication process
@@ -357,7 +356,7 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
         back.setOnClickListener(v -> {
             Intent intent = new Intent(GpodnetAuthenticationActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+            startActivity(intent);
         });
     }
 
@@ -395,11 +394,5 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
         } else {
             finish();
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

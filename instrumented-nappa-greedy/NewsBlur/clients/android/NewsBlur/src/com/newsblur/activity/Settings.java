@@ -10,8 +10,6 @@ import com.newsblur.util.PrefConstants;
 import com.newsblur.util.PrefsUtils;
 import com.newsblur.util.UIUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class Settings extends FragmentActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
@@ -53,11 +51,5 @@ public class Settings extends FragmentActivity implements SharedPreferences.OnSh
         if (key.equals(PrefConstants.THEME)) {
             UIUtils.restartActivity(this);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

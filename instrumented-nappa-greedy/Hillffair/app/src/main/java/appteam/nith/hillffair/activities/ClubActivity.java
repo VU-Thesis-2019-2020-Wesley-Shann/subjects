@@ -25,7 +25,6 @@ import appteam.nith.hillffair.models.BattleEventResponse;
 import appteam.nith.hillffair.models.ClubModel;
 import appteam.nith.hillffair.models.ClubModel2;
 import appteam.nith.hillffair.utilities.Utils;
-import nl.vu.cs.s2group.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -178,12 +177,6 @@ public class ClubActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
 

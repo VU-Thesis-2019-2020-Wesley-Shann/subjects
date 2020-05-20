@@ -171,7 +171,7 @@ public class SetupCommentSectionTask extends AsyncTask<Void, Void, Void> {
 						public void onClick(View view) {
 							Intent i = new Intent(context, Profile.class);
 							i.putExtra(Profile.USER_ID, replyUser.userId);
-							PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
+							context.startActivity(i);
 						}
 					});
 					
@@ -240,7 +240,7 @@ public class SetupCommentSectionTask extends AsyncTask<Void, Void, Void> {
 				public void onClick(View view) {
 					Intent i = new Intent(context, Profile.class);
 					i.putExtra(Profile.USER_ID, comment.userId);
-					PrefetchingLib.notifyExtras(i.getExtras());context.startActivity(i);
+					context.startActivity(i);
 				}
 			});
 

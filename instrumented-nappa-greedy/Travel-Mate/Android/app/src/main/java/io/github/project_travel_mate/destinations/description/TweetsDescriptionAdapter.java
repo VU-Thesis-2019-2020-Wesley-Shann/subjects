@@ -71,7 +71,7 @@ public class TweetsDescriptionAdapter extends RecyclerView.Adapter<TweetsDescrip
         holder.itemView.setOnClickListener(v -> {
             Intent viewIntent =
                     new Intent(Intent.ACTION_VIEW, Uri.parse(tweet.getUrl()));
-            PrefetchingLib.notifyExtras(viewIntent.getExtras());mContext.startActivity(viewIntent);
+            mContext.startActivity(viewIntent);
         });
     }
 

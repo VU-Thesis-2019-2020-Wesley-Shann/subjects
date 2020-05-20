@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
-import nl.vu.cs.s2group.*;
 
 import com.newsblur.R;
 import com.newsblur.fragment.AddFeedFragment;
@@ -61,9 +60,4 @@ public class AddFeedExternal extends NbActivity implements AddFeedFragment.AddFe
         ; // we don't care about anything but completion
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

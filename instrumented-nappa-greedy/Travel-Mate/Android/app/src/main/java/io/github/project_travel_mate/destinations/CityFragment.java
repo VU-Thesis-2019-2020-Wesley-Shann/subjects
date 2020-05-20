@@ -153,7 +153,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         lv.setOnItemClickListener((parent, mView, position, id1) -> {
             City city = (City) lv.getAdapter().getItem(position);
             Intent intent = FinalCityInfoActivity.getStartIntent(mActivity, city);
-            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+            startActivity(intent);
         });
 
         return view;
@@ -345,7 +345,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
                         mMaterialSearchView.setAdapter(dataAdapter);
                         mMaterialSearchView.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
                             Intent intent = FinalCityInfoActivity.getStartIntent(mActivity, cities.get(arg2));
-                            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                            startActivity(intent);
                         });
                     } catch (JSONException e) {
                         Log.e(TAG, "Error parsing JSON, " + e.getMessage());

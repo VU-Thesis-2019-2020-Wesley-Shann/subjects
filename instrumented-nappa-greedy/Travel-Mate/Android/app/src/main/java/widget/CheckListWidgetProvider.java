@@ -35,9 +35,9 @@ public class CheckListWidgetProvider extends AppWidgetProvider {
                     appWidgetId);
 
             Intent startActivityIntent = new Intent(context, ChecklistActivity.class);
-            PendingIntent startActivityPendingIntent = PrefetchingLib.notifyExtras(context.getExtras());PendingIntent.getActivity(context,
+            PendingIntent startActivityPendingIntent = PendingIntent.getActivity(context,
                     0, startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            PrefetchingLib.notifyExtras(R.id.check_list_view.getExtras());remoteViews.setPendingIntentTemplate(R.id.check_list_view, startActivityPendingIntent);
+            remoteViews.setPendingIntentTemplate(R.id.check_list_view, startActivityPendingIntent);
 
 
             remoteViews.setOnClickPendingIntent(R.id.image_checkbox, getPendingSelfIntent(context, MyOnClick));

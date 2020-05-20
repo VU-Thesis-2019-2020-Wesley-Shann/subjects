@@ -5,8 +5,6 @@ import android.os.Bundle;
 import com.newsblur.R;
 import com.newsblur.util.UIUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class SavedStoriesItemsList extends ItemsList {
 
 	@Override
@@ -20,9 +18,4 @@ public class SavedStoriesItemsList extends ItemsList {
         UIUtils.setCustomActionBar(this, R.drawable.clock, title);
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

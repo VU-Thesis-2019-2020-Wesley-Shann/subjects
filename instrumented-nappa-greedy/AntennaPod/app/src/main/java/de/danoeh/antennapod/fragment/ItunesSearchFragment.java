@@ -125,7 +125,7 @@ public class ItunesSearchFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
                 intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, podcast.feedUrl);
                 intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, "iTunes");
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             } else {
                 gridView.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
@@ -160,7 +160,7 @@ public class ItunesSearchFragment extends Fragment {
                             Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
                             intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, feedUrl);
                             intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, "iTunes");
-                            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                            startActivity(intent);
                         }, error -> {
                             Log.e(TAG, Log.getStackTraceString(error));
                             progressBar.setVisibility(View.GONE);

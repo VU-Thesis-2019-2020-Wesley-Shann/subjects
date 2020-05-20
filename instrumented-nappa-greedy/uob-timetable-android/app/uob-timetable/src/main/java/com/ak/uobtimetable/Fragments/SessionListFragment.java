@@ -102,7 +102,7 @@ public class SessionListFragment extends Fragment {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (AndroidUtilities.hasNetwork(getContext())) {
                                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(settings.getTimetableUrl()));
-                                PrefetchingLib.notifyExtras(browserIntent.getExtras());startActivity(browserIntent);
+                                startActivity(browserIntent);
                             } else {
                                 ((MainActivity)getActivity()).showNoInternetConnectionSnackbar();
                             }

@@ -43,7 +43,6 @@ import io.github.project_travel_mate.R;
 import io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
-import nl.vu.cs.s2group.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -322,12 +321,6 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(KEY_SELECTED_CITY, mSelectedCity);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     // TODO :: Move adapter to a new class

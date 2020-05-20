@@ -27,7 +27,6 @@ import android.view.Window;
 
 import io.github.hidroh.materialistic.InjectableActivity;
 import io.github.hidroh.materialistic.R;
-import nl.vu.cs.s2group.*;
 
 public class WidgetConfigActivity extends InjectableActivity {
     private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
@@ -67,12 +66,6 @@ public class WidgetConfigActivity extends InjectableActivity {
         new WidgetHelper(this).configure(mAppWidgetId);
         setResult(RESULT_OK, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId));
         finish();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     public static class WidgetConfigurationFragment extends PreferenceFragmentCompat {

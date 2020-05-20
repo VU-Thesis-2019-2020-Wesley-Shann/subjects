@@ -20,8 +20,6 @@ import com.ak.uobtimetable.Utilities.SettingsManager;
 
 import java.util.List;
 
-import nl.vu.cs.s2group.*;
-
 /**
  * Hidden activity which displays the application log.
  */
@@ -145,7 +143,6 @@ public class DeveloperActivity extends AppCompatActivity {
         super.onResume();
 
         Logger.getInstance().debug("DeveloperActivity", "OnResume");
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

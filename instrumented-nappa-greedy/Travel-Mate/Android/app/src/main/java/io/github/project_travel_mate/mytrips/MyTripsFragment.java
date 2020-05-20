@@ -91,7 +91,7 @@ public class MyTripsFragment extends Fragment implements SwipeRefreshLayout.OnRe
             Intent intent = MyTripInfoActivity.getStartIntent(mActivity.getApplicationContext(),
                     trip);
             intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
-            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+            startActivity(intent);
         });
         mRecyclerView.setAdapter(mMyTripsAdapter);
         mytrip();

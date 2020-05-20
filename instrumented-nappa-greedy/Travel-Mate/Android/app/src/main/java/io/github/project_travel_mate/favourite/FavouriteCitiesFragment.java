@@ -77,7 +77,7 @@ public class FavouriteCitiesFragment extends Fragment {
         fav_cities_lv.setOnItemClickListener((parent, mView, position, id1) -> {
             City city = (City) fav_cities_lv.getAdapter().getItem(position);
             Intent intent = FinalCityInfoActivity.getStartIntent(getActivity(), city);
-            PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+            startActivity(intent);
         });
     }
 

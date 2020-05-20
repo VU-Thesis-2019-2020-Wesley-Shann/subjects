@@ -76,27 +76,27 @@ public class UtilitiesFragment extends Fragment implements CardViewOptionsAdapte
         switch (position) {
             case 0:
                 intent = ChecklistActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case 1:
                 intent = WeatherForecastActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case 2:
                 intent = CompassActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case 3:
                 intent = CurrencyActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case 4:
                 intent = WorldClockActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
             case 5:
                 intent = UpcomingWeekendsActivity.getStartIntent(mActivity);
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
                 break;
         }
     }

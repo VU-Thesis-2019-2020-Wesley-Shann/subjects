@@ -5,8 +5,6 @@ import android.os.Bundle;
 import com.newsblur.R;
 import com.newsblur.util.UIUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class GlobalSharedStoriesItemsList extends ItemsList {
 
 	@Override
@@ -16,9 +14,4 @@ public class GlobalSharedStoriesItemsList extends ItemsList {
         UIUtils.setCustomActionBar(this, R.drawable.ak_icon_global, getResources().getString(R.string.global_shared_stories_title));
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

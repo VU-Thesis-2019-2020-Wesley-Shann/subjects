@@ -34,8 +34,6 @@ import org.quantumbadger.redreader.reddit.things.RedditPost;
 import org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import org.quantumbadger.redreader.views.RedditPostView;
 
-import nl.vu.cs.s2group.*;
-
 public class WebViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener {
 
 	private WebViewFragment webView;
@@ -95,7 +93,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 					try {
 						final Intent intent = new Intent(Intent.ACTION_VIEW);
 						intent.setData(Uri.parse(currentUrl));
-						PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+						startActivity(intent);
 						finish(); //to clear from backstack
 
 					} catch(Exception e) {
@@ -136,7 +134,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 						mailer.putExtra(Intent.EXTRA_SUBJECT, mPost.title);
 					}
 					mailer.putExtra(Intent.EXTRA_TEXT, currentUrl);
-					PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(mailer, getString(R.string.action_share)));
+					startActivity(Intent.createChooser(mailer, getString(R.string.action_share)));
 				}
 				return true;
 
@@ -156,11 +154,5 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 
 	public String getCurrentUrl() {
 		return webView.getCurrentUrl();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

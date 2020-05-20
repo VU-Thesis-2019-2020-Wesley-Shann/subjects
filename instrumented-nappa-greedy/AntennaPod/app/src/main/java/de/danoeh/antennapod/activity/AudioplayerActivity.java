@@ -13,7 +13,6 @@ import de.danoeh.antennapod.core.feed.MediaType;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.service.playback.PlaybackService;
 import de.danoeh.antennapod.dialog.VariableSpeedDialog;
-import nl.vu.cs.s2group.*;
 
 /**
  * Activity for playing audio files.
@@ -34,10 +33,9 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
                     !intent.getComponent().getClassName().equals(AudioplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
-                PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+                startActivity(intent);
             }
         }
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     @Override

@@ -32,7 +32,6 @@ import io.github.hidroh.materialistic.data.ItemManager;
 import io.github.hidroh.materialistic.widget.CommentItemDecoration;
 import io.github.hidroh.materialistic.widget.SnappyLinearLayoutManager;
 import io.github.hidroh.materialistic.widget.ThreadPreviewRecyclerViewAdapter;
-import nl.vu.cs.s2group.*;
 
 public class ThreadPreviewActivity extends InjectableActivity {
     public static final String EXTRA_ITEM = ThreadPreviewActivity.class.getName() + ".EXTRA_ITEM";
@@ -105,11 +104,5 @@ public class ThreadPreviewActivity extends InjectableActivity {
     @Override
     protected boolean isDialogTheme() {
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

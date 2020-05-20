@@ -73,21 +73,21 @@ public class AboutUsFragment extends Fragment {
     public void onForkClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_REPO));
-        PrefetchingLib.notifyExtras(viewIntent.getExtras());startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 
     @OnClick(R.id.cv_privacy_policy)
     public void onPrivacyPolicyClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY));
-        PrefetchingLib.notifyExtras(viewIntent.getExtras());startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 
     @OnClick(R.id.cv_website)
     public void onWebsiteClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE));
-        PrefetchingLib.notifyExtras(viewIntent.getExtras());startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 
     @OnClick(R.id.cv_contact_us)
@@ -95,7 +95,7 @@ public class AboutUsFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto", EMAIL, null));
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_hello));
-        PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent, getString(R.string.email_send)));
+        startActivity(Intent.createChooser(intent, getString(R.string.email_send)));
     }
 
     @OnClick(R.id.cv_share)
@@ -104,7 +104,7 @@ public class AboutUsFragment extends Fragment {
         sendIntent.setType("text/plain");
         sendIntent.putExtra(Intent.EXTRA_TEXT,
                 getString(R.string.share_text));
-        PrefetchingLib.notifyExtras(sendIntent.getExtras());startActivity(sendIntent);
+        startActivity(sendIntent);
     }
 
     @OnClick(R.id.cv_report_bug)
@@ -121,14 +121,14 @@ public class AboutUsFragment extends Fragment {
     public void onSlackClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(SLACK_LINK));
-        PrefetchingLib.notifyExtras(viewIntent.getExtras());startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 
     @OnClick(R.id.cv_bmc)
     public void onBuyMeACoffeeClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(BUY_ME_A_COFFEE));
-        PrefetchingLib.notifyExtras(viewIntent.getExtras());startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 
     @OnClick(R.id.view_contributors)

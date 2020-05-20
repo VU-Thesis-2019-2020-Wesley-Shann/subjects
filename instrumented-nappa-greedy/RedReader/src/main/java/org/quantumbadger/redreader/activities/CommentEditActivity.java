@@ -39,8 +39,6 @@ import org.quantumbadger.redreader.fragments.MarkdownPreviewDialog;
 import org.quantumbadger.redreader.reddit.APIResponseHandler;
 import org.quantumbadger.redreader.reddit.RedditAPI;
 
-import nl.vu.cs.s2group.*;
-
 public class CommentEditActivity extends BaseActivity {
 
 	private EditText textEdit;
@@ -199,11 +197,5 @@ public class CommentEditActivity extends BaseActivity {
 	@Override
 	public void onBackPressed() {
 		if(General.onBackPressed()) super.onBackPressed();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		PrefetchingLib.setCurrentActivity(this);
 	}
 }

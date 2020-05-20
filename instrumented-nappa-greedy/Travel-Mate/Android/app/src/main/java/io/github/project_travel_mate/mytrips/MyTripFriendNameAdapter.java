@@ -141,7 +141,7 @@ class MyTripFriendNameAdapter extends ArrayAdapter<User> {
                         Intent intent = new Intent(mContext, MyTripInfoActivity.class);
                         intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, mTrip);
                         mContext.finish();
-                        PrefetchingLib.notifyExtras(intent.getExtras());mContext.startActivity(intent);
+                        mContext.startActivity(intent);
                     } else
                         Toast.makeText(mContext, res, Toast.LENGTH_SHORT).show();
                 });

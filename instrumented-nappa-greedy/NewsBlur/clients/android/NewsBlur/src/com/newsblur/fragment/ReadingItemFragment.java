@@ -270,7 +270,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(finalURL));
                     try {
-                        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                        startActivity(i);
                     } catch (Exception e) {
                         android.util.Log.wtf(this.getClass().getName(), "device cannot open URLs");
                     }
@@ -314,7 +314,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(story.permalink));
             try {
-                PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                startActivity(i);
             } catch (Exception e) {
                 com.newsblur.util.Log.e(this, "device cannot open URLs");
             }
@@ -473,7 +473,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
 				Intent i = new Intent(Intent.ACTION_VIEW);
                 try {
                     i.setData(Uri.parse(story.permalink));
-                    PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+                    startActivity(i);
                 } catch (Throwable t) {
                     // we don't actually know if the user will successfully be able to open whatever string
                     // was in the permalink or if the Intent could throw errors

@@ -11,7 +11,6 @@ import java.util.Objects;
 
 import adapters.ImageAdapter;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 
 import static utils.Constants.EVENT_IMG;
 import static utils.Constants.EVENT_NAME;
@@ -45,11 +44,5 @@ public class TripImageActivity extends AppCompatActivity {
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, TripImageActivity.class);
         return intent;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

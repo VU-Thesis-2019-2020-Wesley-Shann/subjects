@@ -33,7 +33,6 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 
 import static utils.Constants.QR_CODE_HEIGHT;
 import static utils.Constants.QR_CODE_WIDTH;
@@ -190,13 +189,7 @@ public class ShareContactActivity extends AppCompatActivity implements View.OnCl
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT , getString(R.string.share_contact_qr));
         intent.putExtra(Intent.EXTRA_STREAM , uri);
-        PrefetchingLib.notifyExtras(Intent.createChooser.getExtras());startActivity(Intent.createChooser(intent , getString(R.string.share_intent_text)));
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
+        startActivity(Intent.createChooser(intent , getString(R.string.share_intent_text)));
     }
 }
 

@@ -34,7 +34,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.project_travel_mate.MainActivity;
 import io.github.project_travel_mate.R;
-import nl.vu.cs.s2group.*;
 import utils.TravelmateSnackbars;
 
 import static utils.Constants.USER_EMAIL;
@@ -256,7 +255,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void startMainActivity() {
         Intent i = MainActivity.getStartIntent(this);
-        PrefetchingLib.notifyExtras(i.getExtras());startActivity(i);
+        startActivity(i);
         finish();
     }
 
@@ -468,11 +467,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onOtpCompleted(String otp) {
         mOtpCode = otp;
         mLoginPresenter.newPasswordInput();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }

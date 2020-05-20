@@ -47,7 +47,6 @@ import io.github.hidroh.materialistic.data.UserManager;
 import io.github.hidroh.materialistic.widget.CommentItemDecoration;
 import io.github.hidroh.materialistic.widget.SnappyLinearLayoutManager;
 import io.github.hidroh.materialistic.widget.SubmissionRecyclerViewAdapter;
-import nl.vu.cs.s2group.*;
 
 public class UserActivity extends InjectableActivity implements Scrollable {
     public static final String EXTRA_USERNAME = UserActivity.class.getName() + ".EXTRA_USERNAME";
@@ -249,12 +248,6 @@ public class UserActivity extends InjectableActivity implements Scrollable {
         mRecyclerView.setAdapter(new SubmissionRecyclerViewAdapter(mItemManger, mUser.getItems()));
         mRecyclerView.setLayoutFrozen(mBottomSheetBehavior.getState() !=
                 BottomSheetBehavior.STATE_EXPANDED);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 
     static class UserResponseListener implements ResponseListener<UserManager.User> {

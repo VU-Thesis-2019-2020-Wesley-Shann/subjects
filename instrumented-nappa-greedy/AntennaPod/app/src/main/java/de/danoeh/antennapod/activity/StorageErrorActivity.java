@@ -24,7 +24,6 @@ import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.core.preferences.UserPreferences;
 import de.danoeh.antennapod.core.util.StorageUtils;
 import de.danoeh.antennapod.dialog.ChooseDataFolderDialog;
-import nl.vu.cs.s2group.*;
 
 /** Is show if there is now external storage available. */
 public class StorageErrorActivity extends AppCompatActivity {
@@ -100,7 +99,6 @@ public class StorageErrorActivity extends AppCompatActivity {
         } else {
             registerReceiver(mediaUpdate, new IntentFilter(Intent.ACTION_MEDIA_MOUNTED));
         }
-        PrefetchingLib.setCurrentActivity(this);
     }
 
 	@Override

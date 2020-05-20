@@ -96,7 +96,7 @@ public abstract class PodcastListFragment extends Fragment {
         Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
         intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, selection.getUrl());
         intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, getString(R.string.gpodnet_main_label));
-        PrefetchingLib.notifyExtras(intent.getExtras());startActivity(intent);
+        startActivity(intent);
     }
 
     protected abstract List<GpodnetPodcast> loadPodcastData(GpodnetService service) throws GpodnetServiceException;

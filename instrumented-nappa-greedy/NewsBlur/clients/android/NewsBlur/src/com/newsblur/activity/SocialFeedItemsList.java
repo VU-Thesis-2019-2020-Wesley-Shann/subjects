@@ -5,8 +5,6 @@ import android.os.Bundle;
 import com.newsblur.domain.SocialFeed;
 import com.newsblur.util.UIUtils;
 
-import nl.vu.cs.s2group.*;
-
 public class SocialFeedItemsList extends ItemsList {
 
 	public static final String EXTRA_SOCIAL_FEED = "social_feed";
@@ -21,9 +19,4 @@ public class SocialFeedItemsList extends ItemsList {
         UIUtils.setCustomActionBar(this, socialFeed.photoUrl, socialFeed.feedTitle);
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
-    }
 }

@@ -27,7 +27,6 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import nl.vu.cs.s2group.*;
 
 /**
  * Displays the 'about' screen
@@ -59,7 +58,7 @@ public class AboutActivity extends AppCompatActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.startsWith("http")) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    PrefetchingLib.notifyExtras(browserIntent.getExtras());startActivity(browserIntent);
+                    startActivity(browserIntent);
                     return true;
                 } else {
                     url = url.replace("file:///android_asset/", "");
@@ -157,11 +156,5 @@ public class AboutActivity extends AppCompatActivity {
             webViewContainer.removeAllViews();
             webView.destroy();
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PrefetchingLib.setCurrentActivity(this);
     }
 }
