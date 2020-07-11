@@ -13,14 +13,14 @@ Overall, the apps in the directory `original-apps` are cloned directly from the 
 The SDK version from these apps is updated to version 28 and stored in the directory `non-instrumented `.
 This is the base version used for instrumenting the apps to enable prefetch mechanisms. 
 
-| Name                          | Description                                                          |
-|-------------------------------|----------------------------------------------------------------------|
-| original-apps                 | An unmodified version cloned directly from the original repository.  |
-| non-instrumented              | A modified version with fixed dependencies compatibility.            |
-| instrumented-nappa-greedy     | A prefetch enabled version using NAPPA approach with Greedy strategy |
-| instrumented-nappa-strategy-2 | A prefetch enabled version using NAPPA approach with TBD strategy    |
-| instrumented-nappa-strategy-3 | A prefetch enabled version using NAPPA approach with TBD strategy    |
-| instrumented-paloma           | A prefetch enabled version using PALOMA approach                     |
+| Name                      | Description                                                          |
+|---------------------------|----------------------------------------------------------------------|
+| original-apps             | An unmodified version cloned directly from the original repository.  |
+| baseline                  | A modified version with fixed dependencies compatibility.            |
+| perfect                   | A prefetch enabled version to prefetch all network requests          |
+| instrumented-nappa-greedy | A prefetch enabled version using NAPPA approach with Greedy strategy |
+| instrumented-nappa-tfpr   | A prefetch enabled version using NAPPA approach with TFPR strategy   |
+| instrumented-paloma       | A prefetch enabled version using PALOMA approach                     |
 
 ## Android Apps
 
