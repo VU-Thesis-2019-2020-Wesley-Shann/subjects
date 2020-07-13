@@ -19,12 +19,13 @@ APPS_NAME=(
 
 # The relative path to the Android project inside the app project directory
 APPS_ANDROID_DIR=(
-    "/"                          # AntennaPod
-    "/"                          # Hillffair
-    "/"                          # materialistic
-    "/clients/android/NewsBlur/" # NewsBlur
-    "/Android/"                  # Travel-Mate
-    "/app/"                      # uob-timetable-android
+    ""                         # AntennaPod
+    ""                         # Hillffair
+    ""                         # materialistic
+    "clients/android/NewsBlur" # NewsBlur
+    ""                         # RedReader
+    "Android"                  # Travel-Mate
+    "app"                      # uob-timetable-android
 )
 
 # The identifier name of the treatments directory
