@@ -39,10 +39,15 @@ TREATMENTS_NAME=(
 
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
-        cd "${PROJECT_DIR}/$treatment/${APPS_NAME[index]}/${APPS_ANDROID_DIR[index]}"
-        pwd
-        # echo "Building APK for the app ${APPS_NAME[index]} with treatment ${treatment}."
+        # Define the absolute path where the Android project to build is located 
+        APP_NAME=${APPS_NAME[index]}
+        APP_RELATIVE_PATH=${APPS_ANDROID_DIR[index]}
+        APP_DIR="${PROJECT_DIR}/${treatment}/${APP_NAME}/${APP_RELATIVE_PATH}"
+        echo "Moving to directory $APP_DIR"
+        cd $APP_DIR
 
-        # echo "Finished building APK."
+        echo "Building APK for the app ${APP_NAME} with treatment ${treatment}."
+
+        echo "Finished building APK.\n"
     done
 done
