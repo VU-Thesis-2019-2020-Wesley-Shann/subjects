@@ -11,6 +11,17 @@ APPS_NAME=(
     "uob-timetable-android"
 )
 
+# The relative path to the Android project inside the app project directory
+APPS_ANDROID_DIR=(
+    "/"                          # AntennaPod
+    "/"                          # Hillffair
+    "/"                          # materialistic
+    "/clients/android/NewsBlur/" # NewsBlur
+    "/Android/"                  # Travel-Mate
+    "/app/"                      # uob-timetable-android
+)
+
+# The identifier name of the treatments directory
 TREATMENTS_NAME=(
     "baseline"
     "instrumented-nappa-greedy"
@@ -21,6 +32,8 @@ TREATMENTS_NAME=(
 
 for treatment in $TREATMENTS_NAME; do
     for app in $APPS_NAME; do
-    echo "${treatment}/${app}/"
+        echo "Building APK for the app ${app} with treatment ${treatment}."
+
+        echo "Finished building APK."
     done
 done
