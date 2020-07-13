@@ -31,8 +31,8 @@ TREATMENTS_NAME=(
 )
 
 for treatment in $TREATMENTS_NAME; do
-    for app in $APPS_NAME; do
-        echo "Building APK for the app ${app} with treatment ${treatment}."
+    for index in {1..$#APPS_NAME}; do
+        echo "Building APK for the app ${APPS_NAME[index]} with treatment ${treatment}."
 
         echo "Finished building APK."
     done
