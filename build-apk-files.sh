@@ -31,10 +31,10 @@ APPS_ANDROID_DIR=(
 # The identifier name of the treatments directory
 TREATMENTS_NAME=(
     "baseline"
-    "instrumented-nappa-greedy"
-    "instrumented-nappa-tfpr"
-    "instrumented-paloma"
-    "perfect"
+    # "instrumented-nappa-greedy"
+    # "instrumented-nappa-tfpr"
+    # "instrumented-paloma"
+    # "perfect"
 )
 
 for treatment in $TREATMENTS_NAME; do
