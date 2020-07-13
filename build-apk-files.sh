@@ -3,8 +3,8 @@
 # This script will build all 7 subject apps for all 5 treatments and store it in
 # the directory <treatment>/apk/<app>.apk
 
-# Obtain the absolute path to the project root directory for moving between directories 
-PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# Obtain the absolute path to the project root directory for moving between directories
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # The identifier name of the apps directories
 APPS_NAME=(
@@ -38,8 +38,10 @@ TREATMENTS_NAME=(
 
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
-        echo "Building APK for the app ${APPS_NAME[index]} with treatment ${treatment}."
+        cd "${PROJECT_DIR}/$treatment/${APPS_NAME[index]}/${APPS_ANDROID_DIR[index]}"
+        pwd
+        # echo "Building APK for the app ${APPS_NAME[index]} with treatment ${treatment}."
 
-        echo "Finished building APK."
+        # echo "Finished building APK."
     done
 done
