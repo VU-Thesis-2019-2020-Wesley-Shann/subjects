@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# This script will build all 7 subject apps for all 5 treatments and store it in
+# the directory <treatment>/apk/<app>.apk
+
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
