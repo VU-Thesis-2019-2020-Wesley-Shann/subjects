@@ -3,6 +3,9 @@
 # This script will build all 7 subject apps for all 5 treatments and store it in
 # the directory <treatment>/apk/<app>.apk
 
+# Obtain the absolute path to the project root directory for moving between directories 
+PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
