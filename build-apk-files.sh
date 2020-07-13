@@ -39,14 +39,16 @@ TREATMENTS_NAME=(
 
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
-        # Define the absolute path where the Android project to build is located 
+        # Define the absolute path where the Android project to build is located
         APP_NAME=${APPS_NAME[index]}
         APP_RELATIVE_PATH=${APPS_ANDROID_DIR[index]}
         APP_DIR="${PROJECT_DIR}/${treatment}/${APP_NAME}/${APP_RELATIVE_PATH}"
         echo "Moving to directory $APP_DIR"
         cd $APP_DIR
 
+        # Build apps via Gradle
         echo "Building APK for the app ${APP_NAME} with treatment ${treatment}."
+        ./gradlew build
 
         echo "Finished building APK.\n"
     done
