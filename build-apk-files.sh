@@ -47,7 +47,6 @@ for treatment in $TREATMENTS_NAME; do
         app_name=${APPS_NAME[index]}
         app_relative_path=${APPS_ANDROID_DIR[index]}
         app_dir="${PROJECT_DIR}/${treatment}/${app_name}/${app_relative_path}"
-        echo "Moving to directory ${app_dir}"
         cd $app_dir
 
         # Build apps via Gradle
@@ -59,8 +58,9 @@ for treatment in $TREATMENTS_NAME; do
         if (($gradle_result != 0)); then
             apps_with_error+=("${treatment} - ${app_name}")
         else
-            echo "Finished building APK.\n"
+            echo "Finished building APK."
         fi
+        echo "\n"
     done
 done
 
