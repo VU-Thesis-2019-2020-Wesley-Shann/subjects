@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # This script will build all 7 subject apps for all 5 treatments and store it in
-# the directory build/apk/<app>.apk. The apps are built using the command 
+# the directory build/apk/<app>.apk. The apps are built using the command
 # `gradlew assembleDebug` or a custom command used by the app.
 # This script expects that the apps are organized in the following structure:
 # - root directory
@@ -52,6 +52,26 @@ APPS_ANDROID_DIR=(
     "app"                      # uob-timetable-android
 )
 
+APPS_BUILD_DIR=(
+    "app/build/outputs/apk/free"                       # AntennaPod
+    "app/build/outputs/apk/debug"                      # Hillffair
+    "app/build/outputs/apk/debug"                      # materialistic
+    "clients/android/NewsBlur/build/outputs/apk/debug" # NewsBlur
+    "/build/outputs/apk/debug"                         # RedReader
+    "Android/app/build/outputs/apk/debug"              # Travel-Mate
+    "app/uob-timetable/build/outputs/apk/debug"        # uob-timetable-android
+)
+
+APPS_APK_NAME=(
+    "app-free-debug.apk"      # AntennaPod
+    "app-debug.apk"           # Hillffair
+    "app-debug.apk"           # materialistic
+    "NewsBlur-debug.apk"      # NewsBlur
+    "RedReader-debug.apk"     # RedReader
+    "app-debug.apk"           # Travel-Mate
+    "uob-timetable-debug.apk" # uob-timetable-android
+)
+
 # The identifier name of the treatments directory
 TREATMENTS_NAME=(
     "baseline"
@@ -91,6 +111,17 @@ for treatment in $TREATMENTS_NAME; do
         else
             passing_builds+=("${treatment_app}")
             print -P "%F{green}%B% Build completed."
+        fi
+
+        # Move generated APK to final location
+        app_build_relative_path=${APPS_BUILD_DIR[index]}
+        app_apk_name=${APPS_APK_NAME[index]}
+        app_apk_path="${PROJECT_DIR}/${treatment}/${app_name}/${app_build_relative_path}/${app_apk_name}"
+        apk_dir="${PROJECT_DIR}/build/apks/"
+
+        echo "APK should be at ${app_apk_path}"
+        if [ -f "${app_apk_path}" ]; then
+            cp "${app_apk_path}" "${treatment}-${app_name}.apk"
         fi
 
         # Print app buld duration
