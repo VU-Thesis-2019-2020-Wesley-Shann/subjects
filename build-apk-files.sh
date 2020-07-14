@@ -6,15 +6,19 @@
 # Obtain the absolute path to the project root directory for moving between directories
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
+# Define the name and path to store the output of the buil command
+LOG_FILE_NAME="build-full-log_$(date +%m-%d-%Y-%T).log"
+LOG_FILE_PATH="${PROJECT_DIR}/build/logs/${LOG_FILE_NAME}"
+
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
-    "Hillffair"
-    "materialistic"
-    "NewsBlur"
-    "RedReader"
-    "Travel-Mate"
-    "uob-timetable-android"
+    # "Hillffair"
+    # "materialistic"
+    # "NewsBlur"
+    # "RedReader"
+    # "Travel-Mate"
+    # "uob-timetable-android"
 )
 
 # The relative path to the Android project inside the app project directory
@@ -51,10 +55,10 @@ for treatment in $TREATMENTS_NAME; do
 
         # Build apps via Gradle
         print -P "%F{blue}%B% Building APK for the app ${app_name} with treatment ${treatment}."
-        ./gradlew build
+        ./gradlew build >>"${LOG_FILE_PATH}" 2>&1
 
+        # Verifies if the build failed
         gradle_result=$?
-
         if (($gradle_result != 0)); then
             apps_with_error+=("${treatment} - ${app_name}")
         else
