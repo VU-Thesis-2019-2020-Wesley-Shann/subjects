@@ -1,5 +1,12 @@
 #!/bin/zsh
 
+# IMPORTANT!!!
+# I tried to make it work, but it failed half of the time. The intent was to make
+# a script to build faster and in less time, but I spent more time in this script
+# than I would creating the APKs via Android Studio....
+# Do yourself a favour and just create via Android Studio. The move-apks script
+# can be used to put all apks in the same directory though
+
 # This script will build all 7 subject apps for all 5 treatments and store it in
 # the directory build/apk/<app>.apk. The apps are built using the command
 # `gradlew assembleDebug` or a custom command used by the app.
@@ -34,9 +41,9 @@ APPS_NAME=(
     # "AntennaPod"
     "Hillffair"
     "materialistic"
-    "NewsBlur"
+    # "NewsBlur"
     "RedReader"
-    # "Travel-Mate"
+    "Travel-Mate"
     # "uob-timetable-android"
 )
 
@@ -45,9 +52,9 @@ APPS_ANDROID_DIR=(
     # ""                         # AntennaPod
     ""                         # Hillffair
     ""                         # materialistic
-    "clients/android/NewsBlur" # NewsBlur
+    # "clients/android/NewsBlur" # NewsBlur
     ""                         # RedReader
-    # "Android"                  # Travel-Mate
+    "Android"                  # Travel-Mate
     # "app"                      # uob-timetable-android
 )
 
