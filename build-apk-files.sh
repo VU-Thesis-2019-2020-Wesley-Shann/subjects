@@ -53,7 +53,7 @@ APPS_ANDROID_DIR=(
 )
 
 APPS_BUILD_DIR=(
-    "app/build/outputs/apk/free"                       # AntennaPod
+    "app/build/outputs/apk/free/debug"                 # AntennaPod
     "app/build/outputs/apk/debug"                      # Hillffair
     "app/build/outputs/apk/debug"                      # materialistic
     "clients/android/NewsBlur/build/outputs/apk/debug" # NewsBlur
