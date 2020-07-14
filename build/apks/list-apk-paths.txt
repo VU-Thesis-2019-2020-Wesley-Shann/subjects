@@ -1,0 +1,7 @@
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-uob-timetable-android.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-Travel-Mate.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-NewsBlur.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-materialistic.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-AntennaPod.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-Hillffair.apk
+/home/sshann/Documents/thesis/subjects/build/apks/baseline/baseline-RedReader.apk

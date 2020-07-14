@@ -85,6 +85,7 @@ TREATMENTS_NAME=(
 builds_with_error=()
 passing_builds=()
 
+apk_dir="${PROJECT_DIR}/build/apks"
 # Run the command `gradlew build` for all apps~treatment combination
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
@@ -117,10 +118,9 @@ for treatment in $TREATMENTS_NAME; do
         app_build_relative_path=${APPS_BUILD_DIR[index]}
         app_apk_name=${APPS_APK_NAME[index]}
         app_apk_path="${PROJECT_DIR}/${treatment}/${app_name}/${app_build_relative_path}/${app_apk_name}"
-        apk_dir="${PROJECT_DIR}/build/apks"
 
         if [ -f "${app_apk_path}" ]; then
-            cp "${app_apk_path}" "${apk_dir}/${treatment}-${app_name}.apk"
+            cp "${app_apk_path}" "${apk_dir}/${treatment}/${treatment}-${app_name}.apk"
         fi
 
         # Print app buld duration
@@ -129,6 +129,10 @@ for treatment in $TREATMENTS_NAME; do
         print -P "%F{white}Build finished in ${runtime_app} seconds.\n"
     done
 done
+
+# Write to file the absoule path to all apps
+cd $apk_dir
+find "$(pwd)" -name "*.apk" > "list-apk-paths.txt"
 
 # Print the overview of the build
 number_of_apps=$((${#APPS_NAME[@]} * ${#TREATMENTS_NAME[@]}))
