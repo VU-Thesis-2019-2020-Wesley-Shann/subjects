@@ -28,18 +28,17 @@ OVERVIEW_LOG_FILE_NAME="build_${TIMESTAMP}_overview.log"
 OVERVIEW_LOG_FILE_PATH="${PROJECT_DIR}/build/logs/${OVERVIEW_LOG_FILE_NAME}"
 
 # The identifier name of the apps directories
+# The commented apps are not building here and I already used move time than I should in this script.
+# Build these 3 apps directly in Android Studio.
 APPS_NAME=(
-    "AntennaPod"
+    # "AntennaPod"
     "Hillffair"
     "materialistic"
     "NewsBlur"
     "RedReader"
-    "Travel-Mate"
-    "uob-timetable-android"
+    # "Travel-Mate"
+    # "uob-timetable-android"
 )
-
-# Indexes for apps that requires custom assemble command
-IDX_ANTENNA_POD=1
 
 # The relative path to the Android project inside the app project directory
 APPS_ANDROID_DIR=(
@@ -50,26 +49,6 @@ APPS_ANDROID_DIR=(
     ""                         # RedReader
     "Android"                  # Travel-Mate
     "app"                      # uob-timetable-android
-)
-
-APPS_BUILD_DIR=(
-    "app/build/outputs/apk/free/debug"                 # AntennaPod
-    "app/build/outputs/apk/debug"                      # Hillffair
-    "app/build/outputs/apk/debug"                      # materialistic
-    "clients/android/NewsBlur/build/outputs/apk/debug" # NewsBlur
-    "/build/outputs/apk/debug"                         # RedReader
-    "Android/app/build/outputs/apk/debug"              # Travel-Mate
-    "app/uob-timetable/build/outputs/apk/debug"        # uob-timetable-android
-)
-
-APPS_APK_NAME=(
-    "app-free-debug.apk"      # AntennaPod
-    "app-debug.apk"           # Hillffair
-    "app-debug.apk"           # materialistic
-    "NewsBlur-debug.apk"      # NewsBlur
-    "RedReader-debug.apk"     # RedReader
-    "app-debug.apk"           # Travel-Mate
-    "uob-timetable-debug.apk" # uob-timetable-android
 )
 
 # The identifier name of the treatments directory
@@ -85,6 +64,7 @@ TREATMENTS_NAME=(
 builds_with_error=()
 passing_builds=()
 
+sudo chown -R $USER: .
 apk_dir="${PROJECT_DIR}/build/apks"
 # Run the command `gradlew build` for all apps~treatment combination
 for treatment in $TREATMENTS_NAME; do
@@ -102,7 +82,7 @@ for treatment in $TREATMENTS_NAME; do
         # Build apps via Gradle
         print -P "%F{blue}%B% Building ${treatment_app}."
         echo "Building ${treatment_app}.\n" >>"${LOG_FILE_PATH}" 2>&1
-        ./gradlew assembleDebug >>"${LOG_FILE_PATH}" 2>&1
+        ./gradlew clean assembleDebug >>"${LOG_FILE_PATH}" 2>&1
 
         # Verifies if the build failed
         gradle_result=$?
@@ -114,25 +94,12 @@ for treatment in $TREATMENTS_NAME; do
             print -P "%F{green}%B% Build completed."
         fi
 
-        # Move generated APK to final location
-        app_build_relative_path=${APPS_BUILD_DIR[index]}
-        app_apk_name=${APPS_APK_NAME[index]}
-        app_apk_path="${PROJECT_DIR}/${treatment}/${app_name}/${app_build_relative_path}/${app_apk_name}"
-
-        if [ -f "${app_apk_path}" ]; then
-            cp "${app_apk_path}" "${apk_dir}/${treatment}/${treatment}-${app_name}.apk"
-        fi
-
         # Print app buld duration
         end_app=$(date +%s)
         runtime_app=$((end_app - start_app))
         print -P "%F{white}Build finished in ${runtime_app} seconds.\n"
     done
 done
-
-# Write to file the absoule path to all apps
-cd $apk_dir
-find "$(pwd)" -name "*.apk" > "list-apk-paths.txt"
 
 # Print the overview of the build
 number_of_apps=$((${#APPS_NAME[@]} * ${#TREATMENTS_NAME[@]}))
