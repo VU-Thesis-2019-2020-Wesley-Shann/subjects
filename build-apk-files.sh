@@ -10,11 +10,11 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 APPS_NAME=(
     "AntennaPod"
     "Hillffair"
-    # "materialistic"
-    # "NewsBlur"
-    # "RedReader"
-    # "Travel-Mate"
-    # "uob-timetable-android"
+    "materialistic"
+    "NewsBlur"
+    "RedReader"
+    "Travel-Mate"
+    "uob-timetable-android"
 )
 
 # The relative path to the Android project inside the app project directory
