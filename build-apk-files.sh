@@ -85,4 +85,5 @@ if [ -n "${builds_with_error}" ]; then
     for app in $builds_with_error; do
         print -P "- %F{red}%B% $app"
     done
+    echo "See the log file at ${LOG_FILE_PATH} for the complete output of gradlew build."
 fi
