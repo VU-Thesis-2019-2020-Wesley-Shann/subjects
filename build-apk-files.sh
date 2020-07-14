@@ -1,7 +1,8 @@
 #!/bin/zsh
 
 # This script will build all 7 subject apps for all 5 treatments and store it in
-# the directory build/apk/<app>.apk
+# the directory build/apk/<app>.apk. The apps are built using the command 
+# `gradlew assembleDebug` or a custom command used by the app.
 # This script expects that the apps are organized in the following structure:
 # - root directory
 #   - build-apk-files.sh
@@ -36,6 +37,9 @@ APPS_NAME=(
     "Travel-Mate"
     "uob-timetable-android"
 )
+
+# Indexes for apps that requires custom assemble command
+IDX_ANTENNA_POD=1
 
 # The relative path to the Android project inside the app project directory
 APPS_ANDROID_DIR=(
@@ -83,7 +87,7 @@ for treatment in $TREATMENTS_NAME; do
         gradle_result=$?
         if (($gradle_result != 0)); then
             builds_with_error+=("${treatment_app}")
-            print -P "%F{red}%B% Build failed."
+            print -P "%F{red}%B% Build failed with code ${gradle_result}."
         else
             passing_builds+=("${treatment_app}")
             print -P "%F{green}%B% Build completed."
