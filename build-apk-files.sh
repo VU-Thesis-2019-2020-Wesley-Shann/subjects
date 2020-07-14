@@ -41,8 +41,9 @@ TREATMENTS_NAME=(
     # "perfect"
 )
 
-# Array containing all apps that failed to build
-apps_with_error=()
+# Overview array with the apps that failed/succed to build
+builds_with_error=()
+passing_builds=()
 
 # Run the command `gradlew build` for all apps~treatment combination
 for treatment in $TREATMENTS_NAME; do
@@ -60,9 +61,11 @@ for treatment in $TREATMENTS_NAME; do
         # Verifies if the build failed
         gradle_result=$?
         if (($gradle_result != 0)); then
-            apps_with_error+=("${treatment} - ${app_name}")
+            builds_with_error+=("${treatment} - ${app_name}")
+            print -P "%F{red}%B% Build failed."
         else
-            echo "Finished building APK."
+            passing_builds+=("${treatment} - ${app_name}")
+            print -P "%F{green}%B% Build completed."
         fi
         echo ""
     done
@@ -70,14 +73,16 @@ done
 
 # Print the overview of the build
 number_of_apps=$((${#APPS_NAME[@]} * ${#TREATMENTS_NAME[@]}))
-number_of_apps_built=$((${number_of_apps} - ${#apps_with_error[@]}))
-echo "Finished building apps."
-echo "Built a total of ${number_of_apps_built} from ${number_of_apps} apps.\n"
+print -P "%F{white}Finished building apps."
+echo "Attempted to build ${number_of_apps} apps."
+print -P "%F{green}%B% ${#passing_builds[@]} apps were successfully built."
+print -P "%F{red}%B% ${#builds_with_error[@]} apps failed to built."
+echo ""
 
 # List all apps that failed to build (if any)
-if [ -n "${apps_with_error}" ]; then
+if [ -n "${builds_with_error}" ]; then
     print -P "%F{red}%B% Failed to build the following apps:\n"
-    for app in $apps_with_error; do
-        print -P "%F{red}%B% $app"
+    for app in $builds_with_error; do
+        print -P "- %F{red}%B% $app"
     done
 fi
