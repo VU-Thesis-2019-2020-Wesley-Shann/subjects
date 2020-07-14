@@ -9,7 +9,7 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
-    # "Hillffair"
+    "Hillffair"
     # "materialistic"
     # "NewsBlur"
     # "RedReader"
@@ -37,6 +37,10 @@ TREATMENTS_NAME=(
     # "perfect"
 )
 
+# Array containing all apps that failed to build
+apps_with_error=()
+
+# Run the command `gradlew build` for all apps~treatment combination
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
         # Define the absolute path where the Android project to build is located
@@ -53,10 +57,17 @@ for treatment in $TREATMENTS_NAME; do
         gradle_result=$?
 
         if (($gradle_result != 0)); then
-            echo "Error on building APK with Gradle for app ${APP_NAME} with treatment ${treatment}"
-            exit 1
+            apps_with_error+=("${treatment} - ${app_name}")
         else
             echo "Finished building APK.\n"
         fi
     done
 done
+
+# List all apps that failed to build
+if [ -n "${apps_with_error}" ]; then
+    echo "Failed to build the following apps:\n\n"
+    for app in $apps_with_error; do
+        echo $app
+    done
+fi
