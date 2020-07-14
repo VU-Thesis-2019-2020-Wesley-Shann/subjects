@@ -50,7 +50,7 @@ for treatment in $TREATMENTS_NAME; do
         cd $app_dir
 
         # Build apps via Gradle
-        echo "Building APK for the app ${app_name} with treatment ${treatment}."
+        print -P "%F{blue}%B% Building APK for the app ${app_name} with treatment ${treatment}."
         ./gradlew build
 
         gradle_result=$?
@@ -60,14 +60,20 @@ for treatment in $TREATMENTS_NAME; do
         else
             echo "Finished building APK."
         fi
-        echo "\n"
+        echo ""
     done
 done
 
-# List all apps that failed to build
+# Print the overview of the build
+number_of_apps=$((${#APPS_NAME[@]} * ${#TREATMENTS_NAME[@]}))
+number_of_apps_built=$((${number_of_apps} - ${#apps_with_error[@]}))
+echo "Finished building apps."
+echo "Built a total of ${number_of_apps_built} from ${number_of_apps} apps.\n"
+
+# List all apps that failed to build (if any)
 if [ -n "${apps_with_error}" ]; then
-    echo "Failed to build the following apps:\n\n"
+    print -P "%F{red}%B% Failed to build the following apps:\n"
     for app in $apps_with_error; do
-        echo $app
+        print -P "%F{red}%B% $app"
     done
 fi
