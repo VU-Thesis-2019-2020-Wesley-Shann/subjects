@@ -3,6 +3,8 @@
 # This script will build all 7 subject apps for all 5 treatments and store it in
 # the directory <treatment>/apk/<app>.apk
 
+start_script=$(date +%s)
+
 # Obtain the absolute path to the project root directory for moving between directories
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
@@ -52,6 +54,7 @@ passing_builds=()
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
         # Define the absolute path where the Android project to build is located
+        start_app=$(date +%s)
         app_name=${APPS_NAME[index]}
         app_relative_path=${APPS_ANDROID_DIR[index]}
         app_dir="${PROJECT_DIR}/${treatment}/${app_name}/${app_relative_path}"
@@ -70,7 +73,11 @@ for treatment in $TREATMENTS_NAME; do
             passing_builds+=("${treatment} - ${app_name}")
             print -P "%F{green}%B% Build completed."
         fi
-        echo ""
+
+        # Print app buld duration
+        end_app=$(date +%s)
+        runtime_app=$((end_app - start_app))
+        print -P "%F{white}Build finished in ${runtime_app} seconds.\n"
     done
 done
 
@@ -103,8 +110,16 @@ echo ""
 print -P "%F{white}See the log file at ${LOG_FILE_PATH} for the complete output of gradlew build."
 print -P "%F{white}See the log file at ${OVERVIEW_LOG_FILE_PATH} for the this overview."
 
+# Print the execution duration of this script
+end_script=$(date +%s)
+runtime_script=$((end_script - start_script))
+echo "\nBuild finished in ${runtime_script} seconds."
+
 # Log the overview printed in the console into a file
+echo "\nLogging results..."
 cat <<EOT >>"${OVERVIEW_LOG_FILE_PATH}"
+Runtime: ${runtime_script} seconds.
+
 Attempted to build ${number_of_apps} apps.
 ${#passing_builds[@]} apps were successfully built.
 ${#builds_with_error[@]} apps failed to built.
