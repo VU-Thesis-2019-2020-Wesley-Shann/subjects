@@ -119,12 +119,8 @@ for treatment in $TREATMENTS_NAME; do
         app_apk_path="${PROJECT_DIR}/${treatment}/${app_name}/${app_build_relative_path}/${app_apk_name}"
         apk_dir="${PROJECT_DIR}/build/apks"
 
-        echo "APK should be at ${app_apk_path}"
         if [ -f "${app_apk_path}" ]; then
-            echo "Found ${app_apk_path}"
             cp "${app_apk_path}" "${apk_dir}/${treatment}-${app_name}.apk"
-        else
-            echo "not found ${app_apk_path}"
         fi
 
         # Print app buld duration
