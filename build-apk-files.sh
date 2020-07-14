@@ -18,12 +18,12 @@ OVERVIEW_LOG_FILE_PATH="${PROJECT_DIR}/build/logs/${OVERVIEW_LOG_FILE_NAME}"
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
-    # "Hillffair"
-    # "materialistic"
-    # "NewsBlur"
-    # "RedReader"
-    # "Travel-Mate"
-    # "uob-timetable-android"
+    "Hillffair"
+    "materialistic"
+    "NewsBlur"
+    "RedReader"
+    "Travel-Mate"
+    "uob-timetable-android"
 )
 
 # The relative path to the Android project inside the app project directory
