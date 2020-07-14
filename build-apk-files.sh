@@ -9,12 +9,12 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 # The identifier name of the apps directories
 APPS_NAME=(
     "AntennaPod"
-    "Hillffair"
-    "materialistic"
-    "NewsBlur"
-    "RedReader"
-    "Travel-Mate"
-    "uob-timetable-android"
+    # "Hillffair"
+    # "materialistic"
+    # "NewsBlur"
+    # "RedReader"
+    # "Travel-Mate"
+    # "uob-timetable-android"
 )
 
 # The relative path to the Android project inside the app project directory
@@ -40,16 +40,23 @@ TREATMENTS_NAME=(
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
         # Define the absolute path where the Android project to build is located
-        APP_NAME=${APPS_NAME[index]}
-        APP_RELATIVE_PATH=${APPS_ANDROID_DIR[index]}
-        APP_DIR="${PROJECT_DIR}/${treatment}/${APP_NAME}/${APP_RELATIVE_PATH}"
-        echo "Moving to directory $APP_DIR"
-        cd $APP_DIR
+        app_name=${APPS_NAME[index]}
+        app_relative_path=${APPS_ANDROID_DIR[index]}
+        app_dir="${PROJECT_DIR}/${treatment}/${app_name}/${app_relative_path}"
+        echo "Moving to directory ${app_dir}"
+        cd $app_dir
 
         # Build apps via Gradle
-        echo "Building APK for the app ${APP_NAME} with treatment ${treatment}."
+        echo "Building APK for the app ${app_name} with treatment ${treatment}."
         ./gradlew build
 
-        echo "Finished building APK.\n"
+        gradle_result=$?
+
+        if (($gradle_result != 0)); then
+            echo "Error on building APK with Gradle for app ${APP_NAME} with treatment ${treatment}"
+            exit 1
+        else
+            echo "Finished building APK.\n"
+        fi
     done
 done
