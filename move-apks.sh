@@ -47,9 +47,10 @@ TREATMENTS_NAME=(
     "perfect"
 )
 
+apk_dir="${PROJECT_DIR}/build/apks"
+cd $apk_dir
 find . -name "*.apk" -delete
 
-apk_dir="${PROJECT_DIR}/build/apks"
 # Run the command `gradlew build` for all apps~treatment combination
 for treatment in $TREATMENTS_NAME; do
     for index in {1..$#APPS_NAME}; do
