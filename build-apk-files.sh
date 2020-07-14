@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # This script will build all 7 subject apps for all 5 treatments and store it in
-# the directory <treatment>/apk/<app>.apk
+# the directory build/apk/<app>.apk
 
 start_script=$(date +%s)
 
@@ -65,7 +65,8 @@ for treatment in $TREATMENTS_NAME; do
 
         # Build apps via Gradle
         print -P "%F{blue}%B% Building ${treatment_app}."
-        ./gradlew build >>"${LOG_FILE_PATH}" 2>&1
+        echo "Building ${treatment_app}.\n" >>"${LOG_FILE_PATH}" 2>&1
+        ./gradlew assembleDebug >>"${LOG_FILE_PATH}" 2>&1
 
         # Verifies if the build failed
         gradle_result=$?
@@ -99,6 +100,8 @@ if [ -n "${passing_builds}" ]; then
         print -P "* %F{green}%B% $app"
     done
 fi
+
+echo ""
 
 # List all apps that failed to build (if any)
 if [ -n "${builds_with_error}" ]; then
