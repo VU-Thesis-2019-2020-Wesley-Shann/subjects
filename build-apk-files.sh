@@ -42,13 +42,13 @@ APPS_NAME=(
 
 # The relative path to the Android project inside the app project directory
 APPS_ANDROID_DIR=(
-    ""                         # AntennaPod
+    # ""                         # AntennaPod
     ""                         # Hillffair
     ""                         # materialistic
     "clients/android/NewsBlur" # NewsBlur
     ""                         # RedReader
-    "Android"                  # Travel-Mate
-    "app"                      # uob-timetable-android
+    # "Android"                  # Travel-Mate
+    # "app"                      # uob-timetable-android
 )
 
 # The identifier name of the treatments directory
@@ -81,6 +81,7 @@ for treatment in $TREATMENTS_NAME; do
 
         # Build apps via Gradle
         print -P "%F{blue}%B% Building ${treatment_app}."
+        pwd
         echo "Building ${treatment_app}.\n" >>"${LOG_FILE_PATH}" 2>&1
         ./gradlew clean assembleDebug >>"${LOG_FILE_PATH}" 2>&1
 
