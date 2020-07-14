@@ -2,6 +2,17 @@
 
 # This script will build all 7 subject apps for all 5 treatments and store it in
 # the directory build/apk/<app>.apk
+# This script expects that the apps are organized in the following structure:
+# - root directory
+#   - build-apk-files.sh
+#   - treatement1
+#       - app1
+#       - app2
+#   - treatement2
+#       - app1
+#       - app2
+# For N treatments and M apps. The apps and treatements names must be edited directly
+# in this script in the properties `APPS_NAME`, `APPS_ANDROID_DIR` and `TREATMENTS_NAME`.
 
 start_script=$(date +%s)
 
