@@ -105,11 +105,11 @@ for index in {1..$#APKS_SOURCE}; do
     else
         echo "not found ${APKS_SOURCE[index]}"
     fi
-    if ! (( $index % $NUMBER_OF_APPS )); then
+    if ! (($index % $NUMBER_OF_APPS)); then
         echo ""
     fi
 done
 
 # Write to file the absoule path to all apps
 cd $apk_dir
-find "$(pwd)" -name "*.apk" >"list-apk-paths.txt"
+find $PWD -name "*.apk" | sed -e 's/^/"/g' -e 's/$/",/g' >"list-apk-paths.txt"
