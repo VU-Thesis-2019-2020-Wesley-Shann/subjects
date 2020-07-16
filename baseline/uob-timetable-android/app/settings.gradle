@@ -1,1 +1,2 @@
 include ':uob-timetable'
+rootProject.name = 'baseline_uob'

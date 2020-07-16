@@ -9,13 +9,13 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # The identifier name of the apps directories
 APPS_NAME=(
-    "AntennaPod" # this script fails to create for AntennaPod, use Android Studio instead
+    "AntennaPod"
     "Hillffair"
     "materialistic"
     "NewsBlur"
     "RedReader"
     "Travel-Mate"
-    "uob-timetable-android" # Script returns with
+    "uob-timetable-android"
 )
 
 APPS_BUILD_DIR=(
