@@ -113,3 +113,6 @@ done
 # Write to file the absoule path to all apps
 cd $apk_dir
 find $PWD -name "*.apk" | sed -e 's/^/"/g' -e 's/$/",/g' >"list-apk-paths.txt"
+
+echo "APKS are located at"
+cat "list-apk-paths.txt"
