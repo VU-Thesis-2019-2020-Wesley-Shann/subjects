@@ -94,8 +94,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.ok_confirm_pass_reset)
     FlatButton mOkConfirmReset;
 
-    @BindView(R.id.forgot_password)
-    TextView mForgotPasswordText;
     @BindView(R.id.code_sent_alert)
     TextView mCodeSentAlert;
     @BindView(R.id.resend_code)
@@ -144,7 +142,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ok_signup.setOnClickListener(this);
 
         //listeners for handling 'forgot password' flow
-        mForgotPasswordText.setOnClickListener(this);
         mBackToLogin.setOnClickListener(this);
         mResendCodeText.setOnClickListener(this);
         mOkSubmitReset.setOnClickListener(this);
@@ -166,7 +163,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // Open signup
             case R.id.signup:
                 signup.setVisibility(View.GONE);
-                mForgotPasswordText.setVisibility(View.GONE);
                 mBackToLogin.setVisibility(View.GONE);
                 login.setVisibility(View.VISIBLE);
                 mLoginPresenter.signUp();
@@ -174,7 +170,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // Open login
             case R.id.login:
                 signup.setVisibility(View.VISIBLE);
-                mForgotPasswordText.setVisibility(View.VISIBLE);
                 mBackToLogin.setVisibility(View.GONE);
                 login.setVisibility(View.GONE);
                 mLoginPresenter.login();
@@ -207,14 +202,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 break;
-                // Open forgot password
-            case R.id.forgot_password:
-                login.setVisibility(View.GONE);
-                signup.setVisibility(View.GONE);
-                mForgotPasswordText.setVisibility(View.GONE);
-                mBackToLogin.setVisibility(View.VISIBLE);
-                mLoginPresenter.forgotPassword();
-                break;
                 // Call submit password reset request
             case R.id.ok_submit_pass_reset:
                 emailString = mEmailForgotPassword.getText().toString();
@@ -226,7 +213,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // Open login
             case R.id.back_to_login:
                 signup.setVisibility(View.VISIBLE);
-                mForgotPasswordText.setVisibility(View.VISIBLE);
                 mBackToLogin.setVisibility(View.GONE);
                 login.setVisibility(View.GONE);
                 mLoginPresenter.login();
@@ -319,7 +305,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mNewPasswordLayout.setVisibility(View.GONE);
         sig.setVisibility(View.GONE);
         log.setVisibility(View.VISIBLE);
-        mForgotPasswordText.setVisibility(View.VISIBLE);
         mEmailForgotPassword.setText("");
     }
 
