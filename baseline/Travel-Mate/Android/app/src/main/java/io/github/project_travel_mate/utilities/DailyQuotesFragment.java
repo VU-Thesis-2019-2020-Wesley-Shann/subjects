@@ -111,37 +111,37 @@ public class DailyQuotesFragment extends Fragment {
             @Override
             public void onResponse(Call call, final Response response) {
 
-                mHandler.post(() -> {
-                    if (response.isSuccessful() && response.body() != null) {
-
-                        String res;
-                        try {
-                            res = Objects.requireNonNull(response.body()).string();
-                        } catch (IOException e) {
-                            Log.e("Unable to read data", e.getMessage());
-                            networkError();
-                            return;
-                        }
-                        GsonBuilder builder = new GsonBuilder();
-                        Gson gson = builder.create();
-                        QuoteGroup quoteGroup = gson.fromJson(res, QuoteGroup.class);
-                        int totalQuotes = quoteGroup.getQuotes().size();
-
-                        Quote randomQuote = quoteGroup.getQuotes().get(mRandom.nextInt(totalQuotes));
-                        mHolder.quoteTv.setText(randomQuote.getQuote());
-                        if (!randomQuote.getAuthor().isEmpty() && !randomQuote.getAuthor().equals("null")) {
-                            mHolder.authorTv.setVisibility(View.VISIBLE);
-                            mHolder.authorTv.setText(randomQuote.getAuthor());
-                        } else {
-                            mHolder.authorTv.setVisibility(View.GONE);
-                        }
-
-                        mHolder.animationView.setVisibility(GONE);
-
-                    } else {
-                        networkError();
-                    }
-                });
+//                mHandler.post(() -> {
+//                    if (response.isSuccessful() && response.body() != null) {
+//
+//                        String res;
+//                        try {
+//                            res = Objects.requireNonNull(response.body()).string();
+//                        } catch (IOException e) {
+//                            Log.e("Unable to read data", e.getMessage());
+//                            networkError();
+//                            return;
+//                        }
+//                        GsonBuilder builder = new GsonBuilder();
+//                        Gson gson = builder.create();
+//                        QuoteGroup quoteGroup = gson.fromJson(res, QuoteGroup.class);
+//                        int totalQuotes = quoteGroup.getQuotes().size();
+//
+//                        Quote randomQuote = quoteGroup.getQuotes().get(mRandom.nextInt(totalQuotes));
+//                        mHolder.quoteTv.setText(randomQuote.getQuote());
+//                        if (!randomQuote.getAuthor().isEmpty() && !randomQuote.getAuthor().equals("null")) {
+//                            mHolder.authorTv.setVisibility(View.VISIBLE);
+//                            mHolder.authorTv.setText(randomQuote.getAuthor());
+//                        } else {
+//                            mHolder.authorTv.setVisibility(View.GONE);
+//                        }
+//
+//                        mHolder.animationView.setVisibility(GONE);
+//
+//                    } else {
+//                        networkError();
+//                    }
+//                });
             }
         });
     }
