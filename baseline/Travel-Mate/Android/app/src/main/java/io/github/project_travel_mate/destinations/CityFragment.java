@@ -125,7 +125,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         mHandler = new Handler(Looper.getMainLooper());
 
         // make an target
-        mSpotView = inflater.inflate(R.layout.spotlight_target, null);
+//        mSpotView = inflater.inflate(R.layout.spotlight_target, null);
 
         mMaterialSearchView = view.findViewById(R.id.search_view);
         mMaterialSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -182,9 +182,9 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
 
             mCityAdapter.updateData(mCities);
 
-            if (mSpotlightShownCount <= 3) {
-                showSpotlightView(mSpotView);
-            }
+//            if (mSpotlightShownCount <= 3) {
+//                showSpotlightView(mSpotView);
+//            }
         }
     }
 
@@ -194,52 +194,52 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
      * @param spotView - the view to be highlighted
      */
     private void showSpotlightView(View spotView) {
-        CustomTarget customTarget = new CustomTarget.Builder(getActivity())
-                .setPoint(180f, 430f)
-                .setShape(new Circle(200f))
-                .setOverlay(spotView)
-                .setOnSpotlightStartedListener(new OnTargetStateChangedListener<CustomTarget>() {
-                    @Override
-                    public void onStarted(CustomTarget target) {
-                        // do something
-                    }
-
-                    @Override
-                    public void onEnded(CustomTarget target) {
-                        // do something
-                    }
-                })
-                .build();
-
-
-        Spotlight spotlight =
-                Spotlight.with(mActivity)
-                        .setOverlayColor(R.color.spotlight)
-                        .setDuration(1000L)
-                        .setAnimation(new DecelerateInterpolator(2f))
-                        .setTargets(customTarget)
-                        .setClosedOnTouchedOutside(false)
-                        .setOnSpotlightStateListener(new OnSpotlightStateChangedListener() {
-                            @Override
-                            public void onStarted() {
-                                //do something
-                            }
-
-                            @Override
-                            public void onEnded() {
-                                //do something
-                            }
-                        });
-        spotlight.start();
-
-        View.OnClickListener closeSpotlight = v -> {
-            spotlight.closeSpotlight();
-            SharedPreferences.Editor editor = mSharedPreferences.edit();
-            editor.putInt(SPOTLIGHT_SHOW_COUNT, mSpotlightShownCount + 1);
-            editor.apply();
-        };
-
-        spotView.findViewById(R.id.close_spotlight).setOnClickListener(closeSpotlight);
+//        CustomTarget customTarget = new CustomTarget.Builder(getActivity())
+//                .setPoint(180f, 430f)
+//                .setShape(new Circle(200f))
+//                .setOverlay(spotView)
+//                .setOnSpotlightStartedListener(new OnTargetStateChangedListener<CustomTarget>() {
+//                    @Override
+//                    public void onStarted(CustomTarget target) {
+//                        // do something
+//                    }
+//
+//                    @Override
+//                    public void onEnded(CustomTarget target) {
+//                        // do something
+//                    }
+//                })
+//                .build();
+//
+//
+//        Spotlight spotlight =
+//                Spotlight.with(mActivity)
+//                        .setOverlayColor(R.color.spotlight)
+//                        .setDuration(1000L)
+//                        .setAnimation(new DecelerateInterpolator(2f))
+//                        .setTargets(customTarget)
+//                        .setClosedOnTouchedOutside(false)
+//                        .setOnSpotlightStateListener(new OnSpotlightStateChangedListener() {
+//                            @Override
+//                            public void onStarted() {
+//                                //do something
+//                            }
+//
+//                            @Override
+//                            public void onEnded() {
+//                                //do something
+//                            }
+//                        });
+//        spotlight.start();
+//
+//        View.OnClickListener closeSpotlight = v -> {
+//            spotlight.closeSpotlight();
+//            SharedPreferences.Editor editor = mSharedPreferences.edit();
+//            editor.putInt(SPOTLIGHT_SHOW_COUNT, mSpotlightShownCount + 1);
+//            editor.apply();
+//        };
+//
+//        spotView.findViewById(R.id.close_spotlight).setOnClickListener(closeSpotlight);
     }
 
     /**
@@ -413,9 +413,9 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
 
                             mCityAdapter.updateData(mCities);
 
-                            if (mSpotlightShownCount <= 3) {
-                                showSpotlightView(mSpotView);
-                            }
+//                            if (mSpotlightShownCount <= 3) {
+//                                showSpotlightView(mSpotView);
+//                            }
 
                         } catch (JSONException | IOException e) {
                             Log.e(TAG, "Error parsing mCities JSON : " + e.getMessage());
