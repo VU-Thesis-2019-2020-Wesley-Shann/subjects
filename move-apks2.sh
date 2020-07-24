@@ -11,7 +11,7 @@ APKS_SOURCE=(
     "${PROJECT_DIR}/baseline/Hillffair/app/build/outputs/apk/debug/app-debug.apk"
     "${PROJECT_DIR}/baseline/materialistic/app/build/outputs/apk/debug/app-debug.apk"
     "${PROJECT_DIR}/baseline/NewsBlur/clients/android/NewsBlur/build/outputs/apk/debug/baseline_NewsBlur-debug.apk"
-    "${PROJECT_DIR}/baseline/RedReader/build/outputs/apk/debug/baseline_RedReader-debug.apk"
+    "${PROJECT_DIR}/baseline/RedReader/build/outputs/apk/debug/BaselineRedReader-debug.apk"
     "${PROJECT_DIR}/baseline/Travel-Mate/Android/app/build/outputs/apk/debug/app-debug.apk"
     "${PROJECT_DIR}/baseline/uob-timetable-android/app/uob-timetable/build/outputs/apk/debug/uob-timetable-debug.apk"
     # Nappa Greedy
