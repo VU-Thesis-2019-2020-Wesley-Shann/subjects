@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
 
-import de.danoeh.antennapod.core.util.syndication.FeedDiscoverer;
+import baseline.de.danoeh.antennapod.core.util.syndication.FeedDiscoverer;
 
 /**
  * Test class for FeedDiscoverer

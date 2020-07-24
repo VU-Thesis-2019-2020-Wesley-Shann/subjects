@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.danoeh.antennapod"
+    package="baseline.de.danoeh.antennapod"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -26,11 +26,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
-        android:name="de.danoeh.antennapod.PodcastApp"
+        android:name="baseline.de.danoeh.antennapod.PodcastApp"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-        android:backupAgent=".core.backup.OpmlBackupAgent"
+        android:backupAgent="baseline.de.danoeh.antennapod.core.backup.OpmlBackupAgent"
         android:restoreAnyVersion="true"
         android:usesCleartextTraffic="true"
         android:logo="@mipmap/ic_launcher">
@@ -41,7 +41,7 @@
             android:value="AEdPqrEAAAAI3a05VToCTlqBymJrbFGaKQMvF-bBAuLsOdavBA"/>
 
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.SplashActivity"
             android:label="@string/app_name"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/Theme.AntennaPod.Dark.Splash">
@@ -62,17 +62,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".activity.AudioplayerActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.AudioplayerActivity"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -84,50 +84,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CastplayerActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.CastplayerActivity"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.MainActivity"/>
         </activity>
 
         <activity
-            android:name=".activity.DownloadAuthenticationActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.DownloadAuthenticationActivity"
             android:launchMode="singleInstance"/>
 
         <activity
-            android:name=".activity.PreferenceActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.PreferenceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/settings_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.MainActivity"/>
         </activity>
 
         <activity
-                android:name=".activity.FeedInfoActivity"
+                android:name="baseline.de.danoeh.antennapod.activity.FeedInfoActivity"
                 android:label="@string/feed_info_label">
         </activity>
 
         <activity
-                android:name=".activity.FeedSettingsActivity"
+                android:name="baseline.de.danoeh.antennapod.activity.FeedSettingsActivity"
                 android:windowSoftInputMode="stateHidden"
                 android:label="@string/feed_settings_label">
         </activity>
 
         <service
-            android:name=".core.service.PlayerWidgetJobService"
+            android:name="baseline.de.danoeh.antennapod.core.service.PlayerWidgetJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:enabled="true"
             android:exported="false">
         </service>
 
-        <receiver android:name=".core.receiver.PlayerWidget">
+        <receiver android:name="baseline.de.danoeh.antennapod.core.receiver.PlayerWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="de.danoeh.antennapod.FORCE_WIDGET_UPDATE"/>
+                <action android:name="baseline.de.danoeh.antennapod.FORCE_WIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
@@ -135,14 +135,14 @@
                 android:resource="@xml/player_widget_info"/>
 
             <intent-filter>
-                <action android:name="de.danoeh.antennapod.STOP_WIDGET_UPDATE"/>
+                <action android:name="baseline.de.danoeh.antennapod.STOP_WIDGET_UPDATE"/>
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.StorageErrorActivity">
+        <activity android:name="baseline.de.danoeh.antennapod.activity.StorageErrorActivity">
         </activity>
         <activity
-            android:name=".activity.FlattrAuthActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.FlattrAuthActivity"
             android:label="@string/flattr_auth_label">
             <intent-filter>
                 <action android:name=".activities.FlattrAuthActivity"/>
@@ -156,39 +156,39 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data
-                    android:host="de.danoeh.antennapod"
+                    android:host="baseline.de.danoeh.antennapod"
                     android:scheme="flattr4j"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AboutActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.AboutActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/about_pref">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-            android:name=".activity.StatisticsActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.StatisticsActivity"
             android:label="@string/statistics_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-                android:name=".activity.ImportExportActivity"
+                android:name="baseline.de.danoeh.antennapod.activity.ImportExportActivity"
                 android:label="@string/import_export">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="de.danoeh.antennapod.activity.PreferenceActivity"/>
+                    android:value="baseline.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-            android:name=".activity.OpmlImportFromPathActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.OpmlImportFromPathActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/opml_import_label">
         </activity>
         <activity
-            android:name=".activity.OpmlImportFromIntentActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.OpmlImportFromIntentActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/opml_import_label">
             <intent-filter>
@@ -224,18 +224,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.OpmlFeedChooserActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.OpmlFeedChooserActivity"
             android:label="@string/opml_import_label">
         </activity>
 
         <activity
-            android:name=".activity.VideoplayerActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.VideoplayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
             android:supportsPictureInPicture="true"
             android:screenOrientation="sensorLandscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -247,20 +247,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.DirectoryChooserActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.DirectoryChooserActivity"
             android:label="@string/choose_data_directory">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
 
         <activity
-            android:name=".activity.OnlineFeedViewActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.OnlineFeedViewActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/add_feed_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.MainActivity"/>
 
             <!-- URLs ending with '.xml' or '.rss' -->
 
@@ -335,7 +335,7 @@
         </activity>
 
         <activity
-            android:name=".activity.gpoddernet.GpodnetAuthenticationActivity"
+            android:name="baseline.de.danoeh.antennapod.activity.gpoddernet.GpodnetAuthenticationActivity"
             android:configChanges="orientation"
             android:label="@string/gpodnet_auth_label"
             android:screenOrientation="portrait">
@@ -345,28 +345,28 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="baseline.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
 
-        <receiver android:name=".receiver.ConnectivityActionReceiver">
+        <receiver android:name="baseline.de.danoeh.antennapod.receiver.ConnectivityActionReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.PowerConnectionReceiver">
+        <receiver android:name="baseline.de.danoeh.antennapod.receiver.PowerConnectionReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.SPAReceiver">
+        <receiver android:name="baseline.de.danoeh.antennapod.receiver.SPAReceiver">
             <intent-filter>
                 <action android:name="de.danoeh.antennapdsp.intent.SP_APPS_QUERY_FEEDS_RESPONSE"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
+        <receiver android:name="baseline.de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
@@ -374,7 +374,7 @@
                 <action android:name="android.intent.action.PACKAGE_REPLACED"/>
 
                 <data
-                    android:path="de.danoeh.antennapod"
+                    android:path="baseline.de.danoeh.antennapod"
                     android:scheme="package"/>
             </intent-filter>
         </receiver>

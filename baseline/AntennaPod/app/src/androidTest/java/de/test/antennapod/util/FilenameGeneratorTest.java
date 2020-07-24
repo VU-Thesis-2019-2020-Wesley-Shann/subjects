@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import java.io.File;
 import java.io.IOException;
 
-import de.danoeh.antennapod.core.util.FileNameGenerator;
+import baseline.de.danoeh.antennapod.core.util.FileNameGenerator;
 
 public class FilenameGeneratorTest extends AndroidTestCase {
 

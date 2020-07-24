@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.danoeh.antennapod.core.feed.Feed;
-import de.danoeh.antennapod.core.feed.FeedItem;
-import de.danoeh.antennapod.core.preferences.UserPreferences;
-import de.danoeh.antennapod.core.storage.DBTasks;
+import baseline.de.danoeh.antennapod.core.feed.Feed;
+import baseline.de.danoeh.antennapod.core.feed.FeedItem;
+import baseline.de.danoeh.antennapod.core.preferences.UserPreferences;
+import baseline.de.danoeh.antennapod.core.storage.DBTasks;
 
 /**
  * Tests that the APQueueCleanupAlgorithm is working correctly.

@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import de.danoeh.antennapod.core.feed.Feed;
-import de.danoeh.antennapod.core.feed.FeedItem;
-import de.danoeh.antennapod.core.feed.FeedMedia;
-import de.danoeh.antennapod.core.preferences.UserPreferences;
-import de.danoeh.antennapod.core.storage.DBTasks;
-import de.danoeh.antennapod.core.storage.PodDBAdapter;
+import baseline.de.danoeh.antennapod.core.feed.Feed;
+import baseline.de.danoeh.antennapod.core.feed.FeedItem;
+import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
+import baseline.de.danoeh.antennapod.core.preferences.UserPreferences;
+import baseline.de.danoeh.antennapod.core.storage.DBTasks;
+import baseline.de.danoeh.antennapod.core.storage.PodDBAdapter;
 
 import static de.test.antennapod.storage.DBTestUtils.saveFeedlist;
 

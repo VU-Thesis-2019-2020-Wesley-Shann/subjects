@@ -18,16 +18,16 @@ import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import de.danoeh.antennapod.core.feed.Feed;
-import de.danoeh.antennapod.core.feed.FeedItem;
-import de.danoeh.antennapod.core.feed.FeedMedia;
-import de.danoeh.antennapod.core.feed.FeedPreferences;
-import de.danoeh.antennapod.core.feed.MediaType;
-import de.danoeh.antennapod.core.service.playback.LocalPSMP;
-import de.danoeh.antennapod.core.service.playback.PlaybackServiceMediaPlayer;
-import de.danoeh.antennapod.core.service.playback.PlayerStatus;
-import de.danoeh.antennapod.core.storage.PodDBAdapter;
-import de.danoeh.antennapod.core.util.playback.Playable;
+import baseline.de.danoeh.antennapod.core.feed.Feed;
+import baseline.de.danoeh.antennapod.core.feed.FeedItem;
+import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
+import baseline.de.danoeh.antennapod.core.feed.FeedPreferences;
+import baseline.de.danoeh.antennapod.core.feed.MediaType;
+import baseline.de.danoeh.antennapod.core.service.playback.LocalPSMP;
+import baseline.de.danoeh.antennapod.core.service.playback.PlaybackServiceMediaPlayer;
+import baseline.de.danoeh.antennapod.core.service.playback.PlayerStatus;
+import baseline.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import baseline.de.danoeh.antennapod.core.util.playback.Playable;
 import de.test.antennapod.util.service.download.HTTPBin;
 
 /**

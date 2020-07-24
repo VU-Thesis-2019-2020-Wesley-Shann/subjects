@@ -21,16 +21,16 @@ import org.junit.runner.RunWith;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-import de.danoeh.antennapod.R;
-import de.danoeh.antennapod.activity.PreferenceActivity;
-import de.danoeh.antennapod.core.preferences.UserPreferences;
-import de.danoeh.antennapod.core.storage.APCleanupAlgorithm;
-import de.danoeh.antennapod.core.storage.APNullCleanupAlgorithm;
-import de.danoeh.antennapod.core.storage.APQueueCleanupAlgorithm;
-import de.danoeh.antennapod.core.storage.EpisodeCleanupAlgorithm;
-import de.danoeh.antennapod.fragment.EpisodesFragment;
-import de.danoeh.antennapod.fragment.QueueFragment;
-import de.danoeh.antennapod.fragment.SubscriptionFragment;
+import baseline.de.danoeh.antennapod.R;
+import baseline.de.danoeh.antennapod.activity.PreferenceActivity;
+import baseline.de.danoeh.antennapod.core.preferences.UserPreferences;
+import baseline.de.danoeh.antennapod.core.storage.APCleanupAlgorithm;
+import baseline.de.danoeh.antennapod.core.storage.APNullCleanupAlgorithm;
+import baseline.de.danoeh.antennapod.core.storage.APQueueCleanupAlgorithm;
+import baseline.de.danoeh.antennapod.core.storage.EpisodeCleanupAlgorithm;
+import baseline.de.danoeh.antennapod.fragment.EpisodesFragment;
+import baseline.de.danoeh.antennapod.fragment.QueueFragment;
+import baseline.de.danoeh.antennapod.fragment.SubscriptionFragment;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static androidx.test.espresso.Espresso.onView;
@@ -73,7 +73,7 @@ public class PreferencesTest {
     public void testSwitchTheme() {
         final int theme = UserPreferences.getTheme();
         int otherTheme;
-        if(theme == de.danoeh.antennapod.core.R.style.Theme_AntennaPod_Light) {
+        if(theme == baseline.de.danoeh.antennapod.core.R.style.Theme_AntennaPod_Light) {
             otherTheme = R.string.pref_theme_title_dark;
         } else {
             otherTheme = R.string.pref_theme_title_light;
@@ -88,7 +88,7 @@ public class PreferencesTest {
     public void testSwitchThemeBack() {
         final int theme = UserPreferences.getTheme();
         int otherTheme;
-        if(theme == de.danoeh.antennapod.core.R.style.Theme_AntennaPod_Light) {
+        if(theme == baseline.de.danoeh.antennapod.core.R.style.Theme_AntennaPod_Light) {
             otherTheme = R.string.pref_theme_title_dark;
         } else {
             otherTheme = R.string.pref_theme_title_light;
