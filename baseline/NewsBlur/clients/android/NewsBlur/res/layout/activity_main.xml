@@ -92,7 +92,7 @@
          to be defined first so that other things can be placed above it. -->
     <fragment
         android:id="@+id/fragment_feedintelligenceselector"
-        android:name="com.newsblur.fragment.FeedIntelligenceSelectorFragment"
+        android:name="baseline.com.newsblur.fragment.FeedIntelligenceSelectorFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -175,7 +175,7 @@
         android:layout_above="@id/fragment_feedintelligenceselector" >
 
         <fragment
-            android:name="com.newsblur.fragment.FolderListFragment"
+            android:name="baseline.com.newsblur.fragment.FolderListFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:tag="folderFeedListFragment" />

@@ -73,6 +73,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 23
+        applicationId "baseline.com.newsblur"
     }
 }
 

@@ -22,8 +22,8 @@
 }
 
 # these two seem to confuse ProGuard, so force keep them
--keep class com.newsblur.util.StateFilter { *; }
--keep class com.newsblur.view.StateToggleButton$StateChangedListener { *; }
+-keep class baseline.com.newsblur.util.StateFilter { *; }
+-keep class baseline.com.newsblur.view.StateToggleButton$StateChangedListener { *; }
 
 # we use proguard only as an APK shrinker and many of our dependencies throw
 # all manner of gross warnings. kept silent by default, the following lines

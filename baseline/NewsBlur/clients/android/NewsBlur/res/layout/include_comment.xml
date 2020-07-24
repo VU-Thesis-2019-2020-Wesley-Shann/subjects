@@ -107,8 +107,8 @@
                 android:textSize="12sp"
                 />
 
-        <com.newsblur.view.FlowLayout
-            xmlns:newsblur="http://schemas.android.com/apk/res/com.newsblur"
+        <baseline.com.newsblur.view.FlowLayout
+            xmlns:newsblur="http://schemas.android.com/apk/res/baseline.com.newsblur"
             android:id="@+id/comment_favourite_avatars"
             android:layout_width="match_parent"
             android:layout_height="24dp"
