@@ -17,5 +17,5 @@
 }
 
 -dontobfuscate
--keep class io.github.hidroh.materialistic.** { *; }
--keep interface io.github.hidroh.materialistic.** { *; }
+-keep class baseline.io.github.hidroh.materialistic.** { *; }
+-keep interface baseline.io.github.hidroh.materialistic.** { *; }

@@ -6,7 +6,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "io.github.hidroh.materialistic"
+        applicationId "baseline.io.github.hidroh.materialistic"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 79

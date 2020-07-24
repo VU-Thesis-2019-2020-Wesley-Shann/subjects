@@ -39,7 +39,7 @@
     <string name="pref_highlight_updated_summary">Mostrar cambios desde la última actualización de las historias</string>
     <string name="pref_custom_tab_title">Usar pestaña personalizadas</string>
     <string name="pref_custom_tab_summary">Abrir</string>
-    <string name="app_name">Materialistic</string>
+    <string name="app_name">Baseline Materialistic</string>
     <string name="filter_title_item">Materialistic</string>
     <string name="pref_story_display_title">Abrir por defecto</string>
     <string name="pref_theme_title">Tema de la aplicación</string>
