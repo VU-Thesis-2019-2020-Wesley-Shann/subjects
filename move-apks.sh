@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Script deprecated in favour of ./move-apks2.sh
 # This script will copy the built apks to the directory /build/apks/treatment
 
 start_script=$(date +%s)
