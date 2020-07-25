@@ -17,7 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.github.project_travel_mate.R;
+import baseline.io.github.project_travel_mate.R;
 import utils.RestaurantItemEntity;
 
 public class RestaurantsCardViewAdapter

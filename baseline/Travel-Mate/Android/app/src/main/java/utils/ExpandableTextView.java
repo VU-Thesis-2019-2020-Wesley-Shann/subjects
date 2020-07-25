@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 
-import io.github.project_travel_mate.R;
+import baseline.io.github.project_travel_mate.R;
 
 public class ExpandableTextView extends androidx.appcompat.widget.AppCompatTextView {
 

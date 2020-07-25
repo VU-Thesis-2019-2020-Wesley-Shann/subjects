@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="io.github.project_travel_mate.destinations.description.PlacesOnMapActivity">
+        tools:context="baseline.io.github.project_travel_mate.destinations.description.PlacesOnMapActivity">
 
         <org.osmdroid.views.MapView
             android:id="@+id/map"

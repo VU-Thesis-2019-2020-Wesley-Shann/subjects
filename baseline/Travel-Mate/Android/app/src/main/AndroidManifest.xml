@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!-- suppress ALL -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.github.project_travel_mate">
+    package="baseline.io.github.project_travel_mate">
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
@@ -118,7 +118,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="io.github.project_travel_mate.shareFile"
+            android:authorities="baseline.io.github.project_travel_mate.shareFile"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

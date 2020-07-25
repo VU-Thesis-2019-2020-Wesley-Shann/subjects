@@ -6,13 +6,11 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import io.github.project_travel_mate.R;
-import io.github.project_travel_mate.utilities.ChecklistActivity;
+import baseline.io.github.project_travel_mate.R;
+import baseline.io.github.project_travel_mate.utilities.ChecklistActivity;
 
 /**
  * Created by Santosh on 11/09/2018.
