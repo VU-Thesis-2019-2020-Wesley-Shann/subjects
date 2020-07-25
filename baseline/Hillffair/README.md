@@ -6,7 +6,7 @@ This is the official Android Application of the Cultural Fest of NIT Hamirpur **
 
 Screencast link: [https://youtu.be/JNsIbjpm2l8](https://youtu.be/JNsIbjpm2l8)
 
-The App is currently on Playstore under link: https://play.google.com/store/apps/details?id=appteam.nith.hillffair
+The App is currently on Playstore under link: https://play.google.com/store/apps/details?id=baseline.appteam.nith.hillffair
 
 ### How to setup this project in Android Studio :-
 

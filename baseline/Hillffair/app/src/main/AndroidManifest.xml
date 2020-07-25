@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="appteam.nith.hillffair">
+    package="baseline.appteam.nith.hillffair">
     <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
