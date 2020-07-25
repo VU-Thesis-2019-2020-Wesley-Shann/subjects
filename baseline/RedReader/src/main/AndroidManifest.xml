@@ -17,7 +17,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.quantumbadger.redreader"
+          package="baseline.org.quantumbadger.redreader"
           android:versionCode="87"
           android:versionName="1.9.10"
           android:installLocation="auto">
@@ -30,7 +30,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
-    <application android:name="org.quantumbadger.redreader.RedReader"
+    <application android:name="baseline.org.quantumbadger.redreader.RedReader"
                  android:icon="@drawable/icon"
                  android:label="@string/app_name"
                  android:theme="@style/RR.Startup"
@@ -147,7 +147,7 @@
 		
 		<provider
 				android:name="androidx.core.content.FileProvider"
-				android:authorities="org.quantumbadger.redreader.provider"
+				android:authorities="baseline.org.quantumbadger.redreader.provider"
 				android:exported="false"
 				android:grantUriPermissions="true">
 			<meta-data
