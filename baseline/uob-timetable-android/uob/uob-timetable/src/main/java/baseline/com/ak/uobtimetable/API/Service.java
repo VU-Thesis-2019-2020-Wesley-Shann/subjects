@@ -1,6 +1,7 @@
 package baseline.com.ak.uobtimetable.API;
 
 import android.content.Context;
+import android.util.Log;
 
 import baseline.com.ak.uobtimetable.Exceptions.HTTPException;
 import baseline.com.ak.uobtimetable.Utilities.AndroidUtilities;
@@ -10,6 +11,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.net.SocketTimeoutException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -70,7 +72,12 @@ public class Service {
 
         try {
             Request request = makeRequest(url);
+            long start = new Date().getTime();
             Response response = okHttpClient.newCall(request).execute();
+            long end = new Date().getTime();
+            long request_duration = end - start;
+            Log.i("NAPPA_EXPERIMENTATION", "REQUEST_DURATION='" + request_duration + "'," +
+                    "URL='" + url + "'");
 
             bodyString = response.body().string();
 
