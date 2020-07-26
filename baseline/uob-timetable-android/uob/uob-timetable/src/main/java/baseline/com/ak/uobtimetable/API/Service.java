@@ -17,6 +17,7 @@ import java.util.List;
 
 import baseline.com.ak.uobtimetable.Utilities.Logging.Logger;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -72,12 +73,10 @@ public class Service {
 
         try {
             Request request = makeRequest(url);
-            long start = new Date().getTime();
+            long sentRequestAtMillis = new Date().getTime();
             Response response = okHttpClient.newCall(request).execute();
-            long end = new Date().getTime();
-            long request_duration = end - start;
-            Log.i("NAPPA_EXPERIMENTATION", "REQUEST_DURATION='" + request_duration + "'," +
-                    "URL='" + url + "'");
+            long receivedResponseAtMillis = new Date().getTime();
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
 
             bodyString = response.body().string();
 
