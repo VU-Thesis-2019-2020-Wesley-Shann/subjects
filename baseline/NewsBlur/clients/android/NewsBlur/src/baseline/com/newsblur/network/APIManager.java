@@ -53,6 +53,7 @@ import baseline.com.newsblur.util.PrefsUtils;
 import baseline.com.newsblur.util.ReadFilter;
 import baseline.com.newsblur.util.StoryOrder;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -122,7 +123,10 @@ public class APIManager {
                                          .followRedirects(false)
                                          .build();
         try {
+            long sentRequestAtMillis = System.currentTimeMillis();
             Response response = noredirHttpClient.newCall(requestBuilder.build()).execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
             if (!response.isRedirect()) return false;
             String newCookie = response.header("Set-Cookie");
             PrefsUtils.saveLogin(context, username, newCookie);

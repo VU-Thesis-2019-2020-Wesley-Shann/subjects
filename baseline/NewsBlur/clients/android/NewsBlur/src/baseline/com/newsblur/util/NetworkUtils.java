@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -42,7 +43,10 @@ public class NetworkUtils {
         long bytesRead = 0;
         try {
             Request.Builder requestBuilder = new Request.Builder().url(url);
+            long sentRequestAtMillis = System.currentTimeMillis();
             Response response = ImageFetchHttpClient.newCall(requestBuilder.build()).execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
             if (response.isSuccessful()) {
                 BufferedSink sink = Okio.buffer(Okio.sink(file));
                 try {

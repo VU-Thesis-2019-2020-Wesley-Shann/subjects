@@ -12,6 +12,16 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs/aars'
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     maven {
@@ -34,6 +44,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.14.8'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation name: 'nappa-experimentation', ext: 'aar'
 }
 
 android {
