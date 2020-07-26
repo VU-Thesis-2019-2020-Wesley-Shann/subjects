@@ -8,6 +8,16 @@ buildscript {
     }
 }
 
+allprojects {
+	repositories {
+		google()
+		jcenter()
+		flatDir {
+			dirs 'libs/aars'
+		}
+	}
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'pmd'
 
@@ -28,7 +38,7 @@ dependencies {
     implementation 'info.guardianproject.netcipher:netcipher:1.2.1'
 	implementation 'com.google.android.exoplayer:exoplayer-core:2.10.8'
 	implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.8'
-
+	implementation name: 'nappa-experimentation', ext: 'aar'
 
     testImplementation 'junit:junit:4.12'
 }

@@ -20,6 +20,7 @@ package baseline.org.quantumbadger.redreader.http.okhttp;
 import android.content.Context;
 import android.util.Log;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.ConnectionPool;
@@ -149,35 +150,10 @@ public class OKHTTPBackend extends HTTPBackend {
 				final Response response;
 
 				try {
-					long start = System.currentTimeMillis();
+					long sentRequestAtMillis = System.currentTimeMillis();
 					response = call.execute();
-					long end = System.currentTimeMillis();
-					String requestMethod = response.request().method();
-					boolean isResponseGetMethod = requestMethod.equals("GET");
-					if (isResponseGetMethod) {
-						long requestDurationSystem = end - start;
-						long requestDurationOkHttp = response.receivedResponseAtMillis() - response.sentRequestAtMillis();
-						// okhttp3.ResponseBody.contentLength
-						long responseLengthOkhttp = response.body() != null ? response.body().contentLength() : -2;
-						int responseCode = response.code();
-						String requestUrl = response.request().url().url().toString();
-						// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
-						String responseLengthHeader = "-2";
-						if (response.networkResponse() != null ){
-							List<String> header = response.networkResponse().headers().values("content-length");
-							if (header.size() == 1) responseLengthHeader = header.get(0);
-						}
-
-						String logMessage = "DEPENDENT_VARIABLE_D_4: " +
-								"REQUEST_DURATION_SYSTEM='" + requestDurationSystem + "'," +
-								"REQUEST_DURATION_OKHTTP='" + requestDurationOkHttp + "'," +
-								"RESPONSE_CODE='" + responseCode + "'," +
-								"RESPONSE_METHOD='" + requestMethod + "'," +
-								"RESPONSE_LENGTH_OKHTTP='" + responseLengthOkhttp + "'," +
-								"RESPONSE_LENGTH_HEADER='" + responseLengthHeader + "'," +
-								"REQUEST_URL='" + requestUrl + "',";
-						Log.i("NAPPA_EXPERIMENTATION", logMessage);
-					}
+					long receivedResponseAtMillis = System.currentTimeMillis();
+					MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
 				} catch(IOException e) {
 					listener.onError(CacheRequest.REQUEST_FAILURE_CONNECTION, e, null);
 					Log.d("OK", "request didn't even connect: " + e.getMessage());
