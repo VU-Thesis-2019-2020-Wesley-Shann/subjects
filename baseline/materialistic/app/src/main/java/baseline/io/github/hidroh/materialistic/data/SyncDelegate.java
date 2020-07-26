@@ -60,8 +60,10 @@ import baseline.io.github.hidroh.materialistic.R;
 import baseline.io.github.hidroh.materialistic.annotation.Synthetic;
 import baseline.io.github.hidroh.materialistic.widget.AdBlockWebViewClient;
 import baseline.io.github.hidroh.materialistic.widget.CacheableWebView;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SyncDelegate {
     static final String SYNC_PREFERENCES_FILE = "_syncpreferences";
@@ -257,7 +259,11 @@ public class SyncDelegate {
 
     private HackerNewsItem getFromCache(String itemId) {
         try {
-            return mHnRestService.cachedItem(itemId).execute().body();
+            long sentRequestAtMillis = System.currentTimeMillis();
+            Response<HackerNewsItem> response = mHnRestService.cachedItem(itemId).execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+            return response.body();
         } catch (IOException e) {
             return null;
         }

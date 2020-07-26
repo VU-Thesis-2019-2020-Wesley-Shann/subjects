@@ -31,6 +31,7 @@ import javax.inject.Inject;
 
 import baseline.io.github.hidroh.materialistic.AppUtils;
 import baseline.io.github.hidroh.materialistic.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
@@ -39,6 +40,8 @@ import okhttp3.Response;
 import rx.Observable;
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
+
+// None of the http requests made here are used for experimentation
 
 public class UserServicesClient implements UserServices {
     private static final String BASE_WEB_URL = "https://news.ycombinator.com";
@@ -75,6 +78,17 @@ public class UserServicesClient implements UserServices {
     private static final String HEADER_SET_COOKIE = "set-cookie";
     private final Call.Factory mCallFactory;
     private final Scheduler mIoScheduler;
+    private long loginSentRequestAtMillis;
+    private long voteUpSentRequestAtMillis;
+    private long replySentRequestAtMillis;
+    private long submitSentRequestAtMillis;
+    private long postSubmitSentRequestAtMillis;
+
+    private static final int LOGIN = 146;
+    private static final int VOTE_UP = 311;
+    private static final int REPLY = 726;
+    private static final int SUBMIT = 142;
+    private static final int POST_SUBMIT = 595;
 
     @Inject
     public UserServicesClient(Call.Factory callFactory, Scheduler ioScheduler) {
@@ -84,8 +98,11 @@ public class UserServicesClient implements UserServices {
 
     @Override
     public void login(String username, String password, boolean createAccount, Callback callback) {
-        execute(postLogin(username, password, createAccount))
+        loginSentRequestAtMillis = 0;
+        execute(postLogin(username, password, createAccount), LOGIN)
                 .flatMap(response -> {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, loginSentRequestAtMillis, receivedResponseAtMillis);
                     if (response.code() == HttpURLConnection.HTTP_OK) {
                         return Observable.error(new UserServices.Exception(parseLoginError(response)));
                     }
@@ -97,13 +114,18 @@ public class UserServicesClient implements UserServices {
 
     @Override
     public boolean voteUp(Context context, String itemId, Callback callback) {
+        voteUpSentRequestAtMillis = 0;
         Pair<String, String> credentials = AppUtils.getCredentials(context);
         if (credentials == null) {
             return false;
         }
         Toast.makeText(context, R.string.sending, Toast.LENGTH_SHORT).show();
-        execute(postVote(credentials.first, credentials.second, itemId))
-                .map(response -> response.code() == HttpURLConnection.HTTP_MOVED_TEMP)
+        execute(postVote(credentials.first, credentials.second, itemId), VOTE_UP)
+                .map(response -> {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, voteUpSentRequestAtMillis, receivedResponseAtMillis);
+                    return response.code() == HttpURLConnection.HTTP_MOVED_TEMP;
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(callback::onDone, callback::onError);
         return true;
@@ -111,13 +133,18 @@ public class UserServicesClient implements UserServices {
 
     @Override
     public void reply(Context context, String parentId, String text, Callback callback) {
+        replySentRequestAtMillis = 0;
         Pair<String, String> credentials = AppUtils.getCredentials(context);
         if (credentials == null) {
             callback.onDone(false);
             return;
         }
-        execute(postReply(parentId, text, credentials.first, credentials.second))
-                .map(response -> response.code() == HttpURLConnection.HTTP_MOVED_TEMP)
+        execute(postReply(parentId, text, credentials.first, credentials.second), REPLY)
+                .map(response -> {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, replySentRequestAtMillis, receivedResponseAtMillis);
+                    return response.code() == HttpURLConnection.HTTP_MOVED_TEMP;
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(callback::onDone, callback::onError);
     }
@@ -139,10 +166,16 @@ public class UserServicesClient implements UserServices {
            if 200 or anything else, considered error
          */
         // fetch submit page with given credentials
-        execute(postSubmitForm(credentials.first, credentials.second))
-                .flatMap(response -> response.code() != HttpURLConnection.HTTP_MOVED_TEMP ?
-                        Observable.just(response) :
-                        Observable.error(new IOException()))
+        submitSentRequestAtMillis = 0;
+        postSubmitSentRequestAtMillis = 0;
+        execute(postSubmitForm(credentials.first, credentials.second), SUBMIT)
+                .flatMap(response -> {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, submitSentRequestAtMillis, receivedResponseAtMillis);
+                    return response.code() != HttpURLConnection.HTTP_MOVED_TEMP ?
+                            Observable.just(response) :
+                            Observable.error(new IOException());
+                })
                 .flatMap(response -> {
                     try {
                         return Observable.just(new String[]{
@@ -162,10 +195,14 @@ public class UserServicesClient implements UserServices {
                 .flatMap(array -> !TextUtils.isEmpty(array[1]) ?
                         Observable.just(array) :
                         Observable.error(new IOException()))
-                .flatMap(array -> execute(postSubmit(title, content, isUrl, array[0], array[1])))
-                .flatMap(response -> response.code() == HttpURLConnection.HTTP_MOVED_TEMP ?
-                        Observable.just(Uri.parse(response.header(HEADER_LOCATION))) :
-                        Observable.error(new IOException()))
+                .flatMap(array -> execute(postSubmit(title, content, isUrl, array[0], array[1]), POST_SUBMIT))
+                .flatMap(response -> {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, postSubmitSentRequestAtMillis, receivedResponseAtMillis);
+                    return response.code() == HttpURLConnection.HTTP_MOVED_TEMP ?
+                            Observable.just(Uri.parse(response.header(HEADER_LOCATION))) :
+                            Observable.error(new IOException());
+                })
                 .flatMap(uri -> TextUtils.equals(uri.getPath(), DEFAULT_SUBMIT_REDIRECT) ?
                         Observable.just(true) :
                         Observable.error(buildException(uri)))
@@ -251,8 +288,25 @@ public class UserServicesClient implements UserServices {
         return builder.build();
     }
 
-    private Observable<Response> execute(Request request) {
+    private Observable<Response> execute(Request request, int type) {
         return Observable.defer(() -> {
+            switch (type){
+                case LOGIN:
+                    loginSentRequestAtMillis = System.currentTimeMillis();
+                    break;
+                case VOTE_UP:
+                    voteUpSentRequestAtMillis = System.currentTimeMillis();
+                    break;
+                case REPLY:
+                    replySentRequestAtMillis = System.currentTimeMillis();
+                    break;
+                case SUBMIT:
+                    submitSentRequestAtMillis = System.currentTimeMillis();
+                    break;
+                case POST_SUBMIT:
+                    postSubmitSentRequestAtMillis = System.currentTimeMillis();
+                    break;
+            }
             try {
                 return Observable.just(mCallFactory.newCall(request).execute());
             } catch (IOException e) {

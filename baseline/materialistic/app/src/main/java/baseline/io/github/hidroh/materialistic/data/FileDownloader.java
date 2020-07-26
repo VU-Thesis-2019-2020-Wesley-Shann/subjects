@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import baseline.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
@@ -42,6 +43,7 @@ public class FileDownloader {
                 .addHeader("Content-Type", mimeType)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         mCallFactory.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -50,6 +52,8 @@ public class FileDownloader {
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
                 try {
                     BufferedSink sink = Okio.buffer(Okio.sink(outputFile));
                     sink.writeAll(response.body().source());

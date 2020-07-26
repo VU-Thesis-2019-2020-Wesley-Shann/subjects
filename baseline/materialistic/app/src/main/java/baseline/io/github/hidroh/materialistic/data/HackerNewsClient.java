@@ -24,7 +24,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import baseline.io.github.hidroh.materialistic.DataModule;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
@@ -108,7 +110,11 @@ public class HackerNewsClient implements ItemManager, UserManager {
     @Override
     public Item[] getStories(String filter, @CacheMode int cacheMode) {
         try {
-            return toItems(getStoriesCall(filter, cacheMode).execute().body());
+            long sentRequestAtMillis = System.currentTimeMillis();
+            Response<int[]> response = getStoriesCall(filter, cacheMode).execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+            return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
         }
@@ -128,7 +134,11 @@ public class HackerNewsClient implements ItemManager, UserManager {
                 break;
         }
         try {
-            return call.execute().body();
+            long sentRequestAtMillis = System.currentTimeMillis();
+            Response<HackerNewsItem> response  = call.execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+            return response.body();
         } catch (IOException e) {
             return null;
         }

@@ -26,7 +26,9 @@ import androidx.annotation.NonNull;
 import baseline.io.github.hidroh.materialistic.ActivityModule;
 import baseline.io.github.hidroh.materialistic.DataModule;
 import baseline.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -68,7 +70,11 @@ public class AlgoliaClient implements ItemManager {
     @Override
     public Item[] getStories(String filter, @CacheMode int cacheMode) {
         try {
-            return toItems(search(filter).execute().body());
+            long sentRequestAtMillis = System.currentTimeMillis();
+            Response<AlgoliaHits> response = search(filter).execute();
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+            return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
         }
