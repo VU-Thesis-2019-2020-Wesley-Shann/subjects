@@ -153,7 +153,7 @@ public class OKHTTPBackend extends HTTPBackend {
 					long sentRequestAtMillis = System.currentTimeMillis();
 					response = call.execute();
 					long receivedResponseAtMillis = System.currentTimeMillis();
-					MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+					MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
 				} catch(IOException e) {
 					listener.onError(CacheRequest.REQUEST_FAILURE_CONNECTION, e, null);
 					Log.d("OK", "request didn't even connect: " + e.getMessage());
