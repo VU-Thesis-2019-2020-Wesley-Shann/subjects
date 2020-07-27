@@ -25,6 +25,7 @@ import baseline.appteam.nith.hillffair.models.BattleEventResponse;
 import baseline.appteam.nith.hillffair.models.ClubModel;
 import baseline.appteam.nith.hillffair.models.ClubModel2;
 import baseline.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -84,9 +85,13 @@ public class ClubActivity extends AppCompatActivity {
 
     private void showData(final String club_name){
         Call<ClubModel2> getClubData= Utils.getRetrofitService().getClubInfo(club_name);
+        long sentRequestAtMillis = System.currentTimeMillis();
         getClubData.enqueue(new Callback<ClubModel2>() {
             @Override
             public void onResponse(Call<ClubModel2> call, Response<ClubModel2> response) {
+
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 ClubModel2 data=response.body();
@@ -119,9 +124,12 @@ public class ClubActivity extends AppCompatActivity {
     private void showSpecialData(String id){
 
         Call<ClubActivity.BattleResponseEvent> battleResponseEventCall=Utils.getRetrofitService().getEventData(id);
+        long sentRequestAtMillis = System.currentTimeMillis();
         battleResponseEventCall.enqueue(new Callback<BattleResponseEvent>() {
             @Override
             public void onResponse(Call<BattleResponseEvent> call, Response<BattleResponseEvent> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 BattleResponseEvent data=response.body();

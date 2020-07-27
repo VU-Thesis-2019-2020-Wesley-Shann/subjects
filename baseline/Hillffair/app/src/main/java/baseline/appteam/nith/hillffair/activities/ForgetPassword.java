@@ -24,6 +24,7 @@ import baseline.appteam.nith.hillffair.utilities.Utils;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -213,9 +214,12 @@ public class ForgetPassword extends AppCompatActivity {
 
         APIINTERFACE mApiService = Utils.getRetrofitService();
         Call<ForgotPassword> mService = mApiService.forgotPassword(Email);
+        long sentRequestAtMillis = System.currentTimeMillis();
         mService.enqueue(new Callback<ForgotPassword>() {
             @Override
             public void onResponse(Call<ForgotPassword> call, Response<ForgotPassword> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 verifyemail.setEnabled(true);
 
                 ForgotPassword mLoginObject = response.body();
@@ -270,9 +274,12 @@ public class ForgetPassword extends AppCompatActivity {
         APIINTERFACE mApiService = Utils.getRetrofitService();
 
         Call<SendPassword> mService = mApiService.sendPassword(id,pwd);
+        long sentRequestAtMillis = System.currentTimeMillis();
         mService.enqueue(new Callback<SendPassword>() {
             @Override
             public void onResponse(Call<SendPassword> call, Response<SendPassword> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 SendPassword obj = response.body();
                 if (obj != null && response.isSuccessful()) {
                     boolean returnedResponse = obj.isSuccess();

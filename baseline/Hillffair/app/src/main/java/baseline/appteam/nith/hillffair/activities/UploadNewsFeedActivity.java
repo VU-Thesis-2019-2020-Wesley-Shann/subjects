@@ -20,6 +20,7 @@ import baseline.appteam.nith.hillffair.custom_views.EditorView;
 import baseline.appteam.nith.hillffair.utilities.Utils;
 import com.google.gson.annotations.SerializedName;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -144,9 +145,12 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
     private void upload(String title, String description) {
 
         Call<UploadResponse> uploadResponseCall = Utils.getRetrofitService().uploadNews(title, description, sharedPref.getUserId(), sharedPref.getUserName());
+        long sentRequestAtMillis = System.currentTimeMillis();
         uploadResponseCall.enqueue(new Callback<UploadResponse>() {
             @Override
             public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 progressBar.setVisibility(GONE);
                 UploadResponse result = response.body();
                 int status_code=response.code();

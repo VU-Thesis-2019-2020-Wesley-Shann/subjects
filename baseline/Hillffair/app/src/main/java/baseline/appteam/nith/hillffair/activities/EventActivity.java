@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,9 +101,12 @@ public class EventActivity extends AppCompatActivity {
 
     private  void showData(){
         Call<ClubResponse> getClubResponseCall= Utils.getRetrofitService().getAllClub();
+        long sentRequestAtMillis = System.currentTimeMillis();
         getClubResponseCall.enqueue(new Callback<ClubResponse>() {
             @Override
             public void onResponse(Call<ClubResponse> call, Response<ClubResponse> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 ClubResponse clubResponse=response.body();

@@ -21,6 +21,7 @@ import baseline.appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -72,10 +73,13 @@ public class BattleDayActivity extends AppCompatActivity {
 
         APIINTERFACE apiservice= Utils.getRetrofitService();
         Call<BattleDayModel> call=apiservice.getSpecialEvents();
+        long sentRequestAtMillis = System.currentTimeMillis();
 
         call.enqueue(new Callback<BattleDayModel>() {
             @Override
             public void onResponse(Call<BattleDayModel> call, Response<BattleDayModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 bar.setVisibility(View.GONE);
 
                 BattleDayModel model=response.body();

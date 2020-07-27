@@ -28,6 +28,7 @@ import baseline.appteam.nith.hillffair.models.Likecount;
 import baseline.appteam.nith.hillffair.models.NewsfeedModel2;
 import baseline.appteam.nith.hillffair.utilities.APIINTERFACE;
 import baseline.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -125,10 +126,13 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
 
                         APIINTERFACE mApiService = Utils.getRetrofitService();
                         Call<Likecount> mservice = mApiService.likecount(card.get_id(),new SharedPref(MyApplication.getAppContext()).getUserId());
+                        long sentRequestAtMillis = System.currentTimeMillis();
 
                         mservice.enqueue(new Callback<Likecount>() {
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
+                                long receivedResponseAtMillis = System.currentTimeMillis();
+                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                                 Likecount likes = response.body();
                                 if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {
@@ -155,10 +159,13 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
                     public void unLiked(LikeButton likeButton) {
                         APIINTERFACE mApiService = Utils.getRetrofitService();
                         Call<Likecount> mservice = mApiService.likecount(card.get_id(),new SharedPref(MyApplication.getAppContext()).getUserId());
+                        long sentRequestAtMillis = System.currentTimeMillis();
 
                         mservice.enqueue(new Callback<Likecount>() {
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
+                                long receivedResponseAtMillis = System.currentTimeMillis();
+                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                                 Likecount likes = response.body();
                                 if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {

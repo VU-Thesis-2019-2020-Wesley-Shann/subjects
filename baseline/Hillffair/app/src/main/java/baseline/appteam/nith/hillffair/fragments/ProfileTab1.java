@@ -15,6 +15,7 @@ import baseline.appteam.nith.hillffair.application.SharedPref;
 import baseline.appteam.nith.hillffair.models.UserScoreResponse;
 import baseline.appteam.nith.hillffair.utilities.Utils;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,9 +59,12 @@ public class ProfileTab1 extends Fragment {
 
     private void getData(String id){
         Call<UserScoreResponse> getUserScoreResponseCall= Utils.getRetrofitService().getUserScore(id);
+        long sentRequestAtMillis = System.currentTimeMillis();
         getUserScoreResponseCall.enqueue(new Callback<UserScoreResponse>() {
             @Override
             public void onResponse(Call<UserScoreResponse> call, Response<UserScoreResponse> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 UserScoreResponse data=response.body();
                 if(data!=null&&response.isSuccessful()){
                     int score=data.getScore();

@@ -34,6 +34,7 @@ import baseline.appteam.nith.hillffair.utilities.APIINTERFACE;
 import baseline.appteam.nith.hillffair.utilities.Connection;
 import baseline.appteam.nith.hillffair.utilities.ScoreCalculator;
 import baseline.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,10 +92,13 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
         APIINTERFACE apiservice= Utils.getRetrofitService();
         Call<QuizQuestionsModel> call=apiservice.getQuiz(userId);
+        long sentRequestAtMillis = System.currentTimeMillis();
 
         call.enqueue(new Callback<QuizQuestionsModel>() {
             @Override
             public void onResponse(Call<QuizQuestionsModel> call, Response<QuizQuestionsModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 progressBar.setVisibility(View.GONE);
 
                 QuizQuestionsModel model=response.body();
@@ -247,9 +251,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
         APIINTERFACE service= Utils.getRetrofitService();
         Call<UpdateScoreModel> call=service.updateScore(id,score);
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         call.enqueue(new Callback<UpdateScoreModel>() {
             @Override
             public void onResponse(Call<UpdateScoreModel> call, Response<UpdateScoreModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
 
                 if(finish!=null){
                     finish.setEnabled(true);

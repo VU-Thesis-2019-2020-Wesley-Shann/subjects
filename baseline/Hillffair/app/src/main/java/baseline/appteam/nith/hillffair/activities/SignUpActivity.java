@@ -28,6 +28,7 @@ import net.steamcrafted.loadtoast.LoadToast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -300,9 +301,12 @@ public class SignUpActivity extends AppCompatActivity {
         APIINTERFACE mApiService = Utils.getRetrofitService();
         Call<Register> registerCall = mApiService.register(name, email, password, isnitian, rollno, phoneno);
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         registerCall.enqueue(new Callback<Register>() {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 Register register = response.body();
                 int status_code=response.code();
                if(register!=null&&response.isSuccessful()){

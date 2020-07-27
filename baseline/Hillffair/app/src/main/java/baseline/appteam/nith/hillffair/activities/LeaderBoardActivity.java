@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,9 +61,12 @@ public class LeaderBoardActivity extends AppCompatActivity {
     public void getLeaderBoard(String from) {
         APIINTERFACE mAPI = Utils.getRetrofitService();
         Call<LeaderBoardModel> mService = mAPI.getLeaderBoard(from);
+        long sentRequestAtMillis = System.currentTimeMillis();
         mService.enqueue(new Callback<LeaderBoardModel>() {
             @Override
             public void onResponse(Call<LeaderBoardModel> call, Response<LeaderBoardModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 if(response!=null&&response.isSuccessful()){
                     if(response.body().getUsers()!=null){
                         users = response.body().getUsers();

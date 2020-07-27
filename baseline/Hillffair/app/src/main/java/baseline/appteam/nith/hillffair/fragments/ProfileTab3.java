@@ -20,6 +20,7 @@ import baseline.appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,9 +76,12 @@ public class ProfileTab3 extends Fragment {
 
     private void getData(int from, String id) {
         Call<NewsfeedModel> getUserNewsFeed = Utils.getRetrofitService().getAllUserNews(""+from, id);
+        long sentRequestAtMillis = System.currentTimeMillis();
         getUserNewsFeed.enqueue(new Callback<NewsfeedModel>() {
             @Override
             public void onResponse(Call<NewsfeedModel> call, Response<NewsfeedModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 NewsfeedModel data = response.body();
 
                 if (data != null && response.isSuccessful()) {

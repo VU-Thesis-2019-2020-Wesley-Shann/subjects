@@ -36,6 +36,7 @@ import baseline.appteam.nith.hillffair.models.main_screen_model;
 import baseline.appteam.nith.hillffair.utilities.APIINTERFACE;
 import baseline.appteam.nith.hillffair.utilities.RecyclerItemClickListener;
 import baseline.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -282,9 +283,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         APIINTERFACE mAPI = Utils.getRetrofitService();
         Call<ProfileDataModel> mService = mAPI.profileBasicInfo(id);
+        long sentRequestAtMillis = System.currentTimeMillis();
         mService.enqueue(new Callback<ProfileDataModel>() {
             @Override
             public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 if(response!=null&&response.isSuccessful()){
                     if(response.body().isSuccess()){
                         ProfileTab2.ProfileBasicDetailModel model=response.body().getProfileInfo();

@@ -25,6 +25,7 @@ import baseline.appteam.nith.hillffair.utilities.Utils;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -145,9 +146,12 @@ public class LoginActivity extends AppCompatActivity {
 
         APIINTERFACE mApiService = Utils.getRetrofitService();
         Call<Login> mService = mApiService.login(email, password);
+        long sentRequestAtMillis = System.currentTimeMillis();
         mService.enqueue(new Callback<Login>() {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 loadToast.success();
                 Login mLoginObject = response.body();
                 int status_code = response.code();

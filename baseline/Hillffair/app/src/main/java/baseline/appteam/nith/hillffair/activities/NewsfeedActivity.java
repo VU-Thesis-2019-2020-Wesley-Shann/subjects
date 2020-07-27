@@ -25,6 +25,7 @@ import baseline.appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -126,9 +127,12 @@ public class NewsfeedActivity extends AppCompatActivity implements SwipeRefreshL
         }
 
         Call<NewsfeedModel> newsfeedResponse= Utils.getRetrofitService().getAllNews(""+from,pref.getUserId());
+        long sentRequestAtMillis = System.currentTimeMillis();
         newsfeedResponse.enqueue(new Callback<NewsfeedModel>() {
             @Override
             public void onResponse(Call<NewsfeedModel> call, Response<NewsfeedModel> response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
                 if(swipeRefreshLayout.isRefreshing()){
                     swipeRefreshLayout.setRefreshing(false);
                 }
