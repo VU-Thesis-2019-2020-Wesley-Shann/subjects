@@ -21,6 +21,7 @@ import baseline.de.danoeh.antennapod.core.service.download.AntennapodHttpClient;
 import baseline.de.danoeh.antennapod.core.service.download.HttpDownloader;
 import baseline.de.danoeh.antennapod.core.storage.DBReader;
 import baseline.de.danoeh.antennapod.core.util.NetworkUtils;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.*;
 
 /**
@@ -84,8 +85,9 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
         this.client = client;
     }
 
-//    Lots of images pass by here, but I could not find where thw request is first issued.
+//    Lots of resources pass by here, but I could not find all where thw request are first issued.
 //    Could not see it in the stack trace
+//    The images are in the interceptor
     @Nullable
     @Override
     public LoadData<InputStream> buildLoadData(@NonNull String model, int width, int height, @NonNull Options options) {
@@ -110,10 +112,19 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
 
         @Override
         public Response intercept(Chain chain) throws IOException {
+//            Both interceptors are used for the same reqeusts.
+//            The interceptor below might issue a new request
+//            Request request = chain.request();
+            Response response;
+//            long sentRequestAtMillis;
             if (NetworkUtils.isImageAllowed()) {
-                return chain.proceed(chain.request());
+//                Log.d("MYTAG", "interceptor 1a" + request.url().toString());
+//                sentRequestAtMillis = System.currentTimeMillis();
+                response = chain.proceed(chain.request());
             } else {
-                return new Response.Builder()
+//                Log.d("MYTAG", "interceptor 1b" + request.url().toString());
+//                sentRequestAtMillis = System.currentTimeMillis();
+                response = new Response.Builder()
                         .protocol(Protocol.HTTP_2)
                         .code(420)
                         .message("Policy Not Fulfilled")
@@ -121,10 +132,13 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
                         .request(chain.request())
                         .build();
             }
+//            long receivedResponseAtMillis = System.currentTimeMillis();
+//            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
+            return response;
         }
 
     }
-// DO NOT INSTRUMENT INTERCEPTOR, INSTRUMENT WHERE THE REQUEST IS FIRST ISSUED
+
     private static class BasicAuthenticationInterceptor implements Interceptor {
 
         @Override
@@ -135,7 +149,12 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
 
             if(TextUtils.isEmpty(authentication)) {
                 Log.d(TAG, "no credentials for '" + url + "'");
-                return chain.proceed(request);
+                long sentRequestAtMillis = System.currentTimeMillis();
+                Response r = chain.proceed(request);
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                Log.d("MYTAG", "interceptor 2a");
+                MetricNetworkRequestExecutionTime.log(r, sentRequestAtMillis, receivedResponseAtMillis, true);
+                return r;
             }
 
             // add authentication
@@ -146,7 +165,9 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
                     .addHeader("Authorization", credentials)
                     .build();
             Log.d(TAG, "Basic authentication with ISO-8859-1 encoding");
+            long sentRequestAtMillis = System.currentTimeMillis();
             Response response = chain.proceed(newRequest);
+            long receivedResponseAtMillis = System.currentTimeMillis();
             if (!response.isSuccessful() && response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                 credentials = HttpDownloader.encodeCredentials(auth[0], auth[1], "UTF-8");
                 newRequest = request
@@ -154,8 +175,15 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
                         .addHeader("Authorization", credentials)
                         .build();
                 Log.d(TAG, "Basic authentication with UTF-8 encoding");
-                return chain.proceed(newRequest);
+                long sentRequestAtMillis2 = System.currentTimeMillis();
+                Response r3 = chain.proceed(newRequest);
+                long receivedResponseAtMillis2 = System.currentTimeMillis();
+                Log.d("MYTAG", "interceptor 2b");
+                MetricNetworkRequestExecutionTime.log(r3, sentRequestAtMillis2, receivedResponseAtMillis2, true);
+                return r3;
             } else {
+                Log.d("MYTAG", "interceptor 2c");
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
                 return response;
             }
         }

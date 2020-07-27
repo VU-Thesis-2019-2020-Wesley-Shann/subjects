@@ -332,6 +332,7 @@ public class HttpDownloader extends Downloader {
             Response response = chain.proceed(request);
 
             if (response.code() != HttpURLConnection.HTTP_UNAUTHORIZED) {
+                Log.d("MYTAG", "interceptor 3a " + request.url().toString());
                 return response;
             }
 
@@ -353,6 +354,7 @@ public class HttpDownloader extends Downloader {
             response = chain.proceed(newRequest.build());
 
             if (response.code() != HttpURLConnection.HTTP_UNAUTHORIZED) {
+                Log.d("MYTAG", "interceptor 3b" + request.url().toString());
                 return response;
             }
 
@@ -369,6 +371,7 @@ public class HttpDownloader extends Downloader {
                 newRequest.header("Authorization", credentials);
             }
 
+            Log.d("MYTAG", "interceptor 3c" + request.url().toString());
             return chain.proceed(newRequest.build());
         }
 
