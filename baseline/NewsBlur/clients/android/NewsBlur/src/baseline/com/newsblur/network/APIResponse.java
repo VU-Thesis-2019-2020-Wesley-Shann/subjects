@@ -15,6 +15,7 @@ import baseline.com.newsblur.network.domain.RegisterResponse;
 import baseline.com.newsblur.util.AppConstants;
 
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -50,8 +51,9 @@ public class APIResponse {
 
         try {
             long startTime = System.currentTimeMillis();
+            Call call = httpClient.newCall(request);
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response response = httpClient.newCall(request).execute();
+            Response response = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             connectTime = System.currentTimeMillis() - startTime;
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);

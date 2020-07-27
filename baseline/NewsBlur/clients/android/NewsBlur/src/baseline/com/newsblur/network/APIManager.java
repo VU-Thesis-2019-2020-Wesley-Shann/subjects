@@ -54,6 +54,7 @@ import baseline.com.newsblur.util.ReadFilter;
 import baseline.com.newsblur.util.StoryOrder;
 
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
+import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -123,8 +124,9 @@ public class APIManager {
                                          .followRedirects(false)
                                          .build();
         try {
+            Call call = noredirHttpClient.newCall(requestBuilder.build());
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response response = noredirHttpClient.newCall(requestBuilder.build()).execute();
+            Response response = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (!response.isRedirect()) return false;
