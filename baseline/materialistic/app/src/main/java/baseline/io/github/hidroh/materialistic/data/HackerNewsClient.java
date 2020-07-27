@@ -16,6 +16,8 @@
 
 package baseline.io.github.hidroh.materialistic.data;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
@@ -110,10 +112,12 @@ public class HackerNewsClient implements ItemManager, UserManager {
     @Override
     public Item[] getStories(String filter, @CacheMode int cacheMode) {
         try {
+            Call<int[]> temp = getStoriesCall(filter, cacheMode);
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response<int[]> response = getStoriesCall(filter, cacheMode).execute();
+            Response<int[]> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+//            Log.d("MYTAG", "sync log 3");
+//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
@@ -137,7 +141,8 @@ public class HackerNewsClient implements ItemManager, UserManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<HackerNewsItem> response  = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+//            Log.d("MYTAG", "sync log 4");
+//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {
             return null;

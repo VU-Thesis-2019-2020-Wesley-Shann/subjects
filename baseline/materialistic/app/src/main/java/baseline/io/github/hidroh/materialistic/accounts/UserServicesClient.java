@@ -20,6 +20,7 @@ import android.content.Context;
 import android.net.Uri;
 import androidx.core.util.Pair;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -102,7 +103,8 @@ public class UserServicesClient implements UserServices {
         execute(postLogin(username, password, createAccount), LOGIN)
                 .flatMap(response -> {
                     long receivedResponseAtMillis = System.currentTimeMillis();
-                    MetricNetworkRequestExecutionTime.log(response, loginSentRequestAtMillis, receivedResponseAtMillis);
+//                    Log.d("MYTAG", "async log 3");
+//                    MetricNetworkRequestExecutionTime.log(response, loginSentRequestAtMillis, receivedResponseAtMillis, false);
                     if (response.code() == HttpURLConnection.HTTP_OK) {
                         return Observable.error(new UserServices.Exception(parseLoginError(response)));
                     }
@@ -123,7 +125,8 @@ public class UserServicesClient implements UserServices {
         execute(postVote(credentials.first, credentials.second, itemId), VOTE_UP)
                 .map(response -> {
                     long receivedResponseAtMillis = System.currentTimeMillis();
-                    MetricNetworkRequestExecutionTime.log(response, voteUpSentRequestAtMillis, receivedResponseAtMillis);
+//                    Log.d("MYTAG", "async log 4");
+//                    MetricNetworkRequestExecutionTime.log(response, voteUpSentRequestAtMillis, receivedResponseAtMillis, false);
                     return response.code() == HttpURLConnection.HTTP_MOVED_TEMP;
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -142,7 +145,8 @@ public class UserServicesClient implements UserServices {
         execute(postReply(parentId, text, credentials.first, credentials.second), REPLY)
                 .map(response -> {
                     long receivedResponseAtMillis = System.currentTimeMillis();
-                    MetricNetworkRequestExecutionTime.log(response, replySentRequestAtMillis, receivedResponseAtMillis);
+//                    Log.d("MYTAG", "async log 5");
+//                    MetricNetworkRequestExecutionTime.log(response, replySentRequestAtMillis, receivedResponseAtMillis,false);
                     return response.code() == HttpURLConnection.HTTP_MOVED_TEMP;
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -171,7 +175,8 @@ public class UserServicesClient implements UserServices {
         execute(postSubmitForm(credentials.first, credentials.second), SUBMIT)
                 .flatMap(response -> {
                     long receivedResponseAtMillis = System.currentTimeMillis();
-                    MetricNetworkRequestExecutionTime.log(response, submitSentRequestAtMillis, receivedResponseAtMillis);
+//                    Log.d("MYTAG", "async log 6");
+//                    MetricNetworkRequestExecutionTime.log(response, submitSentRequestAtMillis, receivedResponseAtMillis, false);
                     return response.code() != HttpURLConnection.HTTP_MOVED_TEMP ?
                             Observable.just(response) :
                             Observable.error(new IOException());
@@ -198,7 +203,8 @@ public class UserServicesClient implements UserServices {
                 .flatMap(array -> execute(postSubmit(title, content, isUrl, array[0], array[1]), POST_SUBMIT))
                 .flatMap(response -> {
                     long receivedResponseAtMillis = System.currentTimeMillis();
-                    MetricNetworkRequestExecutionTime.log(response, postSubmitSentRequestAtMillis, receivedResponseAtMillis);
+//                    Log.d("MYTAG", "async log 7");
+//                    MetricNetworkRequestExecutionTime.log(response, postSubmitSentRequestAtMillis, receivedResponseAtMillis, false);
                     return response.code() == HttpURLConnection.HTTP_MOVED_TEMP ?
                             Observable.just(Uri.parse(response.header(HEADER_LOCATION))) :
                             Observable.error(new IOException());

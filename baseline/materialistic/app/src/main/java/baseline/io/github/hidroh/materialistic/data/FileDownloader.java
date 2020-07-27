@@ -3,6 +3,8 @@ package baseline.io.github.hidroh.materialistic.data;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+
 import androidx.annotation.WorkerThread;
 
 import java.io.File;
@@ -53,7 +55,8 @@ public class FileDownloader {
             @Override
             public void onResponse(Call call, Response response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+//                Log.d("MYTAG", "async log 2");
+//                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 try {
                     BufferedSink sink = Okio.buffer(Okio.sink(outputFile));
                     sink.writeAll(response.body().source());

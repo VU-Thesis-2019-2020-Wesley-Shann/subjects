@@ -16,6 +16,8 @@
 
 package baseline.io.github.hidroh.materialistic.data;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -70,10 +72,12 @@ public class AlgoliaClient implements ItemManager {
     @Override
     public Item[] getStories(String filter, @CacheMode int cacheMode) {
         try {
+            Call<AlgoliaHits> temp = search(filter);
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response<AlgoliaHits> response = search(filter).execute();
+            Response<AlgoliaHits> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+//            Log.d("MYTAG", "sync log 2");
+//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];

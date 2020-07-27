@@ -44,6 +44,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.app.NotificationCompat;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.webkit.WebView;
 
 import java.io.IOException;
@@ -259,10 +260,12 @@ public class SyncDelegate {
 
     private HackerNewsItem getFromCache(String itemId) {
         try {
+            Call<HackerNewsItem> temp = mHnRestService.cachedItem(itemId);
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response<HackerNewsItem> response = mHnRestService.cachedItem(itemId).execute();
+            Response<HackerNewsItem> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+//            Log.d("MYTAG", "sync log 5");
+//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {
             return null;

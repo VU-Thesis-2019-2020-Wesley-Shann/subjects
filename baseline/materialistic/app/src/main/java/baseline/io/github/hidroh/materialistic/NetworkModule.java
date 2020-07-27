@@ -36,6 +36,7 @@ import baseline.io.github.hidroh.materialistic.data.FileDownloader;
 import baseline.io.github.hidroh.materialistic.data.HackerNewsClient;
 import baseline.io.github.hidroh.materialistic.data.ReadabilityClient;
 import baseline.io.github.hidroh.materialistic.data.RestServiceFactory;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Call;
@@ -144,7 +145,11 @@ class NetworkModule {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
+            long sentRequestAtMillis = System.currentTimeMillis();
             Response response = chain.proceed(request);
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            Log.d("MYTAG", "interceptor 1");
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (!ConnectionAwareInterceptor.CACHE_ENABLED_HOSTS
                     .containsKey(request.url().host())) {
                 return response;
