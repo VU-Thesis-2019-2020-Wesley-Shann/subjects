@@ -150,7 +150,7 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 progressBar.setVisibility(GONE);
                 UploadResponse result = response.body();
                 int status_code=response.code();

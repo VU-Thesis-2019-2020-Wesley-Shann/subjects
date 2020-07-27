@@ -98,7 +98,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<QuizQuestionsModel> call, Response<QuizQuestionsModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 progressBar.setVisibility(View.GONE);
 
                 QuizQuestionsModel model=response.body();
@@ -256,7 +256,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UpdateScoreModel> call, Response<UpdateScoreModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 if(finish!=null){
                     finish.setEnabled(true);

@@ -79,7 +79,7 @@ public class BattleDayActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BattleDayModel> call, Response<BattleDayModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 bar.setVisibility(View.GONE);
 
                 BattleDayModel model=response.body();

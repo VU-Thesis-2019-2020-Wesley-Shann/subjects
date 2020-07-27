@@ -219,7 +219,7 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onResponse(Call<ForgotPassword> call, Response<ForgotPassword> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 verifyemail.setEnabled(true);
 
                 ForgotPassword mLoginObject = response.body();
@@ -279,7 +279,7 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onResponse(Call<SendPassword> call, Response<SendPassword> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 SendPassword obj = response.body();
                 if (obj != null && response.isSuccessful()) {
                     boolean returnedResponse = obj.isSuccess();

@@ -81,7 +81,7 @@ public class ProfileTab3 extends Fragment {
             @Override
             public void onResponse(Call<NewsfeedModel> call, Response<NewsfeedModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 NewsfeedModel data = response.body();
 
                 if (data != null && response.isSuccessful()) {

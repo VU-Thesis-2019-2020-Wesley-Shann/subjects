@@ -106,7 +106,7 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ClubResponse> call, Response<ClubResponse> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 ClubResponse clubResponse=response.body();

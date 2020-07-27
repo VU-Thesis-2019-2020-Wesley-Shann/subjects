@@ -66,7 +66,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LeaderBoardModel> call, Response<LeaderBoardModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 if(response!=null&&response.isSuccessful()){
                     if(response.body().getUsers()!=null){
                         users = response.body().getUsers();

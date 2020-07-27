@@ -91,7 +91,7 @@ public class ClubActivity extends AppCompatActivity {
             public void onResponse(Call<ClubModel2> call, Response<ClubModel2> response) {
 
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 ClubModel2 data=response.body();
@@ -129,7 +129,7 @@ public class ClubActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BattleResponseEvent> call, Response<BattleResponseEvent> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 progressBar.setVisibility(View.INVISIBLE);
                 frameLayout.setVisibility(View.VISIBLE);
                 BattleResponseEvent data=response.body();

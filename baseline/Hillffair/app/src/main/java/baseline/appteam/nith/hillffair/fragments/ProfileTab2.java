@@ -255,7 +255,7 @@ public class ProfileTab2 extends Fragment {
             @Override
             public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 if(response!=null&&response.isSuccessful()){
                     if(response.body().isSuccess()){
                         ProfileBasicDetailModel model=response.body().getProfileInfo();

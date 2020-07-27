@@ -64,7 +64,7 @@ public class ProfileTab1 extends Fragment {
             @Override
             public void onResponse(Call<UserScoreResponse> call, Response<UserScoreResponse> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 UserScoreResponse data=response.body();
                 if(data!=null&&response.isSuccessful()){
                     int score=data.getScore();

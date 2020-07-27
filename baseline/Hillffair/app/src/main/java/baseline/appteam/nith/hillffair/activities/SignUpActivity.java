@@ -306,7 +306,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                 Register register = response.body();
                 int status_code=response.code();
                if(register!=null&&response.isSuccessful()){

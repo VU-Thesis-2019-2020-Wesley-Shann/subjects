@@ -132,7 +132,7 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
                                 long receivedResponseAtMillis = System.currentTimeMillis();
-                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                                 Likecount likes = response.body();
                                 if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {
@@ -165,7 +165,7 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
                                 long receivedResponseAtMillis = System.currentTimeMillis();
-                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis);
+                                MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, false);
                                 Likecount likes = response.body();
                                 if (likes != null && response.isSuccessful()) {
                                     if (likes.isSuccess()) {
