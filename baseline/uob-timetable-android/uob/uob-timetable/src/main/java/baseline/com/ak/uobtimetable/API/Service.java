@@ -76,7 +76,7 @@ public class Service {
             long sentRequestAtMillis = new Date().getTime();
             Response response = okHttpClient.newCall(request).execute();
             long receivedResponseAtMillis = new Date().getTime();
-            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
 
             bodyString = response.body().string();
 
