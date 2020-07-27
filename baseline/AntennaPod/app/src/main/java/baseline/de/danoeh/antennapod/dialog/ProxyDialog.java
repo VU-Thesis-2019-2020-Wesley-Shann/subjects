@@ -34,6 +34,7 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -274,7 +275,10 @@ public class ProxyDialog {
                     .head()
                     .build();
             try {
+                long sentRequestAtMillis = System.currentTimeMillis();
                 Response response = client.newCall(request).execute();
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
                 emitter.onSuccess(response);
             } catch(IOException e) {
                 emitter.onError(e);

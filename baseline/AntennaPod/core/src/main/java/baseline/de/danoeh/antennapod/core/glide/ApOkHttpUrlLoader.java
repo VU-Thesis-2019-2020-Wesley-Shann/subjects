@@ -84,6 +84,8 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
         this.client = client;
     }
 
+//    Lots of images pass by here, but I could not find where thw request is first issued.
+//    Could not see it in the stack trace
     @Nullable
     @Override
     public LoadData<InputStream> buildLoadData(@NonNull String model, int width, int height, @NonNull Options options) {
@@ -122,7 +124,7 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
         }
 
     }
-
+// DO NOT INSTRUMENT INTERCEPTOR, INSTRUMENT WHERE THE REQUEST IS FIRST ISSUED
     private static class BasicAuthenticationInterceptor implements Interceptor {
 
         @Override

@@ -22,6 +22,7 @@ import io.reactivex.Single;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -148,7 +149,10 @@ public class NetworkUtils {
                         .header("Accept-Encoding", "identity")
                         .head();
                 try {
+                    long sentRequestAtMillis = System.currentTimeMillis();
                     Response response = client.newCall(httpReq.build()).execute();
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
                     if (response.isSuccessful()) {
                         String contentLength = response.header("Content-Length");
                         try {

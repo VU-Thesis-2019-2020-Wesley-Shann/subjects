@@ -42,6 +42,7 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -135,7 +136,10 @@ public class ItunesSearchFragment extends Fragment {
                                     .url(podcast.feedUrl)
                                     .header("User-Agent", ClientConfig.USER_AGENT);
                             try {
+                                long sentRequestAtMillis = System.currentTimeMillis();
                                 Response response = client.newCall(httpReq.build()).execute();
+                                long receivedResponseAtMillis = System.currentTimeMillis();
+                                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
                                 if (response.isSuccessful()) {
                                     String resultString = response.body().string();
                                     JSONObject result = new JSONObject(resultString);
@@ -279,7 +283,10 @@ public class ItunesSearchFragment extends Fragment {
                 .header("User-Agent", ClientConfig.USER_AGENT)
                 .url(String.format(url, language));
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         try (Response response = client.newCall(httpReq.build()).execute()) {
+            long receivedResponseAtMillis = System.currentTimeMillis();
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (response.isSuccessful()) {
                 return response.body().string();
             }
@@ -330,7 +337,10 @@ public class ItunesSearchFragment extends Fragment {
                             .header("User-Agent", ClientConfig.USER_AGENT);
                     List<Podcast> podcasts = new ArrayList<>();
                     try {
+                        long sentRequestAtMillis = System.currentTimeMillis();
                         Response response = client.newCall(httpReq.build()).execute();
+                        long receivedResponseAtMillis = System.currentTimeMillis();
+                        MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
 
                         if(response.isSuccessful()) {
                             String resultString = response.body().string();
