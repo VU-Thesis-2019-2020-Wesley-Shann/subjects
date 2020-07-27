@@ -27,6 +27,7 @@ import baseline.de.danoeh.antennapod.core.util.DownloadError;
 import baseline.de.danoeh.antennapod.core.util.StorageUtils;
 import baseline.de.danoeh.antennapod.core.util.URIUtil;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
+import okhttp3.Call;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
@@ -98,8 +99,9 @@ public class HttpDownloader extends Downloader {
             Response response;
 
             try {
+                Call temp = httpClient.newCall(httpReq.build());
                 long sentRequestAtMillis = System.currentTimeMillis();
-                response = httpClient.newCall(httpReq.build()).execute();
+                response = temp.execute();
                 long receivedResponseAtMillis = System.currentTimeMillis();
                 MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             } catch (IOException e) {
@@ -108,8 +110,9 @@ public class HttpDownloader extends Downloader {
                     httpClient = httpClient.newBuilder()
                             .protocols(Collections.singletonList(Protocol.HTTP_1_1))
                             .build();
+                    Call temp = httpClient.newCall(httpReq.build());
                     long sentRequestAtMillis = System.currentTimeMillis();
-                    response = httpClient.newCall(httpReq.build()).execute();
+                    response = temp.execute();
                     long receivedResponseAtMillis = System.currentTimeMillis();
                     MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
                 } else {

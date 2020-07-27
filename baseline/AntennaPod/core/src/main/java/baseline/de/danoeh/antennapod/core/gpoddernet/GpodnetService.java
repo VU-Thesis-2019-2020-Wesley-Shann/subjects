@@ -32,6 +32,7 @@ import baseline.de.danoeh.antennapod.core.gpoddernet.model.GpodnetUploadChangesR
 import baseline.de.danoeh.antennapod.core.preferences.GpodnetPreferences;
 import baseline.de.danoeh.antennapod.core.service.download.AntennapodHttpClient;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
+import okhttp3.Call;
 import okhttp3.Credentials;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -562,9 +563,9 @@ public class GpodnetService {
         Response response = null;
         ResponseBody body = null;
         try {
-
+            Call temp = httpClient.newCall(request);
             long sentRequestAtMillis = System.currentTimeMillis();
-            response = httpClient.newCall(request).execute();
+            response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             checkStatusCode(response);
@@ -594,8 +595,9 @@ public class GpodnetService {
         try {
             String credential = Credentials.basic(username, password, Charset.forName("UTF-8"));
             Request authRequest = request.newBuilder().header("Authorization", credential).build();
+            Call temp = httpClient.newCall(authRequest);
             long sentRequestAtMillis = System.currentTimeMillis();
-            Response response = httpClient.newCall(authRequest).execute();
+            Response response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             checkStatusCode(response);
