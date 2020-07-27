@@ -31,6 +31,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.Weather;
 import okhttp3.Call;
@@ -142,6 +143,7 @@ public class WeatherActivity extends AppCompatActivity {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -154,6 +156,8 @@ public class WeatherActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String jsonResponse = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
@@ -257,6 +261,7 @@ public class WeatherActivity extends AppCompatActivity {
                 .url(uri)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -265,6 +270,8 @@ public class WeatherActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
 
                     final String res = Objects.requireNonNull(response.body()).string();

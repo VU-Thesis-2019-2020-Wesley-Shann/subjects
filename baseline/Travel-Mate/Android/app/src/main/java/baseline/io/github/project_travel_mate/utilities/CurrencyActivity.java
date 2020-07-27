@@ -48,6 +48,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.ZoneName;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -275,6 +276,7 @@ public class CurrencyActivity extends AppCompatActivity {
                 .build();
 
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -288,6 +290,8 @@ public class CurrencyActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String jsonResponse = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                     mDialog.hide();
@@ -336,6 +340,7 @@ public class CurrencyActivity extends AppCompatActivity {
                 .build();
 
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -348,6 +353,8 @@ public class CurrencyActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String jsonResponse = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                     mDialog.hide();

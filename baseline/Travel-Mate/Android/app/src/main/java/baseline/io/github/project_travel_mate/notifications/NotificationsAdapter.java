@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
 import baseline.io.github.project_travel_mate.mytrips.MyTripInfoActivity;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Notification;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -94,6 +95,7 @@ class NotificationsAdapter extends ArrayAdapter<Notification> {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -102,6 +104,8 @@ class NotificationsAdapter extends ArrayAdapter<Notification> {
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                 });

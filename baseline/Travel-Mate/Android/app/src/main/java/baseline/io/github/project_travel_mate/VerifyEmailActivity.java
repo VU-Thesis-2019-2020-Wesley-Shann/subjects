@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -95,6 +96,7 @@ public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompl
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -106,6 +108,8 @@ public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompl
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     progressDialog.dismiss();
                     if (response.body() != null) {

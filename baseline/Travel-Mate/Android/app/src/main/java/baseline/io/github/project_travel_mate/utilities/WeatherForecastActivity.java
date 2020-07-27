@@ -30,6 +30,7 @@ import baseline.io.github.project_travel_mate.destinations.description.WeatherAc
 import baseline.io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import baseline.io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -101,6 +102,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -110,6 +112,8 @@ public class WeatherForecastActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 handler.post(() -> {
                     if (response.isSuccessful()) {
                         try {

@@ -53,6 +53,7 @@ import baseline.io.github.project_travel_mate.utilities.AboutUsFragment;
 import baseline.io.github.project_travel_mate.utilities.UtilitiesFragment;
 import io.github.tonnyl.whatsnew.WhatsNew;
 import io.github.tonnyl.whatsnew.item.WhatsNewItem;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Trip;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -343,6 +344,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -351,6 +353,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
 
                 mHandler.post(() -> {
@@ -438,6 +442,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -446,6 +451,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
 
                 mHandler.post(() -> {

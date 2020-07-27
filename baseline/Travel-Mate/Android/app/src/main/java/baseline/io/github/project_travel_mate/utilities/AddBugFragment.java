@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -134,6 +135,7 @@ public class AddBugFragment extends Fragment implements AdapterView.OnItemSelect
                 .post(formBody)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -145,6 +147,8 @@ public class AddBugFragment extends Fragment implements AdapterView.OnItemSelect
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful()) {
                     // will be true only if the status code is in the range of [200..300)
                     Log.d("RESPONSE : ", "success" + response.toString());

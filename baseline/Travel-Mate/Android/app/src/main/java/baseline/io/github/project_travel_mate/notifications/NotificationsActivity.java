@@ -36,6 +36,7 @@ import java.util.TimeZone;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Notification;
 import objects.Trip;
 import objects.User;
@@ -106,6 +107,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -115,6 +117,8 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
 
                 mHandler.post(() -> {
@@ -303,6 +307,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                                     .url(uri)
                                     .build();
                             //Setup callback
+                            long sentRequestAtMillis = System.currentTimeMillis();
                             client.newCall(request).enqueue(new Callback() {
                                 @Override
                                 public void onFailure(Call call, IOException e) {
@@ -311,6 +316,8 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
 
                                 @Override
                                 public void onResponse(Call call, final Response response) throws IOException {
+                                    long receivedResponseAtMillis = System.currentTimeMillis();
+                                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                                     final String res = Objects.requireNonNull(response.body()).string();
                                     mHandler.post(() -> {
                                         if (response.isSuccessful()) {

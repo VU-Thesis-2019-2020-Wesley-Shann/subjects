@@ -107,6 +107,8 @@ dependencies {
 
     // World Country flag
     implementation 'com.github.blongho:world-country-data:v1.1.0'
+
+    implementation name: 'nappa-experimentation', ext: 'aar'
 }
 
 preBuild.dependsOn('checkstyle')

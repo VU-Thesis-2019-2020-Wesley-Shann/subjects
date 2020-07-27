@@ -30,6 +30,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Feedback;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -115,6 +116,7 @@ public class BugReportFragment extends Fragment {
                 .url(url)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -123,6 +125,8 @@ public class BugReportFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 handler.post(() -> {
                     if (response.isSuccessful()) {
                         try {

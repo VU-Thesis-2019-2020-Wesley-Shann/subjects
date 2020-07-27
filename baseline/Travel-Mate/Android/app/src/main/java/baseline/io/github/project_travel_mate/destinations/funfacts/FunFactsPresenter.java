@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.FunFact;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -58,6 +59,7 @@ class FunFactsPresenter {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -66,6 +68,8 @@ class FunFactsPresenter {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 try {
                     JSONArray array = new JSONArray(res);
@@ -98,6 +102,7 @@ class FunFactsPresenter {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -106,6 +111,8 @@ class FunFactsPresenter {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 Log.v("RESPONSE", res);
                 try {

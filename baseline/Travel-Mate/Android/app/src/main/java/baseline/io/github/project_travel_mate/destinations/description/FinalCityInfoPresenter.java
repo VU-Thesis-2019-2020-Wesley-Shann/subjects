@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -52,6 +53,7 @@ class FinalCityInfoPresenter {
                 .url(uri)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -60,6 +62,8 @@ class FinalCityInfoPresenter {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
 
                     final String res = Objects.requireNonNull(response.body()).string();
@@ -99,6 +103,7 @@ class FinalCityInfoPresenter {
                 .url(uri)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -107,6 +112,8 @@ class FinalCityInfoPresenter {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
                     final String res = Objects.requireNonNull(response.body()).string();
                     try {

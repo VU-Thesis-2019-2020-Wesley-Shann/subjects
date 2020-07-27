@@ -46,6 +46,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -263,6 +264,7 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -271,6 +273,8 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 final String res = Objects.requireNonNull(response.body()).string();
 

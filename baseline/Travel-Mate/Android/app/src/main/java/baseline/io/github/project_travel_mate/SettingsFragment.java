@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.login.LoginActivity;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MultipartBody;
@@ -242,6 +243,7 @@ public class SettingsFragment extends Fragment {
                 .build();
 
         // Create a new Call object with post method.
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -250,6 +252,8 @@ public class SettingsFragment extends Fragment {
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 doneButton.setProgress(0);
                 mHandler.post(() -> {
@@ -284,6 +288,7 @@ public class SettingsFragment extends Fragment {
                                     .url(uri)
                                     .build();
 
+                            long sentRequestAtMillis = System.currentTimeMillis();
                             // Create a new Call object with post method.
                             client.newCall(request).enqueue(new Callback() {
                                 @Override
@@ -294,6 +299,8 @@ public class SettingsFragment extends Fragment {
 
                                 @Override
                                 public void onResponse(Call call, Response response) throws IOException {
+                                    long receivedResponseAtMillis = System.currentTimeMillis();
+                                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                                     final String res = Objects.requireNonNull(response.body()).string();
                                     mHandler.post(() -> {
                                         if (response.isSuccessful()) {

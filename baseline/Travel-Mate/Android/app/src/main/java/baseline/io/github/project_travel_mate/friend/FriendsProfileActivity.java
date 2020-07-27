@@ -36,6 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.FullScreenImage;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.FriendCity;
 import objects.Trip;
 import okhttp3.Call;
@@ -150,12 +151,15 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
                 .header("Authorization", "Token " + mToken)
                 .url(uri)
                 .build();
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override public void onFailure(Call call, IOException e) {
                 Log.e("Request Failed", "Message : " + e.getMessage());
             }
 
             @Override public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 try {
                     JSONArray citiesArray = new JSONArray(res);
@@ -197,6 +201,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -205,6 +210,8 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
 
                 mHandler.post(() -> {
@@ -268,6 +275,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -278,6 +286,8 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 handler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {

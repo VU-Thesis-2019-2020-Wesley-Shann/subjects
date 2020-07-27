@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.R;
 import baseline.io.github.project_travel_mate.travel.swipefragmentrealtime.MapListItemAdapter;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.MapItem;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -95,6 +96,7 @@ public class AtmModeFragment extends Fragment {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -104,6 +106,8 @@ public class AtmModeFragment extends Fragment {
 
             @Override
             public void onResponse(final Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 final String res = Objects.requireNonNull(response.body()).string();
                 handler.post(() -> {

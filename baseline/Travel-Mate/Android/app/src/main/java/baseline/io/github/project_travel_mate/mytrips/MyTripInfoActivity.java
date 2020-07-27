@@ -60,6 +60,7 @@ import baseline.io.github.project_travel_mate.FullScreenImage;
 import baseline.io.github.project_travel_mate.R;
 import baseline.io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
 import baseline.io.github.project_travel_mate.friend.FriendsProfileActivity;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.Trip;
 import objects.User;
@@ -250,6 +251,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .build();
 
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -259,6 +261,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
@@ -315,6 +319,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -324,6 +329,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
@@ -424,6 +431,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                                     .url(uri)
                                     .build();
                             //Setup callback
+                            long sentRequestAtMillis = System.currentTimeMillis();
                             client.newCall(request).enqueue(new Callback() {
                                 @Override
                                 public void onFailure(Call call, IOException e) {
@@ -432,6 +440,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
                                 @Override
                                 public void onResponse(Call call, final Response response) throws IOException {
+                                    long receivedResponseAtMillis = System.currentTimeMillis();
+                                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                                     final String res = Objects.requireNonNull(response.body()).string();
                                     mHandler.post(() -> {
                                         if (response.isSuccessful()) {
@@ -471,6 +481,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -480,6 +491,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
@@ -543,6 +556,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -552,6 +566,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
                         TravelmateSnackbars.createSnackBar(findViewById(R.id.activityMyTripInfo),
@@ -582,6 +598,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .build();
 
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -591,6 +608,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 final String res = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
@@ -733,6 +752,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .url(uri)
                 .build();
         //setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -742,6 +762,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
                     final String res = Objects.requireNonNull(response.body()).string();
                     mHandler.post(() -> {
@@ -780,6 +802,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                 .url(uri)
                 .build();
         //setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -789,6 +812,8 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
                     final String res = Objects.requireNonNull(response.body()).string();
                     if (response.isSuccessful()) {

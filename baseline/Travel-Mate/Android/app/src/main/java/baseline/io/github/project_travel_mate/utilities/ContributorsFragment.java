@@ -28,6 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import baseline.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Contributor;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -119,6 +120,7 @@ public class ContributorsFragment extends Fragment {
                 .url(uri)
                 .build();
         //Callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
 
             @Override
@@ -128,6 +130,8 @@ public class ContributorsFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
                         try {

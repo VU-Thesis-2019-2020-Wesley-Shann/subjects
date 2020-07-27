@@ -43,6 +43,7 @@ import baseline.io.github.project_travel_mate.R;
 import baseline.io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import baseline.io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -135,6 +136,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -144,6 +146,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 Log.v("RESPONSE", res + " ");
                 mHandler.post(() -> {
@@ -213,6 +217,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -222,6 +227,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
                         try {
@@ -267,6 +274,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                 .url(uri)
                 .build();
 
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -275,6 +283,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 if (response.isSuccessful() && response.body() != null) {
 
                     final String res = Objects.requireNonNull(response.body()).string();

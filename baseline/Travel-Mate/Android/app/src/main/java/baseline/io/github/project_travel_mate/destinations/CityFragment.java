@@ -44,6 +44,7 @@ import database.AppDataBase;
 import flipviewpager.utils.FlipSettings;
 import baseline.io.github.project_travel_mate.R;
 import baseline.io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -298,6 +299,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -306,6 +308,8 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 mHandler.post(() -> {
                     JSONArray arr;
@@ -368,6 +372,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -377,6 +382,8 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
                         try {

@@ -57,6 +57,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.login.LoginActivity;
 import baseline.io.github.project_travel_mate.utilities.ShareContactActivity;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.User;
 import okhttp3.Call;
@@ -268,6 +269,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -281,6 +283,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
             @Override
             public void onResponse(Call call, Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     horizontalProgressBar.setVisibility(View.GONE);
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -440,6 +444,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                                     .url(uri)
                                     .build();
                             //Setup callback
+                            long sentRequestAtMillis = System.currentTimeMillis();
                             client.newCall(request).enqueue(new Callback() {
                                 @Override
                                 public void onFailure(Call call, IOException e) {
@@ -448,6 +453,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
                                 @Override
                                 public void onResponse(Call call, final Response response) throws IOException {
+                                    long receivedResponseAtMillis = System.currentTimeMillis();
+                                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                                     final String res = Objects.requireNonNull(response.body()).string();
                                     mHandler.post(() -> {
                                         if (response.isSuccessful()) {
@@ -490,6 +497,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -499,6 +507,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
 
@@ -592,6 +602,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                     .build();
 
             // Create a new Call object with post method.
+            long sentRequestAtMillis = System.currentTimeMillis();
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -601,6 +612,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
+                    long receivedResponseAtMillis = System.currentTimeMillis();
+                    MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                     final String res = Objects.requireNonNull(response.body()).string();
                     mHandler.post(() -> {
                         if (response.isSuccessful()) {
@@ -665,6 +678,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
         }
         Log.v("EXECUTING", uri);
         // Create a new Call object
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -674,6 +688,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
@@ -788,6 +804,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                 .build();
 
         // Create a new Call object with post method.
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -797,6 +814,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 final String res = Objects.requireNonNull(response.body()).string();
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
@@ -831,6 +850,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                 .url(uri)
                 .build();
         //Setup callback
+        long sentRequestAtMillis = System.currentTimeMillis();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -841,6 +861,8 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
             @Override
             public void onResponse(Call call, final Response response) {
+                long receivedResponseAtMillis = System.currentTimeMillis();
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
 
                 handler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
