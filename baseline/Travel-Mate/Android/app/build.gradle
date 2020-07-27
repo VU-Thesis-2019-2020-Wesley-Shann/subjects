@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply from: '../config/checkstyle.gradle'
+//apply from: '../config/checkstyle.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -111,6 +111,6 @@ dependencies {
     implementation name: 'nappa-experimentation', ext: 'aar'
 }
 
-preBuild.dependsOn('checkstyle')
+//preBuild.dependsOn('checkstyle')
 assemble.dependsOn('lint')
-check.dependsOn('checkstyle')
+//check.dependsOn('checkstyle')
