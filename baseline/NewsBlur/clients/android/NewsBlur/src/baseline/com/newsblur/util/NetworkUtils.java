@@ -44,11 +44,13 @@ public class NetworkUtils {
         long bytesRead = 0;
         try {
             Request.Builder requestBuilder = new Request.Builder().url(url);
+            long makeCall = System.currentTimeMillis();
             Call call = ImageFetchHttpClient.newCall(requestBuilder.build());
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MY_TAG", (sentRequestAtMillis - makeCall) + ", " + (receivedResponseAtMillis - sentRequestAtMillis));
             if (response.isSuccessful()) {
                 BufferedSink sink = Okio.buffer(Okio.sink(file));
                 try {

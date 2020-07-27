@@ -51,12 +51,14 @@ public class APIResponse {
 
         try {
             long startTime = System.currentTimeMillis();
+            long makeCall = System.currentTimeMillis();
             Call call = httpClient.newCall(request);
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             connectTime = System.currentTimeMillis() - startTime;
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MY_TAG", (sentRequestAtMillis - makeCall) + ", " + (receivedResponseAtMillis - sentRequestAtMillis));
             this.responseCode = response.code();
 
             if (responseCode != expectedReturnCode) {

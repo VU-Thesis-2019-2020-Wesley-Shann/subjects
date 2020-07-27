@@ -124,11 +124,13 @@ public class APIManager {
                                          .followRedirects(false)
                                          .build();
         try {
+            long makeCall = System.currentTimeMillis();
             Call call = noredirHttpClient.newCall(requestBuilder.build());
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MY_TAG", (sentRequestAtMillis - makeCall) + ", " + (receivedResponseAtMillis - sentRequestAtMillis));
             if (!response.isRedirect()) return false;
             String newCookie = response.header("Set-Cookie");
             PrefsUtils.saveLogin(context, username, newCookie);
