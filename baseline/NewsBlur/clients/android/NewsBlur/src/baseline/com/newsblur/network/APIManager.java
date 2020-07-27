@@ -126,7 +126,7 @@ public class APIManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = noredirHttpClient.newCall(requestBuilder.build()).execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (!response.isRedirect()) return false;
             String newCookie = response.header("Set-Cookie");
             PrefsUtils.saveLogin(context, username, newCookie);

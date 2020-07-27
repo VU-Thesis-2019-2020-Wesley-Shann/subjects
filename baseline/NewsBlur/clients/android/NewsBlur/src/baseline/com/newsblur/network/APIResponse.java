@@ -54,7 +54,7 @@ public class APIResponse {
             Response response = httpClient.newCall(request).execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
             connectTime = System.currentTimeMillis() - startTime;
-            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             this.responseCode = response.code();
 
             if (responseCode != expectedReturnCode) {

@@ -46,7 +46,7 @@ public class NetworkUtils {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = ImageFetchHttpClient.newCall(requestBuilder.build()).execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis);
+            MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (response.isSuccessful()) {
                 BufferedSink sink = Okio.buffer(Okio.sink(file));
                 try {
