@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.dd.processbutton.FlatButton;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,6 +36,8 @@ import butterknife.ButterKnife;
 import baseline.io.github.project_travel_mate.MainActivity;
 import baseline.io.github.project_travel_mate.R;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
+import objects.Quote;
+import objects.QuoteGroup;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -81,7 +85,7 @@ public class DailyQuotesFragment extends Fragment {
 
         return view;
     }
-
+    String res;
     private void getQuote() {
         mHolder.animationView.setVisibility(View.VISIBLE);
         mHolder.animationView.playAnimation();
@@ -109,10 +113,19 @@ public class DailyQuotesFragment extends Fragment {
             public void onResponse(Call call, final Response response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
                 MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        res = Objects.requireNonNull(response.body()).string();
+                    } catch (IOException e) {
+                        Log.e("Unable to read data", e.getMessage());
+                        networkError();
+                        return;
+                    }
+                }
 
-//                mHandler.post(() -> {
-//                    if (response.isSuccessful() && response.body() != null) {
-//
+                mHandler.post(() -> {
+                    if (response.isSuccessful() && response.body() != null) {
+
 //                        String res;
 //                        try {
 //                            res = Objects.requireNonNull(response.body()).string();
@@ -121,26 +134,26 @@ public class DailyQuotesFragment extends Fragment {
 //                            networkError();
 //                            return;
 //                        }
-//                        GsonBuilder builder = new GsonBuilder();
-//                        Gson gson = builder.create();
-//                        QuoteGroup quoteGroup = gson.fromJson(res, QuoteGroup.class);
-//                        int totalQuotes = quoteGroup.getQuotes().size();
-//
-//                        Quote randomQuote = quoteGroup.getQuotes().get(mRandom.nextInt(totalQuotes));
-//                        mHolder.quoteTv.setText(randomQuote.getQuote());
-//                        if (!randomQuote.getAuthor().isEmpty() && !randomQuote.getAuthor().equals("null")) {
-//                            mHolder.authorTv.setVisibility(View.VISIBLE);
-//                            mHolder.authorTv.setText(randomQuote.getAuthor());
-//                        } else {
-//                            mHolder.authorTv.setVisibility(View.GONE);
-//                        }
-//
-//                        mHolder.animationView.setVisibility(GONE);
-//
-//                    } else {
-//                        networkError();
-//                    }
-//                });
+                        GsonBuilder builder = new GsonBuilder();
+                        Gson gson = builder.create();
+                        QuoteGroup quoteGroup = gson.fromJson(res, QuoteGroup.class);
+                        int totalQuotes = quoteGroup.getQuotes().size();
+
+                        Quote randomQuote = quoteGroup.getQuotes().get(mRandom.nextInt(totalQuotes));
+                        mHolder.quoteTv.setText(randomQuote.getQuote());
+                        if (!randomQuote.getAuthor().isEmpty() && !randomQuote.getAuthor().equals("null")) {
+                            mHolder.authorTv.setVisibility(View.VISIBLE);
+                            mHolder.authorTv.setText(randomQuote.getAuthor());
+                        } else {
+                            mHolder.authorTv.setVisibility(View.GONE);
+                        }
+
+                        mHolder.animationView.setVisibility(View.GONE);
+
+                    } else {
+                        networkError();
+                    }
+                });
             }
         });
     }

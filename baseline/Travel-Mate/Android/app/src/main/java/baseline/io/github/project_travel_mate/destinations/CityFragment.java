@@ -355,6 +355,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         });
     }
 
+    String res;
     /**
      * Fetches the list of popular cities from server
      */
@@ -381,13 +382,19 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
             }
 
             @Override
-            public void onResponse(Call call, final Response response) {
+            public void onResponse(Call call, final Response response) throws IOException {
                 long receivedResponseAtMillis = System.currentTimeMillis();
                 MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
+                // I have no idea why, but
+                // here we are outside the main thread // sometimes we are in the main thread
+                if (response.isSuccessful()) {
+                    res = response.body().string();
+                }
+                // here we in the main thread
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
                         try {
-                            String res = response.body().string();
+//                            String res = response.body().string();
                             Log.v(TAG, "result=" + res);
 
                             animationView.setVisibility(View.GONE);
@@ -418,7 +425,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
 //                                showSpotlightView(mSpotView);
 //                            }
 
-                        } catch (JSONException | IOException e) {
+                        } catch (JSONException e) {
                             Log.e(TAG, "Error parsing mCities JSON : " + e.getMessage());
                             networkError();
                         } catch (SQLiteConstraintException exception) {

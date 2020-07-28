@@ -94,7 +94,7 @@ public class UpcomingWeekendsActivity extends AppCompatActivity implements Swipe
     private LinearLayoutManager getLayoutManager() {
         return new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
     }
-
+    String res;
     private void getUpcomingLongWeekends() {
         String uri = API_LINK_V2 + "get-upcoming-holidays/" + Calendar.getInstance().get(Calendar.YEAR);
 
@@ -117,15 +117,17 @@ public class UpcomingWeekendsActivity extends AppCompatActivity implements Swipe
             }
 
             @Override
-            public void onResponse(Call call, final Response response) {
+            public void onResponse(Call call, final Response response) throws IOException {
                 long receivedResponseAtMillis = System.currentTimeMillis();
                 MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
-
+                if (response.isSuccessful() && response.body() != null) {
+                    res = response.body().string();
+                }
                 mHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
                         JSONArray arr;
                         try {
-                            final String res = response.body().string();
+//                            final String res = response.body().string();
                             Log.v("Response", res);
                             arr = new JSONArray(res);
 
@@ -158,7 +160,7 @@ public class UpcomingWeekendsActivity extends AppCompatActivity implements Swipe
                                 mMainLayout.setVisibility(View.VISIBLE);
                                 mAdapter.initData(weekends);
                             }
-                        } catch (JSONException | IOException | NullPointerException e) {
+                        } catch (JSONException | NullPointerException e) {
                             e.printStackTrace();
                             Log.e("ERROR", "Message : " + e.getMessage());
                             networkError();
