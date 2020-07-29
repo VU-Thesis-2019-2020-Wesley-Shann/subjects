@@ -1,7 +1,7 @@
 #!/bin/sh
 # This script expects to be run in this project (Weather and News app) root directory
 
-PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+PROJECT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # Define paths for this project
 IMPORTED_LIBRARY_PATH="app/libs/aars/"
