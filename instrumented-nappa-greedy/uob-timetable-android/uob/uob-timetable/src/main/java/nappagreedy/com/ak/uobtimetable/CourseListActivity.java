@@ -23,6 +23,7 @@ import nappagreedy.com.ak.uobtimetable.ListAdapters.CourseListAdapter;
 import nappagreedy.com.ak.uobtimetable.Utilities.AndroidUtilities;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 import nappagreedy.com.ak.uobtimetable.Utilities.SettingsManager;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,6 +60,7 @@ public class CourseListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_course_list);
 
         Logger.getInstance().debug("CourseListActivity", "onCreate");
@@ -145,6 +147,7 @@ public class CourseListActivity extends AppCompatActivity {
                                 Intent i = new Intent(CourseListActivity.this, MainActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     .putExtra(MainActivity.Args.forceRefreshSessions.name(), true);
+                                Nappa.notifyExtras(i.getExtras());
                                 startActivity(i);
                             }
                         }

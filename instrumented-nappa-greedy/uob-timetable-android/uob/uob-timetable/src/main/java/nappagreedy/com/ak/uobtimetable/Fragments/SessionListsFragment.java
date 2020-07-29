@@ -31,6 +31,8 @@ import nappagreedy.com.ak.uobtimetable.R;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 import nappagreedy.com.ak.uobtimetable.Notifications.SessionReminderNotifier;
 import nappagreedy.com.ak.uobtimetable.Utilities.SettingsManager;
+import nl.vu.cs.s2group.nappa.*;
+
 import com.h6ah4i.android.tablayouthelper.TabLayoutHelper;
 
 /**
@@ -604,6 +606,7 @@ public class SessionListsFragment extends Fragment {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Intent intent = new Intent(fragment.getActivity(), CourseListActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                Nappa.notifyExtras(intent.getExtras());
                                 startActivity(intent);
                             }
                         })

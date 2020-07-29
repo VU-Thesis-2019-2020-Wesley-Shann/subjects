@@ -23,6 +23,7 @@ import nappagreedy.com.ak.uobtimetable.R;
 import nappagreedy.com.ak.uobtimetable.Utilities.AndroidUtilities;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 import nappagreedy.com.ak.uobtimetable.Utilities.SettingsManager;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Fragment containing a list of sessions for a given day.
@@ -102,6 +103,7 @@ public class SessionListFragment extends Fragment {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (AndroidUtilities.hasNetwork(getContext())) {
                                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(settings.getTimetableUrl()));
+                                Nappa.notifyExtras(browserIntent.getExtras());
                                 startActivity(browserIntent);
                             } else {
                                 ((MainActivity)getActivity()).showNoInternetConnectionSnackbar();

@@ -17,6 +17,7 @@ import android.view.View;
 import nappagreedy.com.ak.uobtimetable.BuildConfig;
 import nappagreedy.com.ak.uobtimetable.R;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.ByteArrayInputStream;
 import java.security.cert.CertificateFactory;
@@ -165,9 +166,13 @@ public class AndroidUtilities {
 
         String appPackageName = activity.getPackageName();
         try {
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName));
+            Nappa.notifyExtras(intent.getExtras());
+            activity.startActivity(intent);
         } catch (android.content.ActivityNotFoundException anfe) {
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName));
+            Nappa.notifyExtras(intent1.getExtras());
+            activity.startActivity(intent1);
         }
     }
 

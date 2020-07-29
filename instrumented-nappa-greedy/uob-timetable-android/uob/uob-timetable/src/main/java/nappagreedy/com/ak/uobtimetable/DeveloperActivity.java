@@ -17,6 +17,7 @@ import nappagreedy.com.ak.uobtimetable.Utilities.AndroidUtilities;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.MemoryLogger;
 import nappagreedy.com.ak.uobtimetable.Utilities.SettingsManager;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class DeveloperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_developer);
 
         Logger.getInstance().debug("DeveloperActivity", "onCreate");

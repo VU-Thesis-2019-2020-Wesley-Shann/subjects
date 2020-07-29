@@ -34,6 +34,8 @@ import nappagreedy.com.ak.uobtimetable.Notifications.SessionReminderNotifier;
 import nappagreedy.com.ak.uobtimetable.Utilities.AndroidUtilities;
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 import nappagreedy.com.ak.uobtimetable.Utilities.SettingsManager;
+import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 import java.util.List;
 
@@ -69,6 +71,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_main);
 
         Logger.getInstance().debug("MainActivity", "onCreate");
@@ -134,6 +138,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, WelcomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
             return;
         }
@@ -258,7 +263,9 @@ public class MainActivity extends AppCompatActivity
 
                     Logger.getInstance().debug("MainActivity", "Triggered developer activity");
 
-                    startActivity(new Intent(getBaseContext(), DeveloperActivity.class));
+                    Intent intent = new Intent(getBaseContext(), DeveloperActivity.class);
+                    Nappa.notifyExtras(intent.getExtras());
+                    startActivity(intent);
                 }
             }
         });
@@ -361,13 +368,17 @@ public class MainActivity extends AppCompatActivity
             if (AndroidUtilities.hasNetwork(this) == false){
                 showNoInternetConnectionSnackbar();
             } else {
-                startActivity(new Intent(this, CourseListActivity.class));
+                Intent intent = new Intent(this, CourseListActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         }
         // Open settings activity, don't change nav button
         else if (id == R.id.nav_settings) {
             changedSelectedItem = false;
-            startActivity(new Intent(this, SettingsActivity.class));
+            Intent intent1 = new Intent(this, SettingsActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         }
         else if (id == R.id.nav_rate){
 

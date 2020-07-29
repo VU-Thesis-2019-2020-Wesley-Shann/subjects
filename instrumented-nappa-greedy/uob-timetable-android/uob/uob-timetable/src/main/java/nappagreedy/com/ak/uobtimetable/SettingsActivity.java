@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Activity which allows the user to configure settings
@@ -15,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_settings);
 
         Logger.getInstance().debug("SettingsActivity", "onCreate");

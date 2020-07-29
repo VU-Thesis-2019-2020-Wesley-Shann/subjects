@@ -16,6 +16,7 @@ import java.util.List;
 
 import nappagreedy.com.ak.uobtimetable.Utilities.Logging.Logger;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -37,7 +38,7 @@ public class Service {
     public Service(Context appContext){
 
         context = appContext;
-        okHttpClient = new OkHttpClient();
+        okHttpClient = Nappa.getOkHttp(new OkHttpClient());
         gson = makeGson();
     }
 

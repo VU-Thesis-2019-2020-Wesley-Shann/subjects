@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import nappagreedy.com.ak.uobtimetable.Utilities.AndroidUtilities;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Splash screen shown when there is no saved preference data.
@@ -23,6 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_welcome);
 
         btContinue = (Button)findViewById(R.id.btContinue);
@@ -48,6 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, CourseListActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent);
                 }
                 // Otherwise complain about network connectivity
