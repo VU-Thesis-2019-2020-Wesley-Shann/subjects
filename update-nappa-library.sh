@@ -1,26 +1,52 @@
-#!/bin/sh
-# This script expects to be run in this project (Weather and News app) root directory
+#!/bin/zsh
 
-PROJECT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+# Nappa library paths
+NAPPA_LIBRARY_BASE_PATH="/home/sshann/Documents/thesis/NAPPA/Prefetching-Library/"
+NAPPA_LIBRARY_AAR_PATH="${NAPPA_LIBRARY_BASE_PATH}android_prefetching_lib/build/outputs/aar/"
+AAR_ORIGINAL_PATH="${NAPPA_LIBRARY_AAR_PATH}android_prefetching_lib-debug.aar"
+AAR_NEW_PATH="${NAPPA_LIBRARY_AAR_PATH}nappa-prefetching-library.aar"
 
-# Define paths for this project
-IMPORTED_LIBRARY_PATH="app/libs/aars/"
-LIBRARY_NAME="nappa-prefetching-library.aar"
+# Subjects paths
+SUBJECT_PROJECT_BASE_PATH="/home/sshann/Documents/thesis/subjects/"
+AAR_SCRIPT_PATH="libs/aars/"
+SUBJECTS_BASE_PATH=(
+  # Nappa Greedy
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/AntennaPod/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/Hillffair/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/materialistic/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/NewsBlur/clients/android/NewsBlur/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/RedReader/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/Travel-Mate/Android/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-greedy/uob-timetable-android/uob/uob-timetable/"
 
-# Define paths for the Prefetching Library project
-LIBRARY_SOURCE_PROJECT_PATH="../../Prefetching-Library/"
-LIBRARY_SOURCE_BUILD_PATH="${LIBRARY_SOURCE_PROJECT_PATH}android_prefetching_lib/build/outputs/aar/"
-LIBRARY_DEBUG_NAME="android_prefetching_lib-debug.aar"
+  # Nappa TFPR
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/AntennaPod/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/Hillffair/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/materialistic/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/NewsBlur/clients/android/NewsBlur/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/RedReader/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/Travel-Mate/Android/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}/instrumented-nappa-tfpr/uob-timetable-android/uob/uob-timetable/"
+)
 
 # Build the library
-cd $LIBRARY_SOURCE_PROJECT_PATH || exit
+cd $NAPPA_LIBRARY_BASE_PATH || exit
 echo "Building NAPPA Prefetching Library"
 ./gradlew build
 echo "NAPPA Library finished building"
 
-# Move the new AAR file to the library directory
-echo "Updating imported library with new version"
-cd "$PROJECT_PATH" || exit
-[ -f "${IMPORTED_LIBRARY_PATH}${LIBRARY_NAME}" ] && rm "${IMPORTED_LIBRARY_PATH}/${LIBRARY_NAME}"
-mv "${LIBRARY_SOURCE_BUILD_PATH}${LIBRARY_DEBUG_NAME}" "${IMPORTED_LIBRARY_PATH}${LIBRARY_NAME}"
-echo "Import updated"
+# Rename the library
+echo "Renaming AAR file"
+cp -rf "${AAR_ORIGINAL_PATH}" "${AAR_NEW_PATH}"
+
+# Copy to subjects
+echo "Copying AAR file to subjects"
+for base_path in "${SUBJECTS_BASE_PATH[@]}"; do
+  if [ -d "${base_path}" ]; then
+    path="${base_path}${AAR_SCRIPT_PATH}"
+    mkdir -p "${path}"
+    cp -rf "${AAR_NEW_PATH}" "${path}"
+  else
+    echo "Subject path not found ${base_path}"
+  fi
+done
