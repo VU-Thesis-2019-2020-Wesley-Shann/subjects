@@ -1,2 +1,2 @@
 include ':uob-timetable'
-rootProject.name = 'Baseline uob'
+rootProject.name = 'Nappa Greedy uob'

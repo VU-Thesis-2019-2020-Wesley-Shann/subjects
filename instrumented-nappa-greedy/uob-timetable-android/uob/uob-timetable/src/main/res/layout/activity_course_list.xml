@@ -9,7 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:orientation="vertical"
-    tools:context="baseline.com.ak.uobtimetable.CourseListActivity">
+    tools:context="nappagreedy.com.ak.uobtimetable.CourseListActivity">
 
     <ProgressBar
         style="@android:style/Widget.Material.ProgressBar.Horizontal"
