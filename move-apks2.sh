@@ -3,7 +3,7 @@
 # This script will copy the built apks to the directory /build/apks/treatment
 
 # Obtain the absolute path to the project root directory for moving between directories
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+PROJECT_DIR="/home/sshann/Documents/thesis/subjects"
 
 APKS_SOURCE=(
     # Baseline
