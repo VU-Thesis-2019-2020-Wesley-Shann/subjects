@@ -71,6 +71,7 @@ dependencies {
     implementation 'com.h6ah4i.android.tablayouthelper:tablayouthelper:0.9.1'
 
     implementation name: 'nappa-experimentation', ext: 'aar'
+    implementation name: 'nappa-prefetching-library', ext: 'aar'
 
     testImplementation 'junit:junit:4.12'
 }
