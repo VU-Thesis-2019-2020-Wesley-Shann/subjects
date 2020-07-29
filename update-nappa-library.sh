@@ -40,13 +40,16 @@ echo "Renaming AAR file"
 cp -rf "${AAR_ORIGINAL_PATH}" "${AAR_NEW_PATH}"
 
 # Copy to subjects
+count=0
 echo "Copying AAR file to subjects"
 for base_path in "${SUBJECTS_BASE_PATH[@]}"; do
   if [ -d "${base_path}" ]; then
-    path="${base_path}${AAR_SCRIPT_PATH}"
-    mkdir -p "${path}"
-    cp -rf "${AAR_NEW_PATH}" "${path}"
+    path_to_copy="${base_path}${AAR_SCRIPT_PATH}"
+    mkdir -p "${path_to_copy}"
+    cp -rf "${AAR_NEW_PATH}" "${path_to_copy}"
+    count=$((count + 1))
   else
     echo "Subject path not found ${base_path}"
   fi
 done
+echo "Copied ${count} AAR files"
