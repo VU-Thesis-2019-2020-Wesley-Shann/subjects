@@ -264,7 +264,7 @@ public class SyncDelegate {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<HackerNewsItem> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-            Log.d("MYTAG", "sync log 5");
+//            Log.d("MYTAG", "sync log 5");
             MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {

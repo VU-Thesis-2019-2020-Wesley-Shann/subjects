@@ -55,7 +55,7 @@ public class FileDownloader {
             @Override
             public void onResponse(Call call, Response response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-                Log.d("MYTAG", "async log 2");
+//                Log.d("MYTAG", "async log 2");
                 MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 try {
                     BufferedSink sink = Okio.buffer(Okio.sink(outputFile));

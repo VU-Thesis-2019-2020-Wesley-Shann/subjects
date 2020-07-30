@@ -101,7 +101,7 @@ class NetworkModule {
                 .cache(new Cache(context.getApplicationContext().getCacheDir(), CACHE_SIZE))
                 .addNetworkInterceptor(new CacheOverrideNetworkInterceptor())
                 .addInterceptor(new ConnectionAwareInterceptor(context))
-                .addInterceptor(new LoggingInterceptor())
+//                .addInterceptor(new LoggingInterceptor())
                 .followRedirects(false)
                 .build());
     }
@@ -149,7 +149,7 @@ class NetworkModule {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response response = chain.proceed(request);
             long receivedResponseAtMillis = System.currentTimeMillis();
-            Log.d("MYTAG", "interceptor 1");
+//            Log.d("MYTAG", "interceptor 1");
             MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, true);
             if (!ConnectionAwareInterceptor.CACHE_ENABLED_HOSTS
                     .containsKey(request.url().host())) {
