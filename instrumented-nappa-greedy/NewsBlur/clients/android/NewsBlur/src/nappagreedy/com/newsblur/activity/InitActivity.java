@@ -11,6 +11,8 @@ import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.util.FeedUtils;
 import nappagreedy.com.newsblur.util.PrefConstants;
 import nappagreedy.com.newsblur.util.PrefsUtils;
+import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 /**
  * The very first activity we launch. Checks to see if there is a user logged in yet and then
@@ -22,6 +24,9 @@ public class InitActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+//        getLifecycle not available. doesn't seems to have requests here. It just selects the next activity
+//        getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
         setContentView(R.layout.activity_init);
 
@@ -55,9 +60,11 @@ public class InitActivity extends Activity {
         SharedPreferences preferences = getSharedPreferences(PrefConstants.PREFERENCES, Context.MODE_PRIVATE);
         if (preferences.getString(PrefConstants.PREF_COOKIE, null) != null) {
             Intent mainIntent = new Intent(this, Main.class);
+            Nappa.notifyExtras(mainIntent.getExtras());
             startActivity(mainIntent);
         } else {
             Intent loginIntent = new Intent(this, Login.class);
+            Nappa.notifyExtras(loginIntent.getExtras());
             startActivity(loginIntent);
         }
     }

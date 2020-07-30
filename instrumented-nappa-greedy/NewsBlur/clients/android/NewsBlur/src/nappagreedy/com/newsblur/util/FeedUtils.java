@@ -21,6 +21,7 @@ import nappagreedy.com.newsblur.fragment.ReadingActionConfirmationFragment;
 import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.network.domain.NewsBlurResponse;
 import nappagreedy.com.newsblur.service.NBSyncService;
+import nl.vu.cs.s2group.nappa.*;
 
 public class FeedUtils {
 
@@ -308,7 +309,9 @@ public class FeedUtils {
         intent.setType("text/plain");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Intent.EXTRA_TEXT, String.format(context.getResources().getString(R.string.send_brief), new Object[]{UIUtils.fromHtml(story.title), story.permalink}));
-        context.startActivity(Intent.createChooser(intent, "Send using"));
+        Intent intent1 = Intent.createChooser(intent, "Send using");
+        Nappa.notifyExtras(intent1.getExtras());
+        context.startActivity(intent1);
     }
 
     public static void sendStoryFull(Story story, Context context) {
@@ -319,7 +322,9 @@ public class FeedUtils {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Intent.EXTRA_SUBJECT, UIUtils.fromHtml(story.title));
         intent.putExtra(Intent.EXTRA_TEXT, String.format(context.getResources().getString(R.string.send_full), new Object[]{story.permalink, UIUtils.fromHtml(story.title), UIUtils.fromHtml(body)}));
-        context.startActivity(Intent.createChooser(intent, "Send using"));
+        Intent intent1 = Intent.createChooser(intent, "Send using");
+        Nappa.notifyExtras(intent1.getExtras());
+        context.startActivity(intent1);
     }
 
     public static void shareStory(Story story, String comment, String sourceUserId, Context context) {

@@ -47,6 +47,7 @@ import nappagreedy.com.newsblur.util.UIUtils;
 import nappagreedy.com.newsblur.util.ViewUtils;
 import nappagreedy.com.newsblur.util.VolumeKeyNavigation;
 import nappagreedy.com.newsblur.view.ReadingScrollView.ScrollChangeListener;
+import nl.vu.cs.s2group.nappa.*;
 
 public abstract class Reading extends NbActivity implements OnPageChangeListener, OnSeekBarChangeListener, ScrollChangeListener, LoaderManager.LoaderCallbacks<Cursor>, ReadingFontChangedListener {
 
@@ -676,6 +677,7 @@ public abstract class Reading extends NbActivity implements OnPageChangeListener
             // if there are no unread stories, go back to the feed list
             Intent i = new Intent(this, Main.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Nappa.notifyExtras(i.getExtras());
             startActivity(i);
             finish();
         } else {

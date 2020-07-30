@@ -26,6 +26,7 @@ import nappagreedy.com.newsblur.domain.FeedResult;
 import nappagreedy.com.newsblur.fragment.AddFeedFragment;
 import nappagreedy.com.newsblur.network.SearchAsyncTaskLoader;
 import nappagreedy.com.newsblur.network.SearchLoaderResponse;
+import nl.vu.cs.s2group.nappa.*;
 
 // TODO: this activity's use of the inbuilt activity search facility as well as an improper use of a loader to
 //       make network requests makes it easily lose state, lack non-legacy progress indication, and generally
@@ -45,6 +46,7 @@ public class SearchForFeeds extends NbActivity implements LoaderCallbacks<Search
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		setTitle(R.string.title_feed_search);

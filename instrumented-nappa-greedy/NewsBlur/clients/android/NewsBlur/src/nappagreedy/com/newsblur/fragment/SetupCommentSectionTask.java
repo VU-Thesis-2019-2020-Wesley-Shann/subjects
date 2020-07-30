@@ -32,6 +32,7 @@ import nappagreedy.com.newsblur.util.FeedUtils;
 import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.ViewUtils;
 import nappagreedy.com.newsblur.view.FlowLayout;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SetupCommentSectionTask extends AsyncTask<Void, Void, Void> {
 
@@ -171,7 +172,8 @@ public class SetupCommentSectionTask extends AsyncTask<Void, Void, Void> {
 						public void onClick(View view) {
 							Intent i = new Intent(context, Profile.class);
 							i.putExtra(Profile.USER_ID, replyUser.userId);
-							context.startActivity(i);
+                            Nappa.notifyExtras(i.getExtras());
+                            context.startActivity(i);
 						}
 					});
 					
@@ -240,7 +242,8 @@ public class SetupCommentSectionTask extends AsyncTask<Void, Void, Void> {
 				public void onClick(View view) {
 					Intent i = new Intent(context, Profile.class);
 					i.putExtra(Profile.USER_ID, comment.userId);
-					context.startActivity(i);
+                    Nappa.notifyExtras(i.getExtras());
+                    context.startActivity(i);
 				}
 			});
 

@@ -20,6 +20,7 @@ import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.activity.AddFacebook;
 import nappagreedy.com.newsblur.activity.AddTwitter;
 import nappagreedy.com.newsblur.network.APIManager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class AddSocialFragment extends Fragment {
 
@@ -61,6 +62,7 @@ public class AddSocialFragment extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				Intent i = new Intent(getActivity(), AddTwitter.class);
+				Nappa.notifyExtras(i.getExtras());
 				startActivityForResult(i, 0);
 			}			
 		});
@@ -70,6 +72,7 @@ public class AddSocialFragment extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				Intent i = new Intent(getActivity(), AddFacebook.class);
+				Nappa.notifyExtras(i.getExtras());
 				startActivityForResult(i, 0);
 			}			
 		});

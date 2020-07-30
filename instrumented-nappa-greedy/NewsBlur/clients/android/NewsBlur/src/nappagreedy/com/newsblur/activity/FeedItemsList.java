@@ -12,6 +12,7 @@ import nappagreedy.com.newsblur.fragment.FeedIntelTrainerFragment;
 import nappagreedy.com.newsblur.fragment.RenameFeedFragment;
 import nappagreedy.com.newsblur.util.FeedUtils;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class FeedItemsList extends ItemsList {
 
@@ -22,7 +23,8 @@ public class FeedItemsList extends ItemsList {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
-		feed = (Feed) getIntent().getSerializableExtra(EXTRA_FEED);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
+        feed = (Feed) getIntent().getSerializableExtra(EXTRA_FEED);
         folderName = getIntent().getStringExtra(EXTRA_FOLDER_NAME);
         
 		super.onCreate(bundle);

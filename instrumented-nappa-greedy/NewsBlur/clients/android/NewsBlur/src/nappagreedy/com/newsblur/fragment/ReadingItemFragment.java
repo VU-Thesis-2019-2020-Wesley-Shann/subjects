@@ -55,6 +55,7 @@ import nappagreedy.com.newsblur.util.ViewUtils;
 import nappagreedy.com.newsblur.view.FlowLayout;
 import nappagreedy.com.newsblur.view.NewsblurWebview;
 import nappagreedy.com.newsblur.view.ReadingScrollView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -270,6 +271,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(finalURL));
                     try {
+                        Nappa.notifyExtras(i.getExtras());
                         startActivity(i);
                     } catch (Exception e) {
                         android.util.Log.wtf(this.getClass().getName(), "device cannot open URLs");
@@ -314,6 +316,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(story.permalink));
             try {
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
             } catch (Exception e) {
                 nappagreedy.com.newsblur.util.Log.e(this, "device cannot open URLs");
@@ -473,6 +476,7 @@ public class ReadingItemFragment extends NbFragment implements PopupMenu.OnMenuI
 				Intent i = new Intent(Intent.ACTION_VIEW);
                 try {
                     i.setData(Uri.parse(story.permalink));
+                    Nappa.notifyExtras(i.getExtras());
                     startActivity(i);
                 } catch (Throwable t) {
                     // we don't actually know if the user will successfully be able to open whatever string

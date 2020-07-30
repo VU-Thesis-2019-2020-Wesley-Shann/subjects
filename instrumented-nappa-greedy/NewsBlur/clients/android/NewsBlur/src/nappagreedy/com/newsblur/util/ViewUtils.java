@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import nappagreedy.com.newsblur.activity.Profile;
 import nappagreedy.com.newsblur.view.FlowLayout;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ViewUtils {
 
@@ -35,7 +36,8 @@ public class ViewUtils {
 			public void onClick(View view) {
 				Intent i = new Intent(context, Profile.class);
 				i.putExtra(Profile.USER_ID, userId);
-				context.startActivity(i);
+                Nappa.notifyExtras(i.getExtras());
+                context.startActivity(i);
 			}
 		});
 		return image;

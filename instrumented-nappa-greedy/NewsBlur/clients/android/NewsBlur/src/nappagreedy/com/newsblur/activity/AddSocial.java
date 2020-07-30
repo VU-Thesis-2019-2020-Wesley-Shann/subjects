@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.fragment.AddSocialFragment;
+import nl.vu.cs.s2group.nappa.*;
 
 public class AddSocial extends NbActivity {
 
@@ -20,6 +21,7 @@ public class AddSocial extends NbActivity {
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		setContentView(R.layout.activity_addsocial);
 		
 		fragmentManager = getSupportFragmentManager();
@@ -37,7 +39,8 @@ public class AddSocial extends NbActivity {
 			public void onClick(View arg0) {
                 Intent i = new Intent(AddSocial.this, Main.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+				Nappa.notifyExtras(i.getExtras());
+				startActivity(i);
 			}
 		});
 		

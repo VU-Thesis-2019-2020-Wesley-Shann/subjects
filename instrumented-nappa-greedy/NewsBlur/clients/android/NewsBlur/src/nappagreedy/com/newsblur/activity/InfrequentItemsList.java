@@ -9,12 +9,14 @@ import nappagreedy.com.newsblur.fragment.InfrequentCutoffDialogFragment.Infreque
 import nappagreedy.com.newsblur.util.FeedUtils;
 import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class InfrequentItemsList extends ItemsList implements InfrequentCutoffChangedListener {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
         UIUtils.setCustomActionBar(this, R.drawable.ak_icon_allstories, getResources().getString(R.string.infrequent_title));
 	}

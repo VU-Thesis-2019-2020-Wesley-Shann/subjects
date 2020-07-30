@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.fragment.RegisterProgressFragment;
 import nappagreedy.com.newsblur.util.PrefsUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Show progress screen while registering request is being processed. This
@@ -21,7 +22,8 @@ public class RegisterProgress extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
-        PrefsUtils.applyThemePreference(this);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
+		PrefsUtils.applyThemePreference(this);
 
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_loginprogress);

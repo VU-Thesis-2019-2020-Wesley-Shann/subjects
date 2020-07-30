@@ -13,6 +13,7 @@ import nappagreedy.com.newsblur.domain.UserDetails;
 import nappagreedy.com.newsblur.fragment.ProfileDetailsFragment;
 import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.util.PrefsUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class Profile extends NbActivity {
 
@@ -27,6 +28,7 @@ public class Profile extends NbActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		setContentView(R.layout.activity_profile);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		apiManager = new APIManager(this);

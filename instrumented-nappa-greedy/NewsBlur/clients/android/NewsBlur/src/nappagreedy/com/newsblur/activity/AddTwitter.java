@@ -7,6 +7,7 @@ import android.webkit.WebViewClient;
 
 import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.network.APIConstants;
+import nl.vu.cs.s2group.nappa.*;
 
 public class AddTwitter extends NbActivity {
 
@@ -16,6 +17,7 @@ public class AddTwitter extends NbActivity {
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		setContentView(R.layout.activity_webcontainer);
 		
 		webview = (WebView) findViewById(R.id.webcontainer);

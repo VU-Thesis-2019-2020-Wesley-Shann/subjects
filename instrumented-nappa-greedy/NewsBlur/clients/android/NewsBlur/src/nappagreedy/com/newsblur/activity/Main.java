@@ -44,6 +44,7 @@ import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.StateFilter;
 import nappagreedy.com.newsblur.util.UIUtils;
 import nappagreedy.com.newsblur.view.StateToggleButton.StateChangedListener;
+import nl.vu.cs.s2group.nappa.*;
 
 public class Main extends NbActivity implements StateChangedListener, SwipeRefreshLayout.OnRefreshListener, AbsListView.OnScrollListener, PopupMenu.OnMenuItemClickListener, OnSeekBarChangeListener {
 
@@ -65,6 +66,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         PreferenceManager.setDefaultValues(this, R.xml.activity_settings, false);
 
 		super.onCreate(savedInstanceState);
@@ -313,6 +315,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
             }
 		} else if (item.getItemId() == R.id.menu_add_feed) {
 			Intent i = new Intent(this, SearchForFeeds.class);
+            Nappa.notifyExtras(i.getExtras());
             startActivity(i);
 			return true;
 		} else if (item.getItemId() == R.id.menu_logout) {
@@ -320,6 +323,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
 			newFragment.show(getSupportFragmentManager(), "dialog");
 		} else if (item.getItemId() == R.id.menu_settings) {
             Intent settingsIntent = new Intent(this, Settings.class);
+            Nappa.notifyExtras(settingsIntent.getExtras());
             startActivity(settingsIntent);
             return true;
         } else if (item.getItemId() == R.id.menu_feedback_email) {
@@ -329,6 +333,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
             try {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(PrefsUtils.createFeedbackLink(this)));
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
             } catch (Exception e) {
                 Log.wtf(this.getClass().getName(), "device cannot even open URLs to report feedback");
@@ -357,16 +362,19 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
 
     @OnClick(R.id.main_add_button) void onClickAddButton() {
         Intent i = new Intent(this, SearchForFeeds.class);
+        Nappa.notifyExtras(i.getExtras());
         startActivity(i);
     }
 
     @OnClick(R.id.main_profile_button) void onClickProfileButton() {
         Intent i = new Intent(this, Profile.class);
+        Nappa.notifyExtras(i.getExtras());
         startActivity(i);
     }
 
     @OnClick(R.id.main_user_image) void onClickUserButton() {
         Intent i = new Intent(this, Profile.class);
+        Nappa.notifyExtras(i.getExtras());
         startActivity(i);
     }
 

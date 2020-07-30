@@ -9,11 +9,13 @@ import nappagreedy.com.newsblur.fragment.SettingsFragment;
 import nappagreedy.com.newsblur.util.PrefConstants;
 import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class Settings extends FragmentActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         PrefsUtils.applyThemePreference(this);
 
         super.onCreate(savedInstanceState);

@@ -18,6 +18,7 @@ import nappagreedy.com.newsblur.activity.Main;
 import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Created by mark on 08/12/2014.
@@ -80,6 +81,7 @@ public class LoginAsDialogFragment extends DialogFragment {
         protected void onPostExecute(Boolean result) {
             if (result) {
                 Intent startMain = new Intent(activity, Main.class);
+                Nappa.notifyExtras(startMain.getExtras());
                 activity.startActivity(startMain);
             } else {
                 UIUtils.safeToast(activity, "Login as " + username + " failed", Toast.LENGTH_LONG);

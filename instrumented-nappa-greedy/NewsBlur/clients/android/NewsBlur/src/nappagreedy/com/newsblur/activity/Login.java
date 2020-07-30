@@ -8,12 +8,14 @@ import android.view.Window;
 
 import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.fragment.LoginRegisterFragment;
+import nl.vu.cs.s2group.nappa.*;
 
 public class Login extends FragmentActivity {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);

@@ -53,6 +53,7 @@ import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.ReadFilter;
 import nappagreedy.com.newsblur.util.StoryOrder;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -89,11 +90,11 @@ public class APIManager {
                                 Build.VERSION.RELEASE + " " +
                                 appVersion + ")";
 
-        this.httpClient = new OkHttpClient.Builder()
-                          .connectTimeout(AppConstants.API_CONN_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                          .readTimeout(AppConstants.API_READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                          .followSslRedirects(true)
-                          .build();
+        this.httpClient = Nappa.getOkHttp(new OkHttpClient.Builder()
+                .connectTimeout(AppConstants.API_CONN_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                .readTimeout(AppConstants.API_READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                .followSslRedirects(true)
+                .build());
 	}
 
 	public LoginResponse login(final String username, final String password) {
@@ -120,9 +121,9 @@ public class APIManager {
         // just get the cookie from the 302 and stop, we directly use a one-off OkHttpClient.
         Request.Builder requestBuilder = new Request.Builder().url(urlString);
         addCookieHeader(requestBuilder);
-        OkHttpClient noredirHttpClient = new OkHttpClient.Builder()
-                                         .followRedirects(false)
-                                         .build();
+        OkHttpClient noredirHttpClient = Nappa.getOkHttp(new OkHttpClient.Builder()
+                .followRedirects(false)
+                .build());
         try {
             long makeCall = System.currentTimeMillis();
             Call call = noredirHttpClient.newCall(requestBuilder.build());

@@ -16,6 +16,7 @@ import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.network.domain.AddFeedResponse;
 import nappagreedy.com.newsblur.service.NBSyncService;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class AddFeedFragment extends DialogFragment {
 
@@ -61,6 +62,7 @@ public class AddFeedFragment extends DialogFragment {
                         } else {
                             UIUtils.safeToast(activity, R.string.add_feed_error, Toast.LENGTH_SHORT);
                         }
+                        Nappa.notifyExtras(intent.getExtras());
                         activity.startActivity(intent);
                         activity.finish();
                         AddFeedFragment.this.dismiss();
@@ -72,6 +74,7 @@ public class AddFeedFragment extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AddFeedFragment.this.dismiss();
+                Nappa.notifyExtras(intent.getExtras());
                 activity.startActivity(intent);
                 activity.finish();
             }

@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -27,11 +28,11 @@ public class NetworkUtils {
     private static OkHttpClient ImageFetchHttpClient;
 
     static {
-        ImageFetchHttpClient = new OkHttpClient.Builder()
-                               .connectTimeout(AppConstants.IMAGE_PREFETCH_CONN_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                               .readTimeout(AppConstants.IMAGE_PREFETCH_READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-                               .followSslRedirects(true)
-                               .build();
+        ImageFetchHttpClient = Nappa.getOkHttp(new OkHttpClient.Builder()
+                .connectTimeout(AppConstants.IMAGE_PREFETCH_CONN_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                .readTimeout(AppConstants.IMAGE_PREFETCH_READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                .followSslRedirects(true)
+                .build());
     }
 
 	public static boolean isOnline(Context context) {

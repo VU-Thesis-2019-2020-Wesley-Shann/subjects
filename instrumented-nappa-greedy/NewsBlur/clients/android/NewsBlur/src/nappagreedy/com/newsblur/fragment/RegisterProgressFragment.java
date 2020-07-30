@@ -22,6 +22,7 @@ import nappagreedy.com.newsblur.activity.AddSocial;
 import nappagreedy.com.newsblur.activity.Login;
 import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.network.domain.RegisterResponse;
+import nl.vu.cs.s2group.nappa.*;
 
 public class RegisterProgressFragment extends Fragment {
 
@@ -75,6 +76,7 @@ public class RegisterProgressFragment extends Fragment {
 
     @OnClick(R.id.registering_next_1) void next() {
         Intent i = new Intent(getActivity(), AddSocial.class);
+        Nappa.notifyExtras(i.getExtras());
         startActivity(i);
     }
 
@@ -95,7 +97,9 @@ public class RegisterProgressFragment extends Fragment {
                     errorMessage = getResources().getString(R.string.register_message_error);
                 }
                 Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getActivity(), Login.class));
+                Intent intent = new Intent(getActivity(), Login.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         }
 

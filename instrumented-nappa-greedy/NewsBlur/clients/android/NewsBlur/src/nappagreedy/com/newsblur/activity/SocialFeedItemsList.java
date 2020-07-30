@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import nappagreedy.com.newsblur.domain.SocialFeed;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SocialFeedItemsList extends ItemsList {
 
@@ -13,7 +14,8 @@ public class SocialFeedItemsList extends ItemsList {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
-	    socialFeed = (SocialFeed) getIntent().getSerializableExtra(EXTRA_SOCIAL_FEED);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
+		socialFeed = (SocialFeed) getIntent().getSerializableExtra(EXTRA_SOCIAL_FEED);
 		super.onCreate(bundle);
 				
         UIUtils.setCustomActionBar(this, socialFeed.photoUrl, socialFeed.feedTitle);

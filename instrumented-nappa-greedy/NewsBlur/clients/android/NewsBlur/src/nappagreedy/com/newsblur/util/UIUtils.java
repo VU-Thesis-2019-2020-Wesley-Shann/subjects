@@ -39,6 +39,7 @@ import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.activity.*;
 import nappagreedy.com.newsblur.domain.Classifier;
 import nappagreedy.com.newsblur.domain.Story;
+import nl.vu.cs.s2group.nappa.*;
 
 public class UIUtils {
 
@@ -265,6 +266,7 @@ public class UIUtils {
                 activity.finish();
 
                 activity.overridePendingTransition(0, 0);
+                Nappa.notifyExtras(intent.getExtras());
                 activity.startActivity(intent);
             }
         });
@@ -299,6 +301,7 @@ public class UIUtils {
         Intent i = new Intent(context, activityClass);
         i.putExtra(Reading.EXTRA_FEEDSET, fs);
         i.putExtra(Reading.EXTRA_STORY_HASH, startingHash);
+        Nappa.notifyExtras(i.getExtras());
         context.startActivity(i);
     }
 

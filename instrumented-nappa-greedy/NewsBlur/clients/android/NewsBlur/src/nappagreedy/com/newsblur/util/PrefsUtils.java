@@ -30,6 +30,7 @@ import nappagreedy.com.newsblur.domain.UserDetails;
 import nappagreedy.com.newsblur.network.APIConstants;
 import nappagreedy.com.newsblur.util.PrefConstants.ThemeValue;
 import nappagreedy.com.newsblur.service.NBSyncService;
+import nl.vu.cs.s2group.nappa.*;
 
 public class PrefsUtils {
 
@@ -107,6 +108,7 @@ public class PrefsUtils {
         i.putExtra(Intent.EXTRA_TEXT, debugInfo);
         i.putExtra(Intent.EXTRA_STREAM, localPath);
         if (i.resolveActivity(context.getPackageManager()) != null) {
+            Nappa.notifyExtras(i.getExtras());
             context.startActivity(i);
         }
     }
@@ -167,6 +169,7 @@ public class PrefsUtils {
         // prompt for a new login
         Intent i = new Intent(context, Login.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Nappa.notifyExtras(i.getExtras());
         context.startActivity(i);
     }
 

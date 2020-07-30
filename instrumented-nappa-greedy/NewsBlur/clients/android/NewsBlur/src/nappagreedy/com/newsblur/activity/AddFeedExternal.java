@@ -15,6 +15,7 @@ import nappagreedy.com.newsblur.fragment.AddFeedFragment;
 import nappagreedy.com.newsblur.util.UIUtils;
 import nappagreedy.com.newsblur.util.ViewUtils;
 import nappagreedy.com.newsblur.view.ProgressThrobber;
+import nl.vu.cs.s2group.nappa.*;
 
 public class AddFeedExternal extends NbActivity implements AddFeedFragment.AddFeedProgressListener {
 
@@ -24,6 +25,7 @@ public class AddFeedExternal extends NbActivity implements AddFeedFragment.AddFe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_addfeedexternal);

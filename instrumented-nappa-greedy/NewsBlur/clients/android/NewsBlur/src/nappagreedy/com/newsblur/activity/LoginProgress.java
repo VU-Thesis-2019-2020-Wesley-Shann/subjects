@@ -9,6 +9,7 @@ import android.view.Window;
 import nappagreedy.com.newsblur.R;
 import nappagreedy.com.newsblur.fragment.LoginProgressFragment;
 import nappagreedy.com.newsblur.util.PrefsUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class LoginProgress extends FragmentActivity {
 
@@ -17,7 +18,8 @@ public class LoginProgress extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
-        PrefsUtils.applyThemePreference(this);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
+		PrefsUtils.applyThemePreference(this);
 
 		super.onCreate(bundle);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);

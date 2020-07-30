@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 
 import nappagreedy.com.newsblur.activity.Reading;
 import nappagreedy.com.newsblur.fragment.ReadingItemFragment;
+import nl.vu.cs.s2group.nappa.*;
 
 public class NewsblurWebview extends WebView {
 
@@ -99,6 +100,7 @@ public class NewsblurWebview extends WebView {
             try {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(uri);
+                Nappa.notifyExtras(i.getExtras());
                 context.startActivity(i);
             } catch (Exception e) {
                 nappagreedy.com.newsblur.util.Log.e(this.getClass().getName(), "device cannot open URLs");

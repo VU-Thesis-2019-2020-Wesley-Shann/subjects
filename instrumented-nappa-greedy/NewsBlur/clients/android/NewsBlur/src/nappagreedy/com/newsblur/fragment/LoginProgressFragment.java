@@ -26,6 +26,7 @@ import nappagreedy.com.newsblur.network.APIManager;
 import nappagreedy.com.newsblur.network.domain.LoginResponse;
 import nappagreedy.com.newsblur.util.PrefsUtils;
 import nappagreedy.com.newsblur.util.UIUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class LoginProgressFragment extends Fragment {
 
@@ -106,10 +107,13 @@ public class LoginProgressFragment extends Fragment {
 				retrievingFeeds.startAnimation(b);
 
                 Intent startMain = new Intent(getActivity(), Main.class);
-                c.startActivity(startMain);
+				Nappa.notifyExtras(startMain.getExtras());
+				c.startActivity(startMain);
 			} else {
                 UIUtils.safeToast(c, result.getErrorMessage(c.getString(R.string.login_message_error)), Toast.LENGTH_LONG);
-				startActivity(new Intent(c, Login.class));
+				Intent intent = new Intent(c, Login.class);
+				Nappa.notifyExtras(intent.getExtras());
+				startActivity(intent);
 			}
 		}
 	}
