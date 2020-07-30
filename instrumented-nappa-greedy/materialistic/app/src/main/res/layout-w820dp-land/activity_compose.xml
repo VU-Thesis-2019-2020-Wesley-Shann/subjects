@@ -92,7 +92,7 @@
             tools:ignore="RtlHardcoded"
             tools:targetApi="lollipop">
 
-            <baseline.io.github.hidroh.materialistic.widget.TintableTextView
+            <nappagreedy.io.github.hidroh.materialistic.widget.TintableTextView
                 android:id="@+id/toggle"
                 style="@style/textTitleStyle"
                 android:enabled="false"

@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<baseline.io.github.hidroh.materialistic.widget.TintableTextView
+<nappagreedy.io.github.hidroh.materialistic.widget.TintableTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
