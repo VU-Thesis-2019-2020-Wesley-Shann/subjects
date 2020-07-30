@@ -12,6 +12,7 @@ AAR_SCRIPT_PATH="libs/aars/"
 SUBJECTS_BASE_PATH=(
   # Nappa Greedy
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-greedy/AntennaPod/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-greedy/AntennaPod/core/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-greedy/Hillffair/app/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-greedy/materialistic/app/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-greedy/NewsBlur/clients/android/NewsBlur/"
@@ -21,6 +22,7 @@ SUBJECTS_BASE_PATH=(
 
   # Nappa TFPR
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-tfpr/AntennaPod/app/"
+  "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-tfpr/AntennaPod/core/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-tfpr/Hillffair/app/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-tfpr/materialistic/app/"
   "${SUBJECT_PROJECT_BASE_PATH}instrumented-nappa-tfpr/NewsBlur/clients/android/NewsBlur/"
