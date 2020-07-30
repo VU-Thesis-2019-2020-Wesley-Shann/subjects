@@ -23,6 +23,7 @@ import database.AppDataBase;
 import flipviewpager.utils.FlipSettings;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
+import nl.vu.cs.s2group.nappa.*;
 import objects.City;
 
 public class FavouriteCitiesFragment extends Fragment {
@@ -77,6 +78,7 @@ public class FavouriteCitiesFragment extends Fragment {
         fav_cities_lv.setOnItemClickListener((parent, mView, position, id1) -> {
             City city = (City) fav_cities_lv.getAdapter().getItem(position);
             Intent intent = FinalCityInfoActivity.getStartIntent(getActivity(), city);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
     }

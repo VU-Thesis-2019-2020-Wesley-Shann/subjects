@@ -27,6 +27,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.Tweet;
@@ -57,6 +58,7 @@ public class TweetsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_tweets);
 
         ButterKnife.bind(this);
@@ -85,7 +87,7 @@ public class TweetsActivity extends AppCompatActivity {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -118,6 +120,7 @@ public class TweetsActivity extends AppCompatActivity {
                                     tweet -> {
                                         Intent intent = TweetsDescriptionActivity
                                                 .getStartIntent(TweetsActivity.this, tweet.getName());
+                                        Nappa.notifyExtras(intent.getExtras());
                                         startActivity(intent);
                                     });
                             lv.setAdapter(mAdapter);

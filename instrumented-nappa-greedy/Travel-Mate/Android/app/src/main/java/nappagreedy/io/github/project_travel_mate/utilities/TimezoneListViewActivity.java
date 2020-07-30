@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.ZoneName;
 
 public class TimezoneListViewActivity extends Activity implements TextWatcher {
@@ -36,6 +37,7 @@ public class TimezoneListViewActivity extends Activity implements TextWatcher {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_timezone_listview);
 
         timezone_names = new ArrayList<>();

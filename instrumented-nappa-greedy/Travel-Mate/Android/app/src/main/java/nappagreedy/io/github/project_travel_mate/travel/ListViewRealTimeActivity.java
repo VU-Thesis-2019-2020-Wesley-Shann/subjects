@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.travel.swipefragmentrealtime.ViewPageFragmentsAdapter;
+import nl.vu.cs.s2group.nappa.*;
 import utils.GPSTracker;
 import utils.TravelmateSnackbars;
 
@@ -41,6 +42,7 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_list_real_time);
         ButterKnife.bind(this);
 
@@ -85,6 +87,7 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
             case R.id.action_map_view :
                 finish();
                 Intent intent = MapViewRealTimeActivity.getStartIntent(ListViewRealTimeActivity.this);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 return true;
             default :

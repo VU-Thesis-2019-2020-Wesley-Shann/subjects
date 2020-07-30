@@ -17,6 +17,7 @@ import java.util.StringTokenizer;
 
 import butterknife.BindView;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.ZoneName;
 
 public class CurrencyListViewActivity extends Activity implements TextWatcher {
@@ -37,6 +38,7 @@ public class CurrencyListViewActivity extends Activity implements TextWatcher {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_conversion_listview);
 
         currences_names = new ArrayList<>();

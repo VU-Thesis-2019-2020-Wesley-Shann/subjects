@@ -46,6 +46,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import okhttp3.Call;
@@ -93,6 +94,7 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_places_on_map);
 
         ButterKnife.bind(this);
@@ -257,7 +259,7 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
         Log.v("executing", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -428,6 +430,7 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
                             "," +
                             mFeedItems.getJSONObject(position).getString("longitude")
                     ));
+                    Nappa.notifyExtras(browserIntent.getExtras());
                     mContext.startActivity(browserIntent);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -441,6 +444,7 @@ public class PlacesOnMapActivity extends AppCompatActivity implements
                     browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" +
                             mFeedItems.getJSONObject(position).getString("title")
                     ));
+                    Nappa.notifyExtras(browserIntent.getExtras());
                     mContext.startActivity(browserIntent);
                 } catch (JSONException e) {
                     e.printStackTrace();

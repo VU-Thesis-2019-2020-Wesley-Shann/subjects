@@ -34,6 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.MainActivity;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import utils.TravelmateSnackbars;
 
 import static utils.Constants.USER_EMAIL;
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_login);
 
         Window window = this.getWindow();
@@ -255,6 +257,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void startMainActivity() {
         Intent i = MainActivity.getStartIntent(this);
+        Nappa.notifyExtras(i.getExtras());
         startActivity(i);
         finish();
     }

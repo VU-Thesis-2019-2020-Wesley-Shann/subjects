@@ -23,6 +23,7 @@ import nappagreedy.io.github.project_travel_mate.destinations.description.FinalC
 import nappagreedy.io.github.project_travel_mate.destinations.description.TweetsActivity;
 import nappagreedy.io.github.project_travel_mate.destinations.description.WeatherActivity;
 import nappagreedy.io.github.project_travel_mate.destinations.funfacts.FunFactsActivity;
+import nl.vu.cs.s2group.nappa.*;
 import objects.City;
 
 class CityAdapter extends BaseFlipAdapter<City> {
@@ -97,6 +98,7 @@ class CityAdapter extends BaseFlipAdapter<City> {
 
         infoHolder.fv1.setOnClickListener(v -> {
             Intent intent = FinalCityInfoActivity.getStartIntent(mContext, city);
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
 
@@ -108,16 +110,19 @@ class CityAdapter extends BaseFlipAdapter<City> {
 
         infoHolder.fv3.setOnClickListener(v -> {
             Intent intent = FunFactsActivity.getStartIntent(mContext, city);
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
 
         infoHolder.fv2.setOnClickListener(v -> {
             Intent intent = WeatherActivity.getStartIntent(mContext, city, null);
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
 
         infoHolder.fv4.setOnClickListener(v -> {
             Intent intent = TweetsActivity.getStartIntent(mContext, city);
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
     }

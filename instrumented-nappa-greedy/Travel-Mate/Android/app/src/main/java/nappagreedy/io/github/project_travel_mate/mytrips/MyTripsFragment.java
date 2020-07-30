@@ -33,6 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Trip;
 import okhttp3.Call;
@@ -92,6 +93,7 @@ public class MyTripsFragment extends Fragment implements SwipeRefreshLayout.OnRe
             Intent intent = MyTripInfoActivity.getStartIntent(mActivity.getApplicationContext(),
                     trip);
             intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
         mRecyclerView.setAdapter(mMyTripsAdapter);
@@ -113,7 +115,7 @@ public class MyTripsFragment extends Fragment implements SwipeRefreshLayout.OnRe
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -180,6 +182,7 @@ public class MyTripsFragment extends Fragment implements SwipeRefreshLayout.OnRe
     @OnClick(R.id.add_trip)
     void addTrip() {
         Intent intent = new Intent(getContext(), AddNewTripActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         startActivityForResult(intent, ADDNEWTRIP_ACTIVITY);
 
     }

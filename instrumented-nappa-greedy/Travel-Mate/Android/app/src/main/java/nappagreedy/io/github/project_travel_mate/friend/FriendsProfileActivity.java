@@ -36,6 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.FullScreenImage;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.FriendCity;
 import objects.Trip;
@@ -102,6 +103,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_friends_profile);
         ButterKnife.bind(this);
 
@@ -126,6 +128,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
         friendDisplayImage.setOnClickListener(v -> {
             Intent fullScreenIntent = FullScreenImage.getStartIntent(FriendsProfileActivity.this,
                     mFriendImageUri, mFriendName);
+            Nappa.notifyExtras(fullScreenIntent.getExtras());
             startActivity(fullScreenIntent);
         });
     }
@@ -145,7 +148,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
             uri = API_LINK_V2 + "get-visited-city";
         Log.d("FriendsProfileActivity", " executing getVisitedCities: " + uri);
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -194,7 +197,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -268,7 +271,7 @@ public class FriendsProfileActivity extends AppCompatActivity implements Travelm
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)

@@ -48,6 +48,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.ZoneName;
 import okhttp3.Call;
@@ -107,6 +108,7 @@ public class CurrencyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_utilities_currency_converter);
         ButterKnife.bind(this);
         setTitle(R.string.text_currency);
@@ -134,6 +136,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_second_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         startActivity(intent);
     }
 
@@ -143,6 +146,7 @@ public class CurrencyActivity extends AppCompatActivity {
         flag_check_first_item = false;
         result_textview.setText(String.valueOf(0.0));
         Intent intent = new Intent(mContext, CurrencyListViewActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         startActivity(intent);
     }
 
@@ -268,7 +272,7 @@ public class CurrencyActivity extends AppCompatActivity {
 
         mDialog.show();
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -332,7 +336,7 @@ public class CurrencyActivity extends AppCompatActivity {
         mDialog.show();
         //Set up client
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)

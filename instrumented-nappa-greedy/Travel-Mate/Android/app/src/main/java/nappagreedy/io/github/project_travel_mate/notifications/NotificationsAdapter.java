@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.mytrips.MyTripInfoActivity;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Notification;
 import okhttp3.Call;
@@ -88,7 +89,7 @@ class NotificationsAdapter extends ArrayAdapter<Notification> {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -115,6 +116,7 @@ class NotificationsAdapter extends ArrayAdapter<Notification> {
 
     public void openTripPage(int position) {
         Intent intent = MyTripInfoActivity.getStartIntent(mContext, mNotifications.get(position).getTrip());
+        Nappa.notifyExtras(intent.getExtras());
         mContext.startActivity(intent);
     }
 

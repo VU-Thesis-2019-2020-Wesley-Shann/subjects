@@ -18,6 +18,8 @@ import nappagreedy.io.github.project_travel_mate.friend.MyFriendsFragment;
 import nappagreedy.io.github.project_travel_mate.mytrips.MyTripsFragment;
 import nappagreedy.io.github.project_travel_mate.travel.HotelsActivity;
 import nappagreedy.io.github.project_travel_mate.utilities.UtilitiesFragment;
+import nl.vu.cs.s2group.nappa.*;
+
 public class HomeFragment extends Fragment {
 
     private Activity mActivity;
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
         mFragmentManager = getFragmentManager();
         mHotelBookingView.setOnClickListener(v -> {
             Intent hotelIntent = HotelsActivity.getStartIntent(mActivity);
+            Nappa.notifyExtras(hotelIntent.getExtras());
             startActivity(hotelIntent);
         });
         mFriendsView.setOnClickListener(v1 -> {

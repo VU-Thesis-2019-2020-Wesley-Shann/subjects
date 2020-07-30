@@ -44,6 +44,7 @@ import database.AppDataBase;
 import flipviewpager.utils.FlipSettings;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import okhttp3.Call;
@@ -148,6 +149,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         lv.setOnItemClickListener((parent, mView, position, id1) -> {
             City city = (City) lv.getAdapter().getItem(position);
             Intent intent = FinalCityInfoActivity.getStartIntent(mActivity, city);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
 
@@ -292,7 +294,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -343,6 +345,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
                         mMaterialSearchView.setAdapter(dataAdapter);
                         mMaterialSearchView.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
                             Intent intent = FinalCityInfoActivity.getStartIntent(mActivity, cities.get(arg2));
+                            Nappa.notifyExtras(intent.getExtras());
                             startActivity(intent);
                         });
                     } catch (JSONException e) {
@@ -366,7 +369,7 @@ public class CityFragment extends Fragment implements TravelmateSnackbars {
         Log.v(TAG, "url=" + uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header(AUTHORIZATION, "Token " + mToken)

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.TimeZone;
 
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * The configuration screen for the {@link ClockWidget ClockWidget} AppWidget.
@@ -77,6 +78,7 @@ public class ClockWidgetConfigureActivity extends Activity implements AdapterVie
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         mContext = this;
         // Set the result to CANCELED.  This will cause the widget host to cancel
         // out of the widget placement if the user presses the back button.

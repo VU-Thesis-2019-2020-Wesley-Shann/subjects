@@ -33,6 +33,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 import static utils.Constants.QR_CODE_HEIGHT;
 import static utils.Constants.QR_CODE_WIDTH;
@@ -51,6 +52,7 @@ public class ShareContactActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_share_contact);
 
         ButterKnife.bind(this);
@@ -89,6 +91,7 @@ public class ShareContactActivity extends AppCompatActivity implements View.OnCl
                 .putExtra(ContactsContract.Intents.Insert.NAME, name)
                 .putExtra(ContactsContract.Intents.Insert.EMAIL, email);
 
+        Nappa.notifyExtras(contactIntent.getExtras());
         startActivityForResult(contactIntent, ACTIVITY_INSERT_CONTACT);
     }
 
@@ -189,7 +192,9 @@ public class ShareContactActivity extends AppCompatActivity implements View.OnCl
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT , getString(R.string.share_contact_qr));
         intent.putExtra(Intent.EXTRA_STREAM , uri);
-        startActivity(Intent.createChooser(intent , getString(R.string.share_intent_text)));
+        Intent intent1 = Intent.createChooser(intent, getString(R.string.share_intent_text));
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivity(intent1);
     }
 }
 

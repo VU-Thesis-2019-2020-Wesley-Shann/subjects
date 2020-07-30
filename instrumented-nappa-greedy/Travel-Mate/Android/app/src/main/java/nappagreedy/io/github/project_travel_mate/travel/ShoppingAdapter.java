@@ -19,6 +19,7 @@ import org.json.JSONException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 class ShoppingAdapter extends BaseAdapter {
 
@@ -88,6 +89,7 @@ class ShoppingAdapter extends BaseAdapter {
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }
+            Nappa.notifyExtras(browserIntent.getExtras());
             mContext.startActivity(browserIntent);
         });
         return convertView;

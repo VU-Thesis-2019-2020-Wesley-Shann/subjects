@@ -19,6 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.TweetDescription;
 import utils.CircleImageView;
 
@@ -71,6 +72,7 @@ public class TweetsDescriptionAdapter extends RecyclerView.Adapter<TweetsDescrip
         holder.itemView.setOnClickListener(v -> {
             Intent viewIntent =
                     new Intent(Intent.ACTION_VIEW, Uri.parse(tweet.getUrl()));
+            Nappa.notifyExtras(viewIntent.getExtras());
             mContext.startActivity(viewIntent);
         });
     }

@@ -53,6 +53,7 @@ import nappagreedy.io.github.project_travel_mate.utilities.AboutUsFragment;
 import nappagreedy.io.github.project_travel_mate.utilities.UtilitiesFragment;
 import io.github.tonnyl.whatsnew.WhatsNew;
 import io.github.tonnyl.whatsnew.item.WhatsNewItem;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Trip;
 import okhttp3.Call;
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -264,6 +266,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             .putString(USER_TOKEN, null)
                                             .apply();
                                     Intent i = LoginActivity.getStartIntent(MainActivity.this);
+                                    Nappa.notifyExtras(i.getExtras());
                                     startActivity(i);
                                     finish();
                                 })
@@ -327,7 +330,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageView imageView = navigationHeader.findViewById(R.id.image);
         Picasso.with(MainActivity.this).load(imageURL).placeholder(R.drawable.icon_profile)
                 .error(R.drawable.icon_profile).into(imageView);
-        imageView.setOnClickListener(v -> startActivity(ProfileActivity.getStartIntent(MainActivity.this)));
+        imageView.setOnClickListener(v -> {
+            Intent intent = ProfileActivity.getStartIntent(MainActivity.this);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
+        });
     }
 
     private void getProfileInfo() {
@@ -337,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.v(TAG, "url=" + uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header(AUTHORIZATION, "Token " + mToken)
@@ -405,9 +412,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             int id = Integer.parseInt(userId);
             if (!userId.equals(myId)) {
                 Intent intent = FriendsProfileActivity.getStartIntent(MainActivity.this, id);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             } else {
                 Intent intent = ProfileActivity.getStartIntent(MainActivity.this);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         } else {
@@ -417,6 +426,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Trip trip = new Trip();
                 trip.setId(tripID);
                 Intent intent = MyTripInfoActivity.getStartIntent(MainActivity.this,  trip, false);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         }
@@ -435,7 +445,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.v(TAG, "url = " + uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header(AUTHORIZATION, "Token " + mToken)
@@ -479,6 +489,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.action_notification:
                 Intent intent = NotificationsActivity.getStartIntent(MainActivity.this);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 return true;
         }

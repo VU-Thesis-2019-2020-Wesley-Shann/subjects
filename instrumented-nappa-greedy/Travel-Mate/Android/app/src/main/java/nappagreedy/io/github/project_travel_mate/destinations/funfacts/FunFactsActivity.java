@@ -25,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.City;
 import objects.FunFact;
 
@@ -52,6 +53,7 @@ public class FunFactsActivity extends AppCompatActivity implements FunFactsView 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_fun_facts);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

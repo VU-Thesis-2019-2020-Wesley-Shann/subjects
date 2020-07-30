@@ -27,6 +27,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Trip;
 import objects.User;
@@ -119,7 +120,7 @@ class MyTripFriendNameAdapter extends ArrayAdapter<User> {
         String uri = API_LINK_V2 + "remove-friend-from-trip/" + mTrip.getId() + "/" + mFriendId;
         Log.v("EXECUTING", uri);
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + token)
@@ -145,6 +146,7 @@ class MyTripFriendNameAdapter extends ArrayAdapter<User> {
                         Intent intent = new Intent(mContext, MyTripInfoActivity.class);
                         intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, mTrip);
                         mContext.finish();
+                        Nappa.notifyExtras(intent.getExtras());
                         mContext.startActivity(intent);
                     } else
                         Toast.makeText(mContext, res, Toast.LENGTH_SHORT).show();

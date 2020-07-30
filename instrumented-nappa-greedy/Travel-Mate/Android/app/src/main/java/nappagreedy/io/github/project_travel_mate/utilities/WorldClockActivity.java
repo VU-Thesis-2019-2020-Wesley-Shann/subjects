@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import utils.CurrencyConverterGlobal;
 
 public class WorldClockActivity extends AppCompatActivity {
@@ -44,6 +45,7 @@ public class WorldClockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_utilities_world_clock);
         ButterKnife.bind(this);
         setTitle(R.string.text_clock);
@@ -102,6 +104,7 @@ public class WorldClockActivity extends AppCompatActivity {
     void fromSelected() {
         flag_check_first_item = true;
         Intent intent = new Intent(mContext, TimezoneListViewActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         startActivity(intent);
     }
 

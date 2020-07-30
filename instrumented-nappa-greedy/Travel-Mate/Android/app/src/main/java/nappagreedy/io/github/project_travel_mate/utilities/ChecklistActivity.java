@@ -13,6 +13,7 @@ import java.util.Objects;
 
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ChecklistActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class ChecklistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_check_list);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

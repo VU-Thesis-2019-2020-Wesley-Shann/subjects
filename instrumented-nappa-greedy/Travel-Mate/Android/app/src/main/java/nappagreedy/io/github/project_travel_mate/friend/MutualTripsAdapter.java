@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.mytrips.MyTripInfoActivity;
+import nl.vu.cs.s2group.nappa.*;
 import objects.Trip;
 
 public class MutualTripsAdapter extends RecyclerView.Adapter<MutualTripsAdapter.ViewHolder> {
@@ -78,6 +79,7 @@ public class MutualTripsAdapter extends RecyclerView.Adapter<MutualTripsAdapter.
         holder.date.setText(timeString);
         holder.cityImage.setOnClickListener(v -> {
             Intent intent = MyTripInfoActivity.getStartIntent(mContext, mTrips.get(position));
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
     }

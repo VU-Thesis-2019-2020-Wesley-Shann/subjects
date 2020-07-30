@@ -11,6 +11,7 @@ import java.util.Objects;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -59,7 +60,7 @@ class LoginPresenter {
         String uri = API_LINK_V2 + "sign-up";
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
@@ -134,7 +135,7 @@ class LoginPresenter {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
@@ -200,7 +201,7 @@ class LoginPresenter {
         mHandler.post(() -> mView.showLoadingDialog());
         String uri = API_LINK_V2 + "forgot-password-email-code/" + email;
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         //Execute request
         Request request = new Request.Builder()
@@ -271,7 +272,7 @@ class LoginPresenter {
         String uri = API_LINK_V2 + "forgot-password-verify-code/" + email
                 + "/" + code + "/" + newPassword;
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .url(uri).get()

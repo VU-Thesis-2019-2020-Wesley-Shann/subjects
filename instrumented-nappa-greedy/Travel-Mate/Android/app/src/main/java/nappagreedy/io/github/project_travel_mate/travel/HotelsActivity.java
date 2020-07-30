@@ -43,6 +43,7 @@ import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import nappagreedy.io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -81,6 +82,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_hotels);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -129,7 +131,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -210,7 +212,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -267,7 +269,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
         String uri = API_LINK_V2 + "get-city/" + cityId;
         Log.v("EXECUTING", uri);
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -363,6 +365,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     try {
                         intent.setData(Uri.parse("tel:" + mHotelsModelList.get(position).getPhone()));
+                        Nappa.notifyExtras(intent.getExtras());
                         mContext.startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -381,6 +384,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                                 mHotelsModelList.get(position).getTitle() +
                                 "+(name)+@" + latitude +
                                 "," + longitude));
+                        Nappa.notifyExtras(browserIntent.getExtras());
                         mContext.startActivity(browserIntent);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -392,6 +396,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                     try {
                         browserIntent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse(mHotelsModelList.get(position).getHref()));
+                        Nappa.notifyExtras(browserIntent.getExtras());
                         mContext.startActivity(browserIntent);
                     } catch (Exception e) {
                         e.printStackTrace();

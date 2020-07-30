@@ -18,6 +18,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import utils.Compass;
 
 public class CompassActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class CompassActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_utilities_compass);
         ButterKnife.bind(this);
         setTitle("Compass");

@@ -57,6 +57,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.login.LoginActivity;
 import nappagreedy.io.github.project_travel_mate.utilities.ShareContactActivity;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.User;
@@ -148,6 +149,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
         animationView.setVisibility(View.GONE);
@@ -239,6 +241,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             Intent removeIntent = new Intent(Intent.ACTION_DELETE);
             Intent chooserIntent = Intent.createChooser(removeIntent, getString(R.string.choose_an_option));
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{galleryIntent});
+            Nappa.notifyExtras(chooserIntent.getExtras());
             startActivityForResult(chooserIntent, RESULT_PICK_IMAGE);
         });
 
@@ -248,6 +251,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             String fullname = mSharedPreferences.getString(USER_NAME, null);
             Intent fullScreenIntent = FullScreenImage.getStartIntent(ProfileActivity.this,
                     imageUri, fullname);
+            Nappa.notifyExtras(fullScreenIntent.getExtras());
             startActivity(fullScreenIntent);
         });
     }
@@ -262,7 +266,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -295,6 +299,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                                 Toast.makeText(ProfileActivity.this,
                                         "OTP sent on registered email !", Toast.LENGTH_SHORT).show();
                                 Intent verifyIntent = new Intent(ProfileActivity.this, VerifyEmailActivity.class);
+                                Nappa.notifyExtras(verifyIntent.getExtras());
                                 startActivityForResult(verifyIntent, VERIFICATION_REQUEST_CODE);
                             } else {
                                 Toast.makeText(ProfileActivity.this,
@@ -390,6 +395,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
             case R.id.action_qrcode_scan:
                 Intent intent;
                 intent = ShareContactActivity.getStartIntent(ProfileActivity.this);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 return true;
             default:
@@ -409,6 +415,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                                     .putString(USER_TOKEN, null)
                                     .apply();
                             Intent i = LoginActivity.getStartIntent(ProfileActivity.this);
+                            Nappa.notifyExtras(i.getExtras());
                             startActivity(i);
                             finish();
                         })
@@ -437,7 +444,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
                             Log.v("EXECUTING", uri);
 
                             //Set up client
-                            OkHttpClient client = new OkHttpClient();
+                            OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
                             //Execute request
                             Request request = new Request.Builder()
                                     .header("Authorization", "Token " + mToken)
@@ -490,7 +497,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -579,7 +586,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         // Add form parameters
         String fullName = String.valueOf(displayName.getText());
@@ -650,7 +657,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
         // to update user name
         String uri;
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         Request request;
 
         mUserStatus = String.valueOf(displayStatus.getText());
@@ -789,7 +796,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
         String uri = API_LINK_V2 + "update-profile-image";
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
@@ -843,7 +850,7 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -944,7 +951,9 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
 
         intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_profile_text) + " " + profileURI);
         try {
-            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
+            Intent intent1 = Intent.createChooser(intent, getString(R.string.share_chooser));
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         } catch (android.content.ActivityNotFoundException ex) {
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();

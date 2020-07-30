@@ -43,6 +43,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.MapItem;
 import okhttp3.Call;
@@ -84,6 +85,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_map_realtime);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -144,7 +146,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -207,6 +209,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             case R.id.action_list_view :
                 finish();
                 Intent intent = ListViewRealTimeActivity.getStartIntent(MapViewRealTimeActivity.this);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 return true;
             default :
@@ -343,6 +346,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
         calls.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + mMapItems.get(mIndex).getNumber()));
+            Nappa.notifyExtras(intent.getExtras());
             MapViewRealTimeActivity.this.startActivity(intent);
 
         });
@@ -351,6 +355,7 @@ public class MapViewRealTimeActivity extends AppCompatActivity implements
             try {
                 browserIntent = new Intent(
                         Intent.ACTION_VIEW, Uri.parse(mMapItems.get(mIndex).getAddress()));
+                Nappa.notifyExtras(browserIntent.getExtras());
                 MapViewRealTimeActivity.this.startActivity(browserIntent);
             } catch (Exception e) {
                 TravelmateSnackbars.createSnackBar(findViewById(R.id.map_real_time),

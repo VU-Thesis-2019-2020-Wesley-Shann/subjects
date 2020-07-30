@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -122,7 +123,7 @@ public class AddBugFragment extends Fragment implements AdapterView.OnItemSelect
         String url = API_LINK_V2 + "add-feedback";
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         // post request params
         RequestBody formBody = new FormBody.Builder()
                 .add("text", description)

@@ -30,6 +30,7 @@ import nappagreedy.io.github.project_travel_mate.destinations.description.Weathe
 import nappagreedy.io.github.project_travel_mate.searchcitydialog.CitySearchDialogCompat;
 import nappagreedy.io.github.project_travel_mate.searchcitydialog.CitySearchModel;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,6 +54,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_utilities_weather_forecast);
 
         ButterKnife.bind(this);
@@ -80,6 +82,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
                 (SearchResultListener<CitySearchModel>) (dialog, item, position) -> {
                     Intent intent = WeatherActivity.getStartIntent(WeatherForecastActivity.this, item.getName(),
                             item.getId(), true);
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent);
                     dialog.dismiss();
                 }).show();
@@ -95,7 +98,7 @@ public class WeatherForecastActivity extends AppCompatActivity {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)

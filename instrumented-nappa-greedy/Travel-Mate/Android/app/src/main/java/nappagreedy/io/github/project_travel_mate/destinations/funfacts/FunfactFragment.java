@@ -25,6 +25,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.FunFact;
 
 import static utils.Constants.EXTRA_MESSAGE_FUNFACT_OBJECT;
@@ -105,7 +106,9 @@ public class FunfactFragment extends Fragment {
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_fun_fact));
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        Intent intent1 = Intent.createChooser(intent, "Share Screenshot");
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivity(intent1);
     }
 
     /**
@@ -118,6 +121,7 @@ public class FunfactFragment extends Fragment {
         Uri sourceURI = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, sourceURI);
         if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         } else {
             Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content),

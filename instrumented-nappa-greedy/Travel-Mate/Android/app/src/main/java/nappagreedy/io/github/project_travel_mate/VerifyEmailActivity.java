@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -48,6 +49,7 @@ public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_verify_email);
         ButterKnife.bind(this);
         mHandler = new Handler(Looper.getMainLooper());
@@ -89,7 +91,7 @@ public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompl
         progressDialog.show();
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)

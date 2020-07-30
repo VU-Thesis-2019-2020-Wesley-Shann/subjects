@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import nl.vu.cs.s2group.nappa.*;
 import utils.TouchImageView;
 
 import static utils.Constants.EXTRA_MESSAGE_IMAGE_URI;
@@ -27,6 +28,7 @@ public class FullScreenImage extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_full_profile_image);
         ButterKnife.bind(this);
 

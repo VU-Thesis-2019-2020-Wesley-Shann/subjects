@@ -19,6 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.User;
 
 
@@ -52,6 +53,7 @@ class MyFriendsAdapter extends RecyclerView.Adapter<MyFriendsAdapter.MyFriendsVi
 
         holder.my_friends_linear_layout.setOnClickListener(v -> {
             Intent intent = FriendsProfileActivity.getStartIntent(mContext, mFriends.get(position).getId());
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
 

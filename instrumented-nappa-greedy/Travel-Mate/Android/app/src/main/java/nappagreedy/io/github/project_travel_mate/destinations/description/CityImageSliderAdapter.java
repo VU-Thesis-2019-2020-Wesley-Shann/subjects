@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import nappagreedy.io.github.project_travel_mate.FullScreenImage;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 public class CityImageSliderAdapter extends PagerAdapter {
     private Context mContext;
@@ -49,6 +50,7 @@ public class CityImageSliderAdapter extends PagerAdapter {
         imageView.setOnClickListener(v -> {
             Intent fullScreenIntent = FullScreenImage.getStartIntent(mContext,
                     mImagesArray.get(position), mCityName);
+            Nappa.notifyExtras(fullScreenIntent.getExtras());
             mContext.startActivity(fullScreenIntent);
         });
         return imageView;

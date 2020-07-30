@@ -20,6 +20,7 @@ import adapters.CardViewOptionsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import utils.CardItemEntity;
 
 
@@ -69,14 +70,17 @@ public class TravelFragment extends Fragment implements CardViewOptionsAdapter.O
         switch (position) {
             case 0:
                 i = HotelsActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
                 break;
             case 1:
                 i = ShoppingCurrentCityActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
                 break;
             case 2:
                 i = MapViewRealTimeActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
                 break;
         }

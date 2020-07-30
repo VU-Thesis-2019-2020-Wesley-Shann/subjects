@@ -28,6 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Contributor;
 import okhttp3.Call;
@@ -99,12 +100,16 @@ public class ContributorsFragment extends Fragment {
 
         setContributors("Travel-Mate");
         setContributors("server");
-        android_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> startActivity(
-                new Intent(Intent.ACTION_VIEW, Uri.parse(mAndroidContributors.get(i).getUrl()))
-        ));
-        server_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> startActivity(
-                new Intent(Intent.ACTION_VIEW, Uri.parse(mServerContributors.get(i).getUrl()))
-        ));
+        android_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mAndroidContributors.get(i).getUrl()));
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
+        });
+        server_contributors_gv.setOnItemClickListener((adapterView, view, i, l) -> {
+            Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse(mServerContributors.get(i).getUrl()));
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
+        });
         return mContributorsView;
     }
 
@@ -113,7 +118,7 @@ public class ContributorsFragment extends Fragment {
         Log.v("EXECUTING", uri);
 
         //Set up client for android contributors
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -171,7 +176,9 @@ public class ContributorsFragment extends Fragment {
 
     @OnClick(R.id.contributors_footer)
     void github_project_cardview_clicked() {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/project-travel-mate")));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/project-travel-mate"));
+        Nappa.notifyExtras(intent.getExtras());
+        startActivity(intent);
     }
 
     @Override

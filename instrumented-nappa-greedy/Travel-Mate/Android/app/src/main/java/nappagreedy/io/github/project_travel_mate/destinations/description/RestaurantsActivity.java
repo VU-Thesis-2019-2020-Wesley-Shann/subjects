@@ -34,6 +34,7 @@ import adapters.RestaurantsCardViewAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.RestaurantDetails;
@@ -75,6 +76,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
 
@@ -162,7 +164,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         Log.w(TAG, "URL =" + requestUrl);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header(AUTHORIZATION, "Token " + mToken)
@@ -201,7 +203,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         Log.v(TAG, "URI : " + uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header(AUTHORIZATION, "Token " + mToken)

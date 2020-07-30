@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -28,7 +29,7 @@ class FinalCityInfoPresenter {
     private FinalCityInfoView mFinalCityInfoView;
 
     FinalCityInfoPresenter() {
-        mOkHttpClient = new OkHttpClient();
+        mOkHttpClient = Nappa.getOkHttp(new OkHttpClient());
     }
 
     public void attachView(FinalCityInfoView finalCityInfoView) {

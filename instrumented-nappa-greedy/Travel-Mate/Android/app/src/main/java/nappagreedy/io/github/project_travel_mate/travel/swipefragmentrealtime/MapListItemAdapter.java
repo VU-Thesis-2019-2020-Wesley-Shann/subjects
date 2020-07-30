@@ -17,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import objects.MapItem;
 import utils.TravelmateSnackbars;
 
@@ -52,6 +53,7 @@ public class MapListItemAdapter extends BaseAdapter {
         holder.call.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + mMapItems.get(position).getNumber()));
+            Nappa.notifyExtras(intent.getExtras());
             mContext.startActivity(intent);
         });
         //when Book is clicked
@@ -60,6 +62,7 @@ public class MapListItemAdapter extends BaseAdapter {
             try {
                 browserIntent = new Intent(
                         Intent.ACTION_VIEW, Uri.parse(mMapItems.get(position).getAddress()));
+                Nappa.notifyExtras(browserIntent.getExtras());
                 mContext.startActivity(browserIntent);
             } catch (Exception e) {
                 Activity activity = (Activity) mContext;

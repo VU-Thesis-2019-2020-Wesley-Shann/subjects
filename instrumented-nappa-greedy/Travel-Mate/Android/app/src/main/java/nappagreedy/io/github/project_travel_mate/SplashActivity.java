@@ -11,6 +11,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import com.eftimoff.androipathview.PathView;
 
 import nappagreedy.io.github.project_travel_mate.login.LoginActivity;
+import nl.vu.cs.s2group.nappa.*;
 
 import static utils.Constants.USER_TOKEN;
 
@@ -20,6 +21,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_splash);
 
         final PathView pathView = findViewById(R.id.pathView);
@@ -42,6 +45,7 @@ public class SplashActivity extends AppCompatActivity {
         // TODO :: check for the user_token here & redirect to corresponding class
         // If token is null -> LoginActivity, else MainActivity
         new Handler().postDelayed(() -> {
+            Nappa.notifyExtras(i.getExtras());
             startActivity(i);
             finish();
         }, 2000);

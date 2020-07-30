@@ -60,6 +60,7 @@ import nappagreedy.io.github.project_travel_mate.FullScreenImage;
 import nappagreedy.io.github.project_travel_mate.R;
 import nappagreedy.io.github.project_travel_mate.destinations.description.FinalCityInfoActivity;
 import nappagreedy.io.github.project_travel_mate.friend.FriendsProfileActivity;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.City;
 import objects.Trip;
@@ -140,6 +141,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_my_trip_info);
 
         ButterKnife.bind(this);
@@ -210,6 +212,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
     void cityImageClicked() {
         Intent fullScreenIntent = FullScreenImage.getStartIntent(MyTripInfoActivity.this,
                 mTrip.getImage(), mTrip.getName());
+        Nappa.notifyExtras(fullScreenIntent.getExtras());
         startActivity(fullScreenIntent);
     }
 
@@ -243,7 +246,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -312,7 +315,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -350,6 +353,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                                 e.printStackTrace();
                             }
                             Intent intent = FinalCityInfoActivity.getStartIntent(MyTripInfoActivity.this, city);
+                            Nappa.notifyExtras(intent.getExtras());
                             startActivity(intent);
                             details.setEnabled(true);
 
@@ -399,7 +403,9 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
 
         intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_trip_text) + " " + uri);
         try {
-            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser)));
+            Intent intent1 = Intent.createChooser(intent, getString(R.string.share_chooser));
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         } catch (android.content.ActivityNotFoundException ex) {
             TravelmateSnackbars.createSnackBar(findViewById(R.id.layout), R.string.snackbar_no_share_app,
                     Snackbar.LENGTH_LONG).show();
@@ -424,7 +430,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                             Log.v("EXECUTING", uri);
 
                             //Set up client
-                            OkHttpClient client = new OkHttpClient();
+                            OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
                             //Execute request
                             Request request = new Request.Builder()
                                     .header("Authorization", "Token " + mToken)
@@ -474,7 +480,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         final Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -549,7 +555,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -590,7 +596,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -721,6 +727,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
                                             FriendsProfileActivity.class);
                                     intent.putExtra(EXTRA_MESSAGE_FRIEND_ID, tripFriends.get(position).getId());
                                     intent.putExtra(EXTRA_MESSAGE_TRIP_OBJECT, mTrip);
+                                    Nappa.notifyExtras(intent.getExtras());
                                     startActivity(intent);
                                 });
                             }
@@ -746,7 +753,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
         String editedTripName = String.valueOf(tripName.getText());
         String uri = API_LINK_V2 + "update-trip-name/" + mTrip.getId() + "/" + editedTripName;
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
                 .url(uri)
@@ -796,7 +803,7 @@ public class MyTripInfoActivity extends AppCompatActivity implements TravelmateS
             uri = API_LINK_V2 + "update-trip-private/" + mTrip.getId();
         }
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
                 .url(uri)

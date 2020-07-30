@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.login.LoginActivity;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -228,7 +229,7 @@ public class SettingsFragment extends Fragment {
         String uri = API_LINK_V2 + "update-password";
         Log.v("EXECUTING", uri);
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("old_password", oldPassword)
@@ -280,7 +281,7 @@ public class SettingsFragment extends Fragment {
 
                             String uri = API_LINK_V2 + "delete-profile";
                             //Set up client
-                            OkHttpClient client = new OkHttpClient();
+                            OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
 
                             // Create a http request object.
                             Request request = new Request.Builder()
@@ -310,6 +311,7 @@ public class SettingsFragment extends Fragment {
                                                     .apply();
 
                                             Intent intent = LoginActivity.getStartIntent(mActivity);
+                                            Nappa.notifyExtras(intent.getExtras());
                                             mActivity.startActivity(intent);
                                             mActivity.finish();
                                         }

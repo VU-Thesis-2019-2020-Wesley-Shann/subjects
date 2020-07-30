@@ -21,6 +21,7 @@ import adapters.CardViewOptionsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import utils.CardItemEntity;
 
 public class UtilitiesFragment extends Fragment implements CardViewOptionsAdapter.OnItemClickListener {
@@ -76,26 +77,32 @@ public class UtilitiesFragment extends Fragment implements CardViewOptionsAdapte
         switch (position) {
             case 0:
                 intent = ChecklistActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
             case 1:
                 intent = WeatherForecastActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
             case 2:
                 intent = CompassActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
             case 3:
                 intent = CurrencyActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
             case 4:
                 intent = WorldClockActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
             case 5:
                 intent = UpcomingWeekendsActivity.getStartIntent(mActivity);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 break;
         }

@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,6 +74,7 @@ public class AboutUsFragment extends Fragment {
     public void onForkClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_REPO));
+        Nappa.notifyExtras(viewIntent.getExtras());
         startActivity(viewIntent);
     }
 
@@ -80,6 +82,7 @@ public class AboutUsFragment extends Fragment {
     public void onPrivacyPolicyClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY));
+        Nappa.notifyExtras(viewIntent.getExtras());
         startActivity(viewIntent);
     }
 
@@ -87,6 +90,7 @@ public class AboutUsFragment extends Fragment {
     public void onWebsiteClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE));
+        Nappa.notifyExtras(viewIntent.getExtras());
         startActivity(viewIntent);
     }
 
@@ -95,7 +99,9 @@ public class AboutUsFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto", EMAIL, null));
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_hello));
-        startActivity(Intent.createChooser(intent, getString(R.string.email_send)));
+        Intent intent1 = Intent.createChooser(intent, getString(R.string.email_send));
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivity(intent1);
     }
 
     @OnClick(R.id.cv_share)
@@ -104,6 +110,7 @@ public class AboutUsFragment extends Fragment {
         sendIntent.setType("text/plain");
         sendIntent.putExtra(Intent.EXTRA_TEXT,
                 getString(R.string.share_text));
+        Nappa.notifyExtras(sendIntent.getExtras());
         startActivity(sendIntent);
     }
 
@@ -121,6 +128,7 @@ public class AboutUsFragment extends Fragment {
     public void onSlackClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(SLACK_LINK));
+        Nappa.notifyExtras(viewIntent.getExtras());
         startActivity(viewIntent);
     }
 
@@ -128,6 +136,7 @@ public class AboutUsFragment extends Fragment {
     public void onBuyMeACoffeeClicked() {
         Intent viewIntent =
                 new Intent(Intent.ACTION_VIEW, Uri.parse(BUY_ME_A_COFFEE));
+        Nappa.notifyExtras(viewIntent.getExtras());
         startActivity(viewIntent);
     }
 

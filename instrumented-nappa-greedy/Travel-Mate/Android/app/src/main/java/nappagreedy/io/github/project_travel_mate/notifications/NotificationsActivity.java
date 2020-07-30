@@ -36,6 +36,7 @@ import java.util.TimeZone;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Notification;
 import objects.Trip;
@@ -79,6 +80,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_notifications);
         ButterKnife.bind(this);
         mHandler = new Handler(Looper.getMainLooper());
@@ -100,7 +102,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder()
                 .header("Authorization", "Token " + mToken)
@@ -300,7 +302,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                             Log.v("EXECUTING", uri);
 
                             //Set up client
-                            OkHttpClient client = new OkHttpClient();
+                            OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
                             //Execute request
                             Request request = new Request.Builder()
                                     .header("Authorization", "Token " + mToken)

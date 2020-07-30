@@ -35,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nappagreedy.io.github.project_travel_mate.MainActivity;
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Quote;
 import objects.QuoteGroup;
@@ -96,7 +97,7 @@ public class DailyQuotesFragment extends Fragment {
         Log.v("EXECUTING", uri);
 
         //Set up client
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = Nappa.getOkHttp(new OkHttpClient());
         //Execute request
         Request request = new Request.Builder().url(uri).build();
 
@@ -195,6 +196,7 @@ public class DailyQuotesFragment extends Fragment {
 
             if (PreferenceManager.getDefaultSharedPreferences(getContext()).getString(USER_TOKEN, null) != null) {
                 Intent intent = MainActivity.getStartIntent(getActivity());
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 Objects.requireNonNull(getActivity()).finish();
             }
@@ -254,7 +256,9 @@ public class DailyQuotesFragment extends Fragment {
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_daily_quote));
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        Intent intent1 = Intent.createChooser(intent, "Share Screenshot");
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivity(intent1);
     }
 
     class ViewHolder {

@@ -11,12 +11,14 @@ import android.view.MenuItem;
 import java.util.Objects;
 
 import nappagreedy.io.github.project_travel_mate.R;
+import nl.vu.cs.s2group.nappa.*;
 
 public class QuotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_quotes);
 
         DailyQuotesFragment dailyQuotesFragment = new DailyQuotesFragment();
