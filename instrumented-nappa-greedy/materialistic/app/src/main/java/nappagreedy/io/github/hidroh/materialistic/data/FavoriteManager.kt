@@ -59,7 +59,7 @@ class FavoriteManager @Inject constructor(
     private const val URI_PATH_CLEAR = "clear"
     private const val PATH_SAVED = "saved"
     private const val FILENAME_EXPORT = "materialistic-export.txt"
-    private const val FILE_AUTHORITY = "baseline.io.github.hidroh.materialistic.fileprovider"
+    private const val FILE_AUTHORITY = "nappagreedy.io.github.hidroh.materialistic.fileprovider"
 
     fun isAdded(uri: Uri) = uri.toString().startsWith(buildAdded().toString())
 

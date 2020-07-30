@@ -31,8 +31,8 @@
         android:protectionLevel="signature" />
     <permission android:name="nappagreedy.io.github.hidroh.materialistic.permission.AUTHENTICATE_ACCOUNTS"
         android:protectionLevel="signature" />
-    <uses-permission android:name="baseline.io.github.hidroh.materialistic.permission.SYNC_ITEM" />
-    <uses-permission android:name="baseline.io.github.hidroh.materialistic.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="nappagreedy.io.github.hidroh.materialistic.permission.SYNC_ITEM" />
+    <uses-permission android:name="nappagreedy.io.github.hidroh.materialistic.permission.AUTHENTICATE_ACCOUNTS" />
 
     <uses-sdk tools:overrideLibrary="androidx.browser" />
 
@@ -239,7 +239,7 @@
             </intent-filter>
         </activity>
         <service android:name="nappagreedy.io.github.hidroh.materialistic.accounts.AuthenticatorService"
-            android:permission="baseline.io.github.hidroh.materialistic.permission.AUTHENTICATE_ACCOUNTS">
+            android:permission="nappagreedy.io.github.hidroh.materialistic.permission.AUTHENTICATE_ACCOUNTS">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -249,7 +249,7 @@
         </service>
         <service android:name="nappagreedy.io.github.hidroh.materialistic.data.ItemSyncService"
             android:process=":sync"
-            android:permission="baseline.io.github.hidroh.materialistic.permission.SYNC_ITEM">
+            android:permission="nappagreedy.io.github.hidroh.materialistic.permission.SYNC_ITEM">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
@@ -297,7 +297,7 @@
         <receiver android:name="nappagreedy.io.github.hidroh.materialistic.appwidget.WidgetProvider"
                   tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="baseline.io.github.hidroh.materialistic.ACTION_REFRESH_WIDGET" />
+                <action android:name="nappagreedy.io.github.hidroh.materialistic.ACTION_REFRESH_WIDGET" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
