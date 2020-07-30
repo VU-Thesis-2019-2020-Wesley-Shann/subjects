@@ -12,6 +12,7 @@ import com.eftimoff.androipathview.PathView;
 
 import nappagreedy.io.github.project_travel_mate.login.LoginActivity;
 import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 import static utils.Constants.USER_TOKEN;
 
@@ -21,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
         getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_splash);
 

@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.TimeZone;
 
 import nappagreedy.io.github.project_travel_mate.R;
@@ -20,7 +22,7 @@ import nl.vu.cs.s2group.nappa.*;
 /**
  * The configuration screen for the {@link ClockWidget ClockWidget} AppWidget.
  */
-public class ClockWidgetConfigureActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class ClockWidgetConfigureActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String PREFS_NAME = "widget.ClockWidget";
     private static final String PREF_PREFIX_KEY = "appwidget_";

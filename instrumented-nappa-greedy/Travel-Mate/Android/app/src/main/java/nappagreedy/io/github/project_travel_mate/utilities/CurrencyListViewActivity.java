@@ -3,6 +3,8 @@ package nappagreedy.io.github.project_travel_mate.utilities;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
@@ -20,7 +22,7 @@ import nappagreedy.io.github.project_travel_mate.R;
 import nl.vu.cs.s2group.nappa.*;
 import objects.ZoneName;
 
-public class CurrencyListViewActivity extends Activity implements TextWatcher {
+public class CurrencyListViewActivity extends AppCompatActivity implements TextWatcher {
 
     @BindView(R.id.listView)
     RecyclerView mListview;
