@@ -53,6 +53,7 @@ import nappagreedy.io.github.hidroh.materialistic.widget.ItemPagerAdapter;
 import nappagreedy.io.github.hidroh.materialistic.widget.NavFloatingActionButton;
 import nappagreedy.io.github.hidroh.materialistic.widget.PopupMenu;
 import nappagreedy.io.github.hidroh.materialistic.widget.ViewPager;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * List activity that renders alternative layouts for portrait/landscape
@@ -159,7 +160,9 @@ public abstract class BaseListActivity extends DrawerActivity implements MultiPa
             snackbar.setAction(R.string.title_activity_release,
                     v -> {
                         snackbar.dismiss();
-                        startActivity(new Intent(BaseListActivity.this, ReleaseNotesActivity.class));
+                        Intent intent = new Intent(BaseListActivity.this, ReleaseNotesActivity.class);
+                        Nappa.notifyExtras(intent.getExtras());
+                        startActivity(intent);
                     })
                     .setActionTextColor(ContextCompat.getColor(this, R.color.orange500))
                     .addCallback(new Snackbar.Callback() {
@@ -378,7 +381,9 @@ public abstract class BaseListActivity extends DrawerActivity implements MultiPa
             Intent intent = new Intent(this, ItemActivity.class)
                     .putExtra(ItemActivity.EXTRA_CACHE_MODE, getItemCacheMode())
                     .putExtra(ItemActivity.EXTRA_ITEM, mSelectedItem);
-            startActivity(mMultiWindowEnabled ? AppUtils.multiWindowIntent(this, intent) : intent);
+            Intent intent1 = mMultiWindowEnabled ? AppUtils.multiWindowIntent(this, intent) : intent;
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         }
     }
 

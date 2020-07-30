@@ -64,6 +64,7 @@ import nappagreedy.io.github.hidroh.materialistic.widget.AdBlockWebViewClient;
 import nappagreedy.io.github.hidroh.materialistic.widget.CacheableWebView;
 import nappagreedy.io.github.hidroh.materialistic.widget.PopupMenu;
 import nappagreedy.io.github.hidroh.materialistic.widget.WebView;
+import nl.vu.cs.s2group.nappa.*;
 import okhttp3.Call;
 
 import static android.view.View.GONE;
@@ -474,7 +475,10 @@ public class WebFragment extends LazyLoadFragment
         mExternalRequired = true;
         mWebView.setVisibility(GONE);
         getActivity().findViewById(R.id.empty).setVisibility(VISIBLE);
-        getActivity().findViewById(R.id.download_button).setOnClickListener(v -> startActivity(intent));
+        getActivity().findViewById(R.id.download_button).setOnClickListener(v -> {
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
+        });
     }
 
     private void setProgress(int progress) {

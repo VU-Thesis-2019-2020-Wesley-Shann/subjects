@@ -16,9 +16,12 @@
 
 package nappagreedy.io.github.hidroh.materialistic;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ShowActivity extends BaseStoriesActivity {
 
@@ -31,5 +34,11 @@ public class ShowActivity extends BaseStoriesActivity {
     @Override
     protected String getFetchMode() {
         return ItemManager.SHOW_FETCH_MODE;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
     }
 }

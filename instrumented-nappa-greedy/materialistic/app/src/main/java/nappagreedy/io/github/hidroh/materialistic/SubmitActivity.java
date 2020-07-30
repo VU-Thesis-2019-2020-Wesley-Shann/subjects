@@ -42,6 +42,7 @@ import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.accounts.UserServices;
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SubmitActivity extends InjectableActivity {
     private static final String HN_GUIDELINES_URL = "https://news.ycombinator.com/newsguidelines.html";
@@ -60,6 +61,7 @@ public class SubmitActivity extends InjectableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         AppUtils.setStatusBarColor(getWindow(), ContextCompat.getColor(this, R.color.blackT12));
         setContentView(R.layout.activity_submit);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
@@ -191,6 +193,7 @@ public class SubmitActivity extends InjectableActivity {
                 Intent intent = new Intent(this, NewActivity.class);
                 intent.putExtra(NewActivity.EXTRA_REFRESH, true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent); // TODO should go to profile instead?
                 finish();
             }
@@ -203,7 +206,9 @@ public class SubmitActivity extends InjectableActivity {
     void onError(int message, Uri data) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         if (data != null) {
-            startActivity(new Intent(Intent.ACTION_VIEW).setData(data));
+            Intent intent = new Intent(Intent.ACTION_VIEW).setData(data);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         }
     }
 

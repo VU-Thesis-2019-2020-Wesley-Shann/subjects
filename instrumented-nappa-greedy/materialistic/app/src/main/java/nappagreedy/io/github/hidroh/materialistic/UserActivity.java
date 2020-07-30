@@ -47,6 +47,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.UserManager;
 import nappagreedy.io.github.hidroh.materialistic.widget.CommentItemDecoration;
 import nappagreedy.io.github.hidroh.materialistic.widget.SnappyLinearLayoutManager;
 import nappagreedy.io.github.hidroh.materialistic.widget.SubmissionRecyclerViewAdapter;
+import nl.vu.cs.s2group.nappa.*;
 
 public class UserActivity extends InjectableActivity implements Scrollable {
     public static final String EXTRA_USERNAME = UserActivity.class.getName() + ".EXTRA_USERNAME";
@@ -71,6 +72,7 @@ public class UserActivity extends InjectableActivity implements Scrollable {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         mUsername = getIntent().getStringExtra(EXTRA_USERNAME);
         if (TextUtils.isEmpty(mUsername)) {
             mUsername = AppUtils.getDataUriId(getIntent(), PARAM_ID);

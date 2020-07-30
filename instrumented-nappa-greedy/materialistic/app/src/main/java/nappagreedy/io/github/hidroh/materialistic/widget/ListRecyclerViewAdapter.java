@@ -41,6 +41,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.FavoriteManager;
 import nappagreedy.io.github.hidroh.materialistic.data.Item;
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
 import nappagreedy.io.github.hidroh.materialistic.data.WebItem;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Base {@link RecyclerView.Adapter} class for list items
@@ -223,8 +224,10 @@ public abstract class ListRecyclerViewAdapter
                 .putExtra(ItemActivity.EXTRA_CACHE_MODE, getItemCacheMode())
                 .putExtra(ItemActivity.EXTRA_ITEM, item)
                 .putExtra(ItemActivity.EXTRA_OPEN_COMMENTS, true);
-        mContext.startActivity(mMultiWindowEnabled ?
-                AppUtils.multiWindowIntent((Activity) mContext, intent) : intent);
+        Intent intent1 = mMultiWindowEnabled ?
+                AppUtils.multiWindowIntent((Activity) mContext, intent) : intent;
+        Nappa.notifyExtras(intent1.getExtras());
+        mContext.startActivity(intent1);
     }
 
     /**

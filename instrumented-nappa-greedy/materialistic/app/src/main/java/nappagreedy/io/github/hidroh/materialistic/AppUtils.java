@@ -75,6 +75,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.HackerNewsClient;
 import nappagreedy.io.github.hidroh.materialistic.data.Item;
 import nappagreedy.io.github.hidroh.materialistic.data.WebItem;
 import nappagreedy.io.github.hidroh.materialistic.widget.PopupMenu;
+import nl.vu.cs.s2group.nappa.*;
 
 @SuppressWarnings("WeakerAccess")
 @PublicApi
@@ -96,13 +97,16 @@ public class AppUtils {
     public static void openWebUrlExternal(Context context, @Nullable WebItem item,
                                           String url, @Nullable CustomTabsSession session) {
         if (!hasConnection(context)) {
-            context.startActivity(new Intent(context, OfflineWebActivity.class)
-                    .putExtra(OfflineWebActivity.EXTRA_URL, url));
+            Intent intent1 = new Intent(context, OfflineWebActivity.class)
+                    .putExtra(OfflineWebActivity.EXTRA_URL, url);
+            Nappa.notifyExtras(intent1.getExtras());
+            context.startActivity(intent1);
             return;
         }
         Intent intent = createViewIntent(context, item, url, session);
         if (!HackerNewsClient.BASE_WEB_URL.contains(Uri.parse(url).getHost())) {
             if (intent.resolveActivity(context.getPackageManager()) != null) {
+                Nappa.notifyExtras(intent.getExtras());
                 context.startActivity(intent);
             }
             return;
@@ -121,12 +125,16 @@ public class AppUtils {
             return;
         }
         if (intents.size() == 1) {
-            context.startActivity(intents.remove(0));
+            Intent intent2 = intents.remove(0);
+            Nappa.notifyExtras(intent2.getExtras());
+            context.startActivity(intent2);
         } else {
-            context.startActivity(Intent.createChooser(intents.remove(0),
+            Intent intent3 = Intent.createChooser(intents.remove(0),
                     context.getString(R.string.chooser_title))
                     .putExtra(Intent.EXTRA_INITIAL_INTENTS,
-                            intents.toArray(new Parcelable[intents.size()])));
+                            intents.toArray(new Parcelable[intents.size()]));
+            Nappa.notifyExtras(intent3.getExtras());
+            context.startActivity(intent3);
         }
     }
 
@@ -338,9 +346,13 @@ public class AppUtils {
     public static void showLogin(Context context, AlertDialogBuilder alertDialogBuilder) {
         Account[] accounts = AccountManager.get(context).getAccountsByType(BuildConfig.APPLICATION_ID);
         if (accounts.length == 0) { // no accounts, ask to login or re-login
-            context.startActivity(new Intent(context, LoginActivity.class));
+            Intent intent = new Intent(context, LoginActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            context.startActivity(intent);
         } else if (!TextUtils.isEmpty(Preferences.getUsername(context))) { // stale account, ask to re-login
-            context.startActivity(new Intent(context, LoginActivity.class));
+            Intent intent1 = new Intent(context, LoginActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            context.startActivity(intent1);
         } else { // logged out, choose from existing accounts to log in
             showAccountChooser(context, alertDialogBuilder, accounts);
         }
@@ -374,6 +386,7 @@ public class AppUtils {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         }
         try {
+            Nappa.notifyExtras(intent.getExtras());
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(context, R.string.no_playstore, Toast.LENGTH_SHORT).show();
@@ -411,6 +424,7 @@ public class AppUtils {
                     case DialogInterface.BUTTON_NEGATIVE:
                         Intent intent = new Intent(context, LoginActivity.class);
                         intent.putExtra(LoginActivity.EXTRA_ADD_ACCOUNT, true);
+                        Nappa.notifyExtras(intent.getExtras());
                         context.startActivity(intent);
                         dialog.dismiss();
                         break;
@@ -457,10 +471,12 @@ public class AppUtils {
         fab.setImageResource(commentMode ? R.drawable.ic_reply_white_24dp : R.drawable.ic_zoom_out_map_white_24dp);
         fab.setOnClickListener(v -> {
             if (commentMode) {
-                context.startActivity(new Intent(context, ComposeActivity.class)
+                Intent intent = new Intent(context, ComposeActivity.class)
                         .putExtra(ComposeActivity.EXTRA_PARENT_ID, item.getId())
                         .putExtra(ComposeActivity.EXTRA_PARENT_TEXT,
-                                item instanceof Item ? ((Item) item).getText() : null));
+                                item instanceof Item ? ((Item) item).getText() : null);
+                Nappa.notifyExtras(intent.getExtras());
+                context.startActivity(intent);
             } else {
                 LocalBroadcastManager.getInstance(context)
                         .sendBroadcast(new Intent(WebFragment.ACTION_FULLSCREEN)
@@ -528,6 +544,7 @@ public class AppUtils {
                 .putExtra(Intent.EXTRA_TEXT, !TextUtils.isEmpty(subject) ?
                         TextUtils.join(" - ", new String[]{subject, text}) : text);
         if (intent.resolveActivity(context.getPackageManager()) != null) {
+            Nappa.notifyExtras(intent.getExtras());
             context.startActivity(intent);
         }
     }

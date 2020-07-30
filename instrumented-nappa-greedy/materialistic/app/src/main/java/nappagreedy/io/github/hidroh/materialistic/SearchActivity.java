@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import nappagreedy.io.github.hidroh.materialistic.data.AlgoliaClient;
 import nappagreedy.io.github.hidroh.materialistic.data.HackerNewsClient;
 import nappagreedy.io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SearchActivity extends BaseListActivity {
 
@@ -35,6 +36,7 @@ public class SearchActivity extends BaseListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         if (getIntent().hasExtra(SearchManager.QUERY)) {
             mQuery = getIntent().getStringExtra(SearchManager.QUERY);
         }

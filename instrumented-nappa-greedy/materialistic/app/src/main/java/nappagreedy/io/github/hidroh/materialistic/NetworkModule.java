@@ -36,6 +36,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.FileDownloader;
 import nappagreedy.io.github.hidroh.materialistic.data.HackerNewsClient;
 import nappagreedy.io.github.hidroh.materialistic.data.ReadabilityClient;
 import nappagreedy.io.github.hidroh.materialistic.data.RestServiceFactory;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
@@ -58,7 +59,7 @@ class NetworkModule {
 
     @Provides @Singleton
     public Call.Factory provideCallFactory(Context context) {
-        return new OkHttpClient.Builder()
+        return Nappa.getOkHttp(new OkHttpClient.Builder()
                 .socketFactory(new SocketFactory() {
                     private SocketFactory mDefaultFactory = SocketFactory.getDefault();
 
@@ -102,7 +103,7 @@ class NetworkModule {
                 .addInterceptor(new ConnectionAwareInterceptor(context))
                 .addInterceptor(new LoggingInterceptor())
                 .followRedirects(false)
-                .build();
+                .build());
     }
 
     @Provides @Singleton

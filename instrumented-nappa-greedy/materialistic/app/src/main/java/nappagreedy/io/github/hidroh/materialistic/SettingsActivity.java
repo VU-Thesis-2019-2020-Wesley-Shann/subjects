@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SettingsActivity extends DrawerActivity {
     @Inject AlertDialogBuilder mAlertDialogBuilder;
@@ -34,35 +35,64 @@ public class SettingsActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_settings);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME |
                 ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
         findViewById(R.id.drawer_display).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.display)
-                        .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_display)));
+        {
+            Intent intent = new Intent(SettingsActivity.this, PreferencesActivity.class)
+                    .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.display)
+                    .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_display);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
+        });
         findViewById(R.id.drawer_offline).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.offline)
-                        .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_offline)));
+        {
+            Intent intent1 = new Intent(SettingsActivity.this, PreferencesActivity.class)
+                    .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.offline)
+                    .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_offline);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
+        });
         findViewById(R.id.menu_list).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.list_display_options)
-                        .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_list)));
+        {
+            Intent intent2 = new Intent(SettingsActivity.this, PreferencesActivity.class)
+                    .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.list_display_options)
+                    .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_list);
+            Nappa.notifyExtras(intent2.getExtras());
+            startActivity(intent2);
+        });
         findViewById(R.id.menu_comments).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.comments)
-                        .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_comments)));
+        {
+            Intent intent3 = new Intent(SettingsActivity.this, PreferencesActivity.class)
+                    .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.comments)
+                    .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_comments);
+            Nappa.notifyExtras(intent3.getExtras());
+            startActivity(intent3);
+        });
         findViewById(R.id.menu_readability).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, PreferencesActivity.class)
-                        .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.readability)
-                        .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_readability)));
+        {
+            Intent intent4 = new Intent(SettingsActivity.this, PreferencesActivity.class)
+                    .putExtra(PreferencesActivity.EXTRA_TITLE, R.string.readability)
+                    .putExtra(PreferencesActivity.EXTRA_PREFERENCES, R.xml.preferences_readability);
+            Nappa.notifyExtras(intent4.getExtras());
+            startActivity(intent4);
+        });
         findViewById(R.id.drawer_about).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, AboutActivity.class)));
+        {
+            Intent intent5 = new Intent(SettingsActivity.this, AboutActivity.class);
+            Nappa.notifyExtras(intent5.getExtras());
+            startActivity(intent5);
+        });
         findViewById(R.id.drawer_release).setOnClickListener(v ->
-                startActivity(new Intent(SettingsActivity.this, ReleaseNotesActivity.class)));
+        {
+            Intent intent6 = new Intent(SettingsActivity.this, ReleaseNotesActivity.class);
+            Nappa.notifyExtras(intent6.getExtras());
+            startActivity(intent6);
+        });
     }
 
     @Override

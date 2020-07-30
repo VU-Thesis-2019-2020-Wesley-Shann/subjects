@@ -20,12 +20,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.HashMap;
 
-public class LauncherActivity extends Activity {
+import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
+
+public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+        this.getLifecycle().addObserver(new NappaLifecycleObserver(this));
         HashMap<String, Class<? extends Activity>> map = new HashMap<>();
         map.put(getString(R.string.pref_launch_screen_value_top), ListActivity.class);
         map.put(getString(R.string.pref_launch_screen_value_best), BestActivity.class);
@@ -36,8 +43,10 @@ public class LauncherActivity extends Activity {
         map.put(getString(R.string.pref_launch_screen_value_jobs), JobsActivity.class);
         map.put(getString(R.string.pref_launch_screen_value_saved), FavoriteActivity.class);
         String launchScreen = Preferences.getLaunchScreen(this);
-        startActivity(new Intent(this, map.containsKey(launchScreen) ?
-                map.get(launchScreen) : ListActivity.class));
+        Intent intent = new Intent(this, map.containsKey(launchScreen) ?
+                map.get(launchScreen) : ListActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
+        startActivity(intent);
         finish();
     }
 }

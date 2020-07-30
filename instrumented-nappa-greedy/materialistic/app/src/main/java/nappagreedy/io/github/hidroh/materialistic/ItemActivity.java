@@ -66,6 +66,7 @@ import nappagreedy.io.github.hidroh.materialistic.widget.ItemPagerAdapter;
 import nappagreedy.io.github.hidroh.materialistic.widget.NavFloatingActionButton;
 import nappagreedy.io.github.hidroh.materialistic.widget.PopupMenu;
 import nappagreedy.io.github.hidroh.materialistic.widget.ViewPager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ItemActivity extends InjectableActivity implements ItemFragment.ItemChangedListener {
 
@@ -131,6 +132,7 @@ public class ItemActivity extends InjectableActivity implements ItemFragment.Ite
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         mExternalBrowser = Preferences.externalBrowserEnabled(this);
         if (getIntent().getBooleanExtra(EXTRA_OPEN_COMMENTS, false)) {
             mStoryViewMode = Preferences.StoryViewMode.Comment;

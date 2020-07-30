@@ -58,6 +58,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
 import nappagreedy.io.github.hidroh.materialistic.data.MaterialisticDatabase;
 import nappagreedy.io.github.hidroh.materialistic.data.ResponseListener;
 import nappagreedy.io.github.hidroh.materialistic.data.SessionManager;
+import nl.vu.cs.s2group.nappa.*;
 
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static nappagreedy.io.github.hidroh.materialistic.Preferences.SwipeAction.Save;
@@ -460,15 +461,19 @@ public class StoryRecyclerViewAdapter extends
                         return true;
                     }
                     if (item.getItemId() == R.id.menu_contextual_comment) {
-                        mContext.startActivity(new Intent(mContext, ComposeActivity.class)
+                        Intent intent = new Intent(mContext, ComposeActivity.class)
                                 .putExtra(ComposeActivity.EXTRA_PARENT_ID, story.getId())
                                 .putExtra(ComposeActivity.EXTRA_PARENT_TEXT,
-                                        story.getDisplayedTitle()));
+                                        story.getDisplayedTitle());
+                        Nappa.notifyExtras(intent.getExtras());
+                        mContext.startActivity(intent);
                         return true;
                     }
                     if (item.getItemId() == R.id.menu_contextual_profile) {
-                        mContext.startActivity(new Intent(mContext, UserActivity.class)
-                                .putExtra(UserActivity.EXTRA_USERNAME, story.getBy()));
+                        Intent intent1 = new Intent(mContext, UserActivity.class)
+                                .putExtra(UserActivity.EXTRA_USERNAME, story.getBy());
+                        Nappa.notifyExtras(intent1.getExtras());
+                        mContext.startActivity(intent1);
                         return true;
                     }
                     if (item.getItemId() == R.id.menu_contextual_share) {

@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import nappagreedy.io.github.hidroh.materialistic.data.AlgoliaPopularClient;
+import nl.vu.cs.s2group.nappa.*;
 
 public class PopularActivity extends BaseListActivity {
     private static final String STATE_RANGE = "state:range";
@@ -31,6 +32,7 @@ public class PopularActivity extends BaseListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         if (savedInstanceState != null) {
             setRange(savedInstanceState.getString(STATE_RANGE));
         }

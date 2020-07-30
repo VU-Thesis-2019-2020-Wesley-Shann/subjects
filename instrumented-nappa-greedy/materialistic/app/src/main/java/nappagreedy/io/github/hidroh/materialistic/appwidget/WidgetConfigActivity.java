@@ -27,6 +27,7 @@ import android.view.Window;
 
 import nappagreedy.io.github.hidroh.materialistic.InjectableActivity;
 import nappagreedy.io.github.hidroh.materialistic.R;
+import nl.vu.cs.s2group.nappa.*;
 
 public class WidgetConfigActivity extends InjectableActivity {
     private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
@@ -34,6 +35,7 @@ public class WidgetConfigActivity extends InjectableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setResult(RESULT_CANCELED);
         if (getIntent().getExtras() == null ||
                 (mAppWidgetId = getIntent().getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,

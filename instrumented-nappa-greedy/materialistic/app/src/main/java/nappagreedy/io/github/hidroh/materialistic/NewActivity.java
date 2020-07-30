@@ -17,9 +17,12 @@
 package nappagreedy.io.github.hidroh.materialistic;
 
 import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class NewActivity extends BaseStoriesActivity {
     public static final String EXTRA_REFRESH = NewActivity.class.getName() + ".EXTRA_REFRESH";
@@ -51,5 +54,11 @@ public class NewActivity extends BaseStoriesActivity {
     @Override
     protected int getItemCacheMode() {
         return ItemManager.MODE_NETWORK;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
     }
 }

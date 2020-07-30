@@ -28,6 +28,7 @@ import nappagreedy.io.github.hidroh.materialistic.R;
 import nappagreedy.io.github.hidroh.materialistic.ThreadPreviewActivity;
 import nappagreedy.io.github.hidroh.materialistic.data.Item;
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SubmissionRecyclerViewAdapter extends ItemRecyclerViewAdapter<SubmissionViewHolder> {
     private final Item[] mItems;
@@ -98,12 +99,16 @@ public class SubmissionRecyclerViewAdapter extends ItemRecyclerViewAdapter<Submi
     }
 
     private void openItem(Item item) {
-        mContext.startActivity(new Intent(mContext, ItemActivity.class)
-                .putExtra(ItemActivity.EXTRA_ITEM, item));
+        Intent intent = new Intent(mContext, ItemActivity.class)
+                .putExtra(ItemActivity.EXTRA_ITEM, item);
+        Nappa.notifyExtras(intent.getExtras());
+        mContext.startActivity(intent);
     }
 
     private void openPreview(Item item) {
-        mContext.startActivity(new Intent(mContext, ThreadPreviewActivity.class)
-                .putExtra(ThreadPreviewActivity.EXTRA_ITEM, item));
+        Intent intent = new Intent(mContext, ThreadPreviewActivity.class)
+                .putExtra(ThreadPreviewActivity.EXTRA_ITEM, item);
+        Nappa.notifyExtras(intent.getExtras());
+        mContext.startActivity(intent);
     }
 }

@@ -29,6 +29,7 @@ import android.widget.ProgressBar;
 
 import nappagreedy.io.github.hidroh.materialistic.widget.AdBlockWebViewClient;
 import nappagreedy.io.github.hidroh.materialistic.widget.CacheableWebView;
+import nl.vu.cs.s2group.nappa.*;
 
 public class OfflineWebActivity extends InjectableActivity {
     static final String EXTRA_URL = OfflineWebActivity.class.getName() + ".EXTRA_URL";
@@ -37,6 +38,7 @@ public class OfflineWebActivity extends InjectableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         String url = getIntent().getStringExtra(EXTRA_URL);
         if (TextUtils.isEmpty(url)) {
             finish();

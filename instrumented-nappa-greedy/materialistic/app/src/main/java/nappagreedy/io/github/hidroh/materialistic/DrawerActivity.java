@@ -38,6 +38,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.*;
 
 public abstract class DrawerActivity extends InjectableActivity {
 
@@ -79,6 +80,7 @@ public abstract class DrawerActivity extends InjectableActivity {
                     }
                     // TODO M bug https://code.google.com/p/android/issues/detail?id=193822
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent);
                     mPendingNavigation = null;
                 }
@@ -184,7 +186,9 @@ public abstract class DrawerActivity extends InjectableActivity {
         Account[] accounts = AccountManager.get(this)
                 .getAccountsByType(BuildConfig.APPLICATION_ID);
         if (accounts.length == 0) { // no accounts, ask to login or re-login
-            startActivity(new Intent(this, LoginActivity.class));
+            Intent intent = new Intent(this, LoginActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         } else { // has accounts, show account chooser regardless of login status
             AppUtils.showAccountChooser(this, mAlertDialogBuilder, accounts);
         }

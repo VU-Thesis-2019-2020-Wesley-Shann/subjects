@@ -23,6 +23,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 
+import nl.vu.cs.s2group.nappa.*;
+
 public class PreferencesActivity extends ThemedActivity {
     public static final String EXTRA_TITLE = PreferencesActivity.class.getName() + ".EXTRA_TITLE";
     public static final String EXTRA_PREFERENCES = PreferencesActivity.class.getName() + ".EXTRA_PREFERENCES";
@@ -30,6 +32,7 @@ public class PreferencesActivity extends ThemedActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_preferences);
         setTitle(getIntent().getIntExtra(EXTRA_TITLE, 0));
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));

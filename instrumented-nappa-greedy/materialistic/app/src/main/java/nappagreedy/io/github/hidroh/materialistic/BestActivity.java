@@ -16,9 +16,12 @@
 
 package nappagreedy.io.github.hidroh.materialistic;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
+import nl.vu.cs.s2group.nappa.*;
 
 public class BestActivity extends BaseStoriesActivity {
     @NonNull
@@ -30,5 +33,11 @@ public class BestActivity extends BaseStoriesActivity {
     @Override
     protected String getDefaultTitle() {
         return getString(R.string.title_activity_best);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
     }
 }

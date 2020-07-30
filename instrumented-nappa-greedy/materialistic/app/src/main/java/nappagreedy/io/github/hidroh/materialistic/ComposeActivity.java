@@ -36,6 +36,7 @@ import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.accounts.UserServices;
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ComposeActivity extends InjectableActivity {
     public static final String EXTRA_PARENT_ID = ComposeActivity.class.getName() + ".EXTRA_PARENT_ID";
@@ -55,6 +56,7 @@ public class ComposeActivity extends InjectableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         mParentId = getIntent().getStringExtra(EXTRA_PARENT_ID);
         if (TextUtils.isEmpty(mParentId)) {
             finish();

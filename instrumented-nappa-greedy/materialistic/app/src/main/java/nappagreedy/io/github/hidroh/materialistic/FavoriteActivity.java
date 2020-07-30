@@ -28,6 +28,7 @@ import nappagreedy.io.github.hidroh.materialistic.data.FavoriteManager;
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
 import nappagreedy.io.github.hidroh.materialistic.data.MaterialisticDatabase;
 import nappagreedy.io.github.hidroh.materialistic.data.WebItem;
+import nl.vu.cs.s2group.nappa.*;
 
 public class FavoriteActivity extends BaseListActivity {
 
@@ -52,6 +53,7 @@ public class FavoriteActivity extends BaseListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         if (savedInstanceState != null) {
             mFilter = savedInstanceState.getString(STATE_FILTER);
             getSupportActionBar().setSubtitle(mFilter);

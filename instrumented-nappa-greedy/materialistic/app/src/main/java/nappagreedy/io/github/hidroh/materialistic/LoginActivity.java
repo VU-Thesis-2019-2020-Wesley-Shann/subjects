@@ -30,6 +30,7 @@ import java.lang.ref.WeakReference;
 import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.accounts.UserServices;
+import nl.vu.cs.s2group.nappa.*;
 
 public class LoginActivity extends AccountAuthenticatorActivity {
     public static final String EXTRA_ADD_ACCOUNT = LoginActivity.class.getName() + ".EXTRA_ADD_ACCOUNT";
@@ -47,6 +48,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         String username = Preferences.getUsername(this);
         boolean addAccount = getIntent().getBooleanExtra(EXTRA_ADD_ACCOUNT, false);
         setContentView(R.layout.activity_login);

@@ -48,6 +48,7 @@ import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
 import nappagreedy.io.github.hidroh.materialistic.data.Favorite;
 import nappagreedy.io.github.hidroh.materialistic.data.ItemManager;
 import nappagreedy.io.github.hidroh.materialistic.data.SyncScheduler;
+import nl.vu.cs.s2group.nappa.*;
 
 public class FavoriteRecyclerViewAdapter extends ListRecyclerViewAdapter
         <ListRecyclerViewAdapter.ItemViewHolder, Favorite> {
@@ -278,9 +279,11 @@ public class FavoriteRecyclerViewAdapter extends ListRecyclerViewAdapter
                         return true;
                     }
                     if (menuItem.getItemId() == R.id.menu_contextual_comment) {
-                        mContext.startActivity(new Intent(mContext, ComposeActivity.class)
+                        Intent intent = new Intent(mContext, ComposeActivity.class)
                                 .putExtra(ComposeActivity.EXTRA_PARENT_ID, item.getId())
-                                .putExtra(ComposeActivity.EXTRA_PARENT_TEXT, item.getDisplayedTitle()));
+                                .putExtra(ComposeActivity.EXTRA_PARENT_TEXT, item.getDisplayedTitle());
+                        Nappa.notifyExtras(intent.getExtras());
+                        mContext.startActivity(intent);
                         return true;
                     }
                     if (menuItem.getItemId() == R.id.menu_contextual_share) {

@@ -30,6 +30,7 @@ import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
 import nappagreedy.io.github.hidroh.materialistic.data.FeedbackClient;
+import nl.vu.cs.s2group.nappa.*;
 
 public class FeedbackActivity extends InjectableActivity {
     @Inject FeedbackClient mFeedbackClient;
@@ -38,6 +39,7 @@ public class FeedbackActivity extends InjectableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_feedback);
         AppUtils.setTextWithLinks((TextView) findViewById(R.id.feedback_note),

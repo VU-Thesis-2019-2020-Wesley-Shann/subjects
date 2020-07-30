@@ -41,6 +41,7 @@ import nappagreedy.io.github.hidroh.materialistic.AppUtils;
 import nappagreedy.io.github.hidroh.materialistic.Navigable;
 import nappagreedy.io.github.hidroh.materialistic.R;
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.*;
 
 class HackerNewsItem implements Item {
     private static final String AUTHOR_SEPARATOR = " - ";
@@ -351,8 +352,10 @@ class HackerNewsItem implements Item {
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                view.getContext().startActivity(new Intent(Intent.ACTION_VIEW)
-                        .setData(AppUtils.createUserUri(getBy())));
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setData(AppUtils.createUserUri(getBy()));
+                Nappa.notifyExtras(intent.getExtras());
+                view.getContext().startActivity(intent);
             }
 
             @Override

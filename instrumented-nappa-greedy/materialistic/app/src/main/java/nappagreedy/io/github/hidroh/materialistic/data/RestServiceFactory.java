@@ -24,7 +24,9 @@ import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
 
+import nl.vu.cs.s2group.nappa.Nappa;
 import okhttp3.Call;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -72,8 +74,10 @@ public interface RestServiceFactory {
             builder.callFactory(mCallFactory)
                     .callbackExecutor(callbackExecutor != null ?
                             callbackExecutor : new MainThreadExecutor());
+            // Manual Retrofit instrumentation
             return builder.baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(Nappa.getOkHttp(new OkHttpClient()))
                     .build()
                     .create(clazz);
         }
