@@ -1,0 +1,91 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.3'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs/aars'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.google.com'
+    }
+    jcenter()
+    google()
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.fragment:fragment:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.8'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation name: 'nappa-experimentation', ext: 'aar'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
+    compileOptions.with {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    // force old processing behaviour that butterknife 7 depends on, until we can afford to upgrade
+    android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+    defaultConfig {
+        minSdkVersion 23
+        applicationId "baseline.com.newsblur"
+    }
+}
+
