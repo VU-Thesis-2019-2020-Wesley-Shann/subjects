@@ -16,6 +16,8 @@
 
 package nappagreedy.io.github.hidroh.materialistic.data;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -26,6 +28,7 @@ import androidx.annotation.NonNull;
 import nappagreedy.io.github.hidroh.materialistic.ActivityModule;
 import nappagreedy.io.github.hidroh.materialistic.DataModule;
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
@@ -73,8 +76,8 @@ public class AlgoliaClient implements ItemManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<AlgoliaHits> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 2");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 2");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];

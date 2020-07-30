@@ -3,6 +3,7 @@ package nappagreedy.io.github.hidroh.materialistic.data;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.annotation.WorkerThread;
 
@@ -12,6 +13,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
@@ -53,8 +55,8 @@ public class FileDownloader {
             @Override
             public void onResponse(Call call, Response response) {
                 long receivedResponseAtMillis = System.currentTimeMillis();
-//                Log.d("MYTAG", "async log 2");
-//                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
+                Log.d("MYTAG", "async log 2");
+                MetricNetworkRequestExecutionTime.log(response, sentRequestAtMillis, receivedResponseAtMillis, false);
                 try {
                     BufferedSink sink = Okio.buffer(Okio.sink(outputFile));
                     sink.writeAll(response.body().source());

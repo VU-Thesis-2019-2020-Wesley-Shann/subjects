@@ -16,6 +16,8 @@
 
 package nappagreedy.io.github.hidroh.materialistic.data;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import nappagreedy.io.github.hidroh.materialistic.DataModule;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
@@ -113,8 +116,8 @@ public class HackerNewsClient implements ItemManager, UserManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<int[]> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 3");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 3");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
@@ -138,8 +141,8 @@ public class HackerNewsClient implements ItemManager, UserManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<HackerNewsItem> response  = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 4");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 4");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {
             return null;

@@ -44,6 +44,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.app.NotificationCompat;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.webkit.WebView;
 
 import java.io.IOException;
@@ -60,6 +61,7 @@ import nappagreedy.io.github.hidroh.materialistic.R;
 import nappagreedy.io.github.hidroh.materialistic.annotation.Synthetic;
 import nappagreedy.io.github.hidroh.materialistic.widget.AdBlockWebViewClient;
 import nappagreedy.io.github.hidroh.materialistic.widget.CacheableWebView;
+import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -262,8 +264,8 @@ public class SyncDelegate {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<HackerNewsItem> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 5");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 5");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {
             return null;
