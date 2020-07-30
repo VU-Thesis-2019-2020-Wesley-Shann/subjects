@@ -38,7 +38,7 @@ public final class SettingsActivity
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 
-		getLifecycle().addObserver(new NappaLifecycleObserver(this));
+//		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		PrefsUtility.applySettingsTheme(this);
 		super.onCreate(savedInstanceState);
