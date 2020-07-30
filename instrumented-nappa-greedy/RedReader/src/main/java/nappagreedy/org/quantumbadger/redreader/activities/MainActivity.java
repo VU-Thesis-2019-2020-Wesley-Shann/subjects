@@ -73,6 +73,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.url.UserPostListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserProfileURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
 import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 import java.util.Locale;
 import java.util.Set;
@@ -119,7 +120,7 @@ public class MainActivity extends RefreshableActivity
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 
-		Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+		Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
 		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
