@@ -27,6 +27,7 @@ import io.reactivex.Maybe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Fragment which is supposed to be displayed outside of the MediaplayerActivity
@@ -69,8 +70,10 @@ public class ExternalPlayerFragment extends Fragment {
                 if (Build.VERSION.SDK_INT >= 16 && controller.getMedia().getMediaType() == MediaType.AUDIO) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(getActivity(), imgvCover, "coverTransition");
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent, options.toBundle());
                 } else {
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent);
                 }
             }

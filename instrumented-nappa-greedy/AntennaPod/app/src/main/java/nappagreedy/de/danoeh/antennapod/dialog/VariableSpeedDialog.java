@@ -18,6 +18,7 @@ import java.util.List;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.util.IntentUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 public class VariableSpeedDialog {
 
@@ -60,6 +61,7 @@ public class VariableSpeedDialog {
         });
         builder.onNegative((dialog, which) -> {
             try {
+                Nappa.notifyExtras(playStoreIntent.getExtras());
                 context.startActivity(playStoreIntent);
             } catch (ActivityNotFoundException e) {
                 // this is usually thrown on an emulator if the Android market is not installed

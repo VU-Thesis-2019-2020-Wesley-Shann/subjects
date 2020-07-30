@@ -35,6 +35,7 @@ import nappagreedy.de.danoeh.antennapod.core.service.playback.PlayerStatus;
 import nappagreedy.de.danoeh.antennapod.core.util.gui.PictureInPictureUtil;
 import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
 import nappagreedy.de.danoeh.antennapod.view.AspectRatioVideoView;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Activity for playing video files.
@@ -67,6 +68,7 @@ public class VideoplayerActivity extends MediaplayerActivity {
     @SuppressLint("AppCompatMethod")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY); // has to be called before setting layout content
@@ -84,6 +86,7 @@ public class VideoplayerActivity extends MediaplayerActivity {
             if (!intent.getComponent().getClassName().equals(VideoplayerActivity.class.getName())) {
                 destroyingDueToReload = true;
                 finish();
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         }
@@ -299,12 +302,16 @@ public class VideoplayerActivity extends MediaplayerActivity {
             Log.d(TAG, "ReloadNotification received, switching to Audioplayer now");
             destroyingDueToReload = true;
             finish();
-            startActivity(new Intent(this, AudioplayerActivity.class));
+            Intent intent = new Intent(this, AudioplayerActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         } else if (notificationCode == PlaybackService.EXTRA_CODE_CAST) {
             Log.d(TAG, "ReloadNotification received, switching to Castplayer now");
             destroyingDueToReload = true;
             finish();
-            startActivity(new Intent(this, CastplayerActivity.class));
+            Intent intent1 = new Intent(this, CastplayerActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         }
     }
 

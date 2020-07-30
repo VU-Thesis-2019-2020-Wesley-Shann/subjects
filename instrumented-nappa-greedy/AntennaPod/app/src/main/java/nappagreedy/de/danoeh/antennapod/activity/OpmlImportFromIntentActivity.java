@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Lets the user start the OPML-import process.
@@ -15,6 +16,7 @@ public class OpmlImportFromIntentActivity extends OpmlImportBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
 

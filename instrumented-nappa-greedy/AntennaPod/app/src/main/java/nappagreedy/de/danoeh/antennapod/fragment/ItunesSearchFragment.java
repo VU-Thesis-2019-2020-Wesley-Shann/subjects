@@ -42,6 +42,7 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -127,6 +128,7 @@ public class ItunesSearchFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
                 intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, podcast.feedUrl);
                 intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, "iTunes");
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             } else {
                 gridView.setVisibility(View.GONE);
@@ -166,6 +168,7 @@ public class ItunesSearchFragment extends Fragment {
                             Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
                             intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, feedUrl);
                             intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, "iTunes");
+                            Nappa.notifyExtras(intent.getExtras());
                             startActivity(intent);
                         }, error -> {
                             Log.e(TAG, Log.getStackTraceString(error));

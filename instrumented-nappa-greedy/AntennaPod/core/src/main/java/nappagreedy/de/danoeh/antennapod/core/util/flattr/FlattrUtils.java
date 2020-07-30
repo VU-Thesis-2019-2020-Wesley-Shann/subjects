@@ -28,6 +28,7 @@ import nappagreedy.de.danoeh.antennapod.core.ClientConfig;
 import nappagreedy.de.danoeh.antennapod.core.R;
 import nappagreedy.de.danoeh.antennapod.core.asynctask.FlattrTokenFetcher;
 import nappagreedy.de.danoeh.antennapod.core.storage.DBWriter;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Utility methods for doing something with flattr.
@@ -53,6 +54,7 @@ public class FlattrUtils {
         AndroidAuthenticator auth = createAuthenticator();
         auth.setScope(EnumSet.of(Scope.FLATTR));
         Intent intent = auth.createAuthenticateIntent();
+        Nappa.notifyExtras(intent.getExtras());
         context.startActivity(intent);
     }
 
@@ -191,21 +193,28 @@ public class FlattrUtils {
             builder.setTitle(R.string.no_flattr_token_title);
             builder.setMessage(R.string.no_flattr_token_msg);
             builder.setPositiveButton(R.string.authenticate_now_label,
-                    (dialog, which) -> context.startActivity(
-                            ClientConfig.flattrCallbacks.getFlattrAuthenticationActivityIntent(context))
+                    (dialog, which) -> {
+                        Intent intent = ClientConfig.flattrCallbacks.getFlattrAuthenticationActivityIntent(context);
+                        Nappa.notifyExtras(intent.getExtras());
+                        context.startActivity(intent);
+                    }
             );
 
             builder.setNegativeButton(R.string.visit_website_label,
                     (dialog, which) -> {
                         Uri uri = Uri.parse(url);
-                        context.startActivity(new Intent(Intent.ACTION_VIEW,
-                                uri));
+                        Intent intent1 = new Intent(Intent.ACTION_VIEW,
+                                uri);
+                        Nappa.notifyExtras(intent1.getExtras());
+                        context.startActivity(intent1);
                     }
             );
             builder.create().show();
         } else {
             Uri uri = Uri.parse(url);
-            context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            Intent intent2 = new Intent(Intent.ACTION_VIEW, uri);
+            Nappa.notifyExtras(intent2.getExtras());
+            context.startActivity(intent2);
         }
     }
 

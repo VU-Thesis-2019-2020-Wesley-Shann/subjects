@@ -15,6 +15,7 @@ import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.service.download.DownloadRequest;
 import nappagreedy.de.danoeh.antennapod.core.storage.DownloadRequester;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Shows a username and a password text field.
@@ -41,6 +42,7 @@ public class DownloadAuthenticationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();

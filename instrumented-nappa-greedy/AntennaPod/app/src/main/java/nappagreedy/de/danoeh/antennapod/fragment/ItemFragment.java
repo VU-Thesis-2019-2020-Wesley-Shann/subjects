@@ -71,6 +71,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -213,6 +215,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 if(IntentUtils.isCallable(getActivity(), intent)) {
+                    Nappa.notifyExtras(intent.getExtras());
                     startActivity(intent);
                 }
                 return true;
@@ -256,7 +259,9 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
                 }
             } else if (item.getLink() != null) {
                 Uri uri = Uri.parse(item.getLink());
-                getActivity().startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                Intent intent1 = new Intent(Intent.ACTION_VIEW, uri);
+                Nappa.notifyExtras(intent1.getExtras());
+                getActivity().startActivity(intent1);
             }
         });
 
@@ -496,6 +501,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
                     Uri uri = Uri.parse(selectedURL);
                     final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     if(IntentUtils.isCallable(getActivity(), intent)) {
+                        Nappa.notifyExtras(intent.getExtras());
                         getActivity().startActivity(intent);
                     }
                     break;

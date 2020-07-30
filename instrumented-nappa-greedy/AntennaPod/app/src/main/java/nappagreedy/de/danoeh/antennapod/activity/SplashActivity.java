@@ -15,6 +15,7 @@ import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Shows the AntennaPod logo while waiting for the main activity to start
@@ -23,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.splash);
 
         ProgressBar progressBar = findViewById(R.id.progressBar);
@@ -44,6 +47,7 @@ public class SplashActivity extends AppCompatActivity {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(() -> {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
                 finish();
             });

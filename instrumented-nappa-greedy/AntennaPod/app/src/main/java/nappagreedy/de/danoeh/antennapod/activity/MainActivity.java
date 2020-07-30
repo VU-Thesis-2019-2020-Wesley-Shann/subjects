@@ -71,6 +71,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -129,6 +131,7 @@ public class MainActivity extends CastEnabledActivity implements NavDrawerActivi
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getNoTitleTheme());
         super.onCreate(savedInstanceState);
         StorageUtils.checkStorageAvailability(this);
@@ -179,7 +182,9 @@ public class MainActivity extends CastEnabledActivity implements NavDrawerActivi
 
         findViewById(R.id.nav_settings).setOnClickListener(v -> {
             drawerLayout.closeDrawer(navDrawer);
-            startActivity(new Intent(MainActivity.this, PreferenceActivity.class));
+            Intent intent = new Intent(MainActivity.this, PreferenceActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         });
 
         FragmentTransaction transaction = fm.beginTransaction();

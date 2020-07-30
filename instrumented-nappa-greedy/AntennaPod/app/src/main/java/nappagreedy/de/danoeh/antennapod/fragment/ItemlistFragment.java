@@ -71,6 +71,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -507,6 +509,7 @@ public class ItemlistFragment extends ListFragment {
                 Intent startIntent = new Intent(getActivity(), FeedSettingsActivity.class);
                 startIntent.putExtra(FeedSettingsActivity.EXTRA_FEED_ID,
                         feed.getId());
+                Nappa.notifyExtras(startIntent.getExtras());
                 startActivity(startIntent);
             }
         });
@@ -518,6 +521,7 @@ public class ItemlistFragment extends ListFragment {
             Intent startIntent = new Intent(getActivity(), FeedInfoActivity.class);
             startIntent.putExtra(FeedInfoActivity.EXTRA_FEED_ID,
                     feed.getId());
+            Nappa.notifyExtras(startIntent.getExtras());
             startActivity(startIntent);
         }
     }

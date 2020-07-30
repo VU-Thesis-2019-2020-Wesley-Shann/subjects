@@ -15,6 +15,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 
 import nappagreedy.de.danoeh.antennapod.R;
+import nl.vu.cs.s2group.nappa.*;
 
 public class RatingDialog {
 
@@ -66,6 +67,7 @@ public class RatingDialog {
         final Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackage);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Nappa.notifyExtras(intent.getExtras());
         context.startActivity(intent);
         saveRated();
     }

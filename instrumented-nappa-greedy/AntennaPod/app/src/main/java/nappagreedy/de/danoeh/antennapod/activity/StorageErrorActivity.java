@@ -24,6 +24,7 @@ import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.util.StorageUtils;
 import nappagreedy.de.danoeh.antennapod.dialog.ChooseDataFolderDialog;
+import nl.vu.cs.s2group.nappa.*;
 
 /** Is show if there is now external storage available. */
 public class StorageErrorActivity extends AppCompatActivity {
@@ -37,7 +38,8 @@ public class StorageErrorActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(UserPreferences.getTheme());
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
+        setTheme(UserPreferences.getTheme());
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.storage_error);
@@ -70,6 +72,7 @@ public class StorageErrorActivity extends AppCompatActivity {
 
     private void openDirectoryChooser() {
         Intent intent = new Intent(this, DirectoryChooserActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         startActivityForResult(intent, DirectoryChooserActivity.RESULT_CODE_DIR_SELECTED);
     }
 
@@ -161,7 +164,9 @@ public class StorageErrorActivity extends AppCompatActivity {
 
 	private void leaveErrorState() {
 		finish();
-		startActivity(new Intent(this, MainActivity.class));
+        Intent intent = new Intent(this, MainActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
+        startActivity(intent);
 	}
 
 	private final BroadcastReceiver mediaUpdate = new BroadcastReceiver() {

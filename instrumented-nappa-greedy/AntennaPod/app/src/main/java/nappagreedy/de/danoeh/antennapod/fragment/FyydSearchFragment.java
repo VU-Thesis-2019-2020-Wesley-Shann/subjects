@@ -31,6 +31,7 @@ import de.mfietz.fyydlin.SearchHit;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 import static nappagreedy.de.danoeh.antennapod.adapter.itunes.ItunesAdapter.Podcast;
 import static java.util.Collections.emptyList;
@@ -85,6 +86,7 @@ public class FyydSearchFragment extends Fragment {
             Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
             intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, podcast.feedUrl);
             intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, podcast.title);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
         progressBar = root.findViewById(R.id.progressBar);

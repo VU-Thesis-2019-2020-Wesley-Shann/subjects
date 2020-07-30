@@ -21,6 +21,7 @@ import nappagreedy.de.danoeh.antennapod.core.service.download.AntennapodHttpClie
 import nappagreedy.de.danoeh.antennapod.core.service.download.HttpDownloader;
 import nappagreedy.de.danoeh.antennapod.core.storage.DBReader;
 import nappagreedy.de.danoeh.antennapod.core.util.NetworkUtils;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.*;
 
@@ -46,7 +47,7 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
                         OkHttpClient.Builder builder = AntennapodHttpClient.newBuilder();
                         builder.interceptors().add(new NetworkAllowanceInterceptor());
                         builder.interceptors().add(new BasicAuthenticationInterceptor());
-                        internalClient = builder.build();
+                        internalClient = Nappa.getOkHttp(builder.build());
                     }
                 }
             }

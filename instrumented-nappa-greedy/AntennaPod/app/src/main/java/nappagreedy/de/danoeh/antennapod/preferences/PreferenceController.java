@@ -79,6 +79,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 import static nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity.PARAM_RESOURCE;
 
@@ -211,6 +212,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     | Intent.FLAG_ACTIVITY_NEW_TASK);
                             activity.finish();
+                            Nappa.notifyExtras(i.getExtras());
                             activity.startActivity(i);
                             return true;
                         }
@@ -261,7 +263,9 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
 
         ui.findPreference(PreferenceController.IMPORT_EXPORT).setOnPreferenceClickListener(
                 preference -> {
-                    activity.startActivity(new Intent(activity, ImportExportActivity.class));
+                    Intent intent1 = new Intent(activity, ImportExportActivity.class);
+                    Nappa.notifyExtras(intent1.getExtras());
+                    activity.startActivity(intent1);
                     return true;
                 }
         );
@@ -271,7 +275,9 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                 preference -> export(new HtmlWriter()));
         ui.findPreference(PreferenceController.PREF_OPML_IMPORT).setOnPreferenceClickListener(
                 preference -> {
-                    activity.startActivity(new Intent(activity, OpmlImportFromPathActivity.class));
+                    Intent intent2 = new Intent(activity, OpmlImportFromPathActivity.class);
+                    Nappa.notifyExtras(intent2.getExtras());
+                    activity.startActivity(intent2);
                     return true;
                 });
         ui.findPreference(PreferenceController.PREF_CHOOSE_DATA_DIR).setOnPreferenceClickListener(
@@ -301,6 +307,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                                 showChooseDataFolderDialog();
                             } else {
                                 Intent intent = new Intent(activity, DirectoryChooserActivity.class);
+                                Nappa.notifyExtras(intent.getExtras());
                                 activity.startActivityForResult(intent,
                                         DirectoryChooserActivity.RESULT_CODE_DIR_SELECTED);
                             }
@@ -529,13 +536,17 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
 
         ui.findPreference(PreferenceController.PREF_ABOUT).setOnPreferenceClickListener(
                 preference -> {
-                    activity.startActivity(new Intent(activity, AboutActivity.class));
+                    Intent intent = new Intent(activity, AboutActivity.class);
+                    Nappa.notifyExtras(intent.getExtras());
+                    activity.startActivity(intent);
                     return true;
                 }
         );
         ui.findPreference(PreferenceController.STATISTICS).setOnPreferenceClickListener(
                 preference -> {
-                    activity.startActivity(new Intent(activity, StatisticsActivity.class));
+                    Intent intent1 = new Intent(activity, StatisticsActivity.class);
+                    Nappa.notifyExtras(intent1.getExtras());
+                    activity.startActivity(intent1);
                     return true;
                 }
         );
@@ -567,7 +578,9 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                     context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 }
             }
-            ui.getActivity().startActivity(Intent.createChooser(emailIntent, intentTitle));
+            Intent intent2 = Intent.createChooser(emailIntent, intentTitle);
+            Nappa.notifyExtras(intent2.getExtras());
+            ui.getActivity().startActivity(intent2);
             return true;
         });
     }
@@ -666,8 +679,10 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
                                 context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                             }
                         }
-                        context.startActivity(Intent.createChooser(sendIntent,
-                                context.getResources().getText(R.string.send_label)));
+                        Intent intent = Intent.createChooser(sendIntent,
+                                context.getResources().getText(R.string.send_label));
+                        Nappa.notifyExtras(intent.getExtras());
+                        context.startActivity(intent);
                     });
                     alert.create().show();
                 }, error -> {
@@ -681,6 +696,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
     private void openInBrowser(String url) {
         try {
             Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            Nappa.notifyExtras(myIntent.getExtras());
             ui.getActivity().startActivity(myIntent);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(ui.getActivity(), R.string.pref_no_browser_found, Toast.LENGTH_LONG).show();
@@ -1126,6 +1142,7 @@ public class PreferenceController implements SharedPreferences.OnSharedPreferenc
     private void openDirectoryChooser() {
         Activity activity = ui.getActivity();
         Intent intent = new Intent(activity, DirectoryChooserActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
         activity.startActivityForResult(intent, DirectoryChooserActivity.RESULT_CODE_DIR_SELECTED);
     }
 

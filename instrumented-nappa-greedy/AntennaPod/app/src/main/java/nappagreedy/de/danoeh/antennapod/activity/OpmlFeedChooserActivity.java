@@ -17,6 +17,7 @@ import java.util.List;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.export.opml.OpmlElement;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Displays the feeds that the OPML-Importer has read and lets the user choose
@@ -35,6 +36,7 @@ public class OpmlFeedChooserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
 

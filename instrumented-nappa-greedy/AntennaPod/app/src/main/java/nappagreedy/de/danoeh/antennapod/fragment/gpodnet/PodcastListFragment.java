@@ -29,6 +29,7 @@ import nappagreedy.de.danoeh.antennapod.adapter.gpodnet.PodcastListAdapter;
 import nappagreedy.de.danoeh.antennapod.core.gpoddernet.GpodnetService;
 import nappagreedy.de.danoeh.antennapod.core.gpoddernet.GpodnetServiceException;
 import nappagreedy.de.danoeh.antennapod.core.gpoddernet.model.GpodnetPodcast;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Displays a list of GPodnetPodcast-Objects in a GridView
@@ -96,6 +97,7 @@ public abstract class PodcastListFragment extends Fragment {
         Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
         intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, selection.getUrl());
         intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, getString(R.string.gpodnet_main_label));
+        Nappa.notifyExtras(intent.getExtras());
         startActivity(intent);
     }
 

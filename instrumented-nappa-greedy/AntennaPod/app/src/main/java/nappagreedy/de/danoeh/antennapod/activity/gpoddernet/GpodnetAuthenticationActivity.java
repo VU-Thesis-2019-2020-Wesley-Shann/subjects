@@ -35,6 +35,7 @@ import nappagreedy.de.danoeh.antennapod.core.gpoddernet.model.GpodnetDevice;
 import nappagreedy.de.danoeh.antennapod.core.preferences.GpodnetPreferences;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.service.GpodnetSyncService;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Guides the user through the authentication process
@@ -63,6 +64,7 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -356,6 +358,7 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
         back.setOnClickListener(v -> {
             Intent intent = new Intent(GpodnetAuthenticationActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
     }

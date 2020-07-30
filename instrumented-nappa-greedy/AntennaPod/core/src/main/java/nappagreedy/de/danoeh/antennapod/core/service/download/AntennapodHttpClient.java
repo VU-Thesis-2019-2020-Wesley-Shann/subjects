@@ -28,6 +28,7 @@ import javax.net.ssl.X509TrustManager;
 
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.storage.DBWriter;
+import nl.vu.cs.s2group.nappa.*;
 import okhttp3.Credentials;
 import okhttp3.HttpUrl;
 import okhttp3.JavaNetCookieJar;
@@ -58,13 +59,13 @@ public class AntennapodHttpClient {
      */
     public static synchronized OkHttpClient getHttpClient() {
         if (httpClient == null) {
-            httpClient = newBuilder().build();
+            httpClient = Nappa.getOkHttp(newBuilder().build());
         }
         return httpClient;
     }
 
     public static synchronized void reinit() {
-        httpClient = newBuilder().build();
+        httpClient = Nappa.getOkHttp(newBuilder().build());
     }
 
     /**

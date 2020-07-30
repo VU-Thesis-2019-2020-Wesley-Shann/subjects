@@ -13,6 +13,7 @@ import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackService;
 import nappagreedy.de.danoeh.antennapod.dialog.VariableSpeedDialog;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Activity for playing audio files.
@@ -33,6 +34,7 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
                     !intent.getComponent().getClassName().equals(AudioplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         }
@@ -44,7 +46,9 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
             Log.d(TAG, "ReloadNotification received, switching to Castplayer now");
             saveCurrentFragment();
             finish();
-            startActivity(new Intent(this, CastplayerActivity.class));
+            Intent intent = new Intent(this, CastplayerActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
 
         } else {
             super.onReloadNotification(notificationCode);
@@ -140,5 +144,11 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
             });
             butPlaybackSpeed.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
     }
 }

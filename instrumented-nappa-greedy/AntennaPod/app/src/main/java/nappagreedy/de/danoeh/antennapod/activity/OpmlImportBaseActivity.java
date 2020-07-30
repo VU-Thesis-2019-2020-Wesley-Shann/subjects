@@ -23,6 +23,7 @@ import nappagreedy.de.danoeh.antennapod.asynctask.OpmlImportWorker;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.export.opml.OpmlElement;
 import nappagreedy.de.danoeh.antennapod.core.util.LangUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Base activity for Opml Import - e.g. with code what to do afterwards
@@ -57,7 +58,8 @@ public class OpmlImportBaseActivity extends AppCompatActivity {
 						Intent intent = new Intent(OpmlImportBaseActivity.this, MainActivity.class);
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 								| Intent.FLAG_ACTIVITY_NEW_TASK);
-						startActivity(intent);
+                        Nappa.notifyExtras(intent.getExtras());
+                        startActivity(intent);
 					}
 
 				};
@@ -125,9 +127,11 @@ public class OpmlImportBaseActivity extends AppCompatActivity {
                     if (result != null) {
                         Log.d(TAG, "Parsing was successful");
                         OpmlImportHolder.setReadElements(result);
-                        startActivityForResult(new Intent(
+                        Intent intent = new Intent(
                                 OpmlImportBaseActivity.this,
-                                OpmlFeedChooserActivity.class), 0);
+                                OpmlFeedChooserActivity.class);
+                        Nappa.notifyExtras(intent.getExtras());
+                        startActivityForResult(intent, 0);
                     } else {
                         Log.d(TAG, "Parser error occurred");
                     }

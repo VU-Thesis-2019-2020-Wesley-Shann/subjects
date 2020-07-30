@@ -18,6 +18,7 @@ import nappagreedy.de.danoeh.antennapod.BuildConfig;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.util.flattr.FlattrUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /** Guides the user through the authentication process */
 
@@ -34,7 +35,8 @@ public class FlattrAuthActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(UserPreferences.getTheme());
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
+        setTheme(UserPreferences.getTheme());
 		super.onCreate(savedInstanceState);
 		singleton = this;
 		authSuccessful = false;
@@ -48,7 +50,8 @@ public class FlattrAuthActivity extends AppCompatActivity {
 		butReturn.setOnClickListener(v -> {
             Intent intent = new Intent(FlattrAuthActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+			Nappa.notifyExtras(intent.getExtras());
+			startActivity(intent);
         });
 		
 		butAuthenticate.setOnClickListener(v -> {
@@ -105,6 +108,7 @@ public class FlattrAuthActivity extends AppCompatActivity {
 			if (authSuccessful) {
 				Intent intent = new Intent(this, PreferenceActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				Nappa.notifyExtras(intent.getExtras());
 				startActivity(intent);
 			} else {
 				finish();

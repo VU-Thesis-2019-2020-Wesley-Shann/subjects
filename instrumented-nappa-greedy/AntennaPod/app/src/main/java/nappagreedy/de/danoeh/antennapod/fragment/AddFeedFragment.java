@@ -14,6 +14,7 @@ import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.activity.MainActivity;
 import nappagreedy.de.danoeh.antennapod.activity.OnlineFeedViewActivity;
 import nappagreedy.de.danoeh.antennapod.activity.OpmlImportFromPathActivity;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Provides actions for adding new podcast subscriptions
@@ -54,13 +55,18 @@ public class AddFeedFragment extends Fragment {
 
         butSearchFyyd.setOnClickListener(v -> activity.loadChildFragment(new FyydSearchFragment()));
 
-        butOpmlImport.setOnClickListener(v -> startActivity(new Intent(getActivity(),
-                OpmlImportFromPathActivity.class)));
+        butOpmlImport.setOnClickListener(v -> {
+            Intent intent1 = new Intent(getActivity(),
+                    OpmlImportFromPathActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
+        });
 
         butConfirm.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), OnlineFeedViewActivity.class);
             intent.putExtra(OnlineFeedViewActivity.ARG_FEEDURL, etxtFeedurl.getText().toString());
             intent.putExtra(OnlineFeedViewActivity.ARG_TITLE, getString(R.string.add_feed_label));
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         });
 

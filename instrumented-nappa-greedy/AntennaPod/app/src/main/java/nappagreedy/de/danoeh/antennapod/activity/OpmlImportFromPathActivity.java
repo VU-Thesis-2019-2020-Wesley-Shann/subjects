@@ -15,6 +15,7 @@ import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.util.IntentUtils;
 import nappagreedy.de.danoeh.antennapod.core.util.StorageUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Lets the user start the OPML-import process from a path
@@ -29,6 +30,7 @@ public class OpmlImportFromPathActivity extends OpmlImportBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
 
@@ -87,6 +89,7 @@ public class OpmlImportFromPathActivity extends OpmlImportBaseActivity {
 
     private void chooseFileFromExternal() {
         try {
+            Nappa.notifyExtras(intentGetContentAction.getExtras());
             startActivityForResult(intentGetContentAction, CHOOSE_OPML_FILE);
         } catch (ActivityNotFoundException e) {
             Log.e(TAG, "No activity found. Should never happen...");

@@ -28,6 +28,7 @@ import java.util.Arrays;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
 import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Displays the 'import/export' screen
@@ -40,6 +41,7 @@ public class ImportExportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();
@@ -69,6 +71,7 @@ public class ImportExportActivity extends AppCompatActivity {
                     .setType("application/x-sqlite3")
                     .putExtra(Intent.EXTRA_TITLE, EXPORT_FILENAME);
 
+            Nappa.notifyExtras(intent.getExtras());
             startActivityForResult(intent, REQUEST_CODE_BACKUP_DOCUMENT);
         } else {
             try {
@@ -86,12 +89,15 @@ public class ImportExportActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 19) {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.setType("*/*");
+            Nappa.notifyExtras(intent.getExtras());
             startActivityForResult(intent, REQUEST_CODE_RESTORE);
         } else {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("*/*");
-            startActivityForResult(Intent.createChooser(intent,
-                    getString(R.string.import_select_file)), REQUEST_CODE_RESTORE);
+            Intent intent1 = Intent.createChooser(intent,
+                    getString(R.string.import_select_file));
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivityForResult(intent1, REQUEST_CODE_RESTORE);
         }
     }
 
@@ -159,6 +165,7 @@ public class ImportExportActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
             ComponentName cn = intent.getComponent();
             Intent mainIntent = Intent.makeRestartActivityTask(cn);
+            Nappa.notifyExtras(mainIntent.getExtras());
             startActivity(mainIntent);
         });
         d.show();

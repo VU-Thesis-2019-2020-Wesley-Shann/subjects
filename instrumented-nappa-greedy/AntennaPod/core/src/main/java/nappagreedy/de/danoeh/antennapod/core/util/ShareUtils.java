@@ -16,6 +16,7 @@ import nappagreedy.de.danoeh.antennapod.core.R;
 import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
 import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
 import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
+import nl.vu.cs.s2group.nappa.*;
 
 /** Utility methods for sharing data */
 public class ShareUtils {
@@ -27,7 +28,9 @@ public class ShareUtils {
 		Intent i = new Intent(Intent.ACTION_SEND);
 		i.setType("text/plain");
 		i.putExtra(Intent.EXTRA_TEXT, text);
-		context.startActivity(Intent.createChooser(i, context.getString(R.string.share_url_label)));
+        Intent intent = Intent.createChooser(i, context.getString(R.string.share_url_label));
+        Nappa.notifyExtras(intent.getExtras());
+        context.startActivity(intent);
 	}
 
 	public static void shareFeedlink(Context context, Feed feed) {
@@ -86,7 +89,9 @@ public class ShareUtils {
 				context.grantUriPermission(packageName, fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 			}
 		}
-		context.startActivity(Intent.createChooser(i, context.getString(R.string.share_file_label)));
+        Intent intent = Intent.createChooser(i, context.getString(R.string.share_file_label));
+        Nappa.notifyExtras(intent.getExtras());
+        context.startActivity(intent);
 		Log.e(TAG, "shareFeedItemFile called");
 	}
 }

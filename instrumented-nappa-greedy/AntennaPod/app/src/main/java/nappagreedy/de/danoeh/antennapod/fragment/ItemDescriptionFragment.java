@@ -40,6 +40,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Displays the description of a Playable object in a Webview.
@@ -98,6 +99,7 @@ public class ItemDescriptionFragment extends Fragment {
                 } else {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     try {
+                        Nappa.notifyExtras(intent.getExtras());
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
@@ -162,6 +164,7 @@ public class ItemDescriptionFragment extends Fragment {
                     Uri uri = Uri.parse(selectedURL);
                     final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     if(IntentUtils.isCallable(getActivity(), intent)) {
+                        Nappa.notifyExtras(intent.getExtras());
                         getActivity().startActivity(intent);
                     }
                     break;

@@ -68,6 +68,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 
 /**
@@ -393,8 +394,10 @@ public abstract class MediaplayerActivity extends CastEnabledActivity implements
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(MediaplayerActivity.this,
                         cover, "coverTransition");
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent, options.toBundle());
             } else {
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
             finish();
@@ -601,7 +604,9 @@ public abstract class MediaplayerActivity extends CastEnabledActivity implements
                         break;
                     case R.id.visit_website_item:
                         Uri uri = Uri.parse(getWebsiteLinkWithFallback(media));
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                        Intent intent1 = new Intent(Intent.ACTION_VIEW, uri);
+                        Nappa.notifyExtras(intent1.getExtras());
+                        startActivity(intent1);
                         break;
                     case R.id.support_item:
                         if (media instanceof FeedMedia) {

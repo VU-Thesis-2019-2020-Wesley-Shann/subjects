@@ -8,6 +8,7 @@ import android.view.View;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackService;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Activity for controlling the remote playback on a Cast device.
@@ -20,10 +21,12 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         if (!PlaybackService.isCasting()) {
             Intent intent = PlaybackService.getPlayerActivityIntent(this);
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 finish();
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         }
@@ -35,7 +38,9 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             Log.d(TAG, "ReloadNotification received, switching to Audioplayer now");
             saveCurrentFragment();
             finish();
-            startActivity(new Intent(this, AudioplayerActivity.class));
+            Intent intent = new Intent(this, AudioplayerActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         } else {
             super.onReloadNotification(notificationCode);
         }
@@ -63,6 +68,7 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {
                 saveCurrentFragment();
                 finish();
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
         }

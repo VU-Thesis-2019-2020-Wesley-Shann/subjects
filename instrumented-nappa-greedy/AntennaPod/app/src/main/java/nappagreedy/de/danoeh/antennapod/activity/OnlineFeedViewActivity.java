@@ -75,6 +75,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Downloads a feed from a feed URL and parses it. Subclasses can display the
@@ -133,6 +134,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();
@@ -253,6 +255,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent destIntent = new Intent(this, MainActivity.class);
                 if (NavUtils.shouldUpRecreateTask(this, destIntent)) {
+                    Nappa.notifyExtras(destIntent.getExtras());
                     startActivity(destIntent);
                 } else {
                     NavUtils.navigateUpFromSameTask(this);
@@ -430,6 +433,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
                 // the database
                 intent.putExtra(MainActivity.EXTRA_FEED_ID, getFeedId(feed));
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             } else {
                 Feed f = new Feed(selectedDownloadUrl, null, feed.getTitle());

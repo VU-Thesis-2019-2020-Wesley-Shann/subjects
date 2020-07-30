@@ -27,6 +27,7 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Displays the 'about' screen
@@ -41,6 +42,7 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -58,6 +60,7 @@ public class AboutActivity extends AppCompatActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.startsWith("http")) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    Nappa.notifyExtras(browserIntent.getExtras());
                     startActivity(browserIntent);
                     return true;
                 } else {

@@ -29,6 +29,7 @@ import java.util.Collections;
 import nappagreedy.de.danoeh.antennapod.BuildConfig;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Let's the user choose a directory on the storage device. The selected folder
@@ -59,6 +60,7 @@ public class DirectoryChooserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

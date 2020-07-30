@@ -64,6 +64,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import nl.vu.cs.s2group.nappa.*;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -188,7 +190,9 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
     @Override
     protected void onAwaitingVideoSurface() {
         Log.d(TAG, "onAwaitingVideoSurface was called in audio player -> switching to video player");
-        startActivity(new Intent(this, VideoplayerActivity.class));
+        Intent intent = new Intent(this, VideoplayerActivity.class);
+        Nappa.notifyExtras(intent.getExtras());
+        startActivity(intent);
     }
 
     @Override
@@ -238,6 +242,7 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
                 Intent intent = new Intent(MediaplayerInfoActivity.this, MainActivity.class);
                 intent.putExtra(MainActivity.EXTRA_NAV_TYPE, viewType);
                 intent.putExtra(MainActivity.EXTRA_NAV_INDEX, position);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
             }
             drawerLayout.closeDrawer(navDrawer);
@@ -256,7 +261,9 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
 
         findViewById(R.id.nav_settings).setOnClickListener(v -> {
             drawerLayout.closeDrawer(navDrawer);
-            startActivity(new Intent(MediaplayerInfoActivity.this, PreferenceActivity.class));
+            Intent intent1 = new Intent(MediaplayerInfoActivity.this, PreferenceActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
         });
 
         butPlaybackSpeed = findViewById(R.id.butPlaybackSpeed);
@@ -279,7 +286,9 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
         if (notificationCode == PlaybackService.EXTRA_CODE_VIDEO) {
             Log.d(TAG, "ReloadNotification received, switching to Videoplayer now");
             finish();
-            startActivity(new Intent(this, VideoplayerActivity.class));
+            Intent intent = new Intent(this, VideoplayerActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
 
         }
     }

@@ -25,6 +25,7 @@ import nappagreedy.de.danoeh.antennapod.core.storage.DBWriter;
 import nappagreedy.de.danoeh.antennapod.core.storage.DownloadRequestException;
 import nappagreedy.de.danoeh.antennapod.core.util.IntentUtils;
 import nappagreedy.de.danoeh.antennapod.core.util.ShareUtils;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Handles interactions with the FeedItemMenu.
@@ -92,6 +93,7 @@ public class FeedMenuHandler {
                 Uri uri = Uri.parse(selectedFeed.getLink());
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 if(IntentUtils.isCallable(context, intent)) {
+                    Nappa.notifyExtras(intent.getExtras());
                     context.startActivity(intent);
                 } else {
                     Toast.makeText(context, context.getString(R.string.download_error_malformed_url),

@@ -20,6 +20,7 @@ import java.lang.ref.WeakReference;
 import nappagreedy.de.danoeh.antennapod.preferences.PreferenceController;
 import nappagreedy.de.danoeh.antennapod.R;
 import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * PreferenceActivity for API 11+. In order to change the behavior of the preference UI, see
@@ -63,6 +64,7 @@ public class PreferenceActivity extends AppCompatActivity implements SearchPrefe
     protected void onCreate(Bundle savedInstanceState) {
         // This must be the FIRST thing we do, otherwise other code may not have the
         // reference it needs
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         instance = new WeakReference<>(this);
 
         setTheme(UserPreferences.getTheme());

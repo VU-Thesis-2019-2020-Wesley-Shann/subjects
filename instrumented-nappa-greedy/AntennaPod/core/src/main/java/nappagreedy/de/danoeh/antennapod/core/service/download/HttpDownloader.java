@@ -26,6 +26,7 @@ import nappagreedy.de.danoeh.antennapod.core.util.DateUtils;
 import nappagreedy.de.danoeh.antennapod.core.util.DownloadError;
 import nappagreedy.de.danoeh.antennapod.core.util.StorageUtils;
 import nappagreedy.de.danoeh.antennapod.core.util.URIUtil;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.Call;
 import okhttp3.Interceptor;
@@ -58,7 +59,7 @@ public class HttpDownloader extends Downloader {
 
         OkHttpClient.Builder httpClientBuilder = AntennapodHttpClient.newBuilder();
         httpClientBuilder.interceptors().add(new BasicAuthorizationInterceptor(request));
-        OkHttpClient httpClient = httpClientBuilder.build();
+        OkHttpClient httpClient = Nappa.getOkHttp(httpClientBuilder.build());
         RandomAccessFile out = null;
         InputStream connection;
         ResponseBody responseBody = null;
@@ -107,9 +108,9 @@ public class HttpDownloader extends Downloader {
             } catch (IOException e) {
                 Log.e(TAG, e.toString());
                 if (e.getMessage().contains("PROTOCOL_ERROR")) {
-                    httpClient = httpClient.newBuilder()
+                    httpClient = Nappa.getOkHttp(httpClient.newBuilder()
                             .protocols(Collections.singletonList(Protocol.HTTP_1_1))
-                            .build();
+                            .build());
                     Call temp = httpClient.newCall(httpReq.build());
                     long sentRequestAtMillis = System.currentTimeMillis();
                     response = temp.execute();
