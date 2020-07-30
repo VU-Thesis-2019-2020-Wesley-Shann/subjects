@@ -116,8 +116,8 @@ public class HackerNewsClient implements ItemManager, UserManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<int[]> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 3");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 3");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
@@ -141,8 +141,8 @@ public class HackerNewsClient implements ItemManager, UserManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<HackerNewsItem> response  = call.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 4");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 4");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return response.body();
         } catch (IOException e) {
             return null;

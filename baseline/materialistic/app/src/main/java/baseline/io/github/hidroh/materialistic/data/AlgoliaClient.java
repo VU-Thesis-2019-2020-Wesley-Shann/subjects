@@ -76,8 +76,8 @@ public class AlgoliaClient implements ItemManager {
             long sentRequestAtMillis = System.currentTimeMillis();
             Response<AlgoliaHits> response = temp.execute();
             long receivedResponseAtMillis = System.currentTimeMillis();
-//            Log.d("MYTAG", "sync log 2");
-//            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
+            Log.d("MYTAG", "sync log 2");
+            MetricNetworkRequestExecutionTime.log(response.raw(), sentRequestAtMillis, receivedResponseAtMillis, true);
             return toItems(response.body());
         } catch (IOException e) {
             return new Item[0];
