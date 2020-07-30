@@ -27,7 +27,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
-import baseline.io.github.project_travel_mate.R;
+import nappagreedy.io.github.project_travel_mate.R;
 
 public class CircleImageView extends androidx.appcompat.widget.AppCompatImageView {
 

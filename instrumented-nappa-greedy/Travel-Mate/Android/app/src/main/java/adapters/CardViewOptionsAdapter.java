@@ -12,7 +12,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import baseline.io.github.project_travel_mate.R;
+import nappagreedy.io.github.project_travel_mate.R;
 import utils.CardItemEntity;
 
 public class CardViewOptionsAdapter

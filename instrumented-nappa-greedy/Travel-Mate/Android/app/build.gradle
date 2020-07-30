@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "baseline.io.github.project_travel_mate"
+        applicationId "nappagreedy.io.github.project_travel_mate"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 45

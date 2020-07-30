@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.TimeZone;
 
-import baseline.io.github.project_travel_mate.R;
+import nappagreedy.io.github.project_travel_mate.R;
 
 /**
  * The configuration screen for the {@link ClockWidget ClockWidget} AppWidget.

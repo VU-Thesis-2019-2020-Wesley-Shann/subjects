@@ -4,7 +4,7 @@
                                                  android:id="@+id/upcoming_weekends_activity"
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
-                                                 tools:context="baseline.io.github.project_travel_mate.utilities.UpcomingWeekendsActivity"
+                                                 tools:context="nappagreedy.io.github.project_travel_mate.utilities.UpcomingWeekendsActivity"
                                                  android:layout_margin="8dp">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

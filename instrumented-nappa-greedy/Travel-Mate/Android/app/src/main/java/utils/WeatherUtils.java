@@ -31,7 +31,7 @@ public class WeatherUtils {
 
         return context.getResources().getIdentifier(imageDrawable,
                 "drawable",
-                "baseline.io.github.project_travel_mate");
+                "nappagreedy.io.github.project_travel_mate");
     }
 
     /**

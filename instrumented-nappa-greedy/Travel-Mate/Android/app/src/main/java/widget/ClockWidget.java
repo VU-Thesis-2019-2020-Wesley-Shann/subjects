@@ -7,7 +7,7 @@ import android.widget.RemoteViews;
 
 import java.util.TimeZone;
 
-import baseline.io.github.project_travel_mate.R;
+import nappagreedy.io.github.project_travel_mate.R;
 
 /**
  * Implementation of App Widget functionality.

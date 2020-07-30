@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/login_activity"
-    tools:context="baseline.io.github.project_travel_mate.login.LoginActivity">
+    tools:context="nappagreedy.io.github.project_travel_mate.login.LoginActivity">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >

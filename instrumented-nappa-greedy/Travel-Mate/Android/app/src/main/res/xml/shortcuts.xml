@@ -6,9 +6,9 @@
         android:shortcutShortLabel="@string/navigation_drawer_utilities"
         android:shortcutLongLabel="@string/navigation_drawer_utilities">
         <intent
-            android:action="baseline.io.github.project_travel_mate.UtilitiesShortcut"
-            android:targetPackage="baseline.io.github.project_travel_mate"
-            android:targetClass="baseline.io.github.project_travel_mate.MainActivity" />
+            android:action="nappagreedy.io.github.project_travel_mate.UtilitiesShortcut"
+            android:targetPackage="nappagreedy.io.github.project_travel_mate"
+            android:targetClass="nappagreedy.io.github.project_travel_mate.MainActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -18,9 +18,9 @@
         android:shortcutShortLabel="@string/my_trip"
         android:shortcutLongLabel="@string/my_trip">
         <intent
-            android:action="baseline.io.github.project_travel_mate.MyTripsShortcut"
-            android:targetPackage="baseline.io.github.project_travel_mate"
-            android:targetClass="baseline.io.github.project_travel_mate.MainActivity" />
+            android:action="nappagreedy.io.github.project_travel_mate.MyTripsShortcut"
+            android:targetPackage="nappagreedy.io.github.project_travel_mate"
+            android:targetClass="nappagreedy.io.github.project_travel_mate.MainActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -30,9 +30,9 @@
         android:shortcutShortLabel="@string/navigation_drawer_travel"
         android:shortcutLongLabel="@string/navigation_drawer_travel">
         <intent
-            android:action="baseline.io.github.project_travel_mate.TravelShortcut"
-            android:targetPackage="baseline.io.github.project_travel_mate"
-            android:targetClass="baseline.io.github.project_travel_mate.MainActivity" />
+            android:action="nappagreedy.io.github.project_travel_mate.TravelShortcut"
+            android:targetPackage="nappagreedy.io.github.project_travel_mate"
+            android:targetClass="nappagreedy.io.github.project_travel_mate.MainActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -43,8 +43,8 @@
         android:shortcutLongLabel="@string/my_profile">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="baseline.io.github.project_travel_mate"
-            android:targetClass="baseline.io.github.project_travel_mate.ProfileActivity" />
+            android:targetPackage="nappagreedy.io.github.project_travel_mate"
+            android:targetClass="nappagreedy.io.github.project_travel_mate.ProfileActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>
