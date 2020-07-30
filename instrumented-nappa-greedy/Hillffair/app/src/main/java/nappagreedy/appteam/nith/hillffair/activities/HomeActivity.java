@@ -36,6 +36,7 @@ import nappagreedy.appteam.nith.hillffair.models.main_screen_model;
 import nappagreedy.appteam.nith.hillffair.utilities.APIINTERFACE;
 import nappagreedy.appteam.nith.hillffair.utilities.RecyclerItemClickListener;
 import nappagreedy.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,6 +56,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -101,28 +103,44 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(View view, int position) {
                 if (position == 6) {
-                    startActivity(new Intent(HomeActivity.this,aboutHillffairActivity.class));
+                    Intent intent = new Intent(HomeActivity.this, aboutHillffairActivity.class);
+                    Nappa.notifyExtras(intent.getExtras());
+                    startActivity(intent);
                 }
                 else if(position==0){
-                    startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
+                    Intent intent1 = new Intent(HomeActivity.this, BattleDayActivity.class);
+                    Nappa.notifyExtras(intent1.getExtras());
+                    startActivity(intent1);
                 }
                 else if (position==3){
-                    startActivity(new Intent(HomeActivity.this, NewsfeedActivity.class));
+                    Intent intent2 = new Intent(HomeActivity.this, NewsfeedActivity.class);
+                    Nappa.notifyExtras(intent2.getExtras());
+                    startActivity(intent2);
                 }
                 else if (position==1){
-                    startActivity(new Intent(HomeActivity.this,QuizActivity.class));
+                    Intent intent3 = new Intent(HomeActivity.this, QuizActivity.class);
+                    Nappa.notifyExtras(intent3.getExtras());
+                    startActivity(intent3);
                 }
                 else if(position==2){
-                    startActivity(new Intent(HomeActivity.this,SponsorActivity.class));
+                    Intent intent4 = new Intent(HomeActivity.this, SponsorActivity.class);
+                    Nappa.notifyExtras(intent4.getExtras());
+                    startActivity(intent4);
                 }
                 else if(position==4){
-                    startActivity(new Intent(HomeActivity.this,CoreTeamActivity.class));
+                    Intent intent5 = new Intent(HomeActivity.this, CoreTeamActivity.class);
+                    Nappa.notifyExtras(intent5.getExtras());
+                    startActivity(intent5);
                 }
                 else if(position==5){
-                    startActivity(new Intent(HomeActivity.this, EventActivity.class));
+                    Intent intent6 = new Intent(HomeActivity.this, EventActivity.class);
+                    Nappa.notifyExtras(intent6.getExtras());
+                    startActivity(intent6);
                 }
                 else if(position==7){
-                    startActivity(new Intent(HomeActivity.this, ContributorsActivity.class));
+                    Intent intent7 = new Intent(HomeActivity.this, ContributorsActivity.class);
+                    Nappa.notifyExtras(intent7.getExtras());
+                    startActivity(intent7);
                 }
             }
         }));
@@ -164,7 +182,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             pref.setUserId(null);
             pref.setRollNo(null);
             pref.setUserName(null);
-            startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
             finish();
             return true;
 
@@ -199,10 +219,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch(id) {
             case R.id.profile:
-                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                Intent intent1 = new Intent(HomeActivity.this, ProfileActivity.class);
+                Nappa.notifyExtras(intent1.getExtras());
+                startActivity(intent1);
                 break;
             case R.id.settings:
-                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+                Intent intent2 = new Intent(HomeActivity.this, SettingsActivity.class);
+                Nappa.notifyExtras(intent2.getExtras());
+                startActivity(intent2);
                 finish();
                 break;
             case R.id.aboutus:
@@ -221,7 +245,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 Uri uri = Uri.parse(uriText);
                 intent.setData(uri);
-                startActivity(Intent.createChooser(intent, "Send Email"));
+                Intent intent3 = Intent.createChooser(intent, "Send Email");
+                Nappa.notifyExtras(intent3.getExtras());
+                startActivity(intent3);
                 break;
             case R.id.license:
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
@@ -234,13 +260,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 ((TextView) welcomeAlert2.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
                 break;
             case R.id.notification:
-                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
+                Intent intent4 = new Intent(HomeActivity.this, NotificationActivity.class);
+                Nappa.notifyExtras(intent4.getExtras());
+                startActivity(intent4);
                 break;
             case R.id.logout:
                 pref.setUserId(null);
                 pref.setRollNo(null);
                 pref.setUserName(null);
-                startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                Intent intent5 = new Intent(HomeActivity.this, LoginActivity.class);
+                Nappa.notifyExtras(intent5.getExtras());
+                startActivity(intent5);
                 finish();
                 break;
 
@@ -322,6 +352,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             String phone = number[i];
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:+91" + phone));
+            Nappa.notifyExtras(intent.getExtras());
             startActivity(intent);
         }
     }

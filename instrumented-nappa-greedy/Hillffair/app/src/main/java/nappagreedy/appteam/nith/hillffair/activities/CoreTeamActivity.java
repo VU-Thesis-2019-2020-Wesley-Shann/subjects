@@ -12,6 +12,7 @@ import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.adapters.CoreTeamAdapter;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
 import nappagreedy.appteam.nith.hillffair.models.CoreTeamItem;
+import nl.vu.cs.s2group.nappa.*;
 
 public class CoreTeamActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class CoreTeamActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);

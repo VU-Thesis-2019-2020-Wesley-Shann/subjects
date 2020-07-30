@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ThemeSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +25,7 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_theme_selection);
         init();
         context=this;
@@ -91,10 +93,16 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
         }
         savetoSharedPref();
 
-        if(settings_call==false)
-        startActivity(new Intent(ThemeSelectionActivity.this,LoginActivity.class));
-        else
-        startActivity(new Intent(ThemeSelectionActivity.this,SettingsActivity.class));
+        if(settings_call==false) {
+            Intent intent1 = new Intent(ThemeSelectionActivity.this, LoginActivity.class);
+            Nappa.notifyExtras(intent1.getExtras());
+            startActivity(intent1);
+        }
+        else {
+            Intent intent = new Intent(ThemeSelectionActivity.this, SettingsActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
+        }
 
         finish();
     }
@@ -111,6 +119,7 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
         if(settings_call){
             Intent in=new Intent(ThemeSelectionActivity.this,SettingsActivity.class);
             overridePendingTransition(0,0);
+            Nappa.notifyExtras(in.getExtras());
             startActivity(in);
             finish();
         }

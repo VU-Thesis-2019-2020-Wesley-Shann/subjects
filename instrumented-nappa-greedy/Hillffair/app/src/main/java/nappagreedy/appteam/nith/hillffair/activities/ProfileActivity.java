@@ -18,6 +18,8 @@ import nappagreedy.appteam.nith.hillffair.application.SharedPref;
 import nappagreedy.appteam.nith.hillffair.fragments.ProfileTab1;
 import nappagreedy.appteam.nith.hillffair.fragments.ProfileTab2;
 import nappagreedy.appteam.nith.hillffair.fragments.ProfileTab3;
+import nl.vu.cs.s2group.nappa.*;
+
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
 
@@ -90,7 +93,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, "Select Profile Picture"), PICK_IMAGE_REQUEST);
+        Intent intent1 = Intent.createChooser(intent, "Select Profile Picture");
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivityForResult(intent1, PICK_IMAGE_REQUEST);
 
     }
 

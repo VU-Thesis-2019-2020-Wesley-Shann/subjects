@@ -28,6 +28,7 @@ import net.steamcrafted.loadtoast.LoadToast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -313,7 +315,9 @@ public class SignUpActivity extends AppCompatActivity {
                    if (register.isSuccess()){
                        Toast.makeText(SignUpActivity.this,"SuccessFully Registered. Please verify your Email.",Toast.LENGTH_LONG).show();
                        loadToast.success();
-                       startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
+                       Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                       Nappa.notifyExtras(intent.getExtras());
+                       startActivity(intent);
                        finish();
                    }
                    else {

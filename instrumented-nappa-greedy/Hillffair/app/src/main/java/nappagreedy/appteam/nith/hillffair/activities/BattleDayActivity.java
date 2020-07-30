@@ -21,6 +21,7 @@ import nappagreedy.appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +36,7 @@ public class BattleDayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
 
@@ -60,6 +62,7 @@ public class BattleDayActivity extends AppCompatActivity {
                 i.putExtra("id",list.get(position).getId());
                 i.putExtra("battleday",true);
 
+                Nappa.notifyExtras(i.getExtras());
                 startActivity(i);
             }
         }));

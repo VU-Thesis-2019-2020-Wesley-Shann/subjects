@@ -24,6 +24,7 @@ import net.steamcrafted.loadtoast.LoadToast;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 /**
  * Created by root on 20/10/16.
@@ -36,6 +37,7 @@ public class Notification2 extends AppCompatActivity {
     CardView sec_card,thrd_card;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
 
@@ -79,6 +81,7 @@ public class Notification2 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(l_url));
+                    Nappa.notifyExtras(i.getExtras());
                     startActivity(i);
                 }
             });

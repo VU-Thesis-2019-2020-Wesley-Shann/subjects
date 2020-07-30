@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import nappagreedy.appteam.nith.hillffair.Notification.NotificationActivity;
 import nappagreedy.appteam.nith.hillffair.Notification.DbHelper;
+import nl.vu.cs.s2group.nappa.*;
 
 
 /**
@@ -53,6 +54,7 @@ public class MyApplication extends Application {
                 Log.v("","inserted Successfully");
                 Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Nappa.notifyExtras(intent.getExtras());
                 startActivity(intent);
 
             }
@@ -97,7 +99,8 @@ public class MyApplication extends Application {
             // Replace - getApplicationContext() - with any Android Context.
              Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-             startActivity(intent);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
 
             // Add the following to your AndroidManifest.xml to prevent the launching of your main Activity
             //   if you are calling startActivity above.

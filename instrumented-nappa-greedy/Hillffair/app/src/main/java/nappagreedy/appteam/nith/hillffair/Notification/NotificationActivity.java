@@ -18,6 +18,7 @@ import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.activities.Home_posts_gns;
 import nappagreedy.appteam.nith.hillffair.adapters.Notification;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 public class NotificationActivity extends AppCompatActivity {
 DbHelper dbHandler;
@@ -25,6 +26,7 @@ DbHelper dbHandler;
     List<Home_posts_gns> arrayList;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
 
@@ -53,7 +55,8 @@ DbHelper dbHandler;
                 Intent expand = new Intent(getApplicationContext(), Notification2.class);
                 Log.d("afasdf","intent_putextrats"+id+"g12112ddddd"+db_position);
                 expand.putExtra("id",id);
-                 startActivity(expand);
+                Nappa.notifyExtras(expand.getExtras());
+                startActivity(expand);
 
             }
         }));

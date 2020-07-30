@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -36,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,WelcomeActivity.class);
                 in.putExtra("settings_call",true);
 
+                Nappa.notifyExtras(in.getExtras());
                 startActivity(in);
             }
         });
@@ -46,6 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Intent in=new Intent(SettingsActivity.this,ThemeSelectionActivity.class);
                 in.putExtra("settings_call",true);
 
+                Nappa.notifyExtras(in.getExtras());
                 startActivity(in);
                 finish();
             }
@@ -59,6 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         if(item.getItemId()==android.R.id.home){
             Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
             overridePendingTransition(0,0);
+            Nappa.notifyExtras(in.getExtras());
             startActivity(in);
             finish();
         }
@@ -72,6 +77,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Intent in=new Intent(SettingsActivity.this,HomeActivity.class);
         overridePendingTransition(0,0);
+        Nappa.notifyExtras(in.getExtras());
         startActivity(in);
         finish();
     }

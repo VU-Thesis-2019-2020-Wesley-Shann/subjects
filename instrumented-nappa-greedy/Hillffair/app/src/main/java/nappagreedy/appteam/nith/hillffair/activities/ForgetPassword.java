@@ -24,6 +24,7 @@ import nappagreedy.appteam.nith.hillffair.utilities.Utils;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,6 +50,7 @@ public class ForgetPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref = new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -287,7 +289,9 @@ public class ForgetPassword extends AppCompatActivity {
                     if (returnedResponse) {
                         Toast.makeText(ForgetPassword.this, "Password changed Successfully", Toast.LENGTH_LONG).show();
                       //  Toast.makeText(ForgetPassword.this,pwd , Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        Nappa.notifyExtras(intent.getExtras());
+                        startActivity(intent);
                         loadToast.success();
                         finish();
                     } else {

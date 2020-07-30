@@ -13,6 +13,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.Target;
 
 import nappagreedy.appteam.nith.hillffair.R;
+import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 public class SplashActivity extends AppCompatActivity {
     private static final long TIME_SPLASH =1500 ;
@@ -20,6 +22,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
@@ -29,7 +33,9 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,WelcomeActivity.class));
+                Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
                   finish();
             }
         },TIME_SPLASH);

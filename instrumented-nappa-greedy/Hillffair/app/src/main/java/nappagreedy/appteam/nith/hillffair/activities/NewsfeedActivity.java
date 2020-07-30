@@ -25,6 +25,7 @@ import nappagreedy.appteam.nith.hillffair.utilities.Utils;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +45,7 @@ public class NewsfeedActivity extends AppCompatActivity implements SwipeRefreshL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -112,7 +114,9 @@ public class NewsfeedActivity extends AppCompatActivity implements SwipeRefreshL
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(NewsfeedActivity.this,UploadNewsFeedActivity.class));
+                Intent intent = new Intent(NewsfeedActivity.this, UploadNewsFeedActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         });
 

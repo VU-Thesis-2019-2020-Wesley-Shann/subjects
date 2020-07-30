@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.models.contributorsItem;
+import nl.vu.cs.s2group.nappa.*;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.ImageViewTarget;
@@ -61,6 +63,7 @@ public class contributorsAdapter extends RecyclerView.Adapter<contributorsAdapte
                 public void onClick(View v) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
+                    Nappa.notifyExtras(i.getExtras());
                     context.startActivity(i);
                 }
             });

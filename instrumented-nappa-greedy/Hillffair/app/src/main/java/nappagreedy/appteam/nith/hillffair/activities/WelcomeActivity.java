@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -37,6 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
         settings_call=getIntent().getBooleanExtra("settings_call",false);
 
@@ -110,14 +112,20 @@ public class WelcomeActivity extends AppCompatActivity {
     private void launchHomeScreen() {
         sharedPref.setStartUpShow(false);
         if(sharedPref.getUserId()!=null){
-            startActivity(new Intent(WelcomeActivity.this,HomeActivity.class));
+            Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+            Nappa.notifyExtras(intent.getExtras());
+            startActivity(intent);
         }
         else{
             if(sharedPref.getThemeId()==0){
-                startActivity(new Intent(this,ThemeSelectionActivity.class));
+                Intent intent1 = new Intent(this, ThemeSelectionActivity.class);
+                Nappa.notifyExtras(intent1.getExtras());
+                startActivity(intent1);
             }
             else {
-                startActivity(new Intent(this,LoginActivity.class));
+                Intent intent2 = new Intent(this, LoginActivity.class);
+                Nappa.notifyExtras(intent2.getExtras());
+                startActivity(intent2);
             }
 
         }

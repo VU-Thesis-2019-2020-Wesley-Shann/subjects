@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import nl.vu.cs.s2group.nappa.Nappa;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -48,7 +49,12 @@ public class Utils {
             }
         });
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api-hillfair-2k16.herokuapp.com/api/app/").addConverterFactory(GsonConverterFactory.create()).client(oBuilder.build()).build();
+        // This instrumentation was done manually
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api-hillfair-2k16.herokuapp.com/api/app/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(Nappa.getOkHttp(oBuilder.build()))
+                .build();
         APIINTERFACE service = retrofit.create(APIINTERFACE.class);
         return service;
     }

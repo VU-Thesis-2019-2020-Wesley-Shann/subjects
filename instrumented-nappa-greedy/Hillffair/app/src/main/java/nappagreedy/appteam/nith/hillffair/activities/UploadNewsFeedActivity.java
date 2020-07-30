@@ -20,6 +20,7 @@ import nappagreedy.appteam.nith.hillffair.custom_views.EditorView;
 import nappagreedy.appteam.nith.hillffair.utilities.Utils;
 import com.google.gson.annotations.SerializedName;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +39,7 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         sharedPref=new SharedPref(this);
         setTheme(sharedPref.getThemeId());
         setContentView(R.layout.activity_upload_news_feed);
@@ -77,7 +79,9 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
     private void createchooser() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, "CHOOSE PHOTO"), PICK_IMAGE_REQUEST);
+        Intent intent1 = Intent.createChooser(intent, "CHOOSE PHOTO");
+        Nappa.notifyExtras(intent1.getExtras());
+        startActivityForResult(intent1, PICK_IMAGE_REQUEST);
     }
 
     @Override

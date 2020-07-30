@@ -34,6 +34,7 @@ import nappagreedy.appteam.nith.hillffair.utilities.APIINTERFACE;
 import nappagreedy.appteam.nith.hillffair.utilities.Connection;
 import nappagreedy.appteam.nith.hillffair.utilities.ScoreCalculator;
 import nappagreedy.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +54,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -276,6 +278,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                         Intent in=new Intent(QuizQuestionActivity.this,QuizScoreActivity.class);
                         in.putExtra("score",score);
 
+                        Nappa.notifyExtras(in.getExtras());
                         startActivity(in);
                         t.cancel(true);
                     }else{
@@ -409,6 +412,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                 Intent in=new Intent(context,QuizScoreActivity.class);
                 in.putExtra("score",0);
 
+                Nappa.notifyExtras(in.getExtras());
                 context.startActivity(in);
             }
 

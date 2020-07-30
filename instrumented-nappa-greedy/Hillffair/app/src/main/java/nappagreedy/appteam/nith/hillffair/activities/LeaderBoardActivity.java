@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +37,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref sharedPref = new SharedPref(this);
         setTheme(sharedPref.getThemeId());
         setContentView(R.layout.activity_leader_board);

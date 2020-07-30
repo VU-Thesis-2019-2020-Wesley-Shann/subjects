@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 public class QuizActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -17,6 +18,7 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -35,7 +37,9 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(sp.getInstructionsReadStatus()){
-                    startActivity(new Intent(QuizActivity.this,QuizQuestionActivity.class));
+                    Intent intent = new Intent(QuizActivity.this, QuizQuestionActivity.class);
+                    Nappa.notifyExtras(intent.getExtras());
+                    startActivity(intent);
                 }else{
                     Toast.makeText(QuizActivity.this,"Read Quiz Instructions first",Toast.LENGTH_LONG).show();
                 }
@@ -45,13 +49,17 @@ public class QuizActivity extends AppCompatActivity {
         instructions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(QuizActivity.this,InformationActivity.class));
+                Intent intent = new Intent(QuizActivity.this, InformationActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         });
         leaderboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(QuizActivity.this,LeaderBoardActivity.class));
+                Intent intent = new Intent(QuizActivity.this, LeaderBoardActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         });
     }

@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
+import nl.vu.cs.s2group.nappa.*;
 
 
 public class aboutHillffairActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         setContentView(R.layout.activity_about_hillffair);

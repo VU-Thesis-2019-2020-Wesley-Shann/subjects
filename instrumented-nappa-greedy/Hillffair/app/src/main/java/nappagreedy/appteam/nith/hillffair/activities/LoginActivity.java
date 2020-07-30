@@ -25,6 +25,7 @@ import nappagreedy.appteam.nith.hillffair.utilities.Utils;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
@@ -66,7 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this,ForgetPassword.class));
+                Intent intent = new Intent(LoginActivity.this, ForgetPassword.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         });
         logo.startAnimation(bounceLogo);
@@ -98,7 +102,9 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.signup_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Nappa.notifyExtras(intent.getExtras());
+                startActivity(intent);
             }
         });
 
@@ -161,7 +167,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (returnedResponse) {
                         pref.setUserId(mLoginObject.getId());
-                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        Nappa.notifyExtras(intent.getExtras());
+                        startActivity(intent);
                         finish();
                     }else {
                         String error = mLoginObject.getMsg();

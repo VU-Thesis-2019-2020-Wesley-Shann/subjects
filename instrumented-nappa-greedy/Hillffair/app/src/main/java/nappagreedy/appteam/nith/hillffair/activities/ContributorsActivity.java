@@ -10,6 +10,7 @@ import nappagreedy.appteam.nith.hillffair.R;
 import nappagreedy.appteam.nith.hillffair.adapters.contributorsAdapter;
 import nappagreedy.appteam.nith.hillffair.application.SharedPref;
 import nappagreedy.appteam.nith.hillffair.models.contributorsItem;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class ContributorsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref = new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);

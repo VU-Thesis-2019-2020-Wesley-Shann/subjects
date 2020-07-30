@@ -25,6 +25,7 @@ import nappagreedy.appteam.nith.hillffair.models.BattleEventResponse;
 import nappagreedy.appteam.nith.hillffair.models.ClubModel;
 import nappagreedy.appteam.nith.hillffair.models.ClubModel2;
 import nappagreedy.appteam.nith.hillffair.utilities.Utils;
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,6 +48,7 @@ public class ClubActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getLifecycle().addObserver(new NappaLifecycleObserver(this));
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
         super.onCreate(savedInstanceState);
