@@ -1,4 +1,4 @@
-package baseline.de.danoeh.antennapod.core.cast;
+package nappagreedy.de.danoeh.antennapod.core.cast;
 
 import com.google.android.libraries.cast.companionlibrary.cast.callbacks.VideoCastConsumerImpl;
 

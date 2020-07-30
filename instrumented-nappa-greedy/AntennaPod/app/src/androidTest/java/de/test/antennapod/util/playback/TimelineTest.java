@@ -11,11 +11,11 @@ import org.jsoup.select.Elements;
 import java.util.Date;
 import java.util.List;
 
-import baseline.de.danoeh.antennapod.core.feed.Chapter;
-import baseline.de.danoeh.antennapod.core.feed.FeedItem;
-import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
-import baseline.de.danoeh.antennapod.core.util.playback.Playable;
-import baseline.de.danoeh.antennapod.core.util.playback.Timeline;
+import nappagreedy.de.danoeh.antennapod.core.feed.Chapter;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
+import nappagreedy.de.danoeh.antennapod.core.util.playback.Timeline;
 
 /**
  * Test class for timeline

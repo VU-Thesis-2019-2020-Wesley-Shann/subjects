@@ -18,16 +18,16 @@ import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import baseline.de.danoeh.antennapod.core.feed.Feed;
-import baseline.de.danoeh.antennapod.core.feed.FeedItem;
-import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
-import baseline.de.danoeh.antennapod.core.feed.FeedPreferences;
-import baseline.de.danoeh.antennapod.core.feed.MediaType;
-import baseline.de.danoeh.antennapod.core.service.playback.LocalPSMP;
-import baseline.de.danoeh.antennapod.core.service.playback.PlaybackServiceMediaPlayer;
-import baseline.de.danoeh.antennapod.core.service.playback.PlayerStatus;
-import baseline.de.danoeh.antennapod.core.storage.PodDBAdapter;
-import baseline.de.danoeh.antennapod.core.util.playback.Playable;
+import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedPreferences;
+import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
+import nappagreedy.de.danoeh.antennapod.core.service.playback.LocalPSMP;
+import nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackServiceMediaPlayer;
+import nappagreedy.de.danoeh.antennapod.core.service.playback.PlayerStatus;
+import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
 import de.test.antennapod.util.service.download.HTTPBin;
 
 /**

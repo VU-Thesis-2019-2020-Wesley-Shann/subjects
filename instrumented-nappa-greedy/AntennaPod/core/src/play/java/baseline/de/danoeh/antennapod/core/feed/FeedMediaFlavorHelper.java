@@ -1,6 +1,6 @@
-package baseline.de.danoeh.antennapod.core.feed;
+package nappagreedy.de.danoeh.antennapod.core.feed;
 
-import baseline.de.danoeh.antennapod.core.cast.RemoteMedia;
+import nappagreedy.de.danoeh.antennapod.core.cast.RemoteMedia;
 
 /**
  * Implements methods for FeedMedia that are flavor dependent.

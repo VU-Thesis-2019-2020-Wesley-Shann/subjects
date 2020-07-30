@@ -7,10 +7,10 @@ import org.xmlpull.v1.XmlSerializer;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import baseline.de.danoeh.antennapod.core.feed.Feed;
-import baseline.de.danoeh.antennapod.core.feed.FeedItem;
-import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
-import baseline.de.danoeh.antennapod.core.util.DateUtils;
+import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappagreedy.de.danoeh.antennapod.core.util.DateUtils;
 
 /**
  * Creates Atom feeds. See FeedGenerator for more information.

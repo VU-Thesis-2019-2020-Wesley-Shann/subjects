@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.mediarouter.app.MediaRouteControllerDialogFragment;
 import androidx.mediarouter.app.MediaRouteDialogFactory;
 
-import baseline.de.danoeh.antennapod.core.CastCallbacks;
-import baseline.de.danoeh.antennapod.fragment.CustomMRControllerDialogFragment;
+import nappagreedy.de.danoeh.antennapod.core.CastCallbacks;
+import nappagreedy.de.danoeh.antennapod.fragment.CustomMRControllerDialogFragment;
 
 public class CastCallbackImpl implements CastCallbacks {
     @Override

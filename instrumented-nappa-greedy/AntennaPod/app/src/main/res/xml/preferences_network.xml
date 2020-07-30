@@ -23,7 +23,7 @@
                 android:key="prefMobileUpdateAllowed"
                 android:summary="@string/pref_mobileUpdate_sum"
                 android:title="@string/pref_mobileUpdate_title"/>
-        <baseline.de.danoeh.antennapod.preferences.NumberPickerPreference
+        <nappagreedy.de.danoeh.antennapod.preferences.NumberPickerPreference
                 android:defaultValue="4"
                 numberpicker:minValue="1"
                 numberpicker:maxValue="50"

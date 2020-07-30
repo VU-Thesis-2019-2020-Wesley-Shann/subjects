@@ -1,13 +1,13 @@
-package baseline.de.danoeh.antennapod.core;
+package nappagreedy.de.danoeh.antennapod.core;
 
 import android.content.Context;
 
-import baseline.de.danoeh.antennapod.core.cast.CastManager;
-import baseline.de.danoeh.antennapod.core.preferences.PlaybackPreferences;
-import baseline.de.danoeh.antennapod.core.preferences.SleepTimerPreferences;
-import baseline.de.danoeh.antennapod.core.preferences.UserPreferences;
-import baseline.de.danoeh.antennapod.core.storage.PodDBAdapter;
-import baseline.de.danoeh.antennapod.core.util.NetworkUtils;
+import nappagreedy.de.danoeh.antennapod.core.cast.CastManager;
+import nappagreedy.de.danoeh.antennapod.core.preferences.PlaybackPreferences;
+import nappagreedy.de.danoeh.antennapod.core.preferences.SleepTimerPreferences;
+import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nappagreedy.de.danoeh.antennapod.core.util.NetworkUtils;
 
 /**
  * Stores callbacks for core classes like Services, DB classes etc. and other configuration variables.

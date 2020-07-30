@@ -21,7 +21,7 @@ android {
         // "1.2.3"          -> 1020395
         versionCode 1070296
         versionName "1.7.2b"
-        applicationId "baseline.de.danoeh.antennapod"
+        applicationId "nappagreedy.de.danoeh.antennapod"
         testApplicationId "de.test.antennapod"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         generatedDensities = []
@@ -67,7 +67,7 @@ android {
 
         debug {
             applicationIdSuffix ".debug"
-            resValue "string", "provider_authority", "baseline.de.danoeh.antennapod.debug.provider"
+            resValue "string", "provider_authority", "nappagreedy.de.danoeh.antennapod.debug.provider"
             buildConfigField STRING, FLATTR_APP_KEY, mFlattrAppKey
             buildConfigField STRING, FLATTR_APP_SECRET, mFlattrAppSecret            
             dexcount {
@@ -79,7 +79,7 @@ android {
             }
         }
         release {
-            resValue "string", "provider_authority", "baseline.de.danoeh.antennapod.provider"
+            resValue "string", "provider_authority", "nappagreedy.de.danoeh.antennapod.provider"
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), "proguard.cfg"
             signingConfig signingConfigs.releaseConfig

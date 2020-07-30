@@ -1,4 +1,4 @@
-package baseline.de.danoeh.antennapod.core.cast;
+package nappagreedy.de.danoeh.antennapod.core.cast;
 
 import android.app.Activity;
 import android.content.Context;

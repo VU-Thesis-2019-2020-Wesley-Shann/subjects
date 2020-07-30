@@ -1,4 +1,4 @@
-package baseline.de.danoeh.antennapod.core.cast;
+package nappagreedy.de.danoeh.antennapod.core.cast;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,17 +19,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import baseline.de.danoeh.antennapod.core.feed.Chapter;
-import baseline.de.danoeh.antennapod.core.feed.Feed;
-import baseline.de.danoeh.antennapod.core.feed.FeedItem;
-import baseline.de.danoeh.antennapod.core.feed.FeedMedia;
-import baseline.de.danoeh.antennapod.core.feed.MediaType;
-import baseline.de.danoeh.antennapod.core.util.ChapterUtils;
-import baseline.de.danoeh.antennapod.core.util.playback.Playable;
+import nappagreedy.de.danoeh.antennapod.core.feed.Chapter;
+import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
+import nappagreedy.de.danoeh.antennapod.core.util.ChapterUtils;
+import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
 
 /**
  * Playable implementation for media on a Cast Device for which a local version of
- * {@link baseline.de.danoeh.antennapod.core.feed.FeedMedia} hasn't been found.
+ * {@link nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia} hasn't been found.
  */
 public class RemoteMedia implements Playable {
     public static final String TAG = "RemoteMedia";

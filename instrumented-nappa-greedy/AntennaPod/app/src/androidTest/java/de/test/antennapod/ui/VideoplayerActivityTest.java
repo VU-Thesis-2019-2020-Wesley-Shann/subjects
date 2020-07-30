@@ -4,7 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
 
-import baseline.de.danoeh.antennapod.activity.VideoplayerActivity;
+import nappagreedy.de.danoeh.antennapod.activity.VideoplayerActivity;
 
 /**
  * Test class for VideoplayerActivity

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.mediarouter.app.MediaRouteControllerDialog;
 import androidx.mediarouter.app.MediaRouteControllerDialogFragment;
 
-import baseline.de.danoeh.antennapod.dialog.CustomMRControllerDialog;
+import nappagreedy.de.danoeh.antennapod.dialog.CustomMRControllerDialog;
 
 public class CustomMRControllerDialogFragment extends MediaRouteControllerDialogFragment {
     @Override
