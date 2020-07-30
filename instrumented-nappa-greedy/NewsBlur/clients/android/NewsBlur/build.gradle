@@ -85,7 +85,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 23
-        applicationId "baseline.com.newsblur"
+        applicationId "nappagreedy.com.newsblur"
     }
 }
 

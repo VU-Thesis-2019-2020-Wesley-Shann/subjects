@@ -5,7 +5,7 @@
 
     <!-- The two views in this top FrameLayout are swapped when HTML5 webview custom content wants to be displayed -->
 
-    <baseline.com.newsblur.view.ReadingScrollView
+    <nappagreedy.com.newsblur.view.ReadingScrollView
         android:id="@+id/reading_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -107,7 +107,7 @@
                     android:textSize="12sp"
                     android:textStyle="bold"/>
 
-                <baseline.com.newsblur.view.FlowLayout
+                <nappagreedy.com.newsblur.view.FlowLayout
                     android:id="@+id/reading_item_tags"
                     android:layout_width="match_parent"
                     android:layout_height="17dp"
@@ -161,7 +161,7 @@
                 android:visibility="gone"
             />
 
-            <baseline.com.newsblur.view.NewsblurWebview
+            <nappagreedy.com.newsblur.view.NewsblurWebview
                 android:id="@+id/reading_webview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
             
         </LinearLayout>
 
-    </baseline.com.newsblur.view.ReadingScrollView>
+    </nappagreedy.com.newsblur.view.ReadingScrollView>
 
     <FrameLayout
         android:id="@+id/custom_view_container"

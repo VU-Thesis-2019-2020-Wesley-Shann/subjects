@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="baseline.com.newsblur"
+    package="nappagreedy.com.newsblur"
     android:versionCode="160"
     android:versionName="9.0b1" >
 
@@ -20,7 +20,7 @@
         android:fullBackupContent="@xml/backupscheme" >
         
         <activity
-            android:name="baseline.com.newsblur.activity.InitActivity"
+            android:name="nappagreedy.com.newsblur.activity.InitActivity"
             android:label="@string/newsblur"
             android:theme="@style/initStyle"
             android:noHistory="true">
@@ -31,101 +31,101 @@
         </activity>
 
         <activity
-            android:name="baseline.com.newsblur.activity.Login"
+            android:name="nappagreedy.com.newsblur.activity.Login"
             android:label="@string/newsblur"
             android:noHistory="true"
             android:windowSoftInputMode="adjustResize">
         </activity>
         
         <activity
-            android:name="baseline.com.newsblur.activity.LoginProgress"
+            android:name="nappagreedy.com.newsblur.activity.LoginProgress"
             android:noHistory="true"
             android:label="@string/newsblur" />
        	
 		<activity
-            android:name="baseline.com.newsblur.activity.RegisterProgress"
+            android:name="nappagreedy.com.newsblur.activity.RegisterProgress"
             android:noHistory="true"
             android:label="@string/get_started" />
 		
 		<activity
-            android:name="baseline.com.newsblur.activity.AddTwitter"
+            android:name="nappagreedy.com.newsblur.activity.AddTwitter"
             android:label="@string/add_twitter" />
 		
 			<activity
-            android:name="baseline.com.newsblur.activity.AddFacebook"
+            android:name="nappagreedy.com.newsblur.activity.AddFacebook"
             android:label="@string/add_facebook" />
 		
 		<activity
-            android:name="baseline.com.newsblur.activity.AddSocial"
+            android:name="nappagreedy.com.newsblur.activity.AddSocial"
             android:label="@string/add_friends" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.Main"
+            android:name="nappagreedy.com.newsblur.activity.Main"
             android:label="@string/newsblur"
             android:launchMode="singleTask"
             android:alwaysRetainTaskState="true" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.Profile"
+            android:name="nappagreedy.com.newsblur.activity.Profile"
             android:label="@string/profile"/>
         
         <activity
-            android:name="baseline.com.newsblur.activity.Settings"
+            android:name="nappagreedy.com.newsblur.activity.Settings"
             android:label="@string/settings"/>
         
         <activity
-            android:name="baseline.com.newsblur.activity.FeedItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.FeedItemsList" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.AllStoriesItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.AllStoriesItemsList" />
 
         <activity
-            android:name="baseline.com.newsblur.activity.InfrequentItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.InfrequentItemsList" />
 
         <activity
-            android:name="baseline.com.newsblur.activity.ReadStoriesItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.ReadStoriesItemsList" />
 
         <activity
-            android:name="baseline.com.newsblur.activity.SavedStoriesItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.SavedStoriesItemsList" />
          
         <activity
-            android:name="baseline.com.newsblur.activity.AllSharedStoriesItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.AllSharedStoriesItemsList" />
 
         <activity
-            android:name="baseline.com.newsblur.activity.GlobalSharedStoriesItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.GlobalSharedStoriesItemsList" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.FolderItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.FolderItemsList" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.SocialFeedItemsList" />
+            android:name="nappagreedy.com.newsblur.activity.SocialFeedItemsList" />
         
         <activity
-            android:name="baseline.com.newsblur.activity.FeedReading"/>
+            android:name="nappagreedy.com.newsblur.activity.FeedReading"/>
         
         <activity
-            android:name="baseline.com.newsblur.activity.AllStoriesReading"/>
+            android:name="nappagreedy.com.newsblur.activity.AllStoriesReading"/>
 
         <activity
-            android:name="baseline.com.newsblur.activity.InfrequentReading"/>
+            android:name="nappagreedy.com.newsblur.activity.InfrequentReading"/>
 
         <activity
-            android:name="baseline.com.newsblur.activity.ReadStoriesReading"/>
+            android:name="nappagreedy.com.newsblur.activity.ReadStoriesReading"/>
 
         <activity
-            android:name="baseline.com.newsblur.activity.SavedStoriesReading"/>
+            android:name="nappagreedy.com.newsblur.activity.SavedStoriesReading"/>
         
         <activity
-            android:name="baseline.com.newsblur.activity.AllSharedStoriesReading"/>
+            android:name="nappagreedy.com.newsblur.activity.AllSharedStoriesReading"/>
 
         <activity
-            android:name="baseline.com.newsblur.activity.GlobalSharedStoriesReading"/>
+            android:name="nappagreedy.com.newsblur.activity.GlobalSharedStoriesReading"/>
         
         <activity
-            android:name="baseline.com.newsblur.activity.FolderReading"/>
+            android:name="nappagreedy.com.newsblur.activity.FolderReading"/>
         
         <activity 
-            android:name="baseline.com.newsblur.activity.SearchForFeeds" android:launchMode="singleTop" >
+            android:name="nappagreedy.com.newsblur.activity.SearchForFeeds" android:launchMode="singleTop" >
         	<intent-filter>
             	<action android:name="android.intent.action.SEARCH" />
         	</intent-filter>
@@ -133,25 +133,25 @@
     	</activity>
         
         <activity
-            android:name="baseline.com.newsblur.activity.SocialFeedReading"/>
+            android:name="nappagreedy.com.newsblur.activity.SocialFeedReading"/>
 
         <service 
-            android:name="baseline.com.newsblur.service.NBSyncService"
+            android:name="nappagreedy.com.newsblur.service.NBSyncService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <receiver android:name="baseline.com.newsblur.service.BootReceiver">
+        <receiver android:name="nappagreedy.com.newsblur.service.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="baseline.com.newsblur.util.NotifyDismissReceiver" android:exported="false" />
-        <receiver android:name="baseline.com.newsblur.util.NotifySaveReceiver" android:exported="false" />
-        <receiver android:name="baseline.com.newsblur.util.NotifyMarkreadReceiver" android:exported="false" />
+        <receiver android:name="nappagreedy.com.newsblur.util.NotifyDismissReceiver" android:exported="false" />
+        <receiver android:name="nappagreedy.com.newsblur.util.NotifySaveReceiver" android:exported="false" />
+        <receiver android:name="nappagreedy.com.newsblur.util.NotifyMarkreadReceiver" android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="baseline.com.newsblur.fileprovider"
+            android:authorities="nappagreedy.com.newsblur.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -159,7 +159,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="baseline.com.newsblur.activity.AddFeedExternal">
+        <activity android:name="nappagreedy.com.newsblur.activity.AddFeedExternal">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
