@@ -36,6 +36,7 @@ import nappagreedy.org.quantumbadger.redreader.common.RRTime;
 import nappagreedy.org.quantumbadger.redreader.reddit.prepared.markdown.MarkdownParagraphGroup;
 import nappagreedy.org.quantumbadger.redreader.reddit.prepared.markdown.MarkdownParser;
 import nappagreedy.org.quantumbadger.redreader.reddit.things.RedditMessage;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.HashSet;
 
@@ -100,6 +101,7 @@ public final class RedditPreparedMessage implements RedditRenderableInboxItem {
 		intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, idAndType);
 		intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, src.getUnescapedBodyMarkdown());
 		intent.putExtra(CommentReplyActivity.PARENT_TYPE, CommentReplyActivity.PARENT_TYPE_MESSAGE);
+		Nappa.notifyExtras(intent.getExtras());
 		activity.startActivity(intent);
 	}
 

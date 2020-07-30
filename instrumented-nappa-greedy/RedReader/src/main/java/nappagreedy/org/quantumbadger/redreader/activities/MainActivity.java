@@ -72,6 +72,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.url.UserCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserPostListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserProfileURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.Locale;
 import java.util.Set;
@@ -118,6 +119,8 @@ public class MainActivity extends RefreshableActivity
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 
+		Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
@@ -310,7 +313,9 @@ public class MainActivity extends RefreshableActivity
 
 		Boolean startInbox = getIntent().getBooleanExtra("isNewMessage", false);
 		if(startInbox) {
-			startActivity(new Intent(this, InboxListingActivity.class));
+			Intent intent = new Intent(this, InboxListingActivity.class);
+			Nappa.notifyExtras(intent.getExtras());
+			startActivity(intent);
 		}
 	}
 
@@ -449,12 +454,15 @@ public class MainActivity extends RefreshableActivity
 			}
 
 			case MainMenuFragment.MENU_MENU_ACTION_INBOX:
-				startActivity(new Intent(this, InboxListingActivity.class));
+				Intent intent1 = new Intent(this, InboxListingActivity.class);
+				Nappa.notifyExtras(intent1.getExtras());
+				startActivity(intent1);
 				break;
 
 			case MainMenuFragment.MENU_MENU_ACTION_MODMAIL: {
 				final Intent intent = new Intent(this, InboxListingActivity.class);
 				intent.putExtra("modmail", true);
+				Nappa.notifyExtras(intent.getExtras());
 				startActivity(intent);
 				break;
 			}
@@ -522,6 +530,7 @@ public class MainActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(this, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
+				Nappa.notifyExtras(intent.getExtras());
 				this.startActivity(intent);
 				break;
 			}
@@ -542,6 +551,7 @@ public class MainActivity extends RefreshableActivity
 		} else {
 			final Intent intent = new Intent(this, PostListingActivity.class);
 			intent.setData(url.generateJsonUri());
+			Nappa.notifyExtras(intent.getExtras());
 			startActivityForResult(intent, 1);
 		}
 	}
@@ -812,6 +822,7 @@ public class MainActivity extends RefreshableActivity
 				Intent searchIntent = new Intent(MainActivity.this, CommentListingActivity.class);
 				searchIntent.setData(commentListingController.getUri());
 				searchIntent.putExtra(CommentListingActivity.EXTRA_SEARCH_STRING, query);
+				Nappa.notifyExtras(searchIntent.getExtras());
 				startActivity(searchIntent);
 			}
 		});
@@ -832,6 +843,7 @@ public class MainActivity extends RefreshableActivity
 		if(postListingController.isSubreddit()) {
 			intent.putExtra("subreddit", postListingController.subredditCanonicalName());
 		}
+		Nappa.notifyExtras(intent.getExtras());
 		startActivity(intent);
 	}
 
@@ -862,6 +874,7 @@ public class MainActivity extends RefreshableActivity
 				Locale.US, "%s: %s",
 				getString(R.string.sidebar_activity_title),
 				postListingFragment.getSubreddit().url));
+		Nappa.notifyExtras(intent.getExtras());
 		startActivityForResult(intent, 1);
 	}
 

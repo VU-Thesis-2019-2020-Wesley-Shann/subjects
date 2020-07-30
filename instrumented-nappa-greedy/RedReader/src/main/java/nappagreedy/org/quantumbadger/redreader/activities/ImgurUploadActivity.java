@@ -48,6 +48,7 @@ import nappagreedy.org.quantumbadger.redreader.image.ThumbnailScaler;
 import nappagreedy.org.quantumbadger.redreader.jsonwrap.JsonBufferedObject;
 import nappagreedy.org.quantumbadger.redreader.jsonwrap.JsonValue;
 import nappagreedy.org.quantumbadger.redreader.views.LoadingSpinnerView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -72,6 +73,7 @@ public class ImgurUploadActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
@@ -108,6 +110,7 @@ public class ImgurUploadActivity extends BaseActivity {
 			public void onClick(final View v) {
 				final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 				intent.setType("image/*");
+				Nappa.notifyExtras(intent.getExtras());
 				startActivityForResult(intent, REQUEST_CODE);
 			}
 		});

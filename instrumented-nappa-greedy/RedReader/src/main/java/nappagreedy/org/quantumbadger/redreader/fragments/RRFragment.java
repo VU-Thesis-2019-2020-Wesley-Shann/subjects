@@ -26,6 +26,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import nl.vu.cs.s2group.nappa.*;
+
 public abstract class RRFragment {
 
 	@NonNull private final AppCompatActivity mParent;
@@ -51,10 +53,12 @@ public abstract class RRFragment {
 	}
 
 	protected final void startActivity(final Intent intent) {
+		Nappa.notifyExtras(intent.getExtras());
 		mParent.startActivity(intent);
 	}
 
 	protected final void startActivityForResult(final Intent intent, final int requestCode) {
+		Nappa.notifyExtras(intent.getExtras());
 		mParent.startActivityForResult(intent, requestCode);
 	}
 

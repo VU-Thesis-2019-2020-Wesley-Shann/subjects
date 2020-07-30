@@ -35,6 +35,7 @@ import nappagreedy.org.quantumbadger.redreader.image.GetImageInfoListener;
 import nappagreedy.org.quantumbadger.redreader.image.ImageInfo;
 import nappagreedy.org.quantumbadger.redreader.image.ImgurAPI;
 import nappagreedy.org.quantumbadger.redreader.views.ScrollbarRecyclerViewManager;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.regex.Matcher;
 
@@ -46,6 +47,7 @@ public class AlbumListingActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);

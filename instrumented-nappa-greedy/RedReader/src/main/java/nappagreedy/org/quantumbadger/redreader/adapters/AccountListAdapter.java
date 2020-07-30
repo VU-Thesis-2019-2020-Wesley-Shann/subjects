@@ -35,6 +35,7 @@ import nappagreedy.org.quantumbadger.redreader.account.RedditAccountManager;
 import nappagreedy.org.quantumbadger.redreader.activities.OAuthLoginActivity;
 import nappagreedy.org.quantumbadger.redreader.common.BetterSSB;
 import nappagreedy.org.quantumbadger.redreader.viewholders.VH1Text;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 
@@ -80,6 +81,7 @@ public class AccountListAdapter extends HeaderRecyclerAdapter<RecyclerView.ViewH
 			@Override
 			public void onClick(View v) {
 				final Intent loginIntent = new Intent(context, OAuthLoginActivity.class);
+				Nappa.notifyExtras(loginIntent.getExtras());
 				fragment.startActivityForResult(loginIntent, 123);
 			}
 		});

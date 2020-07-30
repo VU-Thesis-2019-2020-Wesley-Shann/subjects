@@ -36,6 +36,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.api.RedditSubredditSubscri
 import nappagreedy.org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.settings.SettingsActivity;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.EnumSet;
 
@@ -242,6 +243,7 @@ public final class OptionsMenuUtility {
 				menu.add(activity.getString(R.string.options_settings)).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 					public boolean onMenuItemClick(final MenuItem item) {
 						final Intent intent = new Intent(activity, SettingsActivity.class);
+						Nappa.notifyExtras(intent.getExtras());
 						activity.startActivityForResult(intent, 1);
 						return true;
 					}

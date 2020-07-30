@@ -49,6 +49,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.prepared.RedditRenderableC
 import nappagreedy.org.quantumbadger.redreader.reddit.things.RedditComment;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserProfileURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditCommentView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -228,7 +229,8 @@ public class RedditAPICommentAction {
 				final Intent intent = new Intent(activity, CommentReplyActivity.class);
 				intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, comment.getIdAndType());
 				intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, StringEscapeUtils.unescapeHtml4(comment.body));
-				activity.startActivity(intent);
+                Nappa.notifyExtras(intent.getExtras());
+                activity.startActivity(intent);
 				break;
 			}
 
@@ -236,7 +238,8 @@ public class RedditAPICommentAction {
 				final Intent intent = new Intent(activity, CommentEditActivity.class);
 				intent.putExtra("commentIdAndType", comment.getIdAndType());
 				intent.putExtra("commentText", StringEscapeUtils.unescapeHtml4(comment.body));
-				activity.startActivity(intent);
+                Nappa.notifyExtras(intent.getExtras());
+                activity.startActivity(intent);
 				break;
 			}
 
@@ -305,7 +308,9 @@ public class RedditAPICommentAction {
 				body += comment.getContextUrl().generateNonJsonUri().toString();
 				mailer.putExtra(Intent.EXTRA_TEXT, body);
 
-				activity.startActivityForResult(Intent.createChooser(mailer, activity.getString(R.string.action_share)), 1);
+                Intent intent1 = Intent.createChooser(mailer, activity.getString(R.string.action_share));
+                Nappa.notifyExtras(intent1.getExtras());
+                activity.startActivityForResult(intent1, 1);
 
 				break;
 

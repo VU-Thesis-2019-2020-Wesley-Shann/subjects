@@ -41,6 +41,7 @@ import nappagreedy.org.quantumbadger.redreader.common.AndroidCommon;
 import nappagreedy.org.quantumbadger.redreader.common.General;
 import nappagreedy.org.quantumbadger.redreader.common.PrefsUtility;
 import nappagreedy.org.quantumbadger.redreader.common.TorCommon;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -170,6 +171,7 @@ public final class SettingsFragment extends PreferenceFragment {
 			changelogPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 				public boolean onPreferenceClick(Preference preference) {
 					final Intent intent = new Intent(context, ChangelogActivity.class);
+					Nappa.notifyExtras(intent.getExtras());
 					context.startActivity(intent);
 					return true;
 				}

@@ -24,6 +24,7 @@ import android.widget.ScrollView;
 import nappagreedy.org.quantumbadger.redreader.R;
 import nappagreedy.org.quantumbadger.redreader.common.ChangelogManager;
 import nappagreedy.org.quantumbadger.redreader.common.PrefsUtility;
+import nl.vu.cs.s2group.nappa.*;
 
 public class ChangelogActivity extends BaseActivity {
 
@@ -35,6 +36,7 @@ public class ChangelogActivity extends BaseActivity {
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applySettingsTheme(this);
 
 		super.onCreate(savedInstanceState);

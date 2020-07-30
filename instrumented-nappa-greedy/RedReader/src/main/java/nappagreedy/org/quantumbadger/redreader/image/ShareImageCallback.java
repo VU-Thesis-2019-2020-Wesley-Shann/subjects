@@ -34,6 +34,7 @@ import nappagreedy.org.quantumbadger.redreader.common.Constants;
 import nappagreedy.org.quantumbadger.redreader.common.General;
 import nappagreedy.org.quantumbadger.redreader.common.LinkHandler;
 import nappagreedy.org.quantumbadger.redreader.common.RRError;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -156,7 +157,9 @@ public class ShareImageCallback implements BaseActivity.PermissionCallback {
 							shareIntent.setAction(Intent.ACTION_SEND);
 							shareIntent.putExtra(Intent.EXTRA_STREAM, sharedImage);
 							shareIntent.setType(mimetype);
-							activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.action_share_image)));
+							Intent intent = Intent.createChooser(shareIntent, activity.getString(R.string.action_share_image));
+							Nappa.notifyExtras(intent.getExtras());
+							activity.startActivity(intent);
 
 						} catch(IOException e) {
 							notifyFailure(CacheRequest.REQUEST_FAILURE_STORAGE, e, null, "Could not copy file");

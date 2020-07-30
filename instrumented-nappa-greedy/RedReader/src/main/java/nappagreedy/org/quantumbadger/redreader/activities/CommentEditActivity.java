@@ -38,6 +38,7 @@ import nappagreedy.org.quantumbadger.redreader.common.RRError;
 import nappagreedy.org.quantumbadger.redreader.fragments.MarkdownPreviewDialog;
 import nappagreedy.org.quantumbadger.redreader.reddit.APIResponseHandler;
 import nappagreedy.org.quantumbadger.redreader.reddit.RedditAPI;
+import nl.vu.cs.s2group.nappa.*;
 
 public class CommentEditActivity extends BaseActivity {
 
@@ -49,6 +50,7 @@ public class CommentEditActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);

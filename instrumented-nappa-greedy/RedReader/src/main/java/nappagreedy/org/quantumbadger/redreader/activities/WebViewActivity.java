@@ -33,6 +33,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.prepared.RedditPreparedPos
 import nappagreedy.org.quantumbadger.redreader.reddit.things.RedditPost;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
+import nl.vu.cs.s2group.nappa.*;
 
 public class WebViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener {
 
@@ -46,6 +47,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 
 	public void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
@@ -93,6 +95,7 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 					try {
 						final Intent intent = new Intent(Intent.ACTION_VIEW);
 						intent.setData(Uri.parse(currentUrl));
+						Nappa.notifyExtras(intent.getExtras());
 						startActivity(intent);
 						finish(); //to clear from backstack
 
@@ -134,7 +137,9 @@ public class WebViewActivity extends BaseActivity implements RedditPostView.Post
 						mailer.putExtra(Intent.EXTRA_SUBJECT, mPost.title);
 					}
 					mailer.putExtra(Intent.EXTRA_TEXT, currentUrl);
-					startActivity(Intent.createChooser(mailer, getString(R.string.action_share)));
+					Intent intent1 = Intent.createChooser(mailer, getString(R.string.action_share));
+					Nappa.notifyExtras(intent1.getExtras());
+					startActivity(intent1);
 				}
 				return true;
 

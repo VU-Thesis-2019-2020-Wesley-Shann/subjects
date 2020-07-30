@@ -30,6 +30,7 @@ import nappagreedy.org.quantumbadger.redreader.RedReader;
 import nappagreedy.org.quantumbadger.redreader.common.PrefsUtility;
 import nappagreedy.org.quantumbadger.redreader.common.TorCommon;
 import nappagreedy.org.quantumbadger.redreader.reddit.api.RedditOAuth;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.ByteArrayInputStream;
 
@@ -119,6 +120,7 @@ public class OAuthLoginActivity extends BaseActivity {
 
 	public void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);

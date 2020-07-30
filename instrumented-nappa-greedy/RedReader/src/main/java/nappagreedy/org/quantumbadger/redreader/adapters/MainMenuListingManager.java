@@ -51,6 +51,7 @@ import nappagreedy.org.quantumbadger.redreader.views.LoadingSpinnerView;
 import nappagreedy.org.quantumbadger.redreader.views.list.GroupedRecyclerViewItemListItemView;
 import nappagreedy.org.quantumbadger.redreader.views.list.GroupedRecyclerViewItemListSectionHeaderView;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.ErrorView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -664,7 +665,9 @@ public class MainMenuListingManager {
 					final Intent mailer = new Intent(Intent.ACTION_SEND);
 					mailer.setType("text/plain");
 					mailer.putExtra(Intent.EXTRA_TEXT, url);
-					activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
+					Intent intent1 = Intent.createChooser(mailer, activity.getString(R.string.action_share));
+					Nappa.notifyExtras(intent1.getExtras());
+					activity.startActivity(intent1);
 					break;
 				case COPY_URL:
 					ClipboardManager manager = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -674,6 +677,7 @@ public class MainMenuListingManager {
 				case EXTERNAL:
 					final Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.setData(Uri.parse(url));
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivity(intent);
 					break;
 

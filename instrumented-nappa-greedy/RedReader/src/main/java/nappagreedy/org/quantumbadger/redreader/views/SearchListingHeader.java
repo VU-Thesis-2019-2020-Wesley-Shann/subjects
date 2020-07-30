@@ -33,6 +33,7 @@ import org.apache.commons.lang3.StringUtils;
 import nappagreedy.org.quantumbadger.redreader.R;
 import nappagreedy.org.quantumbadger.redreader.activities.PostListingActivity;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.SearchPostListURL;
+import nl.vu.cs.s2group.nappa.*;
 
 
 public final class SearchListingHeader extends FrameLayout {
@@ -92,7 +93,8 @@ public final class SearchListingHeader extends FrameLayout {
 
 		// Use a startActivity/finish combination to replace this activity with the new
 		// search activity
-		parentActivity.startActivity(intent);
+        Nappa.notifyExtras(intent.getExtras());
+        parentActivity.startActivity(intent);
 		parentActivity.finish();
 	}
 }

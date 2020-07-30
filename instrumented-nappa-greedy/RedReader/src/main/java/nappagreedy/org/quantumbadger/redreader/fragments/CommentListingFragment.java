@@ -64,6 +64,7 @@ import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.BezelSwipeOverlay
 import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.SideToolbarOverlay;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.CommentSubThreadView;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.ErrorView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -637,6 +638,7 @@ public class CommentListingFragment extends RRFragment
 			final Intent intent = new Intent(getActivity(), CommentReplyActivity.class);
 			intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, mPost.src.getIdAndType());
 			intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, mPost.src.getUnescapedSelfText());
+			Nappa.notifyExtras(intent.getExtras());
 			startActivity(intent);
 
 		} else {

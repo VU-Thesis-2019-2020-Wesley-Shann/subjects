@@ -25,6 +25,7 @@ import nappagreedy.org.quantumbadger.redreader.R;
 import nappagreedy.org.quantumbadger.redreader.common.General;
 import nappagreedy.org.quantumbadger.redreader.common.PrefsUtility;
 import nappagreedy.org.quantumbadger.redreader.fragments.WebViewFragment;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -61,11 +62,13 @@ public class HtmlViewActivity extends BaseActivity {
 
 		final Intent intent = new Intent(context, HtmlViewActivity.class);
 		intent.putExtra("html", html);
+		Nappa.notifyExtras(intent.getExtras());
 		context.startActivity(intent);
 	}
 
 	public void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);

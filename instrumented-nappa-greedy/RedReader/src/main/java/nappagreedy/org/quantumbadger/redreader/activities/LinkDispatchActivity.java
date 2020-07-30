@@ -23,6 +23,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import nappagreedy.org.quantumbadger.redreader.common.LinkHandler;
+import nl.vu.cs.s2group.nappa.*;
 
 public class LinkDispatchActivity extends AppCompatActivity {
 
@@ -31,6 +32,7 @@ public class LinkDispatchActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
 		final Intent intent = getIntent();
 

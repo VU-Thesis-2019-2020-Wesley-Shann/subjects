@@ -44,6 +44,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.things.RedditUser;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserPostListingURL;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.ErrorView;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.LoadingView;
+import nl.vu.cs.s2group.nappa.*;
 
 public class UserProfileDialog extends PropertiesDialog {
 
@@ -163,6 +164,7 @@ public class UserProfileDialog extends PropertiesDialog {
 								public void onClick(View v) {
 									final Intent intent = new Intent(context, PMSendActivity.class);
 									intent.putExtra(PMSendActivity.EXTRA_RECIPIENT, username);
+									Nappa.notifyExtras(intent.getExtras());
 									startActivity(intent);
 								}
 							});

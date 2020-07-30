@@ -43,6 +43,7 @@ import nappagreedy.org.quantumbadger.redreader.fragments.UserProfileDialog;
 import nappagreedy.org.quantumbadger.redreader.image.*;
 import nappagreedy.org.quantumbadger.redreader.reddit.things.RedditPost;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.RedditURLParser;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -152,6 +153,7 @@ public class LinkHandler {
 				intent.putExtra("albumImageIndex", albumImageIndex);
 			}
 
+			Nappa.notifyExtras(intent.getExtras());
 			activity.startActivity(intent);
 			return;
 		}
@@ -167,6 +169,7 @@ public class LinkHandler {
 					final Intent intent = new Intent(activity, AlbumListingActivity.class);
 					intent.setData(Uri.parse(url));
 					intent.putExtra("post", post);
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivity(intent);
 					return;
 				}
@@ -196,6 +199,7 @@ public class LinkHandler {
 						intent.putExtra("url", url);
 						intent.putExtra("post", post);
 					}
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivity(intent);
 					return;
 				}
@@ -218,6 +222,7 @@ public class LinkHandler {
 				case RedditURLParser.UNKNOWN_POST_LISTING_URL: {
 					final Intent intent = new Intent(activity, PostListingActivity.class);
 					intent.setData(redditURL.generateJsonUri());
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivityForResult(intent, 1);
 					return;
 				}
@@ -226,6 +231,7 @@ public class LinkHandler {
 				case RedditURLParser.USER_COMMENT_LISTING_URL: {
 					final Intent intent = new Intent(activity, CommentListingActivity.class);
 					intent.setData(redditURL.generateJsonUri());
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivityForResult(intent, 1);
 					return;
 				}
@@ -288,6 +294,7 @@ public class LinkHandler {
 			intent.putExtra("post", post);
 		}
 
+		Nappa.notifyExtras(intent.getExtras());
 		activity.startActivity(intent);
 	}
 
@@ -353,7 +360,9 @@ public class LinkHandler {
 				final Intent mailer = new Intent(Intent.ACTION_SEND);
 				mailer.setType("text/plain");
 				mailer.putExtra(Intent.EXTRA_TEXT, uri);
-				activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
+				Intent intent1 = Intent.createChooser(mailer, activity.getString(R.string.action_share));
+				Nappa.notifyExtras(intent1.getExtras());
+				activity.startActivity(intent1);
 				break;
 			case COPY_URL:
 				ClipboardManager manager = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -364,6 +373,7 @@ public class LinkHandler {
 				try {
 					final Intent intent = new Intent(Intent.ACTION_VIEW);
 					intent.setData(Uri.parse(uri));
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivity(intent);
 				} catch(final ActivityNotFoundException e) {
 					General.quickToast(activity, R.string.error_no_suitable_apps_available);
@@ -383,6 +393,7 @@ public class LinkHandler {
 			try {
 				final Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(uri);
+				Nappa.notifyExtras(intent.getExtras());
 				activity.startActivity(intent);
 				return true;
 
@@ -421,6 +432,7 @@ public class LinkHandler {
 				if(!targetIntents.isEmpty()) {
 					chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toArray(new Parcelable[]{}));
 				}
+				Nappa.notifyExtras(chooserIntent.getExtras());
 				activity.startActivity(chooserIntent);
 
 				return true;

@@ -20,6 +20,7 @@ package nappagreedy.org.quantumbadger.redreader.http.okhttp;
 import android.content.Context;
 import android.util.Log;
 
+import nl.vu.cs.s2group.nappa.*;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import okhttp3.CacheControl;
 import okhttp3.Call;
@@ -100,7 +101,7 @@ public class OKHTTPBackend extends HTTPBackend {
 
 		builder.retryOnConnectionFailure(true);
 
-		mClient = builder.build();
+		mClient = Nappa.getOkHttp(builder.build());
 	}
 
 	public static synchronized HTTPBackend getHttpBackend() {

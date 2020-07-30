@@ -77,6 +77,7 @@ import nappagreedy.org.quantumbadger.redreader.views.imageview.ImageTileSourceWh
 import nappagreedy.org.quantumbadger.redreader.views.imageview.ImageViewDisplayListManager;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.ErrorView;
 import nappagreedy.org.quantumbadger.redreader.views.video.ExoPlayerWrapperView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -131,6 +132,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
 		final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -428,6 +430,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 						}
 
 						try {
+							Nappa.notifyExtras(intent.getExtras());
 							startActivity(intent);
 						} catch(final Throwable t) {
 							General.quickToast(ImageViewActivity.this, R.string.videoview_mode_app_vlc_launch_failed);

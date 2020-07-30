@@ -62,6 +62,7 @@ import nappagreedy.org.quantumbadger.redreader.views.RedditInboxItemView;
 import nappagreedy.org.quantumbadger.redreader.views.ScrollbarRecyclerViewManager;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.ErrorView;
 import nappagreedy.org.quantumbadger.redreader.views.liststatus.LoadingView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.net.URI;
 import java.util.UUID;
@@ -143,6 +144,7 @@ public final class InboxListingActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 		super.onCreate(savedInstanceState);
 

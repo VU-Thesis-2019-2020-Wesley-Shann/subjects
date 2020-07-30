@@ -32,6 +32,7 @@ import nappagreedy.org.quantumbadger.redreader.common.General;
 import nappagreedy.org.quantumbadger.redreader.reddit.RedditCommentListItem;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.RedditURLParser;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.ArrayList;
 
@@ -119,6 +120,7 @@ public class LoadMoreCommentsView extends LinearLayout {
 					final Intent intent = new Intent(context, MoreCommentsListingActivity.class);
 					intent.putExtra("postId", listingUrl.postId);
 					intent.putStringArrayListExtra("commentIds", commentIds);
+					Nappa.notifyExtras(intent.getExtras());
 					context.startActivity(intent);
 
 				} else {

@@ -47,6 +47,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.url.RedditURLParser;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.SearchPostListURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.SubredditPostListURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -67,6 +68,7 @@ public class PostListingActivity extends RefreshableActivity
 
 	public void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
@@ -261,6 +263,7 @@ public class PostListingActivity extends RefreshableActivity
 		if(controller.isSubreddit()) {
 			intent.putExtra("subreddit", controller.subredditCanonicalName());
 		}
+		Nappa.notifyExtras(intent.getExtras());
 		startActivity(intent);
 	}
 
@@ -291,6 +294,7 @@ public class PostListingActivity extends RefreshableActivity
 
 				final Intent intent = new Intent(activity, PostListingActivity.class);
 				intent.setData(url.generateJsonUri());
+				Nappa.notifyExtras(intent.getExtras());
 				activity.startActivity(intent);
 			}
 		});
@@ -314,6 +318,7 @@ public class PostListingActivity extends RefreshableActivity
 			intent.putExtra("title", String.format(Locale.US, "%s: %s",
 					getString(R.string.sidebar_activity_title),
 					fragment.getSubreddit().url));
+			Nappa.notifyExtras(intent.getExtras());
 			startActivityForResult(intent, 1);
 		}
 	}

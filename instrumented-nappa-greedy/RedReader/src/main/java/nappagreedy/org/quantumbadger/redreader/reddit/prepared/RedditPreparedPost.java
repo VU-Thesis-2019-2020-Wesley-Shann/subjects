@@ -59,6 +59,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.url.UserProfileURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
 import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.SideToolbarOverlay;
 import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.VerticalToolbar;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.net.URI;
 import java.util.*;
@@ -339,6 +340,7 @@ public final class RedditPreparedPost {
 				editIntent.putExtra("commentIdAndType", post.src.getIdAndType());
 				editIntent.putExtra("commentText", StringEscapeUtils.unescapeHtml4(post.src.getRawSelfText()));
 				editIntent.putExtra("isSelfPost", true);
+				Nappa.notifyExtras(editIntent.getExtras());
 				activity.startActivity(editIntent);
 				break;
 
@@ -381,6 +383,7 @@ public final class RedditPreparedPost {
 				final Intent intent = new Intent(Intent.ACTION_VIEW);
 				String url = (activity instanceof WebViewActivity) ? ((WebViewActivity) activity).getCurrentUrl() : post.src.getUrl();
 				intent.setData(Uri.parse(url));
+				Nappa.notifyExtras(intent.getExtras());
 				activity.startActivity(intent);
 				break;
 			}
@@ -429,7 +432,9 @@ public final class RedditPreparedPost {
 					mailer.putExtra(Intent.EXTRA_SUBJECT, post.src.getTitle());
 				}
 				mailer.putExtra(Intent.EXTRA_TEXT, post.src.getUrl());
-				activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share)));
+				Intent intent1 = Intent.createChooser(mailer, activity.getString(R.string.action_share));
+				Nappa.notifyExtras(intent1.getExtras());
+				activity.startActivity(intent1);
 				break;
 			}
 
@@ -450,7 +455,9 @@ public final class RedditPreparedPost {
 				} else {
 					mailer.putExtra(Intent.EXTRA_TEXT, Constants.Reddit.getNonAPIUri(Constants.Reddit.PATH_COMMENTS + post.src.getIdAlone()).toString());
 				}
-				activity.startActivity(Intent.createChooser(mailer, activity.getString(R.string.action_share_comments)));
+				Intent intent2 = Intent.createChooser(mailer, activity.getString(R.string.action_share_comments));
+				Nappa.notifyExtras(intent2.getExtras());
+				activity.startActivity(intent2);
 				break;
 			}
 
@@ -473,6 +480,7 @@ public final class RedditPreparedPost {
 				try {
 					final Intent intent = new Intent(activity, PostListingActivity.class);
 					intent.setData(SubredditPostListURL.getSubreddit(post.src.getSubreddit()).generateJsonUri());
+					Nappa.notifyExtras(intent.getExtras());
 					activity.startActivityForResult(intent, 1);
 
 				} catch(RedditSubreddit.InvalidSubredditNameException e) {
@@ -524,6 +532,7 @@ public final class RedditPreparedPost {
 				final Intent intent = new Intent(activity, CommentReplyActivity.class);
 				intent.putExtra(CommentReplyActivity.PARENT_ID_AND_TYPE_KEY, post.src.getIdAndType());
 				intent.putExtra(CommentReplyActivity.PARENT_MARKDOWN_KEY, post.src.getUnescapedSelfText());
+				Nappa.notifyExtras(intent.getExtras());
 				activity.startActivity(intent);
 				break;
 

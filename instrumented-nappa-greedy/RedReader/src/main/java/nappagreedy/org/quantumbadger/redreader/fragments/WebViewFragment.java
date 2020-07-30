@@ -55,6 +55,7 @@ import nappagreedy.org.quantumbadger.redreader.views.webview.VideoEnabledWebChro
 import nappagreedy.org.quantumbadger.redreader.views.webview.WebViewFixed;
 import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.BezelSwipeOverlay;
 import nappagreedy.org.quantumbadger.redreader.views.bezelmenu.SideToolbarOverlay;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.Locale;
 import java.util.Timer;
@@ -209,6 +210,7 @@ public class WebViewFragment extends Fragment implements RedditPostView.PostSele
 								public void onClick(DialogInterface dialog, int which) {
 									Intent i = new Intent(Intent.ACTION_VIEW);
 									i.setData(Uri.parse(url));
+									Nappa.notifyExtras(i.getExtras());
 									getContext().startActivity(i);
 									mActivity.onBackPressed(); //get back from internal browser
 								}

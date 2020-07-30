@@ -31,6 +31,7 @@ import nappagreedy.org.quantumbadger.redreader.common.AndroidCommon;
 import nappagreedy.org.quantumbadger.redreader.common.Constants;
 import nappagreedy.org.quantumbadger.redreader.common.General;
 import nappagreedy.org.quantumbadger.redreader.common.RRError;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.LinkedList;
 
@@ -64,6 +65,7 @@ public class BugReportActivity extends BaseActivity {
 			public void run() {
 				final Intent intent = new Intent(context, BugReportActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				Nappa.notifyExtras(intent.getExtras());
 				context.startActivity(intent);
 			}
 		});
@@ -80,6 +82,7 @@ public class BugReportActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
 		final LinearLayout layout = new LinearLayout(this);
 		layout.setOrientation(LinearLayout.VERTICAL);
@@ -127,7 +130,9 @@ public class BugReportActivity extends BaseActivity {
 				intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
 
 				try {
-					startActivity(Intent.createChooser(intent, "Email bug report"));
+					Intent intent1 = Intent.createChooser(intent, "Email bug report");
+					Nappa.notifyExtras(intent1.getExtras());
+					startActivity(intent1);
 				} catch (android.content.ActivityNotFoundException ex) {
 					General.quickToast(BugReportActivity.this, "No email apps installed!");
 				}

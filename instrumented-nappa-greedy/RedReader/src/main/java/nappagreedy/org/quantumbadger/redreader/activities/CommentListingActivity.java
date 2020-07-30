@@ -40,6 +40,7 @@ import nappagreedy.org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.RedditURLParser;
 import nappagreedy.org.quantumbadger.redreader.reddit.url.UserCommentListingURL;
 import nappagreedy.org.quantumbadger.redreader.views.RedditPostView;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.util.UUID;
 
@@ -63,6 +64,7 @@ public class CommentListingActivity extends RefreshableActivity
 
 	public void onCreate(final Bundle savedInstanceState) {
 
+		getLifecycle().addObserver(new NappaLifecycleObserver(this));
 		PrefsUtility.applyTheme(this);
 
 		super.onCreate(savedInstanceState);
@@ -194,6 +196,7 @@ public class CommentListingActivity extends RefreshableActivity
 			public void onSearch(@Nullable String query) {
 				Intent searchIntent = getIntent();
 				searchIntent.putExtra(EXTRA_SEARCH_STRING, query);
+				Nappa.notifyExtras(searchIntent.getExtras());
 				startActivity(searchIntent);
 			}
 		});

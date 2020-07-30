@@ -48,6 +48,7 @@ import nappagreedy.org.quantumbadger.redreader.activities.BugReportActivity;
 import nappagreedy.org.quantumbadger.redreader.cache.CacheRequest;
 import nappagreedy.org.quantumbadger.redreader.fragments.ErrorPropertiesDialog;
 import nappagreedy.org.quantumbadger.redreader.reddit.APIResponseHandler;
+import nl.vu.cs.s2group.nappa.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -635,6 +636,7 @@ public final class General {
 		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		activity.finish();
 		activity.overridePendingTransition(0, 0);
+		Nappa.notifyExtras(intent.getExtras());
 		activity.startActivity(intent);
 	}
 
