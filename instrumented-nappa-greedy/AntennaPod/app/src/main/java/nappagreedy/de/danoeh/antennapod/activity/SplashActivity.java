@@ -16,6 +16,7 @@ import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import nl.vu.cs.s2group.nappa.*;
+import nl.vu.cs.s2group.nappa.prefetch.PrefetchingStrategyType;
 
 /**
  * Shows the AntennaPod logo while waiting for the main activity to start
