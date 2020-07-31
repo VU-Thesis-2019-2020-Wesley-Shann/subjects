@@ -72,13 +72,13 @@ echo ""
 # Build with sudo zsh./gradlew assembleDebug
 PATHS_3=(
   # RedReader
-  # "/home/sshann/Documents/thesis/subjects/baseline/RedReader"
+  "/home/sshann/Documents/thesis/subjects/baseline/RedReader"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/RedReader"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/RedReader"
   "/home/sshann/Documents/thesis/subjects/instrumented-paloma/RedReader"
 
   # NewsBlur
-  # "/home/sshann/Documents/thesis/subjects/baseline/NewsBlur/clients/android/NewsBlur"
+  "/home/sshann/Documents/thesis/subjects/baseline/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-paloma/NewsBlur/clients/android/NewsBlur"
