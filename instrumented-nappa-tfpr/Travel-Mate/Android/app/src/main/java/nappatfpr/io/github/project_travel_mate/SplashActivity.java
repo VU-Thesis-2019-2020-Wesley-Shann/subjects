@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_TFPR);
         getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.activity_splash);
 
