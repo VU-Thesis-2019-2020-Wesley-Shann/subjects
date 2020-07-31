@@ -93,7 +93,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 23
-        applicationId "nappagreedy.com.newsblur"
+        applicationId "nappatfpr.com.newsblur"
     }
 }
 

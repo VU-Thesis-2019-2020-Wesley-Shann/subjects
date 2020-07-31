@@ -52,7 +52,7 @@
         android:background="@drawable/ic_like_gray55"
     />
         
-    <nappagreedy.com.newsblur.view.SelectOnlyEditText
+    <nappatfpr.com.newsblur.view.SelectOnlyEditText
         android:id="@+id/intel_title_selection"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

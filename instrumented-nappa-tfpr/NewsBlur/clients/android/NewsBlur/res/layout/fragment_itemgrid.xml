@@ -37,7 +37,7 @@
 
     </RelativeLayout>
 
-    <nappagreedy.com.newsblur.view.ProgressThrobber
+    <nappatfpr.com.newsblur.view.ProgressThrobber
         android:id="@+id/top_loading_throb"
         android:layout_width="fill_parent"
         android:layout_alignParentTop="true"

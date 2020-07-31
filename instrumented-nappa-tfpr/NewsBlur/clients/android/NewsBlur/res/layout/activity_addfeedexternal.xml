@@ -5,7 +5,7 @@
     android:animateLayoutChanges="true"
     style="?itemBackground" >
 
-    <nappagreedy.com.newsblur.view.ProgressThrobber
+    <nappatfpr.com.newsblur.view.ProgressThrobber
         android:id="@+id/loading_throb"
         android:layout_width="fill_parent"
         android:layout_alignParentTop="true"

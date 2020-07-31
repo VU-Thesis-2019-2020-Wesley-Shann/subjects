@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
 
-    <nappagreedy.com.newsblur.view.ProgressThrobber
+    <nappatfpr.com.newsblur.view.ProgressThrobber
         android:id="@+id/itemlist_loading_throb"
         android:layout_width="fill_parent"
         android:layout_height="5dp" />
