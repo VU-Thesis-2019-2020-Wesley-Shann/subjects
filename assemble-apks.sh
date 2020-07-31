@@ -41,14 +41,13 @@ echo ""
 
 
 
-# Fails for AntennaPod assemble it via Android Studio
 # Build with ./gradlew assembleFreeDebug
 PATHS_2=(
   # # AntennaPod
-  # # "/home/sshann/Documents/thesis/subjects/baseline/AntennaPod/"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/AntennaPod"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/AntennaPod"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/AntennaPod"
+  "/home/sshann/Documents/thesis/subjects/baseline/AntennaPod/"
+  "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/AntennaPod"
+  "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/AntennaPod"
+  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/AntennaPod"
 )
 
 echo "Building PATHS_2 with assembleFreeDebug" 
@@ -59,7 +58,7 @@ for base_path_2 in "${PATHS_2[@]}"; do
   echo "-------------------------------------------------------------------------"
   if [ -d "${base_path_2}" ]; then
     cd "${base_path_2}" || exit 1
-    ./gradlew assembleDebug
+    ./gradlew assembleFreeDebug
     count=$((count + 1))
   else
     echo "Path not found"
