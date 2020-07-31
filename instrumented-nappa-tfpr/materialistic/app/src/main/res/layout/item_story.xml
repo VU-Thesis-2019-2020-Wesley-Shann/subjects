@@ -15,15 +15,15 @@
   ~ limitations under the License.
   -->
 
-<nappagreedy.io.github.hidroh.materialistic.widget.FlatCardView
+<nappatfpr.io.github.hidroh.materialistic.widget.FlatCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     style="@style/AppCardView">
 
-    <nappagreedy.io.github.hidroh.materialistic.widget.StoryView
+    <nappatfpr.io.github.hidroh.materialistic.widget.StoryView
         android:id="@id/story_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</nappagreedy.io.github.hidroh.materialistic.widget.FlatCardView>
+</nappatfpr.io.github.hidroh.materialistic.widget.FlatCardView>

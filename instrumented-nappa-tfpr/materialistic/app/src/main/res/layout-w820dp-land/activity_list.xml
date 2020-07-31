@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <nappagreedy.io.github.hidroh.materialistic.widget.ViewPager
+            <nappatfpr.io.github.hidroh.materialistic.widget.ViewPager
                 android:id="@id/content"
                 android:layout_below="@id/tab_layout"
                 android:layout_width="match_parent"

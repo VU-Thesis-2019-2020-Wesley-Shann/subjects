@@ -50,7 +50,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <nappagreedy.io.github.hidroh.materialistic.widget.CacheableWebView
+                <nappatfpr.io.github.hidroh.materialistic.widget.CacheableWebView
                     android:id="@id/web_view"
                     android:scrollbarStyle="insideOverlay"
                     android:scrollbars="vertical"

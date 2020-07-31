@@ -17,5 +17,5 @@
 }
 
 -dontobfuscate
--keep class nappagreedy.io.github.hidroh.materialistic.** { *; }
--keep interface nappagreedy.io.github.hidroh.materialistic.** { *; }
+-keep class nappatfpr.io.github.hidroh.materialistic.** { *; }
+-keep interface nappatfpr.io.github.hidroh.materialistic.** { *; }
