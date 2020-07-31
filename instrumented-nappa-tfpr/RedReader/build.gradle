@@ -1,0 +1,115 @@
+buildscript {
+    repositories {
+        jcenter()
+		google()
+	}
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.3'
+    }
+}
+
+allprojects {
+	repositories {
+		google()
+		jcenter()
+		flatDir {
+			dirs 'libs/aars'
+		}
+	}
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'pmd'
+
+repositories {
+    jcenter()
+	google()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.6'
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'joda-time:joda-time:2.9.9'
+	implementation 'androidx.appcompat:appcompat:1.1.0'
+	implementation 'androidx.recyclerview:recyclerview:1.1.0'
+	implementation 'com.google.android.material:material:1.0.0'
+	implementation 'androidx.media:media:1.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.8'
+    implementation 'info.guardianproject.netcipher:netcipher:1.2.1'
+	implementation 'com.google.android.exoplayer:exoplayer-core:2.10.8'
+	implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.8'
+	implementation name: 'nappa-experimentation', ext: 'aar'
+
+	implementation "net.sourceforge.streamsupport:android-retrostreams:1.7.2"
+
+	implementation "org.bitbucket.cowwoc:diff-match-patch:1.1"
+	implementation "com.squareup.okhttp3:okhttp:3.14.8"
+	implementation "androidx.room:room-runtime:2.2.5"
+	implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+	implementation name: 'nappa-prefetching-library', ext: 'aar'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']
+
+		minSdkVersion 23
+		targetSdkVersion 29
+
+		applicationId "nappagreedy.org.quantumbadger.redreader"
+	}
+    // Flag to tell aapt to keep the attribute ids around
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        compileOptions.encoding = "UTF-8"
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+
+        // Translations are crowd-sourced
+        disable 'MissingTranslation'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+    }
+}
+
+pmd {
+    toolVersion = '5.6.0'
+    consoleOutput = true
+}
+
+task pmd(type: Pmd) {
+    dependsOn 'assembleDebug'
+    ruleSetFiles = files("${project.rootDir}/config/pmd/rules.xml")
+    ruleSets = [] // otherwise defaults clash with the list in rules.xml
+    source 'src/main/java/org/quantumbadger'
+    include '**/*.java'
+}
