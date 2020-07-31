@@ -69,7 +69,7 @@ echo "Built ${count} APK files"
 echo ""
 
 
-# Build with sudo zsh./gradlew assembleDebug
+# Build with sudo sh ./gradlew assembleDebug
 PATHS_3=(
   # RedReader
   "/home/sshann/Documents/thesis/subjects/baseline/RedReader"
@@ -81,14 +81,7 @@ PATHS_3=(
   "/home/sshann/Documents/thesis/subjects/baseline/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/NewsBlur/clients/android/NewsBlur"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/NewsBlur/clients/android/NewsBlur"
-
-  # Fails for UOB assemble via Android Studio 
-  # # UOB
-  # # "/home/sshann/Documents/thesis/subjects/baseline/uob-timetable-android/uob"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/uob-timetable-android/uob"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/uob-timetable-android/uob"
-  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/uob-timetable-android/uob"
+  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/NewsBlur/clients/android/NewsBlur"=
 )
 
 echo "Building PATHS_3 with assembleDebug" 
@@ -100,6 +93,34 @@ for base_path_3 in "${PATHS_3[@]}"; do
   if [ -d "${base_path_3}" ]; then
     cd "${base_path_3}" || exit 1
     sudo sh ./gradlew assembleDebug
+    count=$((count + 1))
+  else
+    echo "Path not found"
+  echo ""
+  fi
+done
+echo "Built ${count} APK files"
+echo ""
+
+
+# Build with sudo bash ./gradlew assembleDebug
+PATHS_4=(
+  # UOB
+  "/home/sshann/Documents/thesis/subjects/baseline/uob-timetable-android/uob"
+  "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/uob-timetable-android/uob"
+  "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/uob-timetable-android/uob"
+  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/uob-timetable-android/uob"
+)
+
+echo "Building PATHS_4 with assembleDebug" 
+count=0
+for base_path_4 in "${PATHS_4[@]}"; do
+  echo "-------------------------------------------------------------------------"
+  echo "- Build for ${base_path_4}"
+  echo "-------------------------------------------------------------------------"
+  if [ -d "${base_path_4}" ]; then
+    cd "${base_path_4}" || exit 1
+    sudo bash ./gradlew assembleDebug
     count=$((count + 1))
   else
     echo "Path not found"
