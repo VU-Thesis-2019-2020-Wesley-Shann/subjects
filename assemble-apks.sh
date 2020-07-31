@@ -6,7 +6,7 @@ PATHS_1=(
   "/home/sshann/Documents/thesis/subjects/baseline/Travel-Mate/Android"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/Travel-Mate/Android"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/Travel-Mate/Android"
-  "/home/sshann/Documents/thesis/subjects/instrumented-nappa-paloma/Travel-Mate/Android"
+  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/Travel-Mate/Android"
 
   # Materialistic
   "/home/sshann/Documents/thesis/subjects/baseline/materialistic"
