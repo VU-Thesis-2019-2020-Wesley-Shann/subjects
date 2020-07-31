@@ -39,13 +39,13 @@ APKS_SOURCE=(
     "${PROJECT_DIR}/instrumented-paloma/Travel-Mate/Android/app/build/outputs/apk/debug/app-debug.apk"
     "${PROJECT_DIR}/instrumented-paloma/uob-timetable-android/uob/uob-timetable/build/outputs/apk/debug/uob-timetable-debug.apk"
     # Perfect
-    "${PROJECT_DIR}/perfect/AntennaPod/app/build/outputs/apk/free/debug/app-free-debug.apk"
-    "${PROJECT_DIR}/perfect/Hillffair/app/build/outputs/apk/debug/app-debug.apk"
-    "${PROJECT_DIR}/perfect/materialistic/app/build/outputs/apk/debug/app-debug.apk"
-    "${PROJECT_DIR}/perfect/NewsBlur/clients/android/NewsBlur/build/outputs/apk/debug/Perfect NewsBlur-debug.apk"
-    "${PROJECT_DIR}/perfect/RedReader/build/outputs/apk/debug/Perfect RedReader-debug.apk"
-    "${PROJECT_DIR}/perfect/Travel-Mate/Android/app/build/outputs/apk/debug/app-debug.apk"
-    "${PROJECT_DIR}/perfect/uob-timetable-android/uob/uob-timetable/build/outputs/apk/debug/uob-timetable-debug.apk"
+    # "${PROJECT_DIR}/perfect/AntennaPod/app/build/outputs/apk/free/debug/app-free-debug.apk"
+    # "${PROJECT_DIR}/perfect/Hillffair/app/build/outputs/apk/debug/app-debug.apk"
+    # "${PROJECT_DIR}/perfect/materialistic/app/build/outputs/apk/debug/app-debug.apk"
+    # "${PROJECT_DIR}/perfect/NewsBlur/clients/android/NewsBlur/build/outputs/apk/debug/Perfect NewsBlur-debug.apk"
+    # "${PROJECT_DIR}/perfect/RedReader/build/outputs/apk/debug/Perfect RedReader-debug.apk"
+    # "${PROJECT_DIR}/perfect/Travel-Mate/Android/app/build/outputs/apk/debug/app-debug.apk"
+    # "${PROJECT_DIR}/perfect/uob-timetable-android/uob/uob-timetable/build/outputs/apk/debug/uob-timetable-debug.apk"
 )
 
 APKS_DST=(
@@ -82,13 +82,13 @@ APKS_DST=(
     "${PROJECT_DIR}/build/apks/instrumented-paloma/paloma.io.github.project_travel_mate.apk"
     "${PROJECT_DIR}/build/apks/instrumented-paloma/paloma.com.ak.uobtimetable.apk"
     # Perfect
-    "${PROJECT_DIR}/build/apks/perfect/perfect.de.danoeh.antennapod.debug.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.appteam.nith.hillffair.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.io.github.hidroh.materialistic.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.com.newsblur.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.org.quantumbadger.redreader.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.io.github.project_travel_mate.apk"
-    "${PROJECT_DIR}/build/apks/perfect/perfect.com.ak.uobtimetable.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.de.danoeh.antennapod.debug.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.appteam.nith.hillffair.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.io.github.hidroh.materialistic.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.com.newsblur.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.org.quantumbadger.redreader.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.io.github.project_travel_mate.apk"
+    # "${PROJECT_DIR}/build/apks/perfect/perfect.com.ak.uobtimetable.apk"
 )
 
 NUMBER_OF_APPS=7
