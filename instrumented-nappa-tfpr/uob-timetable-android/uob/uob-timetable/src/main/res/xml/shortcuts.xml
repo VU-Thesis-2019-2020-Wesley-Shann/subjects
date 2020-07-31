@@ -7,8 +7,8 @@
         android:shortcutShortLabel="@string/shortcut_termdates">
         <intent
             android:action="shortcutTermDates"
-            android:targetPackage="nappagreedy.com.ak.uobtimetable"
-            android:targetClass="nappagreedy.com.ak.uobtimetable.MainActivity" />
+            android:targetPackage="nappatfpr.com.ak.uobtimetable"
+            android:targetClass="nappatfpr.com.ak.uobtimetable.MainActivity" />
     </shortcut>
 </shortcuts>
 

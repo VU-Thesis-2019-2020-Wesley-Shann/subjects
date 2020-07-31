@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NG UoB Timetable</string>
+    <string name="app_name">NTFPR UoB Timetable</string>
     <string name="app_name_launcher">Timetable</string>
 
     <string name="activity_course_list_label">Courses</string>

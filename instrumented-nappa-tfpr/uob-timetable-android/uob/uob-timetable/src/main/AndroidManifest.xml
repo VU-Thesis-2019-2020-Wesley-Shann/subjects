@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nappagreedy.com.ak.uobtimetable">
+    package="nappatfpr.com.ak.uobtimetable">
 
     <meta-data
         android:name="com.google.android.backup.api_key"
@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="nappagreedy.com.ak.uobtimetable.MyApplication"
+        android:name="nappatfpr.com.ak.uobtimetable.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="nappagreedy.com.ak.uobtimetable.MainActivity"
+            android:name="nappatfpr.com.ak.uobtimetable.MainActivity"
             android:label="@string/app_name"
             android:logo="@drawable/uob_logo"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,11 +32,11 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name="nappagreedy.com.ak.uobtimetable.CourseListActivity"
+            android:name="nappatfpr.com.ak.uobtimetable.CourseListActivity"
             android:label="@string/activity_course_list_label"
             android:logo="@drawable/uob_logo" />
         <activity
-            android:name="nappagreedy.com.ak.uobtimetable.SettingsActivity"
+            android:name="nappatfpr.com.ak.uobtimetable.SettingsActivity"
             android:label="@string/activity_settings_label"
             android:logo="@drawable/uob_logo">
             <intent-filter>
@@ -45,15 +45,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.com.ak.uobtimetable.DeveloperActivity"
+            android:name="nappatfpr.com.ak.uobtimetable.DeveloperActivity"
             android:label="@string/activity_developer_label"
             android:logo="@drawable/uob_logo"/>
         <activity
-            android:name="nappagreedy.com.ak.uobtimetable.WelcomeActivity"
+            android:name="nappatfpr.com.ak.uobtimetable.WelcomeActivity"
             android:logo="@drawable/uob_logo" />
 
         <receiver
-            android:name="nappagreedy.com.ak.uobtimetable.Notifications.SessionReminderReceiver"
+            android:name="nappatfpr.com.ak.uobtimetable.Notifications.SessionReminderReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
