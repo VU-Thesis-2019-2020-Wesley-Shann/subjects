@@ -1,4 +1,4 @@
-package nappagreedy.de.danoeh.antennapod.core.service.playback;
+package nappatfpr.de.danoeh.antennapod.core.service.playback;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -19,17 +19,17 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import nappagreedy.de.danoeh.antennapod.core.R;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastManager;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastUtils;
-import nappagreedy.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.cast.RemoteMedia;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
-import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.util.RewindAfterPauseUtils;
-import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
+import nappatfpr.de.danoeh.antennapod.core.R;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastManager;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastUtils;
+import nappatfpr.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.cast.RemoteMedia;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappatfpr.de.danoeh.antennapod.core.feed.MediaType;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.util.RewindAfterPauseUtils;
+import nappatfpr.de.danoeh.antennapod.core.util.playback.Playable;
 
 /**
  * Implementation of PlaybackServiceMediaPlayer suitable for remote playback on Cast Devices.
@@ -300,7 +300,7 @@ public class RemotePSMP extends PlaybackServiceMediaPlayer {
      * Internal implementation of playMediaObject. This method has an additional parameter that allows the caller to force a media player reset even if
      * the given playable parameter is the same object as the currently playing media.
      *
-     * @see #playMediaObject(nappagreedy.de.danoeh.antennapod.core.util.playback.Playable, boolean, boolean, boolean)
+     * @see #playMediaObject(nappatfpr.de.danoeh.antennapod.core.util.playback.Playable, boolean, boolean, boolean)
      */
     private void playMediaObject(@NonNull final Playable playable, final boolean forceReset, final boolean stream, final boolean startWhenPrepared, final boolean prepareImmediately) {
         if (!CastUtils.isCastable(playable)) {

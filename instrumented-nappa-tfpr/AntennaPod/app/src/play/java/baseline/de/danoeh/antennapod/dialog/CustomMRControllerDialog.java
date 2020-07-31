@@ -40,8 +40,8 @@ import com.bumptech.glide.request.target.Target;
 
 import java.util.concurrent.ExecutionException;
 
-import nappagreedy.de.danoeh.antennapod.R;
-import nappagreedy.de.danoeh.antennapod.core.glide.ApGlideSettings;
+import nappatfpr.de.danoeh.antennapod.R;
+import nappatfpr.de.danoeh.antennapod.core.glide.ApGlideSettings;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

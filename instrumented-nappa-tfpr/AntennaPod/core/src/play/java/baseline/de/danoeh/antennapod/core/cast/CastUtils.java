@@ -1,4 +1,4 @@
-package nappagreedy.de.danoeh.antennapod.core.cast;
+package nappatfpr.de.danoeh.antennapod.core.cast;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -12,12 +12,12 @@ import com.google.android.gms.common.images.WebImage;
 import java.util.Calendar;
 import java.util.List;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBReader;
-import nappagreedy.de.danoeh.antennapod.core.util.playback.ExternalMedia;
-import nappagreedy.de.danoeh.antennapod.core.util.playback.Playable;
+import nappatfpr.de.danoeh.antennapod.core.feed.Feed;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBReader;
+import nappatfpr.de.danoeh.antennapod.core.util.playback.ExternalMedia;
+import nappatfpr.de.danoeh.antennapod.core.util.playback.Playable;
 
 /**
  * Helper functions for Cast support.

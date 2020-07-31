@@ -16,15 +16,15 @@ import com.robotium.solo.Timeout;
 
 import java.util.List;
 
-import nappagreedy.de.danoeh.antennapod.R;
-import nappagreedy.de.danoeh.antennapod.activity.MainActivity;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackService;
-import nappagreedy.de.danoeh.antennapod.core.service.playback.PlayerStatus;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBReader;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBWriter;
-import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nappatfpr.de.danoeh.antennapod.R;
+import nappatfpr.de.danoeh.antennapod.activity.MainActivity;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.service.playback.PlaybackService;
+import nappatfpr.de.danoeh.antennapod.core.service.playback.PlayerStatus;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBReader;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBWriter;
+import nappatfpr.de.danoeh.antennapod.core.storage.PodDBAdapter;
 
 /**
  * test cases for starting and ending playback from the MainActivity and AudioPlayerActivity

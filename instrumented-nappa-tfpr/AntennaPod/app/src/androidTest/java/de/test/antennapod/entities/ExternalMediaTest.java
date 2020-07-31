@@ -5,8 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.test.InstrumentationTestCase;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
-import nappagreedy.de.danoeh.antennapod.core.util.playback.ExternalMedia;
+import nappatfpr.de.danoeh.antennapod.core.feed.MediaType;
+import nappatfpr.de.danoeh.antennapod.core.util.playback.ExternalMedia;
 
 /**
  * Tests for {@link ExternalMedia} entity.

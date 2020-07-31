@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nappagreedy.de.danoeh.antennapod.core">
+    package="nappatfpr.de.danoeh.antennapod.core">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,9 +16,9 @@
         android:icon="@mipmap/ic_launcher">
 
         <service
-            android:name="nappagreedy.de.danoeh.antennapod.core.service.download.DownloadService"
+            android:name="nappatfpr.de.danoeh.antennapod.core.service.download.DownloadService"
             android:enabled="true" />
-        <service android:name="nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackService"
+        <service android:name="nappatfpr.de.danoeh.antennapod.core.service.playback.PlaybackService"
             android:label="@string/app_name"
             android:enabled="true"
             android:exported="true">
@@ -27,12 +27,12 @@
             </intent-filter>
         </service>
         <service
-            android:name="nappagreedy.de.danoeh.antennapod.core.service.GpodnetSyncService"
+            android:name="nappatfpr.de.danoeh.antennapod.core.service.GpodnetSyncService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:enabled="true" />
 
         <receiver
-            android:name="nappagreedy.de.danoeh.antennapod.core.receiver.MediaButtonReceiver"
+            android:name="nappatfpr.de.danoeh.antennapod.core.receiver.MediaButtonReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
@@ -42,7 +42,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -54,13 +54,13 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.core.receiver.FeedUpdateReceiver"
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.core.receiver.FeedUpdateReceiver"
             android:label="@string/feed_update_receiver_name"
             android:exported="true"> <!-- allow feeds update to be triggered by external apps -->
         </receiver>
 
         <service
-                android:name="nappagreedy.de.danoeh.antennapod.core.service.FeedUpdateJobService"
+                android:name="nappatfpr.de.danoeh.antennapod.core.service.FeedUpdateJobService"
                 android:permission="android.permission.BIND_JOB_SERVICE" >
 
         </service>

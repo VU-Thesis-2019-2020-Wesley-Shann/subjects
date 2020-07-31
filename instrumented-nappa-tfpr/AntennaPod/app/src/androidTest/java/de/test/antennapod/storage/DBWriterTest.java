@@ -19,14 +19,14 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBReader;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBWriter;
-import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
-import nappagreedy.de.danoeh.antennapod.core.util.Consumer;
+import nappatfpr.de.danoeh.antennapod.core.feed.Feed;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBReader;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBWriter;
+import nappatfpr.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nappatfpr.de.danoeh.antennapod.core.util.Consumer;
 
 /**
  * Test class for DBWriter

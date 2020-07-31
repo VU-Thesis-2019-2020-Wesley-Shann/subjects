@@ -2,7 +2,7 @@ package de.test.antennapod.feed;
 
 import android.test.AndroidTestCase;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
 
 public class FeedItemTest extends AndroidTestCase {
     private static final String TEXT_LONG = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nappagreedy.de.danoeh.antennapod"
+    package="nappatfpr.de.danoeh.antennapod"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -26,11 +26,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
-        android:name="nappagreedy.de.danoeh.antennapod.PodcastApp"
+        android:name="nappatfpr.de.danoeh.antennapod.PodcastApp"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-        android:backupAgent="nappagreedy.de.danoeh.antennapod.core.backup.OpmlBackupAgent"
+        android:backupAgent="nappatfpr.de.danoeh.antennapod.core.backup.OpmlBackupAgent"
         android:restoreAnyVersion="true"
         android:usesCleartextTraffic="true"
         android:logo="@mipmap/ic_launcher">
@@ -41,7 +41,7 @@
             android:value="AEdPqrEAAAAI3a05VToCTlqBymJrbFGaKQMvF-bBAuLsOdavBA"/>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.SplashActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.SplashActivity"
             android:label="@string/app_name"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/Theme.AntennaPod.Dark.Splash">
@@ -62,17 +62,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.MainActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.AudioplayerActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.AudioplayerActivity"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -84,45 +84,45 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.CastplayerActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.CastplayerActivity"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.MainActivity"/>
         </activity>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.DownloadAuthenticationActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.DownloadAuthenticationActivity"
             android:launchMode="singleInstance"/>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/settings_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.MainActivity"/>
         </activity>
 
         <activity
-                android:name="nappagreedy.de.danoeh.antennapod.activity.FeedInfoActivity"
+                android:name="nappatfpr.de.danoeh.antennapod.activity.FeedInfoActivity"
                 android:label="@string/feed_info_label">
         </activity>
 
         <activity
-                android:name="nappagreedy.de.danoeh.antennapod.activity.FeedSettingsActivity"
+                android:name="nappatfpr.de.danoeh.antennapod.activity.FeedSettingsActivity"
                 android:windowSoftInputMode="stateHidden"
                 android:label="@string/feed_settings_label">
         </activity>
 
         <service
-            android:name="nappagreedy.de.danoeh.antennapod.core.service.PlayerWidgetJobService"
+            android:name="nappatfpr.de.danoeh.antennapod.core.service.PlayerWidgetJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:enabled="true"
             android:exported="false">
         </service>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.core.receiver.PlayerWidget">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.core.receiver.PlayerWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
@@ -139,10 +139,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="nappagreedy.de.danoeh.antennapod.activity.StorageErrorActivity">
+        <activity android:name="nappatfpr.de.danoeh.antennapod.activity.StorageErrorActivity">
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.FlattrAuthActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.FlattrAuthActivity"
             android:label="@string/flattr_auth_label">
             <intent-filter>
                 <action android:name=".activities.FlattrAuthActivity"/>
@@ -161,34 +161,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.AboutActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.AboutActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/about_pref">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.StatisticsActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.StatisticsActivity"
             android:label="@string/statistics_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-                android:name="nappagreedy.de.danoeh.antennapod.activity.ImportExportActivity"
+                android:name="nappatfpr.de.danoeh.antennapod.activity.ImportExportActivity"
                 android:label="@string/import_export">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"/>
+                    android:value="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.OpmlImportFromPathActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.OpmlImportFromPathActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/opml_import_label">
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.OpmlImportFromIntentActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.OpmlImportFromIntentActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/opml_import_label">
             <intent-filter>
@@ -224,18 +224,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.OpmlFeedChooserActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.OpmlFeedChooserActivity"
             android:label="@string/opml_import_label">
         </activity>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.VideoplayerActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.VideoplayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
             android:supportsPictureInPicture="true"
             android:screenOrientation="sensorLandscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -247,20 +247,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.DirectoryChooserActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.DirectoryChooserActivity"
             android:label="@string/choose_data_directory">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.OnlineFeedViewActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.OnlineFeedViewActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/add_feed_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.MainActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.MainActivity"/>
 
             <!-- URLs ending with '.xml' or '.rss' -->
 
@@ -335,7 +335,7 @@
         </activity>
 
         <activity
-            android:name="nappagreedy.de.danoeh.antennapod.activity.gpoddernet.GpodnetAuthenticationActivity"
+            android:name="nappatfpr.de.danoeh.antennapod.activity.gpoddernet.GpodnetAuthenticationActivity"
             android:configChanges="orientation"
             android:label="@string/gpodnet_auth_label"
             android:screenOrientation="portrait">
@@ -345,28 +345,28 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nappagreedy.de.danoeh.antennapod.activity.PreferenceActivity"/>
+                android:value="nappatfpr.de.danoeh.antennapod.activity.PreferenceActivity"/>
         </activity>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.receiver.ConnectivityActionReceiver">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.receiver.ConnectivityActionReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.receiver.PowerConnectionReceiver">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.receiver.PowerConnectionReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.receiver.SPAReceiver">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.receiver.SPAReceiver">
             <intent-filter>
                 <action android:name="de.danoeh.antennapdsp.intent.SP_APPS_QUERY_FEEDS_RESPONSE"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="nappagreedy.de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
+        <receiver android:name="nappatfpr.de.danoeh.antennapod.core.receiver.AlarmUpdateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>

@@ -7,8 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.Feed;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
 
 /**
  * Test for the UITestUtils. Makes sure that all URLs are reachable and that the class does not cause any crashes.

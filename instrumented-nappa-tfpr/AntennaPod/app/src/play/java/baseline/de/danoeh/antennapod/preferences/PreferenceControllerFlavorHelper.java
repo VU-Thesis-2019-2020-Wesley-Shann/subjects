@@ -3,7 +3,7 @@ package de.danoeh.antennapod.preferences;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
 
 /**
  * Implements functions from PreferenceController that are flavor dependent.

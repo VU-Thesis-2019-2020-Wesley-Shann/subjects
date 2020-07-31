@@ -1,4 +1,4 @@
-package nappagreedy.de.danoeh.antennapod.core.service.playback;
+package nappatfpr.de.danoeh.antennapod.core.service.playback;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -23,12 +23,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import nappagreedy.de.danoeh.antennapod.core.cast.CastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastManager;
-import nappagreedy.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.feed.MediaType;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.util.NetworkUtils;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastManager;
+import nappatfpr.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.feed.MediaType;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.util.NetworkUtils;
 
 /**
  * Class intended to work along PlaybackService and provide support for different flavors.

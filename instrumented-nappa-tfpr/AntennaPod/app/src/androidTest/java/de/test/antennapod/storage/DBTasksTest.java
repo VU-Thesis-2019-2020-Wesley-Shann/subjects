@@ -9,13 +9,13 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBReader;
-import nappagreedy.de.danoeh.antennapod.core.storage.DBTasks;
-import nappagreedy.de.danoeh.antennapod.core.storage.PodDBAdapter;
+import nappatfpr.de.danoeh.antennapod.core.feed.Feed;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBReader;
+import nappatfpr.de.danoeh.antennapod.core.storage.DBTasks;
+import nappatfpr.de.danoeh.antennapod.core.storage.PodDBAdapter;
 
 import static java.util.Collections.singletonList;
 

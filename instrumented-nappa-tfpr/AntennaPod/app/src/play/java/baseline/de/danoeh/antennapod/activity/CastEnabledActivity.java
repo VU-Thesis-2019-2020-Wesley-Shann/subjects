@@ -13,13 +13,13 @@ import android.view.MenuItem;
 
 import com.google.android.gms.cast.ApplicationMetadata;
 
-import nappagreedy.de.danoeh.antennapod.R;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.cast.CastManager;
-import nappagreedy.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
-import nappagreedy.de.danoeh.antennapod.core.cast.SwitchableMediaRouteActionProvider;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.service.playback.PlaybackService;
+import nappatfpr.de.danoeh.antennapod.R;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.cast.CastManager;
+import nappatfpr.de.danoeh.antennapod.core.cast.DefaultCastConsumer;
+import nappatfpr.de.danoeh.antennapod.core.cast.SwitchableMediaRouteActionProvider;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.service.playback.PlaybackService;
 
 /**
  * Activity that allows for showing the MediaRouter button whenever there's a cast device in the

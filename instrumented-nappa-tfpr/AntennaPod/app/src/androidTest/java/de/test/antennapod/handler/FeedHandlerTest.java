@@ -16,12 +16,12 @@ import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.Chapter;
-import nappagreedy.de.danoeh.antennapod.core.feed.Feed;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedItem;
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedMedia;
-import nappagreedy.de.danoeh.antennapod.core.syndication.handler.FeedHandler;
-import nappagreedy.de.danoeh.antennapod.core.syndication.handler.UnsupportedFeedtypeException;
+import nappatfpr.de.danoeh.antennapod.core.feed.Chapter;
+import nappatfpr.de.danoeh.antennapod.core.feed.Feed;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedItem;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedMedia;
+import nappatfpr.de.danoeh.antennapod.core.syndication.handler.FeedHandler;
+import nappatfpr.de.danoeh.antennapod.core.syndication.handler.UnsupportedFeedtypeException;
 import de.test.antennapod.util.syndication.feedgenerator.AtomGenerator;
 import de.test.antennapod.util.syndication.feedgenerator.FeedGenerator;
 import de.test.antennapod.util.syndication.feedgenerator.RSS2Generator;

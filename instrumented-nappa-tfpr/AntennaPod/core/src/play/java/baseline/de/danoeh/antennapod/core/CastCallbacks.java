@@ -1,4 +1,4 @@
-package nappagreedy.de.danoeh.antennapod.core;
+package nappatfpr.de.danoeh.antennapod.core;
 
 import androidx.annotation.Nullable;
 import androidx.mediarouter.app.MediaRouteDialogFactory;

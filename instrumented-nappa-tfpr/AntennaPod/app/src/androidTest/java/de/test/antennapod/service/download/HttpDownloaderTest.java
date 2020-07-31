@@ -6,13 +6,13 @@ import android.util.Log;
 import java.io.File;
 import java.io.IOException;
 
-import nappagreedy.de.danoeh.antennapod.core.feed.FeedFile;
-import nappagreedy.de.danoeh.antennapod.core.preferences.UserPreferences;
-import nappagreedy.de.danoeh.antennapod.core.service.download.DownloadRequest;
-import nappagreedy.de.danoeh.antennapod.core.service.download.DownloadStatus;
-import nappagreedy.de.danoeh.antennapod.core.service.download.Downloader;
-import nappagreedy.de.danoeh.antennapod.core.service.download.HttpDownloader;
-import nappagreedy.de.danoeh.antennapod.core.util.DownloadError;
+import nappatfpr.de.danoeh.antennapod.core.feed.FeedFile;
+import nappatfpr.de.danoeh.antennapod.core.preferences.UserPreferences;
+import nappatfpr.de.danoeh.antennapod.core.service.download.DownloadRequest;
+import nappatfpr.de.danoeh.antennapod.core.service.download.DownloadStatus;
+import nappatfpr.de.danoeh.antennapod.core.service.download.Downloader;
+import nappatfpr.de.danoeh.antennapod.core.service.download.HttpDownloader;
+import nappatfpr.de.danoeh.antennapod.core.util.DownloadError;
 import de.test.antennapod.util.service.download.HTTPBin;
 
 public class HttpDownloaderTest extends InstrumentationTestCase {

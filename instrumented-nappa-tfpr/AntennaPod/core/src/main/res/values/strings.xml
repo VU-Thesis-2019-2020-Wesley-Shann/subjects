@@ -4,7 +4,7 @@
     tools:ignore="MissingTranslation">
 
     <!-- Activitiy and fragment titles -->
-    <string name="app_name" translate="false">NG AntennaPod</string>
+    <string name="app_name" translate="false">NTFPR AntennaPod</string>
     <string name="provider_authority" translate="false">de.danoeh.antennapod.provider</string>
     <string name="feed_update_receiver_name">Update Subscriptions</string>
     <string name="feeds_label">Feeds</string>
