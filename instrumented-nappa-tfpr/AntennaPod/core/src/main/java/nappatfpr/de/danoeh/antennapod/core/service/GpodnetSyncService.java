@@ -52,9 +52,9 @@ public class GpodnetSyncService extends SafeJobIntentService {
 
     private static final String ARG_ACTION = "action";
 
-    private static final String ACTION_SYNC = "nappagreedy.de.danoeh.antennapod.intent.action.sync";
-    private static final String ACTION_SYNC_SUBSCRIPTIONS = "nappagreedy.de.danoeh.antennapod.intent.action.sync_subscriptions";
-    private static final String ACTION_SYNC_ACTIONS = "nappagreedy.de.danoeh.antennapod.intent.action.sync_ACTIONS";
+    private static final String ACTION_SYNC = "nappatfpr.de.danoeh.antennapod.intent.action.sync";
+    private static final String ACTION_SYNC_SUBSCRIPTIONS = "nappatfpr.de.danoeh.antennapod.intent.action.sync_subscriptions";
+    private static final String ACTION_SYNC_ACTIONS = "nappatfpr.de.danoeh.antennapod.intent.action.sync_ACTIONS";
 
     private GpodnetService service;
 

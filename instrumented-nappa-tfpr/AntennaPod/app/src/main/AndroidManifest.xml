@@ -127,7 +127,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="nappagreedy.de.danoeh.antennapod.FORCE_WIDGET_UPDATE"/>
+                <action android:name="nappatfpr.de.danoeh.antennapod.FORCE_WIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
@@ -135,7 +135,7 @@
                 android:resource="@xml/player_widget_info"/>
 
             <intent-filter>
-                <action android:name="nappagreedy.de.danoeh.antennapod.STOP_WIDGET_UPDATE"/>
+                <action android:name="nappatfpr.de.danoeh.antennapod.STOP_WIDGET_UPDATE"/>
             </intent-filter>
         </receiver>
 
@@ -156,7 +156,7 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data
-                    android:host="nappagreedy.de.danoeh.antennapod"
+                    android:host="nappatfpr.de.danoeh.antennapod"
                     android:scheme="flattr4j"/>
             </intent-filter>
         </activity>
@@ -374,7 +374,7 @@
                 <action android:name="android.intent.action.PACKAGE_REPLACED"/>
 
                 <data
-                    android:path="nappagreedy.de.danoeh.antennapod"
+                    android:path="nappatfpr.de.danoeh.antennapod"
                     android:scheme="package"/>
             </intent-filter>
         </receiver>

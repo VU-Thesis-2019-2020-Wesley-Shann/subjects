@@ -13,7 +13,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ eventBusIndex : 'nappagreedy.de.danoeh.antennapod.core.ApCoreEventBusIndex' ]
+                arguments = [ eventBusIndex : 'nappatfpr.de.danoeh.antennapod.core.ApCoreEventBusIndex' ]
             }
         }
     }

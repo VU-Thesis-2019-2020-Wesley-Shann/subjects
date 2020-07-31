@@ -86,56 +86,56 @@ public class PlaybackService extends MediaBrowserServiceCompat {
     /**
      * True if cast session should disconnect.
      */
-    public static final String EXTRA_CAST_DISCONNECT = "extra.nappagreedy.de.danoeh.antennapod.core.service.castDisconnect";
+    public static final String EXTRA_CAST_DISCONNECT = "extra.nappatfpr.de.danoeh.antennapod.core.service.castDisconnect";
     /**
      * True if media should be streamed.
      */
-    public static final String EXTRA_SHOULD_STREAM = "extra.nappagreedy.de.danoeh.antennapod.core.service.shouldStream";
+    public static final String EXTRA_SHOULD_STREAM = "extra.nappatfpr.de.danoeh.antennapod.core.service.shouldStream";
     /**
      * True if playback should be started immediately after media has been
      * prepared.
      */
-    public static final String EXTRA_START_WHEN_PREPARED = "extra.nappagreedy.de.danoeh.antennapod.core.service.startWhenPrepared";
+    public static final String EXTRA_START_WHEN_PREPARED = "extra.nappatfpr.de.danoeh.antennapod.core.service.startWhenPrepared";
 
-    public static final String EXTRA_PREPARE_IMMEDIATELY = "extra.nappagreedy.de.danoeh.antennapod.core.service.prepareImmediately";
+    public static final String EXTRA_PREPARE_IMMEDIATELY = "extra.nappatfpr.de.danoeh.antennapod.core.service.prepareImmediately";
 
-    public static final String ACTION_PLAYER_STATUS_CHANGED = "action.nappagreedy.de.danoeh.antennapod.core.service.playerStatusChanged";
+    public static final String ACTION_PLAYER_STATUS_CHANGED = "action.nappatfpr.de.danoeh.antennapod.core.service.playerStatusChanged";
     public static final String EXTRA_NEW_PLAYER_STATUS = "extra.de.danoeh.antennapod.service.playerStatusChanged.newStatus";
     private static final String AVRCP_ACTION_PLAYER_STATUS_CHANGED = "com.android.music.playstatechanged";
     private static final String AVRCP_ACTION_META_CHANGED = "com.android.music.metachanged";
 
-    public static final String ACTION_PLAYER_NOTIFICATION = "action.nappagreedy.de.danoeh.antennapod.core.service.playerNotification";
-    public static final String EXTRA_NOTIFICATION_CODE = "extra.nappagreedy.de.danoeh.antennapod.core.service.notificationCode";
-    public static final String EXTRA_NOTIFICATION_TYPE = "extra.nappagreedy.de.danoeh.antennapod.core.service.notificationType";
+    public static final String ACTION_PLAYER_NOTIFICATION = "action.nappatfpr.de.danoeh.antennapod.core.service.playerNotification";
+    public static final String EXTRA_NOTIFICATION_CODE = "extra.nappatfpr.de.danoeh.antennapod.core.service.notificationCode";
+    public static final String EXTRA_NOTIFICATION_TYPE = "extra.nappatfpr.de.danoeh.antennapod.core.service.notificationType";
 
     /**
      * If the PlaybackService receives this action, it will stop playback and
      * try to shutdown.
      */
-    public static final String ACTION_SHUTDOWN_PLAYBACK_SERVICE = "action.nappagreedy.de.danoeh.antennapod.core.service.actionShutdownPlaybackService";
+    public static final String ACTION_SHUTDOWN_PLAYBACK_SERVICE = "action.nappatfpr.de.danoeh.antennapod.core.service.actionShutdownPlaybackService";
 
     /**
      * If the PlaybackService receives this action, it will end playback of the
      * current episode and load the next episode if there is one available.
      */
-    public static final String ACTION_SKIP_CURRENT_EPISODE = "action.nappagreedy.de.danoeh.antennapod.core.service.skipCurrentEpisode";
+    public static final String ACTION_SKIP_CURRENT_EPISODE = "action.nappatfpr.de.danoeh.antennapod.core.service.skipCurrentEpisode";
 
     /**
      * If the PlaybackService receives this action, it will pause playback.
      */
-    public static final String ACTION_PAUSE_PLAY_CURRENT_EPISODE = "action.nappagreedy.de.danoeh.antennapod.core.service.pausePlayCurrentEpisode";
+    public static final String ACTION_PAUSE_PLAY_CURRENT_EPISODE = "action.nappatfpr.de.danoeh.antennapod.core.service.pausePlayCurrentEpisode";
 
 
     /**
      * If the PlaybackService receives this action, it will resume playback.
      */
-    public static final String ACTION_RESUME_PLAY_CURRENT_EPISODE = "action.nappagreedy.de.danoeh.antennapod.core.service.resumePlayCurrentEpisode";
+    public static final String ACTION_RESUME_PLAY_CURRENT_EPISODE = "action.nappatfpr.de.danoeh.antennapod.core.service.resumePlayCurrentEpisode";
 
     /**
      * Custom action used by Android Wear
      */
-    private static final String CUSTOM_ACTION_FAST_FORWARD = "action.nappagreedy.de.danoeh.antennapod.core.service.fastForward";
-    private static final String CUSTOM_ACTION_REWIND = "action.nappagreedy.de.danoeh.antennapod.core.service.rewind";
+    private static final String CUSTOM_ACTION_FAST_FORWARD = "action.nappatfpr.de.danoeh.antennapod.core.service.fastForward";
+    private static final String CUSTOM_ACTION_REWIND = "action.nappatfpr.de.danoeh.antennapod.core.service.rewind";
 
 
     /**

@@ -39,9 +39,9 @@ public class FlattrUtils {
 
     private static final String TAG = "FlattrUtils";
 
-    private static final String HOST_NAME = "nappagreedy.de.danoeh.antennapod";
+    private static final String HOST_NAME = "nappatfpr.de.danoeh.antennapod";
 
-    private static final String PREF_ACCESS_TOKEN = "nappagreedy.de.danoeh.antennapod.preference.flattrAccessToken";
+    private static final String PREF_ACCESS_TOKEN = "nappatfpr.de.danoeh.antennapod.preference.flattrAccessToken";
 
     private static volatile AccessToken cachedToken;
 

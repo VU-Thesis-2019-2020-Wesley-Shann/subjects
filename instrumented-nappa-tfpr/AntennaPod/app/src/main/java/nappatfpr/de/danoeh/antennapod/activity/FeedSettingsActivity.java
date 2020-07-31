@@ -53,7 +53,7 @@ import nl.vu.cs.s2group.nappa.*;
  */
 public class FeedSettingsActivity extends AppCompatActivity {
 
-    public static final String EXTRA_FEED_ID = "nappagreedy.de.danoeh.antennapod.extra.feedId";
+    public static final String EXTRA_FEED_ID = "nappatfpr.de.danoeh.antennapod.extra.feedId";
     private static final String TAG = "FeedSettingsActivity";
     private boolean autoDeleteChanged = false;
     private Feed feed;

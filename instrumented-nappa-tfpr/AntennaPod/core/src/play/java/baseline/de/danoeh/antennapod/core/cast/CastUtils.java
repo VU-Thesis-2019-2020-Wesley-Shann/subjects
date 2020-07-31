@@ -27,13 +27,13 @@ public class CastUtils {
 
     private static final String TAG = "CastUtils";
 
-    public static final String KEY_MEDIA_ID = "nappagreedy.de.danoeh.antennapod.core.cast.MediaId";
+    public static final String KEY_MEDIA_ID = "nappatfpr.de.danoeh.antennapod.core.cast.MediaId";
 
-    public static final String KEY_EPISODE_IDENTIFIER = "nappagreedy.de.danoeh.antennapod.core.cast.EpisodeId";
-    public static final String KEY_EPISODE_LINK = "nappagreedy.de.danoeh.antennapod.core.cast.EpisodeLink";
-    public static final String KEY_FEED_URL = "nappagreedy.de.danoeh.antennapod.core.cast.FeedUrl";
-    public static final String KEY_FEED_WEBSITE = "nappagreedy.de.danoeh.antennapod.core.cast.FeedWebsite";
-    public static final String KEY_EPISODE_NOTES = "nappagreedy.de.danoeh.antennapod.core.cast.EpisodeNotes";
+    public static final String KEY_EPISODE_IDENTIFIER = "nappatfpr.de.danoeh.antennapod.core.cast.EpisodeId";
+    public static final String KEY_EPISODE_LINK = "nappatfpr.de.danoeh.antennapod.core.cast.EpisodeLink";
+    public static final String KEY_FEED_URL = "nappatfpr.de.danoeh.antennapod.core.cast.FeedUrl";
+    public static final String KEY_FEED_WEBSITE = "nappatfpr.de.danoeh.antennapod.core.cast.FeedWebsite";
+    public static final String KEY_EPISODE_NOTES = "nappatfpr.de.danoeh.antennapod.core.cast.EpisodeNotes";
     public static final int EPISODE_NOTES_MAX_LENGTH = Integer.MAX_VALUE;
 
     /**
@@ -45,7 +45,7 @@ public class CastUtils {
      * <code>MAX_VERSION_FORWARD_COMPATIBILITY</code> value set on the earlier one, so that it
      * doesn't try to parse the object.
      */
-    public static final String KEY_FORMAT_VERSION = "nappagreedy.de.danoeh.antennapod.core.cast.FormatVersion";
+    public static final String KEY_FORMAT_VERSION = "nappatfpr.de.danoeh.antennapod.core.cast.FormatVersion";
     public static final int FORMAT_VERSION_VALUE = 1;
     public static final int MAX_VERSION_FORWARD_COMPATIBILITY = 9999;
 

@@ -24,7 +24,7 @@ import nl.vu.cs.s2group.nappa.*;
  * which feeds he wants to import.
  */
 public class OpmlFeedChooserActivity extends AppCompatActivity {
-    public static final String EXTRA_SELECTED_ITEMS = "nappagreedy.de.danoeh.antennapod.selectedItems";
+    public static final String EXTRA_SELECTED_ITEMS = "nappatfpr.de.danoeh.antennapod.selectedItems";
     private static final String TAG = "OpmlFeedChooserActivity";
     private Button butConfirm;
     private Button butCancel;
