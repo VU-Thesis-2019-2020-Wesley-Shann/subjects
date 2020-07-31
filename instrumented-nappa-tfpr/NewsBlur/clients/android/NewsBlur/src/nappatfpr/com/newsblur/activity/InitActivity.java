@@ -24,7 +24,7 @@ public class InitActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_TFPR);
 //        getLifecycle not available. doesn't seems to have requests here. It just selects the next activity
 //        getLifecycle().addObserver(new NappaLifecycleObserver(this));
 
