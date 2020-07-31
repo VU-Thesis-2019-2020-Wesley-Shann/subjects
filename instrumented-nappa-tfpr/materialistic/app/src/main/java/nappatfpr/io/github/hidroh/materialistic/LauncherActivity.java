@@ -31,7 +31,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
+        Nappa.init(this, PrefetchingStrategyType.STRATEGY_TFPR);
         this.getLifecycle().addObserver(new NappaLifecycleObserver(this));
         HashMap<String, Class<? extends Activity>> map = new HashMap<>();
         map.put(getString(R.string.pref_launch_screen_value_top), ListActivity.class);
