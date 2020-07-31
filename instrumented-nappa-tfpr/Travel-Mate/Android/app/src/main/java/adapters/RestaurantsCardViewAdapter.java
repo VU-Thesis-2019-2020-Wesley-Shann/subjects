@@ -17,7 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import nappagreedy.io.github.project_travel_mate.R;
+import nappatfpr.io.github.project_travel_mate.R;
 import utils.RestaurantItemEntity;
 
 public class RestaurantsCardViewAdapter

@@ -9,7 +9,7 @@ import androidx.room.TypeConverters;
 
 import java.util.List;
 
-import nappagreedy.io.github.project_travel_mate.roompersistence.BooleanConverter;
+import nappatfpr.io.github.project_travel_mate.roompersistence.BooleanConverter;
 import objects.ChecklistItem;
 
 /**

@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 
 import java.util.Calendar;
 
-import nappagreedy.io.github.project_travel_mate.R;
+import nappatfpr.io.github.project_travel_mate.R;
 
 /**
  * Created by Santosh on 11/10/18.

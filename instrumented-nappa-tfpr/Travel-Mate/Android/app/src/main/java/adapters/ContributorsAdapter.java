@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import nappagreedy.io.github.project_travel_mate.R;
+import nappatfpr.io.github.project_travel_mate.R;
 import objects.Contributor;
 
 /**

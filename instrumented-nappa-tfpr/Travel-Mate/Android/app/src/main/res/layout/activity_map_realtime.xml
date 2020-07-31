@@ -37,7 +37,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="nappagreedy.io.github.project_travel_mate.MapActivity">
+        tools:context="nappatfpr.io.github.project_travel_mate.MapActivity">
 
         <org.osmdroid.views.MapView
             android:id="@+id/map"

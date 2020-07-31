@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NG Travel Mate</string>
+    <string name="app_name">NTFPR Travel Mate</string>
 
     <string name="navigation_drawer_open">Travel Guide</string>
     <string name="navigation_drawer_close">Travel Guide</string>
@@ -282,9 +282,9 @@
     <string name="mark_all_read_notifications">Do you want to mark all notifications as read?</string>
 
     <string name="share_fun_fact">Hey! Checkout this fun fact, seems interesting! I find this on Travel Mate app. Download it from Play Store :
-    https://play.google.com/store/apps/details?id=nappagreedy.io.github.project_travel_mate.</string>
+    https://play.google.com/store/apps/details?id=nappatfpr.io.github.project_travel_mate.</string>
     <string name="share_daily_quote">Hey! Checkout this quote, seems interesting! I find this on Travel Mate app. Download it from Play Store :
-    https://play.google.com/store/apps/details?id=nappagreedy.io.github.project_travel_mate.</string>
+    https://play.google.com/store/apps/details?id=nappatfpr.io.github.project_travel_mate.</string>
     <string name="reject_daily_quotes_button">Don\'t Show Again</string>
 
     <string name="shopping_text">Want to shop something? Select the search icon on top.</string>
@@ -335,7 +335,7 @@
     <!-- About us strings -->
     <string name="email_hello">Hello</string>
     <string name="email_send">Send Email</string>
-    <string name="share_text">Hi! I found out this app for the travellers. Do download it : https://play.google.com/store/apps/details?id=nappagreedy.io.github.project_travel_mate</string>
+    <string name="share_text">Hi! I found out this app for the travellers. Do download it : https://play.google.com/store/apps/details?id=nappatfpr.io.github.project_travel_mate</string>
 
     <!-- Restaurants strings -->
     <string name="sort">Sort</string>

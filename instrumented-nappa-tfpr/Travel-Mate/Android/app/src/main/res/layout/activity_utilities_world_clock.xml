@@ -64,7 +64,7 @@
 
         </RelativeLayout>
 
-        <nappagreedy.io.github.project_travel_mate.utilities.AnalogClock
+        <nappatfpr.io.github.project_travel_mate.utilities.AnalogClock
             android:id="@+id/clock_analog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

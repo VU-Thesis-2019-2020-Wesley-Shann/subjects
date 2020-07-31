@@ -8,7 +8,7 @@ import android.widget.RemoteViewsService.RemoteViewsFactory;
 
 import java.util.ArrayList;
 
-import nappagreedy.io.github.project_travel_mate.R;
+import nappatfpr.io.github.project_travel_mate.R;
 import objects.ChecklistItem;
 
 /**

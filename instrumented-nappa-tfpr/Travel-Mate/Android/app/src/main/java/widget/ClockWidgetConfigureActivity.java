@@ -1,6 +1,5 @@
 package widget;
 
-import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.TimeZone;
 
-import nappagreedy.io.github.project_travel_mate.R;
+import nappatfpr.io.github.project_travel_mate.R;
 import nl.vu.cs.s2group.nappa.*;
 
 /**

@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import nappagreedy.io.github.project_travel_mate.roompersistence.BooleanConverter;
+import nappatfpr.io.github.project_travel_mate.roompersistence.BooleanConverter;
 
 /**
  * Model class for checklist item

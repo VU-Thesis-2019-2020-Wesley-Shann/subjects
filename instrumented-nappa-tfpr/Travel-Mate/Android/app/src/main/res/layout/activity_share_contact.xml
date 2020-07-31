@@ -16,7 +16,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="nappagreedy.io.github.project_travel_mate.utilities.ShareContactActivity">
+    tools:context="nappatfpr.io.github.project_travel_mate.utilities.ShareContactActivity">
 
     <ImageView
         android:id="@+id/im"
