@@ -17,7 +17,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="nappagreedy.org.quantumbadger.redreader"
+          package="nappatfpr.org.quantumbadger.redreader"
           android:versionCode="87"
           android:versionName="1.9.10"
           android:installLocation="auto">
@@ -30,7 +30,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
-    <application android:name="nappagreedy.org.quantumbadger.redreader.RedReader"
+    <application android:name="nappatfpr.org.quantumbadger.redreader.RedReader"
                  android:icon="@drawable/icon"
                  android:label="@string/app_name"
                  android:theme="@style/RR.Startup"
@@ -41,7 +41,7 @@
 
 		<meta-data android:name="com.lge.support.SPLIT_WINDOW" android:value="true" />
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.MainActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.MainActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:clearTaskOnLaunch="false"
                   android:finishOnTaskLaunch="false"
@@ -55,10 +55,10 @@
 
         </activity>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.settings.SettingsActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.settings.SettingsActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden" />
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.LinkDispatchActivity">
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.LinkDispatchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -72,48 +72,48 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.PostListingActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.PostListingActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden" />
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.CommentListingActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.CommentListingActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden" />
 
-		<activity android:name="nappagreedy.org.quantumbadger.redreader.activities.ChangelogActivity"
+		<activity android:name="nappatfpr.org.quantumbadger.redreader.activities.ChangelogActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden" />
 
-		<activity android:name="nappagreedy.org.quantumbadger.redreader.activities.ImgurUploadActivity"
+		<activity android:name="nappatfpr.org.quantumbadger.redreader.activities.ImgurUploadActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden" />
 
-		<activity android:name="nappagreedy.org.quantumbadger.redreader.activities.MoreCommentsListingActivity"
+		<activity android:name="nappatfpr.org.quantumbadger.redreader.activities.MoreCommentsListingActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden" />
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.WebViewActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.WebViewActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:theme="@style/RR.Dark"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.HtmlViewActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.HtmlViewActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.OAuthLoginActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.OAuthLoginActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.AlbumListingActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.AlbumListingActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.ImageViewActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.ImageViewActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:theme="@style/RR.Dark"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.CommentReplyActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.CommentReplyActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.CommentEditActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.CommentEditActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-		<activity android:name="nappagreedy.org.quantumbadger.redreader.activities.PMSendActivity"
+		<activity android:name="nappatfpr.org.quantumbadger.redreader.activities.PMSendActivity"
 				  android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.PostSubmitActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.PostSubmitActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -122,16 +122,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.BugReportActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.BugReportActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:launchMode="singleInstance"/>
 
-        <activity android:name="nappagreedy.org.quantumbadger.redreader.activities.InboxListingActivity"
+        <activity android:name="nappatfpr.org.quantumbadger.redreader.activities.InboxListingActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <receiver android:name="nappagreedy.org.quantumbadger.redreader.receivers.NewMessageChecker"/>
-        <receiver android:name="nappagreedy.org.quantumbadger.redreader.receivers.RegularCachePruner"/>
-        <receiver android:name="nappagreedy.org.quantumbadger.redreader.receivers.BootReceiver">
+        <receiver android:name="nappatfpr.org.quantumbadger.redreader.receivers.NewMessageChecker"/>
+        <receiver android:name="nappatfpr.org.quantumbadger.redreader.receivers.RegularCachePruner"/>
+        <receiver android:name="nappatfpr.org.quantumbadger.redreader.receivers.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
@@ -147,7 +147,7 @@
 		
 		<provider
 				android:name="androidx.core.content.FileProvider"
-				android:authorities="nappagreedy.org.quantumbadger.redreader.provider"
+				android:authorities="nappatfpr.org.quantumbadger.redreader.provider"
 				android:exported="false"
 				android:grantUriPermissions="true">
 			<meta-data

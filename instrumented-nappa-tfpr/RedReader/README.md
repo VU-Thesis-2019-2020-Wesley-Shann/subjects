@@ -29,19 +29,19 @@ Downloading
 
 RedReader is available for free on the Google Play store:
 
-https://play.google.com/store/apps/details?id=nappagreedy.org.quantumbadger.redreader
+https://play.google.com/store/apps/details?id=nappatfpr.org.quantumbadger.redreader
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
       alt="Get it on Google Play"
-      height="80">](https://play.google.com/store/apps/details?id=nappagreedy.org.quantumbadger.redreader)
+      height="80">](https://play.google.com/store/apps/details?id=nappatfpr.org.quantumbadger.redreader)
 
 RedReader can also be found for free on F-Droid:
 
-https://f-droid.org/app/nappagreedy.org.quantumbadger.redreader
+https://f-droid.org/app/nappatfpr.org.quantumbadger.redreader
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
-      height="80">](https://f-droid.org/app/nappagreedy.org.quantumbadger.redreader)
+      height="80">](https://f-droid.org/app/nappatfpr.org.quantumbadger.redreader)
 
 Translating
 -----------

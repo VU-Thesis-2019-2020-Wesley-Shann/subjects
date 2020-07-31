@@ -61,7 +61,7 @@ android {
 		minSdkVersion 23
 		targetSdkVersion 29
 
-		applicationId "nappagreedy.org.quantumbadger.redreader"
+		applicationId "nappatfpr.org.quantumbadger.redreader"
 	}
     // Flag to tell aapt to keep the attribute ids around
     aaptOptions {
