@@ -6,19 +6,19 @@ PATHS_1=(
   "/home/sshann/Documents/thesis/subjects/baseline/Travel-Mate/Android"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/Travel-Mate/Android"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/Travel-Mate/Android"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/Travel-Mate/Android"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/Travel-Mate/Android"
 
   # Materialistic
   "/home/sshann/Documents/thesis/subjects/baseline/materialistic"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/materialistic"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/materialistic"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/materialistic"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/materialistic"
 
   # Hillffair
   "/home/sshann/Documents/thesis/subjects/baseline/Hillffair"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/Hillffair"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/Hillffair"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/Hillffair"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/Hillffair"
 )
 
 echo "Building PATHS_1 with assembleDebug" 
@@ -47,7 +47,7 @@ PATHS_2=(
   "/home/sshann/Documents/thesis/subjects/baseline/AntennaPod/"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/AntennaPod"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/AntennaPod"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/AntennaPod"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/AntennaPod"
 )
 
 echo "Building PATHS_2 with assembleFreeDebug" 
@@ -75,13 +75,13 @@ PATHS_3=(
   "/home/sshann/Documents/thesis/subjects/baseline/RedReader"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/RedReader"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/RedReader"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/RedReader"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/RedReader"
 
   # NewsBlur
   "/home/sshann/Documents/thesis/subjects/baseline/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/NewsBlur/clients/android/NewsBlur"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/NewsBlur/clients/android/NewsBlur"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/NewsBlur/clients/android/NewsBlur"=
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/NewsBlur/clients/android/NewsBlur"
 )
 
 echo "Building PATHS_3 with assembleDebug" 
@@ -109,7 +109,7 @@ PATHS_4=(
   "/home/sshann/Documents/thesis/subjects/baseline/uob-timetable-android/uob"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-greedy/uob-timetable-android/uob"
   "/home/sshann/Documents/thesis/subjects/instrumented-nappa-tfpr/uob-timetable-android/uob"
-  "/home/sshann/Documents/thesis/subjects/instrumented-paloma/uob-timetable-android/uob"
+  # "/home/sshann/Documents/thesis/subjects/instrumented-paloma/uob-timetable-android/uob"
 )
 
 echo "Building PATHS_4 with assembleDebug" 
