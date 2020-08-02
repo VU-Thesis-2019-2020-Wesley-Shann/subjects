@@ -47,7 +47,9 @@ class ApOkHttpUrlLoader implements ModelLoader<String, InputStream> {
                         OkHttpClient.Builder builder = AntennapodHttpClient.newBuilder();
                         builder.interceptors().add(new NetworkAllowanceInterceptor());
                         builder.interceptors().add(new BasicAuthenticationInterceptor());
-                        internalClient = Nappa.getOkHttp(builder.build());
+//                      Apps had conflicts with Glide while this statement was instrumented
+//                      internalClient = Nappa.getOkHttp(builder.build());
+                        internalClient = builder.build();
                     }
                 }
             }
