@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
@@ -18,8 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,9 +34,9 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import baseline.io.github.project_travel_mate.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import baseline.io.github.project_travel_mate.R;
 import nl.vu.cs.s2group.nappa.nappaexperimentation.MetricNetworkRequestExecutionTime;
 import objects.Notification;
 import objects.Trip;
@@ -196,8 +197,10 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                                     emptyList();
                                 }
                                 if (!allRead) {
-                                    MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
-                                    item.setVisible(false);
+                                    if (mOptionsMenu != null) {
+                                        MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
+                                        item.setVisible(false);
+                                    }
                                 }
                             }
 
@@ -213,6 +216,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.read_notification_menu, menu);
@@ -246,6 +250,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                 return super.onOptionsItemSelected(item);
         }
     }
+
     public static String getTimeAgo(long time) {
         long now = new Date().getTime();
         if (time > now || time <= 0) {
@@ -332,8 +337,10 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                                         }
                                     });
                                     mDialog.dismiss();
-                                    MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
-                                    item.setVisible(false);
+                                    if (mOptionsMenu != null) {
+                                        MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
+                                        item.setVisible(false);
+                                    }
                                 }
                             });
 
@@ -360,8 +367,10 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
                         R.string.no_notifications, Snackbar.LENGTH_LONG);
         snackbar.show();
 
-        MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
-        item.setVisible(false);
+        if (mOptionsMenu != null) {
+            MenuItem item = mOptionsMenu.findItem(R.id.action_sort);
+            item.setVisible(false);
+        }
 
         animationView.setAnimation(R.raw.no_notifications);
         animationView.playAnimation();
@@ -375,6 +384,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
         animationView.playAnimation();
         getNotifications();
     }
+
     @Override
     public void onResume() {
         super.onResume();
