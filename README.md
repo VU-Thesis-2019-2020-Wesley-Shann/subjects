@@ -20,7 +20,7 @@ This is the base version used for instrumenting the apps to enable prefetch mech
 | ~~perfect~~              |~~A prefetch enabled version to prefetch all network requests~~          |
 | instrumented-nappa-greedy | A prefetch enabled version using NAPPA approach with Greedy strategy |
 | instrumented-nappa-tfpr   | A prefetch enabled version using NAPPA approach with TFPR strategy   |
-| ~~instrumented-paloma       | A prefetch enabled version using PALOMA approach~~                  |
+| ~~instrumented-paloma~~       | ~~A prefetch enabled version using PALOMA approach~~                  |
 
 Due to time constraints, the treatments Perfect and PALOMA were not implemented.
 
