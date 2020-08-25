@@ -22,6 +22,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +48,11 @@ import baseline.org.quantumbadger.redreader.reddit.RedditAPI;
 import java.util.ArrayList;
 
 public class PMSendActivity extends BaseActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	public static final String EXTRA_RECIPIENT = "recipient";
 	public static final String EXTRA_SUBJECT = "subject";

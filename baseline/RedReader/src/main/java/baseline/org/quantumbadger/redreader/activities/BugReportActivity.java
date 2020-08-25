@@ -35,6 +35,11 @@ import baseline.org.quantumbadger.redreader.common.RRError;
 import java.util.LinkedList;
 
 public class BugReportActivity extends BaseActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final LinkedList<RRError> errors = new LinkedList<>();
 

@@ -20,11 +20,18 @@ package baseline.org.quantumbadger.redreader.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.LinearLayout;
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.image.ImageInfo;
 
 public final class ImageInfoDialog extends PropertiesDialog {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	public static ImageInfoDialog newInstance(final ImageInfo info) {
 

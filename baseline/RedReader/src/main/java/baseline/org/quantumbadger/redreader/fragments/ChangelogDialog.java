@@ -19,11 +19,18 @@ package baseline.org.quantumbadger.redreader.fragments;
 
 import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.LinearLayout;
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.common.ChangelogManager;
 
 public final class ChangelogDialog extends PropertiesDialog {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	public static ChangelogDialog newInstance() {
 		return new ChangelogDialog();

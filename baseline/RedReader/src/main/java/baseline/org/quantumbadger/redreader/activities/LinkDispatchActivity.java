@@ -25,6 +25,11 @@ import android.util.Log;
 import baseline.org.quantumbadger.redreader.common.LinkHandler;
 
 public class LinkDispatchActivity extends AppCompatActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final String TAG = "LinkDispatchActivity";
 

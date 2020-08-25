@@ -18,6 +18,7 @@
 package baseline.org.quantumbadger.redreader.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -26,6 +27,11 @@ import baseline.org.quantumbadger.redreader.common.ChangelogManager;
 import baseline.org.quantumbadger.redreader.common.PrefsUtility;
 
 public class ChangelogActivity extends BaseActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	@Override
 	protected boolean baseActivityIsToolbarActionBarEnabled() {

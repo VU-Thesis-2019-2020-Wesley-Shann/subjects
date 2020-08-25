@@ -26,6 +26,8 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -67,6 +69,11 @@ import java.net.URI;
 import java.util.UUID;
 
 public final class InboxListingActivity extends BaseActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final int OPTIONS_MENU_MARK_ALL_AS_READ = 0;
 	private static final int OPTIONS_MENU_SHOW_UNREAD_ONLY = 1;

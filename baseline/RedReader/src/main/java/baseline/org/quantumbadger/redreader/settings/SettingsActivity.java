@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import baseline.org.quantumbadger.redreader.R;
@@ -33,6 +34,12 @@ public final class SettingsActivity
 		implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	private SharedPreferences sharedPreferences;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {

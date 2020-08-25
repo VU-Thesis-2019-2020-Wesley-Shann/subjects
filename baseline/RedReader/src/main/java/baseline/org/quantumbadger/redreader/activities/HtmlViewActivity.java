@@ -20,6 +20,7 @@ package baseline.org.quantumbadger.redreader.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.common.General;
@@ -33,6 +34,12 @@ import java.io.InputStream;
 public class HtmlViewActivity extends BaseActivity {
 
 	private WebViewFragment webView;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	public static void showAsset(
 			final Context context,

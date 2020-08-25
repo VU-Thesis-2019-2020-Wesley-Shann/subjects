@@ -22,6 +22,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,6 +40,11 @@ import java.net.URI;
 import java.util.UUID;
 
 public class SessionListDialog extends AppCompatDialogFragment implements RedditAccountChangeListener {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	private URI url;
 	private UUID current;

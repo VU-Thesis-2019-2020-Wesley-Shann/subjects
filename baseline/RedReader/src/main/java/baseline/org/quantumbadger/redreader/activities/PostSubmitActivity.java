@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -59,6 +60,12 @@ public class PostSubmitActivity extends BaseActivity {
 	private CheckBox sendRepliesToInboxCheckbox;
 	private CheckBox markAsNsfwCheckbox;
 	private CheckBox markAsSpoilerCheckbox;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final String[] postTypes = {"Link", "Self", "Upload to Imgur"};
 

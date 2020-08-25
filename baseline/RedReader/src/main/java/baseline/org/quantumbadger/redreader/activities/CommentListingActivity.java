@@ -48,6 +48,11 @@ public class CommentListingActivity extends RefreshableActivity
 		OptionsMenuUtility.OptionsMenuCommentsListener,
 		RedditPostView.PostSelectionListener,
 		SessionChangeListener {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final String TAG = "CommentListingActivity";
 

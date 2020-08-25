@@ -19,6 +19,8 @@ package baseline.org.quantumbadger.redreader.activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.common.General;
 import baseline.org.quantumbadger.redreader.common.PrefsUtility;
@@ -70,6 +72,7 @@ public abstract class RefreshableActivity extends BaseActivity {
 	protected void onResume() {
 
 		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
 		paused = false;
 

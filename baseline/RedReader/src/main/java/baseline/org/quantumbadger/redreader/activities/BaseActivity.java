@@ -29,6 +29,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -220,6 +222,7 @@ public abstract class BaseActivity extends AppCompatActivity implements SharedPr
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 		setOrientationFromPrefs();
 		closeIfNecessary();
 		TorCommon.updateTorStatus(this);

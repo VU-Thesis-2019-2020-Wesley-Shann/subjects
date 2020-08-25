@@ -26,6 +26,8 @@ import android.preference.PreferenceManager;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -434,6 +436,7 @@ public class WebViewFragment extends Fragment implements RedditPostView.PostSele
 	@Override
 	public void onResume() {
 		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
 		webView.resumeTimers();
 		webView.onResume();
 	}

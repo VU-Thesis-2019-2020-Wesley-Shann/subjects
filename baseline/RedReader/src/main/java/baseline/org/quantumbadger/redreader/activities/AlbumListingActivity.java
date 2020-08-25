@@ -39,6 +39,11 @@ import baseline.org.quantumbadger.redreader.views.ScrollbarRecyclerViewManager;
 import java.util.regex.Matcher;
 
 public class AlbumListingActivity extends BaseActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private String mUrl;
 	private boolean mHaveReverted = false;

@@ -20,12 +20,19 @@ package baseline.org.quantumbadger.redreader.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.LinearLayout;
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.activities.BugReportActivity;
 import baseline.org.quantumbadger.redreader.common.RRError;
 
 public final class ErrorPropertiesDialog extends PropertiesDialog {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	public static ErrorPropertiesDialog newInstance(final RRError error) {
 

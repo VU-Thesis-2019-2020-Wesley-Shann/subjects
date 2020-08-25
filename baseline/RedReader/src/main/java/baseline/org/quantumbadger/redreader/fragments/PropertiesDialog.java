@@ -25,6 +25,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -33,6 +35,11 @@ import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.common.General;
 
 public abstract class PropertiesDialog extends AppCompatDialogFragment {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	protected int rrListHeaderTextCol, rrListDividerCol, rrCommentBodyCol;
 

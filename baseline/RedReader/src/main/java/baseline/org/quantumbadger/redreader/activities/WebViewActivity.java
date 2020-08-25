@@ -20,6 +20,7 @@ package baseline.org.quantumbadger.redreader.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +36,11 @@ import baseline.org.quantumbadger.redreader.reddit.url.PostCommentListingURL;
 import baseline.org.quantumbadger.redreader.views.RedditPostView;
 
 public class WebViewActivity extends BaseActivity implements RedditPostView.PostSelectionListener {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private WebViewFragment webView;
 	public static final int VIEW_IN_BROWSER = 10,

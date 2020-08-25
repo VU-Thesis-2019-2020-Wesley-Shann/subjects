@@ -24,6 +24,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import baseline.org.quantumbadger.redreader.R;
@@ -57,6 +59,11 @@ public class PostListingActivity extends RefreshableActivity
 		OptionsMenuUtility.OptionsMenuPostsListener,
 		SessionChangeListener,
 		RedditSubredditSubscriptionManager.SubredditSubscriptionStateChangeListener {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final String SAVEDSTATE_SESSION = "pla_session";
 	private static final String SAVEDSTATE_SORT = "pla_sort";

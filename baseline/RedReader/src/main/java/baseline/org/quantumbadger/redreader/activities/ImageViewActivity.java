@@ -745,6 +745,7 @@ public class ImageViewActivity extends BaseActivity implements RedditPostView.Po
 
 	@Override
 	public void onResume() {
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
 		if(!mIsPaused) throw new RuntimeException();
 

@@ -19,6 +19,7 @@ package baseline.org.quantumbadger.redreader.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -200,6 +201,7 @@ public class OAuthLoginActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
 		if(mWebView != null) {
 			mWebView.resumeTimers();

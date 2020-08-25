@@ -30,6 +30,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.KeyEvent;
 import baseline.org.quantumbadger.redreader.R;
 import baseline.org.quantumbadger.redreader.account.RedditAccount;
@@ -45,6 +47,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AccountListDialog extends AppCompatDialogFragment
 	implements RedditAccountChangeListener {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	private AppCompatActivity mActivity;
 

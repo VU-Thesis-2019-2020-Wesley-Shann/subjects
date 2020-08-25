@@ -20,6 +20,8 @@ package baseline.org.quantumbadger.redreader.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +46,11 @@ public class MoreCommentsListingActivity extends RefreshableActivity
 		implements RedditAccountChangeListener,
 		OptionsMenuUtility.OptionsMenuCommentsListener,
 		RedditPostView.PostSelectionListener {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private static final String EXTRA_SEARCH_STRING = "mcla_search_string";
 

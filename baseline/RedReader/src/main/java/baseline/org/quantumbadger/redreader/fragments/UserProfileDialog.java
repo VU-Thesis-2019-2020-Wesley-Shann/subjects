@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -46,6 +48,11 @@ import baseline.org.quantumbadger.redreader.views.liststatus.ErrorView;
 import baseline.org.quantumbadger.redreader.views.liststatus.LoadingView;
 
 public class UserProfileDialog extends PropertiesDialog {
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+	}
 
 	private String username;
 	private boolean active = true;
