@@ -25,6 +25,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,6 +53,12 @@ public class FavoriteFragment extends BaseListFragment
     @Inject AlertDialogBuilder mAlertDialogBuilder;
     private View mEmptySearchView;
     private View mEmptyView;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

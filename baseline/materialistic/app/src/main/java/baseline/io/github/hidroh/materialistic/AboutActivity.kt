@@ -18,11 +18,17 @@ package baseline.io.github.hidroh.materialistic
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
+import android.view.MenuItem
 import androidx.annotation.IdRes
 import androidx.appcompat.app.ActionBar
-import android.view.MenuItem
 
 class AboutActivity : InjectableActivity() {
+  override fun onResume() {
+    super.onResume()
+    Log.d("WESLEY_GRAPH_ACTIVITY", this.javaClass.simpleName)
+  }
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_about)

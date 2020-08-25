@@ -22,6 +22,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
@@ -32,6 +33,12 @@ import baseline.io.github.hidroh.materialistic.widget.CacheableWebView;
 
 public class OfflineWebActivity extends InjectableActivity {
     static final String EXTRA_URL = OfflineWebActivity.class.getName() + ".EXTRA_URL";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override

@@ -23,6 +23,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,6 +41,12 @@ abstract class BaseListFragment extends BaseFragment implements Scrollable {
     private KeyDelegate.RecyclerViewHelper mScrollableHelper;
     protected RecyclerView mRecyclerView;
     private final Preferences.Observable mPreferenceObservable = new Preferences.Observable();
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onAttach(Context context) {

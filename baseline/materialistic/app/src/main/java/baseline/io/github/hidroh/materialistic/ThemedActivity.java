@@ -26,6 +26,7 @@ import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 
 public abstract class ThemedActivity extends AppCompatActivity {
@@ -59,6 +60,7 @@ public abstract class ThemedActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         mResumed = true;
         if (mPendingThemeChanged) {
             AppUtils.restart(this, false);

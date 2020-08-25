@@ -16,11 +16,18 @@
 
 package baseline.io.github.hidroh.materialistic;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import baseline.io.github.hidroh.materialistic.data.ItemManager;
 
 public class ShowActivity extends BaseStoriesActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected String getDefaultTitle() {

@@ -25,6 +25,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,11 @@ import baseline.io.github.hidroh.materialistic.widget.StoryRecyclerViewAdapter;
 import rx.Scheduler;
 
 public class ListFragment extends BaseListFragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     public static final String EXTRA_ITEM_MANAGER = ListFragment.class.getName() + ".EXTRA_ITEM_MANAGER";
     public static final String EXTRA_FILTER = ListFragment.class.getName() + ".EXTRA_FILTER";

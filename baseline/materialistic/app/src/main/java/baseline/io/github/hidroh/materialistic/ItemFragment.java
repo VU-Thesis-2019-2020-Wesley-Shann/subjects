@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -71,6 +72,12 @@ public class ItemFragment extends LazyLoadFragment implements Scrollable, Naviga
     private final Preferences.Observable mPreferenceObservable = new Preferences.Observable();
     private CommentItemDecoration mItemDecoration;
     private View mFragmentView;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onAttach(Context context) {

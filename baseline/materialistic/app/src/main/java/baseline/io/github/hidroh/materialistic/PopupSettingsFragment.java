@@ -26,6 +26,8 @@ import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,12 @@ public class PopupSettingsFragment extends AppCompatDialogFragment {
     static final String EXTRA_SUMMARY = PopupSettingsFragment.class.getName() + ".EXTRA_SUMMARY";
     static final String EXTRA_XML_PREFERENCES = PopupSettingsFragment.class.getName() +
             ".EXTRA_XML_PREFERENCES";
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Nullable
     @Override

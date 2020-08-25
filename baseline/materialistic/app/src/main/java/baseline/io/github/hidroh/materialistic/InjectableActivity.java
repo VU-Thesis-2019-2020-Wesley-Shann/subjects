@@ -17,12 +17,19 @@
 package baseline.io.github.hidroh.materialistic;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import dagger.ObjectGraph;
 
 public abstract class InjectableActivity extends ThemedActivity implements Injectable {
     private ObjectGraph mActivityGraph;
     private boolean mDestroyed;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

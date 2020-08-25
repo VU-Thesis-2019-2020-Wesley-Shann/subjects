@@ -38,6 +38,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,6 +59,11 @@ import baseline.io.github.hidroh.materialistic.widget.ViewPager;
  * List activity that renders alternative layouts for portrait/landscape
  */
 public abstract class BaseListActivity extends DrawerActivity implements MultiPaneListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     protected static final String LIST_FRAGMENT_TAG = BaseListActivity.class.getName() +
             ".LIST_FRAGMENT_TAG";

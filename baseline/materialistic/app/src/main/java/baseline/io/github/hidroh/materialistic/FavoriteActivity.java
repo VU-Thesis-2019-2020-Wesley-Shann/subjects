@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 
 import baseline.io.github.hidroh.materialistic.data.FavoriteManager;
 import baseline.io.github.hidroh.materialistic.data.ItemManager;
@@ -30,6 +31,11 @@ import baseline.io.github.hidroh.materialistic.data.MaterialisticDatabase;
 import baseline.io.github.hidroh.materialistic.data.WebItem;
 
 public class FavoriteActivity extends BaseListActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     static final String EMPTY_QUERY = MaterialisticDatabase.class.getName();
     private static final String STATE_FILTER = "state:filter";

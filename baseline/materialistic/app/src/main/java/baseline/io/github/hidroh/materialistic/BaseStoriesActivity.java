@@ -22,6 +22,7 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import baseline.io.github.hidroh.materialistic.annotation.Synthetic;
 import baseline.io.github.hidroh.materialistic.data.HackerNewsClient;
@@ -67,6 +68,7 @@ public abstract class BaseStoriesActivity extends BaseListActivity
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         mHandler.removeCallbacks(mLastUpdateTask);
         mHandler.post(mLastUpdateTask);
     }

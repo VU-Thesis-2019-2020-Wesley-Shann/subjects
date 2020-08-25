@@ -207,6 +207,7 @@ public class WebFragment extends LazyLoadFragment
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
         mWebView.onResume();
         mWebView.resumeTimers();
     }

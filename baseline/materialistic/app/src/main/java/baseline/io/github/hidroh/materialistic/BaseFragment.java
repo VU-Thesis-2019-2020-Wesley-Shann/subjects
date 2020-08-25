@@ -19,6 +19,8 @@ package baseline.io.github.hidroh.materialistic;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -28,6 +30,12 @@ import android.view.MenuInflater;
 public abstract class BaseFragment extends Fragment {
     protected final MenuTintDelegate mMenuTintDelegate = new MenuTintDelegate();
     private boolean mAttached;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onAttach(Context context) {

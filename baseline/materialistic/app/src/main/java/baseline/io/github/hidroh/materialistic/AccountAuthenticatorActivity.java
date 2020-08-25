@@ -19,6 +19,7 @@ package baseline.io.github.hidroh.materialistic;
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.os.Bundle;
+import android.util.Log;
 
 /**
  * Simple copy of {@link android.accounts.AccountAuthenticatorActivity} that swaps base class
@@ -26,6 +27,12 @@ import android.os.Bundle;
 public abstract class AccountAuthenticatorActivity extends InjectableActivity {
     private AccountAuthenticatorResponse mAccountAuthenticatorResponse = null;
     private Bundle mResultBundle = null;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

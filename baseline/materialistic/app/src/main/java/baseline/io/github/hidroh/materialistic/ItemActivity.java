@@ -38,6 +38,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.appcompat.app.ActionBar;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -68,6 +69,11 @@ import baseline.io.github.hidroh.materialistic.widget.PopupMenu;
 import baseline.io.github.hidroh.materialistic.widget.ViewPager;
 
 public class ItemActivity extends InjectableActivity implements ItemFragment.ItemChangedListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     public static final String EXTRA_ITEM = ItemActivity.class.getName() + ".EXTRA_ITEM";
     public static final String EXTRA_CACHE_MODE = ItemActivity.class.getName() + ".EXTRA_CACHE_MODE";

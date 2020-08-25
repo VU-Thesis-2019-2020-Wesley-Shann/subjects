@@ -21,6 +21,7 @@ import android.accounts.AccountManager;
 import android.os.Bundle;
 import com.google.android.material.textfield.TextInputLayout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,6 +44,12 @@ public class LoginActivity extends AccountAuthenticatorActivity {
     private EditText mPasswordEditText;
     private String mUsername;
     private String mPassword;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

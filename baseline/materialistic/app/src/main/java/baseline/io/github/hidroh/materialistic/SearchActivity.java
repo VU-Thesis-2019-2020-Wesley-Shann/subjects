@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
 import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,6 +30,11 @@ import baseline.io.github.hidroh.materialistic.data.HackerNewsClient;
 import baseline.io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvider;
 
 public class SearchActivity extends BaseListActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private static final int MAX_RECENT_SUGGESTIONS = 10;
     private String mQuery;

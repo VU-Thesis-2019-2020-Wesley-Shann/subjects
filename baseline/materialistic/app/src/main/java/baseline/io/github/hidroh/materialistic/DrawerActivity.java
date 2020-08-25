@@ -30,6 +30,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,11 @@ import javax.inject.Inject;
 import baseline.io.github.hidroh.materialistic.annotation.Synthetic;
 
 public abstract class DrawerActivity extends InjectableActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Inject AlertDialogBuilder mAlertDialogBuilder;
     private ActionBarDrawerToggle mDrawerToggle;

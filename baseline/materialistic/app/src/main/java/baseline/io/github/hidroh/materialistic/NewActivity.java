@@ -17,12 +17,20 @@
 package baseline.io.github.hidroh.materialistic;
 
 import android.content.Intent;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import baseline.io.github.hidroh.materialistic.data.ItemManager;
 
 public class NewActivity extends BaseStoriesActivity {
     public static final String EXTRA_REFRESH = NewActivity.class.getName() + ".EXTRA_REFRESH";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onNewIntent(Intent intent) {

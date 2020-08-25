@@ -23,6 +23,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Window;
 
 import baseline.io.github.hidroh.materialistic.InjectableActivity;
@@ -30,6 +31,12 @@ import baseline.io.github.hidroh.materialistic.R;
 
 public class WidgetConfigActivity extends InjectableActivity {
     private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

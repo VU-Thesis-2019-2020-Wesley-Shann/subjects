@@ -18,6 +18,7 @@ package baseline.io.github.hidroh.materialistic
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.webkit.WebChromeClient
@@ -25,7 +26,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 
 class ReleaseNotesActivity : InjectableActivity() {
-
+  override fun onResume() {
+    super.onResume()
+    Log.d("WESLEY_GRAPH_ACTIVITY", this.javaClass.simpleName)
+  }
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     supportRequestWindowFeature(Window.FEATURE_NO_TITLE)

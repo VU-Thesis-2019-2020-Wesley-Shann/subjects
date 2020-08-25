@@ -19,6 +19,7 @@ package baseline.io.github.hidroh.materialistic;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -26,6 +27,7 @@ public class LauncherActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         HashMap<String, Class<? extends Activity>> map = new HashMap<>();
         map.put(getString(R.string.pref_launch_screen_value_top), ListActivity.class);
         map.put(getString(R.string.pref_launch_screen_value_best), BestActivity.class);

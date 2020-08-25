@@ -18,6 +18,8 @@ package baseline.io.github.hidroh.materialistic;
 
 import android.os.Bundle;
 import com.google.android.material.textfield.TextInputLayout;
+
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -33,6 +35,12 @@ import baseline.io.github.hidroh.materialistic.data.FeedbackClient;
 
 public class FeedbackActivity extends InjectableActivity {
     @Inject FeedbackClient mFeedbackClient;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override

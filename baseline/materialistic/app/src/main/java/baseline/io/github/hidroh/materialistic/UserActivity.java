@@ -21,6 +21,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -66,6 +67,12 @@ public class UserActivity extends InjectableActivity implements Scrollable {
     private TabLayout mTabLayout;
     private View mEmpty;
     private BottomSheetBehavior<View> mBottomSheetBehavior;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override

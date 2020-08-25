@@ -20,6 +20,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.Window;
@@ -35,6 +37,12 @@ import baseline.io.github.hidroh.materialistic.widget.ThreadPreviewRecyclerViewA
 
 public class ThreadPreviewActivity extends InjectableActivity {
     public static final String EXTRA_ITEM = ThreadPreviewActivity.class.getName() + ".EXTRA_ITEM";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Inject @Named(ActivityModule.HN) ItemManager mItemManager;
     @Inject KeyDelegate mKeyDelegate;

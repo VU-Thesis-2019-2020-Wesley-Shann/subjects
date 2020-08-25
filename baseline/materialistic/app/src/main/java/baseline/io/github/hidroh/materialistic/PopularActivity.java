@@ -18,6 +18,8 @@ package baseline.io.github.hidroh.materialistic;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -27,6 +29,12 @@ public class PopularActivity extends BaseListActivity {
     private static final String STATE_RANGE = "state:range";
 
     private String mRange;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

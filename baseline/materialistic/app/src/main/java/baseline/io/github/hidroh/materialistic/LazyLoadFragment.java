@@ -18,6 +18,7 @@ package baseline.io.github.hidroh.materialistic;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
 /**
  * Base fragment that controls load timing depends on WIFI and visibility
@@ -29,6 +30,12 @@ public abstract class LazyLoadFragment extends BaseFragment {
     private static final String STATE_LOADED = "state:loaded";
     private boolean mEagerLoad, mLoaded, mActivityCreated;
     private boolean mNewInstance;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onAttach(Context context) {

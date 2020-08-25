@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -30,6 +32,12 @@ import baseline.io.github.hidroh.materialistic.data.SearchRecentSuggestionsProvi
 
 public class SettingsActivity extends DrawerActivity {
     @Inject AlertDialogBuilder mAlertDialogBuilder;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
