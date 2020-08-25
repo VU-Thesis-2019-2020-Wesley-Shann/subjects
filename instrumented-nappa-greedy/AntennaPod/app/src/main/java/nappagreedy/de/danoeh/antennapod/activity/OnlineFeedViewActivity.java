@@ -104,6 +104,12 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
 
     private Button subscribeButton;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     private Disposable download;
     private Disposable parser;
     private Disposable updater;

@@ -274,6 +274,7 @@ public class SubscriptionFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
         loadSubscriptions();
     }
 

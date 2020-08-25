@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,12 @@ public class NewEpisodesFragment extends AllEpisodesFragment {
 
     @Override
     protected String getPrefName() { return PREF_NAME; }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void resetViewState() {

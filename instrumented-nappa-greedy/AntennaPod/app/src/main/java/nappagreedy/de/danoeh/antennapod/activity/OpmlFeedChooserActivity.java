@@ -3,6 +3,8 @@ package nappagreedy.de.danoeh.antennapod.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,6 +35,12 @@ public class OpmlFeedChooserActivity extends AppCompatActivity {
 
     private MenuItem selectAll;
     private MenuItem deselectAll;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

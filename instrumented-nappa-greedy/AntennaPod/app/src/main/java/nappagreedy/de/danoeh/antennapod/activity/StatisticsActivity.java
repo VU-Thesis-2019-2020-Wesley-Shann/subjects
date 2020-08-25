@@ -67,6 +67,7 @@ public class StatisticsActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         refreshStatistics();
     }
 

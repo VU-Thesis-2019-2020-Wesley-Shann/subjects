@@ -1,6 +1,8 @@
 package nappagreedy.de.danoeh.antennapod.fragment.gpodnet;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.Validate;
@@ -40,6 +42,12 @@ public class TagFragment extends PodcastListFragment {
         Bundle args = getArguments();
         Validate.isTrue(args != null && args.getParcelable("tag") != null, "args invalid");
         tag = args.getParcelable("tag");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 
     @Override

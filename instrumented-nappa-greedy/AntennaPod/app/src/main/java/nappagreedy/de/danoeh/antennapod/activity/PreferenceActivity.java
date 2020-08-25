@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -136,6 +138,12 @@ public class PreferenceActivity extends AppCompatActivity implements SearchPrefe
         result.highlight(preferenceUI.getFragment());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     public static class MainFragment extends PreferenceFragmentCompat {
         private int screen;
 
@@ -159,6 +167,7 @@ public class PreferenceActivity extends AppCompatActivity implements SearchPrefe
         @Override
         public void onResume() {
             super.onResume();
+            Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
             PreferenceActivity activity = instance.get();
             if(activity != null && activity.preferenceController != null) {
                 activity.setTitle(PreferenceController.getTitleOfPage(screen));

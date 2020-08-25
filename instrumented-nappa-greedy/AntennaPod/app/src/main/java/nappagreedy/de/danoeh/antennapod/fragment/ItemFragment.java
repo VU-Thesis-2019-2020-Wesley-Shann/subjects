@@ -284,6 +284,7 @@ public class ItemFragment extends Fragment implements OnSwipeGesture {
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
         if(itemsLoaded) {
             progbarLoading.setVisibility(View.GONE);
             updateAppearance();

@@ -662,6 +662,7 @@ public abstract class MediaplayerActivity extends CastEnabledActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         Log.d(TAG, "onResume()");
         StorageUtils.checkStorageAvailability(this);
     }

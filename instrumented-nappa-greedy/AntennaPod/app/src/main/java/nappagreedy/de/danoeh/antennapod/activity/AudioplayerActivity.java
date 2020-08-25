@@ -28,6 +28,7 @@ public class AudioplayerActivity extends MediaplayerInfoActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (TextUtils.equals(getIntent().getAction(), Intent.ACTION_VIEW)) {
             playExternalMedia(getIntent(), MediaType.AUDIO);
         } else if (PlaybackService.isCasting()) {

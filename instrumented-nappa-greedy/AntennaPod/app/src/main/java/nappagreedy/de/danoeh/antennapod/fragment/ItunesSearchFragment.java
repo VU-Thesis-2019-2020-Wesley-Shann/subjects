@@ -58,6 +58,11 @@ public class ItunesSearchFragment extends Fragment {
 
     private static final String API_URL = "https://itunes.apple.com/search?media=podcast&term=%s";
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     /**
      * Adapter responsible with the search results

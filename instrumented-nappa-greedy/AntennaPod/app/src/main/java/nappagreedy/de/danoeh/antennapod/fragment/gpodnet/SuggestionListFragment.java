@@ -1,5 +1,7 @@
 package nappagreedy.de.danoeh.antennapod.fragment.gpodnet;
 
+import android.util.Log;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -22,5 +24,11 @@ public class SuggestionListFragment extends PodcastListFragment {
         } else {
             return Collections.emptyList();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 }

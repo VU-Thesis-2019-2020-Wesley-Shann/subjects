@@ -97,6 +97,7 @@ public class StorageErrorActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (StorageUtils.storageAvailable()) {
             leaveErrorState();
         } else {

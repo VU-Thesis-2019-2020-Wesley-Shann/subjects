@@ -95,6 +95,12 @@ public abstract class MediaplayerInfoActivity extends MediaplayerActivity implem
             NavListAdapter.SUBSCRIPTION_LIST_TAG
     };
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     Button butPlaybackSpeed;
     ImageButton butCastDisconnect;
     private DrawerLayout drawerLayout;

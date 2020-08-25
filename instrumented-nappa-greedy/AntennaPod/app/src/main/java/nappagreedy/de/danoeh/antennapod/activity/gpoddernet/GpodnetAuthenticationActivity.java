@@ -63,6 +63,12 @@ public class GpodnetAuthenticationActivity extends AppCompatActivity {
     private View[] views;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setTheme(UserPreferences.getTheme());

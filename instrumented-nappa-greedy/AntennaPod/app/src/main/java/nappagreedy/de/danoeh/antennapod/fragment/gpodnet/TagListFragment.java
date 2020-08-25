@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.fragment.app.ListFragment;
 import androidx.core.view.MenuItemCompat;
 import androidx.appcompat.widget.SearchView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -76,6 +78,7 @@ public class TagListFragment extends ListFragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.add_feed_label);
     }
 

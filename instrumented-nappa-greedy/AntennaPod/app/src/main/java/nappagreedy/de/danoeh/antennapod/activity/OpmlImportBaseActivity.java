@@ -35,6 +35,12 @@ public class OpmlImportBaseActivity extends AppCompatActivity {
     private OpmlImportWorker importWorker;
 	@Nullable private Uri uri;
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
+
 	/**
 	 * Handles the choices made by the user in the OpmlFeedChooserActivity and
 	 * starts the OpmlFeedQueuer if necessary.

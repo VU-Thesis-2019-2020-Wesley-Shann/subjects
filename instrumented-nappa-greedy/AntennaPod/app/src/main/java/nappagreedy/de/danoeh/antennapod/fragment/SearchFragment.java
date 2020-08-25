@@ -47,6 +47,12 @@ public class SearchFragment extends ListFragment {
 
     private Disposable disposable;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     /**
      * Create a new SearchFragment that searches all feeds.
      */

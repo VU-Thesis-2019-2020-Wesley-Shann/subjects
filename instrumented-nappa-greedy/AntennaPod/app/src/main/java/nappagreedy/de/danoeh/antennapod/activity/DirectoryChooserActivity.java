@@ -157,6 +157,7 @@ public class DirectoryChooserActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (fileObserver != null) {
             fileObserver.startWatching();
         }

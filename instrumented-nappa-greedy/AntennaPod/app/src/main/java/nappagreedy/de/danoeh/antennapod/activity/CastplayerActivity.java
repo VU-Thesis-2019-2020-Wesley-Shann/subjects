@@ -63,6 +63,7 @@ public class CastplayerActivity extends MediaplayerInfoActivity {
 
     @Override
     protected void onResume() {
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (!PlaybackService.isCasting()) {
             Intent intent = PlaybackService.getPlayerActivityIntent(this);
             if (!intent.getComponent().getClassName().equals(CastplayerActivity.class.getName())) {

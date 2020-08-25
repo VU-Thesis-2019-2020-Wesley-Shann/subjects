@@ -74,6 +74,12 @@ public class FeedSettingsActivity extends AppCompatActivity {
 
     private boolean authInfoChanged = false;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     private final TextWatcher authTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {

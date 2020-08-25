@@ -54,6 +54,12 @@ public class DownloadLogFragment extends ListFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
         EventDistributor.getInstance().unregister(contentUpdate);

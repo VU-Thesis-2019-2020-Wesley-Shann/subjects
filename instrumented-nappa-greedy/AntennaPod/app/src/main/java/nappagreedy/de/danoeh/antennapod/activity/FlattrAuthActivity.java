@@ -70,6 +70,7 @@ public class FlattrAuthActivity extends AppCompatActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 		if (BuildConfig.DEBUG) Log.d(TAG, "Activity resumed");
 		Uri uri = getIntent().getData();
 		if (uri != null) {

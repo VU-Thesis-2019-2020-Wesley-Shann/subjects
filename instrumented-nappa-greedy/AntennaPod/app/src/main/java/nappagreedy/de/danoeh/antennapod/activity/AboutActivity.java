@@ -40,6 +40,13 @@ public class AboutActivity extends AppCompatActivity {
     private LinearLayout webViewContainer;
     private Disposable disposable;
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getLifecycle().addObserver(new NappaLifecycleObserver(this));

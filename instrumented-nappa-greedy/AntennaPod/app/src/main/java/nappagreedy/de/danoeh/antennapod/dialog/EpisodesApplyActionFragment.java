@@ -53,6 +53,12 @@ public class EpisodesApplyActionFragment extends Fragment {
     private static final int ACTION_ALL = ACTION_ADD_TO_QUEUE | ACTION_REMOVE_FROM_QUEUE
             | ACTION_MARK_PLAYED | ACTION_MARK_UNPLAYED | ACTION_DOWNLOAD | ACTION_DELETE;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     /**
      * Specify an action (defined by #flag) 's UI bindings.
      *

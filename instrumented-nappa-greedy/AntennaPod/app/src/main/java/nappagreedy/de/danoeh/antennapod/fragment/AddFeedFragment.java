@@ -3,6 +3,8 @@ package nappagreedy.de.danoeh.antennapod.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,5 +84,11 @@ public class AddFeedFragment extends Fragment {
         // but unless we say we do, old options menus sometimes
         // persist.  mfietz thinks this causes the ActionBar to be invalidated
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 }

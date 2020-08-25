@@ -62,6 +62,11 @@ public class ItemDescriptionFragment extends Fragment {
      */
     private String selectedURL;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

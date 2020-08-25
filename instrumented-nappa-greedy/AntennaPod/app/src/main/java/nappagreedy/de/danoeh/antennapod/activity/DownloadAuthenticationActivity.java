@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,6 +41,12 @@ public class DownloadAuthenticationActivity extends AppCompatActivity {
 
     private EditText etxtUsername;
     private EditText etxtPassword;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

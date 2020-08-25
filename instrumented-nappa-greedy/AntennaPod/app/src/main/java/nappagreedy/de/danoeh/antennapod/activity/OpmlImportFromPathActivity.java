@@ -66,6 +66,7 @@ public class OpmlImportFromPathActivity extends OpmlImportBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         StorageUtils.checkStorageAvailability(this);
     }
 

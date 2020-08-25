@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.ProgressBar;
 
 import nappagreedy.de.danoeh.antennapod.R;
@@ -25,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         Nappa.init(this, PrefetchingStrategyType.STRATEGY_GREEDY_VISIT_FREQUENCY_AND_TIME);
         getLifecycle().addObserver(new NappaLifecycleObserver(this));
         setContentView(R.layout.splash);

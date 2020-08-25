@@ -35,6 +35,12 @@ public class RunningDownloadsFragment extends ListFragment {
     private List<Downloader> downloaderList;
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 

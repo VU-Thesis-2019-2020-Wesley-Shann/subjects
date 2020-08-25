@@ -64,6 +64,11 @@ public class FeedInfoActivity extends AppCompatActivity {
 
     private Disposable disposable;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private final View.OnClickListener copyUrlToClipboard = new View.OnClickListener() {
         @Override

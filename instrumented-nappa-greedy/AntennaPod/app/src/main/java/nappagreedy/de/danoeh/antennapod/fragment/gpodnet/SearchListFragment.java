@@ -3,6 +3,8 @@ package nappagreedy.de.danoeh.antennapod.fragment.gpodnet;
 import android.os.Bundle;
 import androidx.core.view.MenuItemCompat;
 import androidx.appcompat.widget.SearchView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +33,12 @@ public class SearchListFragment extends PodcastListFragment {
         args.putString(ARG_QUERY, query);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 
     @Override

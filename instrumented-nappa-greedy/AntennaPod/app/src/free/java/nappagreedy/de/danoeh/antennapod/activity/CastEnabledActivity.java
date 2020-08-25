@@ -1,5 +1,7 @@
 package nappagreedy.de.danoeh.antennapod.activity;
 
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
@@ -10,7 +12,13 @@ public abstract class CastEnabledActivity extends AppCompatActivity {
 //        implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String TAG = "CastEnabledActivity";
 
-//    protected CastManager castManager;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    //    protected CastManager castManager;
 //    protected SwitchableMediaRouteActionProvider mediaRouteActionProvider;
 //    private final CastButtonVisibilityManager castButtonVisibilityManager = new CastButtonVisibilityManager();
 //
