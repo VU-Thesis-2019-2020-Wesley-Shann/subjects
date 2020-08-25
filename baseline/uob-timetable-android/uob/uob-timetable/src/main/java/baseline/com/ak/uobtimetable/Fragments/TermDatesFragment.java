@@ -3,6 +3,8 @@ package baseline.com.ak.uobtimetable.Fragments;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,11 @@ import baseline.com.ak.uobtimetable.Utilities.Logging.Logger;
  * Fragment containing a WebView which loads the term dates page from the university website.
  */
 public class TermDatesFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private WebView wvContent;
     private ProgressBar pbLoad;

@@ -6,6 +6,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 
 import baseline.com.ak.uobtimetable.R;
 import baseline.com.ak.uobtimetable.Utilities.Logging.Logger;
@@ -13,6 +14,11 @@ import baseline.com.ak.uobtimetable.Notifications.SessionReminderNotifier;
 import baseline.com.ak.uobtimetable.Utilities.SettingsManager;
 
 public class PreferencesFragment extends PreferenceFragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     CheckBoxPreference cbNotifySessionRemindersEnable;
     ListPreference ltNotifySessionRemindersMinutes;

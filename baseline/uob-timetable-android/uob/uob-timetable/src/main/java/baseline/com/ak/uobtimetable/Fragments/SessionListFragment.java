@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,11 @@ import baseline.com.ak.uobtimetable.Utilities.SettingsManager;
  * Fragment containing a list of sessions for a given day.
  */
 public class SessionListFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private ListView lvSessions;
     private TextView tvListEmpty;

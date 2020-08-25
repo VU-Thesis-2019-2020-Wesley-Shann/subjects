@@ -2,6 +2,8 @@ package baseline.com.ak.uobtimetable;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.MenuItem;
 
 import baseline.com.ak.uobtimetable.Utilities.Logging.Logger;
@@ -35,6 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void onResume() {
 
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
         Logger.getInstance().debug("SettingsActivity", "OnResume");
     }

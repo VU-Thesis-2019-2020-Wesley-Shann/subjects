@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,11 @@ import com.h6ah4i.android.tablayouthelper.TabLayoutHelper;
  * Fragment containing a ViewPager with one SessionListFragment for each day.
  */
 public class SessionListsFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private View view;
     private ProgressBar pbDownload;

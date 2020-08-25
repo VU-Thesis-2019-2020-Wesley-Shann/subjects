@@ -5,6 +5,7 @@ import android.content.Intent;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,11 @@ import baseline.com.ak.uobtimetable.Utilities.AndroidUtilities;
  * Splash screen shown when there is no saved preference data.
  */
 public class WelcomeActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private Button btContinue;
     private TextView tvInfoText;

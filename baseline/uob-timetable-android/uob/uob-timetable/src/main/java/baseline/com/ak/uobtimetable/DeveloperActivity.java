@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -141,6 +142,7 @@ public class DeveloperActivity extends AppCompatActivity {
     public void onResume() {
 
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
         Logger.getInstance().debug("DeveloperActivity", "OnResume");
     }

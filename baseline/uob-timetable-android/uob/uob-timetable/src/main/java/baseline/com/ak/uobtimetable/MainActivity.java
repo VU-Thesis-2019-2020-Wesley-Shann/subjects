@@ -21,6 +21,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -428,6 +429,7 @@ public class MainActivity extends AppCompatActivity
     public void onResume() {
 
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
         Logger.getInstance().debug("MainActivity", "OnResume");
 

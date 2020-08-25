@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,6 +35,11 @@ import java.util.Map;
  * Activity which allows the user to select their course.
  */
 public class CourseListActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     public Spinner spDepartments;
     public Spinner spLevels;
