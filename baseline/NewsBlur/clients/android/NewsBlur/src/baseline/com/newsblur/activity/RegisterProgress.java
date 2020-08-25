@@ -2,6 +2,8 @@ package baseline.com.newsblur.activity;
 
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,6 +17,11 @@ import baseline.com.newsblur.util.PrefsUtils;
  * Activities that will be shown while the user is still logged out.
  */
 public class RegisterProgress extends FragmentActivity {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	private FragmentManager fragmentManager;
 	private String currentTag = "fragment";

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,6 +22,12 @@ public class AddFeedExternal extends NbActivity implements AddFeedFragment.AddFe
 
     @BindView(R.id.loading_throb) ProgressThrobber progressView;
     @BindView(R.id.progress_text) TextView progressText;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

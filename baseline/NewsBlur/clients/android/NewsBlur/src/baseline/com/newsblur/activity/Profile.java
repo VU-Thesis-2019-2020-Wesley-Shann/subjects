@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
 import baseline.com.newsblur.R;
@@ -23,7 +24,13 @@ public class Profile extends NbActivity {
 	private ProfileDetailsFragment detailsFragment;
 	private ActivityDetailsPagerAdapter activityDetailsPagerAdapter;
 	private String userId = null;
-	
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

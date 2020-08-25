@@ -3,6 +3,7 @@ package baseline.com.newsblur.activity;
 import androidx.fragment.app.FragmentActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import baseline.com.newsblur.fragment.SettingsFragment;
@@ -11,6 +12,11 @@ import baseline.com.newsblur.util.PrefsUtils;
 import baseline.com.newsblur.util.UIUtils;
 
 public class Settings extends FragmentActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

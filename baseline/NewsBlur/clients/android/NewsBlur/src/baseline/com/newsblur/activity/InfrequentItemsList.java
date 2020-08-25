@@ -1,6 +1,7 @@
 package baseline.com.newsblur.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import baseline.com.newsblur.R;
@@ -11,8 +12,13 @@ import baseline.com.newsblur.util.PrefsUtils;
 import baseline.com.newsblur.util.UIUtils;
 
 public class InfrequentItemsList extends ItemsList implements InfrequentCutoffChangedListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
-	@Override
+    @Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 

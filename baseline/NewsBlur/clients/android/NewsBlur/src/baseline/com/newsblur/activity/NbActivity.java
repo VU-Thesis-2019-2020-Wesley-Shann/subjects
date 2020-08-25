@@ -2,6 +2,8 @@ package baseline.com.newsblur.activity;
 
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
+
+import android.util.Log;
 import android.widget.Toast;
 
 import baseline.com.newsblur.util.FeedUtils;
@@ -73,6 +75,7 @@ public class NbActivity extends FragmentActivity {
 	protected void onResume() {
         baseline.com.newsblur.util.Log.d(this, "onResume" + UIUtils.getMemoryUsageDebug(this));
 		super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 		finishIfNotLoggedIn();
 
         // is is possible that another activity changed the theme while we were on the backstack

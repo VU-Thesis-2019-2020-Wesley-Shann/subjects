@@ -134,6 +134,7 @@ public class Main extends NbActivity implements StateChangedListener, SwipeRefre
         try {
             // due to weird backstack operations coming from notified reading activities,
             // sometimes we fail to reload. do everything in our power to log
+            Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
             super.onResume();
         } catch (Exception e) {
             baseline.com.newsblur.util.Log.e(getClass().getName(), "error resuming Main", e);

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 
 import baseline.com.newsblur.R;
 import baseline.com.newsblur.util.FeedUtils;
@@ -18,7 +19,12 @@ import baseline.com.newsblur.util.PrefsUtils;
  * DB connection used by all other Activities.
  */
 public class InitActivity extends Activity {
-    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

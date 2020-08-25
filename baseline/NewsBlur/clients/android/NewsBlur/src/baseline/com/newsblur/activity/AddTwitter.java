@@ -2,6 +2,7 @@ package baseline.com.newsblur.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -12,6 +13,12 @@ public class AddTwitter extends NbActivity {
 
 	public static final int TWITTER_AUTHED = 0x20;
 	private WebView webview;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	@Override
 	protected void onCreate(Bundle bundle) {

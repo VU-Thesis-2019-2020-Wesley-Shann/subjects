@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,6 +18,12 @@ public class AddSocial extends NbActivity {
 	private FragmentManager fragmentManager;
 	private String currentTag = "addSocialFragment";
 	private AddSocialFragment addSocialFragment;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
 
 	@Override
 	protected void onCreate(Bundle bundle) {

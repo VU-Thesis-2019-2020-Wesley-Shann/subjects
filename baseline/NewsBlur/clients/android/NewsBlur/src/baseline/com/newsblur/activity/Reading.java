@@ -218,6 +218,7 @@ public abstract class Reading extends NbActivity implements OnPageChangeListener
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (NBSyncService.isHousekeepingRunning()) finish();
         // this view shows stories, it is not safe to perform cleanup
         this.stopLoading = false;

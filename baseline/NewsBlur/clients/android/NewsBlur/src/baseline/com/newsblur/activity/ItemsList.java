@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -131,6 +132,7 @@ public abstract class ItemsList extends NbActivity implements StoryOrderChangedL
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (NBSyncService.isHousekeepingRunning()) finish();
         updateStatusIndicators();
         // Reading activities almost certainly changed the read/unread state of some stories. Ensure

@@ -11,6 +11,8 @@ import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import androidx.loader.app.LoaderManager.LoaderCallbacks;
 import androidx.loader.content.Loader;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,8 +33,13 @@ import baseline.com.newsblur.network.SearchLoaderResponse;
 //       make network requests makes it easily lose state, lack non-legacy progress indication, and generally
 //       buggy. a normal layout and a proper use of sync for search results should be implemented.
 public class SearchForFeeds extends NbActivity implements LoaderCallbacks<SearchLoaderResponse>, OnItemClickListener, AddFeedFragment.AddFeedProgressListener {
-    
-    private static final Set<String> SUPPORTED_URL_PROTOCOLS = new HashSet<String>();
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+	}
+
+	private static final Set<String> SUPPORTED_URL_PROTOCOLS = new HashSet<String>();
     static {
         SUPPORTED_URL_PROTOCOLS.add("http");
         SUPPORTED_URL_PROTOCOLS.add("https");

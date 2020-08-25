@@ -2,6 +2,8 @@ package baseline.com.newsblur.activity;
 
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +16,11 @@ import baseline.com.newsblur.util.FeedUtils;
 import baseline.com.newsblur.util.UIUtils;
 
 public class FeedItemsList extends ItemsList {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     public static final String EXTRA_FEED = "feed";
     public static final String EXTRA_FOLDER_NAME = "folderName";

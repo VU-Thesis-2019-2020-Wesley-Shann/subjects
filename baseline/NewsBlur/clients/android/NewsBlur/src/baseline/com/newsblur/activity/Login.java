@@ -4,13 +4,20 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.Window;
 
 import baseline.com.newsblur.R;
 import baseline.com.newsblur.fragment.LoginRegisterFragment;
 
 public class Login extends FragmentActivity {
-    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
