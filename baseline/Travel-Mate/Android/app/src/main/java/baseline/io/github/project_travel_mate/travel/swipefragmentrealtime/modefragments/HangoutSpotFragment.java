@@ -55,6 +55,12 @@ public class HangoutSpotFragment extends Fragment {
         mContext = context;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     private List<MapItem> mMapItems =  new ArrayList<>();
 
     public HangoutSpotFragment() {

@@ -35,6 +35,11 @@ import static utils.Constants.USER_TOKEN;
  * Funfacts activity
  */
 public class FunFactsActivity extends AppCompatActivity implements FunFactsView {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.vp)
     ViewPager viewPager;

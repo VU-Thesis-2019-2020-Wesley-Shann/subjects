@@ -40,6 +40,11 @@ import static utils.Constants.API_LINK_V2;
 import static utils.Constants.USER_TOKEN;
 
 public class AddBugFragment extends Fragment implements AdapterView.OnItemSelectedListener, TravelmateSnackbars {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.spinner_bug_type)
     Spinner mBugTypeSpinner;

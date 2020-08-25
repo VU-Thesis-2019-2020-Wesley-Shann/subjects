@@ -47,6 +47,11 @@ import static utils.Constants.API_LINK_V2;
 import static utils.Constants.USER_TOKEN;
 
 public class ShoppingCurrentCityActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.shopping_list)
     ListView lv;

@@ -51,6 +51,12 @@ public class WeatherForecastActivity extends AppCompatActivity {
     private String mToken;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_utilities_weather_forecast);

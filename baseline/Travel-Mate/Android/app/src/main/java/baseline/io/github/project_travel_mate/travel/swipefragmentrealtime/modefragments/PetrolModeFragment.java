@@ -50,6 +50,12 @@ public class PetrolModeFragment extends Fragment {
     private Context mContext;
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = context;

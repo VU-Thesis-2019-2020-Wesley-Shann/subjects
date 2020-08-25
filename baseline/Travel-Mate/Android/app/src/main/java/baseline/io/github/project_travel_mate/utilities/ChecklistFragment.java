@@ -14,6 +14,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
+
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -47,6 +49,11 @@ import static utils.Constants.IS_ADDED_INDB;
 
 public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
         ChecklistAdapter.ChecklistEventListener {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.recycler_pending)
     RecyclerView mPendingRecycler;

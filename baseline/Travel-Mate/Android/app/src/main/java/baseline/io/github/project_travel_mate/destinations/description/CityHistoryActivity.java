@@ -53,6 +53,12 @@ public class CityHistoryActivity extends AppCompatActivity {
     private List<CityHistoryListItem> mCityHistory = new ArrayList<>();
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_history);

@@ -10,6 +10,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.FileProvider;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,12 @@ public class FunfactFragment extends Fragment {
         bdl.putSerializable(EXTRA_MESSAGE_FUNFACT_OBJECT, fact);
         fragment.setArguments(bdl);
         return fragment;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 
     /**

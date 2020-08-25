@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -234,6 +236,7 @@ public class FinalCityInfoActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
     }
 
     @Override

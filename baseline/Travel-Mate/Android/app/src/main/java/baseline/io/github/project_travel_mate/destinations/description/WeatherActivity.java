@@ -52,6 +52,11 @@ import static utils.WeatherUtils.fetchDrawableFileResource;
 import static utils.WeatherUtils.getDayOfWeek;
 
 public class WeatherActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.animation_view)
     LottieAnimationView animationView;

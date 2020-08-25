@@ -47,6 +47,11 @@ import static utils.Constants.USER_TOKEN;
  * create an instance of this fragment.
  */
 public class ContributorsFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.android_contributors_gv)
     ExpandableHeightGridView android_contributors_gv;

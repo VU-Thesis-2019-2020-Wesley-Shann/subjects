@@ -60,6 +60,11 @@ import static utils.Constants.SPOTLIGHT_SHOW_COUNT;
 import static utils.Constants.USER_TOKEN;
 
 public class CityFragment extends Fragment implements TravelmateSnackbars {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private static final String TAG = "CityFragment";
 

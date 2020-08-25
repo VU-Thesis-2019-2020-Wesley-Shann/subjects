@@ -57,6 +57,11 @@ import static utils.DateUtils.rfc3339ToMills;
 
 
 public class FriendsProfileActivity extends AppCompatActivity implements TravelmateSnackbars {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.display_image)
     ImageView friendDisplayImage;

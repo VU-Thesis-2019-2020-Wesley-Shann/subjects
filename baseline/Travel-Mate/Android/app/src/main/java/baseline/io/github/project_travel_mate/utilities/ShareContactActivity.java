@@ -11,6 +11,8 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import androidx.core.content.FileProvider;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +42,11 @@ import static utils.Constants.USER_EMAIL;
 import static utils.Constants.USER_NAME;
 
 public class ShareContactActivity extends AppCompatActivity implements View.OnClickListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private static final int ACTIVITY_INSERT_CONTACT = 2;
     @BindView(R.id.scan)

@@ -32,6 +32,11 @@ import static utils.Constants.USER_TOKEN;
 import static utils.Constants.VERIFICATION_REQUEST_CODE;
 
 public class VerifyEmailActivity extends AppCompatActivity implements OnOtpCompletionListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.code_sent_alert)
     TextView mCodeSentAlert;

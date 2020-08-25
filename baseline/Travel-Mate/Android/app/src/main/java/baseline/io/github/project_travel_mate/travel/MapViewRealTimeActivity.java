@@ -62,6 +62,11 @@ import static utils.Constants.USER_TOKEN;
  */
 public class MapViewRealTimeActivity extends AppCompatActivity implements
         TravelmateSnackbars, Marker.OnMarkerClickListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private final List<MapItem> mMapItems = new ArrayList<>();
     @BindView(R.id.data)

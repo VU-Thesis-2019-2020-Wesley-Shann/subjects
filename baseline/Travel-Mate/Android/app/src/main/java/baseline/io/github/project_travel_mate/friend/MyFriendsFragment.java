@@ -59,6 +59,12 @@ public class MyFriendsFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     public static MyFriendsFragment newInstance() {
         return new MyFriendsFragment();
     }

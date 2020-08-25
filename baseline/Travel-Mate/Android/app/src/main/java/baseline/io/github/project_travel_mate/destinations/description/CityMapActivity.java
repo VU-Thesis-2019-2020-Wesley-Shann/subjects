@@ -3,6 +3,8 @@ package baseline.io.github.project_travel_mate.destinations.description;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,12 @@ public class CityMapActivity extends AppCompatActivity {
     MapView cityMap;
     @BindView(R.id.fab_save_map)
     FloatingActionButton  saveMap;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     public static Intent getStartIntent(Context context, City city) {
         return new Intent(context, CityMapActivity.class)

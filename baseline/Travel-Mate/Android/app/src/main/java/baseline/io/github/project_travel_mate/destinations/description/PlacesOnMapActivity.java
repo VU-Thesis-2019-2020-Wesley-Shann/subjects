@@ -61,6 +61,11 @@ import static utils.Constants.USER_TOKEN;
 
 public class PlacesOnMapActivity extends AppCompatActivity implements
         Marker.OnMarkerClickListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.lv)
     RecyclerView recyclerView;

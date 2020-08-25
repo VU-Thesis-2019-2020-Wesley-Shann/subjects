@@ -55,6 +55,12 @@ public class DailyQuotesFragment extends Fragment {
     private ViewHolder mHolder;
     private File mFile;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     public DailyQuotesFragment() {
         // Required empty public constructor
     }

@@ -57,6 +57,11 @@ import static utils.Constants.USER_TOKEN;
  * Display list of hotels in destination city
  */
 public class HotelsActivity extends AppCompatActivity implements View.OnClickListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private static final String KEY_SELECTED_CITY = "KEY_SELECTED_CITY";
 

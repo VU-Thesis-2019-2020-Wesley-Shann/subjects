@@ -83,6 +83,11 @@ import static utils.Constants.USER_EMAIL;
 import static utils.Constants.USER_TOKEN;
 
 public class MyTripInfoActivity extends AppCompatActivity implements TravelmateSnackbars {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.city_image)
     ImageView cityImageView;

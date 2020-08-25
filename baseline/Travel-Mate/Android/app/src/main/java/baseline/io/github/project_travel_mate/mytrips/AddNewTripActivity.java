@@ -59,6 +59,11 @@ import static utils.Constants.USER_TOKEN;
  */
 public class AddNewTripActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
         View.OnClickListener, TravelmateSnackbars {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.select_city_name)
     TextView cityName;

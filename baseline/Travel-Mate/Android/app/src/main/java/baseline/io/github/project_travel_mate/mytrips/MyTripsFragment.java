@@ -226,6 +226,7 @@ public class MyTripsFragment extends Fragment implements SwipeRefreshLayout.OnRe
     public void onResume() {
         mytrip();
         super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 
     @Override

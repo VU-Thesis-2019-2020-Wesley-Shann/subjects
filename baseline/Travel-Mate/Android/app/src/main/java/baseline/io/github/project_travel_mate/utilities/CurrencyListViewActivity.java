@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 
 import java.io.IOException;
@@ -20,6 +21,11 @@ import baseline.io.github.project_travel_mate.R;
 import objects.ZoneName;
 
 public class CurrencyListViewActivity extends Activity implements TextWatcher {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.listView)
     RecyclerView mListview;

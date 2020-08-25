@@ -229,6 +229,7 @@ public class UpcomingWeekendsActivity extends AppCompatActivity implements Swipe
     public void onResume() {
         getUpcomingLongWeekends();
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
     }
 
     @Override

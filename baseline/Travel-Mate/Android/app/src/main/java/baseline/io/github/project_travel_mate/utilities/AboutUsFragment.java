@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,11 @@ import baseline.io.github.project_travel_mate.R;
  * create an instance of this fragment.
  */
 public class AboutUsFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private static final String EMAIL = "projecttravelmate.github.io@gmail.com";
     private static final String WEBSITE = "http://project-travel-mate.github.io/Travel-Mate/";

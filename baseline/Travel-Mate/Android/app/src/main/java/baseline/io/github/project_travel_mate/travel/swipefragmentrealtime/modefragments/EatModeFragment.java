@@ -45,6 +45,12 @@ public class EatModeFragment extends Fragment {
     @BindView(R.id.animation_view)
     LottieAnimationView animationView;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
     private static String mCurlat;
     private static String mCurlon;
     private Context mContext;

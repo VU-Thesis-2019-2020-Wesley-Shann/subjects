@@ -3,17 +3,20 @@ package baseline.io.github.project_travel_mate.destinations.description
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.util.Log
-import com.squareup.picasso.Picasso
 import baseline.io.github.project_travel_mate.R
 import baseline.io.github.project_travel_mate.utilities.gone
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_restaurant_details.*
 import objects.RestaurantDetails
 
 class RestaurantDetailsActivity : AppCompatActivity() {
-
+    override fun onResume() {
+        super.onResume()
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.javaClass.simpleName)
+    }
     companion object {
         private const val EXTRA_DETAILS = "extra_details"
         val TAG = "RestaurantDetails"

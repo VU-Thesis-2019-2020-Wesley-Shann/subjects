@@ -9,6 +9,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,6 +39,11 @@ public class ListViewRealTimeActivity extends AppCompatActivity {
     private String mCurlon;
     public ArrayList<Integer> mSelectedIndices = new ArrayList<>();
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

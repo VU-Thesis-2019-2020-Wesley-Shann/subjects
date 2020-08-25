@@ -99,6 +99,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     @Override
     protected void onResume() {
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
 
         getRestaurantItems();
     }

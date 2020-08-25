@@ -38,6 +38,11 @@ import static utils.Constants.API_LINK_V2;
 import static utils.Constants.HERE_API_MODES;
 
 public class MonumentsModeFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.listview)
     ListView listView;

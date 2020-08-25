@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,11 @@ import baseline.io.github.project_travel_mate.R;
  * The configuration screen for the {@link ClockWidget ClockWidget} AppWidget.
  */
 public class ClockWidgetConfigureActivity extends Activity implements AdapterView.OnItemSelectedListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private static final String PREFS_NAME = "widget.ClockWidget";
     private static final String PREF_PREFIX_KEY = "appwidget_";

@@ -42,6 +42,11 @@ import static utils.Constants.EXTRA_MESSAGE_HASHTAG_NAME;
 import static utils.Constants.USER_TOKEN;
 
 public class TweetsDescriptionActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.animation_view)
     LottieAnimationView animationView;

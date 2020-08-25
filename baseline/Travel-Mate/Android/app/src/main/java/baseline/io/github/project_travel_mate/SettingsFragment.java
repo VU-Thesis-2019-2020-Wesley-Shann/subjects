@@ -77,6 +77,11 @@ public class SettingsFragment extends Fragment {
     @BindView(R.id.text_input_confirm_password)
     TextInputLayout confirmPasswordInput;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     private String mToken;
     private Handler mHandler;

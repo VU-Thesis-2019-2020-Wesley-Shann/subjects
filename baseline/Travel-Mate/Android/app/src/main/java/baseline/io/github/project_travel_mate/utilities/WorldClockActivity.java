@@ -62,6 +62,7 @@ public class WorldClockActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         if (flag_check_first_item) {
             if (CurrencyConverterGlobal.global_image_id != 0 &&
                     !CurrencyConverterGlobal.global_country_name.isEmpty()) {

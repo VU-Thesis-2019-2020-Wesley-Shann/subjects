@@ -388,6 +388,7 @@ public class NotificationsActivity extends AppCompatActivity implements SwipeRef
     @Override
     public void onResume() {
         super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
         getNotifications();
     }
 }

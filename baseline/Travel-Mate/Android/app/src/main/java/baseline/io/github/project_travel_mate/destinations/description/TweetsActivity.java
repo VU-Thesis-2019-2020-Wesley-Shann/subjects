@@ -47,6 +47,12 @@ public class TweetsActivity extends AppCompatActivity {
     @BindView(R.id.animation_view)
     LottieAnimationView animationView;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     private final List<Tweet> mTweets = new ArrayList<>();
     private TweetsRecyclerAdapter mAdapter;
     private Handler mHandler;

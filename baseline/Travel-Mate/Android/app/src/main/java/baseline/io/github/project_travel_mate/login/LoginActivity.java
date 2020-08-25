@@ -14,6 +14,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -44,6 +46,11 @@ import static utils.Constants.USER_TOKEN;
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginView,
         TravelmateSnackbars, OnOtpCompletionListener {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     private final LoginPresenter mLoginPresenter = new LoginPresenter();
     @BindView(R.id.signup)

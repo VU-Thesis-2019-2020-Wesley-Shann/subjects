@@ -127,6 +127,12 @@ public class ProfileActivity extends AppCompatActivity implements TravelmateSnac
     @BindView(R.id.citie_travelled_text)
     TextView citiesTravelledHeading;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     private String mToken;
     private Handler mHandler;
     private String mUserStatus;

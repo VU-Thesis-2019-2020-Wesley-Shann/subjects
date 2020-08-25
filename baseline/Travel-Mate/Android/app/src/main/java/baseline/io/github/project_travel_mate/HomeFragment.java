@@ -7,6 +7,8 @@ import android.os.Bundle;
 import com.google.android.material.card.MaterialCardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,12 @@ public class HomeFragment extends Fragment {
     private FragmentManager mFragmentManager;
 
     public HomeFragment() {
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
     }
 
     public static HomeFragment newInstance() {

@@ -6,6 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.squareup.picasso.Picasso;
@@ -20,6 +22,11 @@ import static utils.Constants.EXTRA_MESSAGE_IMAGE_URI;
 import static utils.Constants.EXTRA_MESSAGE_USER_FULLNAME;
 
 public class FullScreenImage extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @BindView(R.id.full_profile_image)
     TouchImageView fullProfileImage;
