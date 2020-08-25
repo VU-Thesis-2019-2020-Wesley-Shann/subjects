@@ -22,6 +22,12 @@ import baseline.appteam.nith.hillffair.application.SharedPref;
 public class NotificationActivity extends AppCompatActivity {
 DbHelper dbHandler;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     List<Home_posts_gns> arrayList;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

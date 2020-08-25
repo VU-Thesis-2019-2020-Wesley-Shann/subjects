@@ -1,6 +1,8 @@
 package baseline.appteam.nith.hillffair.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,12 @@ public class CoreTeamActivity extends AppCompatActivity {
     Toolbar core_team_toolbar;
     private static final String BASE_URL="https://api-hillfair-2k16.herokuapp.com/";
     private static final String BASE_URL_JSEC="https://s3.ap-south-1.amazonaws.com/hillffair2016/images/";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

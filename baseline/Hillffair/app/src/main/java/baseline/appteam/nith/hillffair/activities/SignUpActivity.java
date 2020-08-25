@@ -48,6 +48,12 @@ public class SignUpActivity extends AppCompatActivity {
     boolean isemail = false, ispassword = false, isphone = false, isnitian = false, isValidRollNo = false, isName = false;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());

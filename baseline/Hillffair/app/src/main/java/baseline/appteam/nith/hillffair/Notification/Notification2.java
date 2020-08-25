@@ -34,6 +34,13 @@ public class Notification2 extends AppCompatActivity {
     TextView title,body,launch_url;
     ImageView big_picture;
     CardView sec_card,thrd_card;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         SharedPref pref= new SharedPref(this);

@@ -36,6 +36,12 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
     private SharedPref sharedPref;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedPref=new SharedPref(this);

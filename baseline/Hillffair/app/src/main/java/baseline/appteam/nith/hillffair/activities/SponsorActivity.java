@@ -1,6 +1,8 @@
 package baseline.appteam.nith.hillffair.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,5 +54,11 @@ public class SponsorActivity extends AppCompatActivity {
         LinearLayoutManager lvmanager = new LinearLayoutManager(this);
         lvmanager.setOrientation(LinearLayoutManager.VERTICAL);
         rvSponsor.setLayoutManager(lvmanager);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
     }
 }

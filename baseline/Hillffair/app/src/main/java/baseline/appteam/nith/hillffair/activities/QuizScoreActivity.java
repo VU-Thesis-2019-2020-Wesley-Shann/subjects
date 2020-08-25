@@ -3,6 +3,8 @@ package baseline.appteam.nith.hillffair.activities;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +12,11 @@ import baseline.appteam.nith.hillffair.R;
 import baseline.appteam.nith.hillffair.application.SharedPref;
 
 public class QuizScoreActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

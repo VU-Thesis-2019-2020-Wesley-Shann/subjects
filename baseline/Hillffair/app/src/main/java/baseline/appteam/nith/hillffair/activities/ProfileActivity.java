@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.widget.ImageView;
 
 import baseline.appteam.nith.hillffair.R;
@@ -36,6 +37,12 @@ public class ProfileActivity extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Toolbar toolbar;
     private ImageView imageView;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

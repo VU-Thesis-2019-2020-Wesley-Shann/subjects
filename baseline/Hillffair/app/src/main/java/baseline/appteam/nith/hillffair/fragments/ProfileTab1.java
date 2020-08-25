@@ -3,6 +3,8 @@ package baseline.appteam.nith.hillffair.fragments;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,12 @@ public class ProfileTab1 extends Fragment {
     private LinearLayout data_layout;
     private ProgressBar progressBar;
     private TextView score,noScore;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){

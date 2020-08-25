@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,12 @@ public class ProfileTab2 extends Fragment {
     private ProgressBar progress;
     SharedPref sharedPref;
     private LinearLayout scroll_layout;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

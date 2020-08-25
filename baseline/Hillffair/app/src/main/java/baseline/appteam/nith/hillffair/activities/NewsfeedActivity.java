@@ -43,6 +43,12 @@ public class NewsfeedActivity extends AppCompatActivity implements SwipeRefreshL
     private SharedPref pref;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         pref= new SharedPref(this);
         setTheme(pref.getThemeId());

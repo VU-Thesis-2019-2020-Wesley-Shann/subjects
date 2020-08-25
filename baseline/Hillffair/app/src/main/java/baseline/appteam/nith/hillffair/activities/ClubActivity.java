@@ -7,6 +7,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -44,6 +46,12 @@ public class ClubActivity extends AppCompatActivity {
     private FrameLayout frameLayout;
     private ProgressBar progressBar;
     private String id,name;     // battleday
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

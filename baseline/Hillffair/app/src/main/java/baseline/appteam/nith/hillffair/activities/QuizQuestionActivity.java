@@ -52,6 +52,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
     private ScoreCalculator scoreCalculator;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPref pref= new SharedPref(this);
         setTheme(pref.getThemeId());
@@ -301,6 +307,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
     }
 
     public static class QuizDialog extends DialogFragment {
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+        }
 
         @Override
         public Dialog onCreateDialog(Bundle saveInstanceState) {

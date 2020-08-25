@@ -37,6 +37,11 @@ public class ProfileTab3 extends Fragment {
     private ArrayList<NewsfeedModel2> list=new ArrayList<>();
     private TextView noData;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

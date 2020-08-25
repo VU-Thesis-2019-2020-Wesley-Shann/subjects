@@ -1,6 +1,8 @@
 package baseline.appteam.nith.hillffair.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,11 @@ import baseline.appteam.nith.hillffair.models.contributorsItem;
 import java.util.ArrayList;
 
 public class ContributorsActivity extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     RecyclerView rvContributors;
     contributorsAdapter ContributorAdapter;

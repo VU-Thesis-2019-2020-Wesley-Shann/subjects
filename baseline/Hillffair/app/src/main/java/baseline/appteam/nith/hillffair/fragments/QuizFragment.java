@@ -41,6 +41,12 @@ public class QuizFragment extends Fragment {
     private RadioGroup radioGroup;
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_FRAGMENT", this.getClass().getSimpleName());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.single_question, container, false);

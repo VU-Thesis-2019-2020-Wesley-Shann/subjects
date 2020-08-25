@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -20,6 +22,12 @@ public class ThemeSelectionActivity extends AppCompatActivity implements View.On
     ImageView batman, superman, hulk, wonderwoman, flash, captain;
     Context context;
     boolean settings_call=false;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

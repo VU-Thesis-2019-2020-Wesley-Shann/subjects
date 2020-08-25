@@ -1,6 +1,8 @@
 package baseline.appteam.nith.hillffair.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +26,13 @@ private Toolbar toolbar;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
+
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);

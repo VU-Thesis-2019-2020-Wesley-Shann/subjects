@@ -3,6 +3,8 @@ package baseline.appteam.nith.hillffair.activities;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +14,12 @@ import baseline.appteam.nith.hillffair.application.SharedPref;
 public class InformationActivity extends AppCompatActivity {
 
     private Button accept;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WESLEY_GRAPH_ACTIVITY", this.getClass().getSimpleName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
